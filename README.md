@@ -1,5 +1,8 @@
 # The Chaos Toolkit documentation
 
+[![Build Status](https://travis-ci.org/chaostoolkit/chaostoolkit-documentation.svg?branch=master)](https://travis-ci.org/chaostoolkit/chaostoolkit-documentation)
+[![Requirements Status](https://requires.io/github/chaostoolkit/chaostoolkit-documentation/requirements.svg?branch=gh-pages)](https://requires.io/github/chaostoolkit/chaostoolkit-documentation/requirements/?branch=gh-pages)
+
 This project is based on [MkDocs][], a Python documentation generator based on
 [Markdown][].
 

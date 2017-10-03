@@ -4,6 +4,9 @@ site_description: Documentation for the Chaos Toolkit
 copyright: '&copy; 2017 chaostoolkit team'
 theme: material
 docs_dir: sources
+google_analytics:
+  - UA-107338053-1
+  - auto
 markdown_extensions:
   - admonition
   - codehilite(guess_lang=false, linenums=false)

@@ -1,0 +1,99 @@
+{
+    "docs": [
+        {
+            "location": "/",
+            "text": "Welcome to the Chaos Toolkit Documentation\n\u00b6\n\n\nThe Chaos Toolkit is a free, open source project that enables you to create and\napply Chaos Experiments to various types of infrastructure, platforms and\napplications.\n\n\nRunning experiments is as simple as:\n\n\n$ chaos run an-experiment.json\n\n\n\n\nThis takes the description of your experiment, runs it and ourput a reports\nto share with your team.",
+            "title": "Introduction"
+        },
+        {
+            "location": "/#welcome-to-the-chaos-toolkit-documentation",
+            "text": "The Chaos Toolkit is a free, open source project that enables you to create and\napply Chaos Experiments to various types of infrastructure, platforms and\napplications.  Running experiments is as simple as:  $ chaos run an-experiment.json  This takes the description of your experiment, runs it and ourput a reports\nto share with your team.",
+            "title": "Welcome to the Chaos Toolkit Documentation"
+        },
+        {
+            "location": "/overview/concepts/",
+            "text": "Chaos Engeering Concepts in the Chaos Toolkit\n\u00b6\n\n\nIf you haven\u2019t already, we strongly recommend reading the fantastic \nChaos Engineering\n book from O\u2019Reilly Media. This book will give you some fantastic background on the whole Chaos Engineering discipline, and it\u2019s free!\n\n\nChaos Engineering is a discipline that allows you to surface weaknesses, and eventually build confidence, in complex and often distributed systems. \n\n\nThe Chaos Toolkit aims to give you the simplest experience for writing and running your own Chaos Engineering experiments. The main concepts are all expressed in an experiment definition, of which the following is an example from the \nChaos Toolkit Samples\n project:\n\n\n{\n\n    \n\"title\"\n:\n \n\"System is resilient to provider's failures\"\n,\n\n    \n\"description\"\n:\n \n\"Can our consumer survive gracefully a provider's failure?\"\n,\n\n    \n\"target-layers\"\n:\n \n{\n\n        \n\"platforms\"\n:\n \n[\n\n            \n{\n \n\"key\"\n:\n \n\"kubernetes\"\n \n}\n\n        \n],\n\n        \n\"applications\"\n:\n \n[\n\n            \n{\n \n\"key\"\n:\n \n\"spring\"\n \n}\n\n        \n]\n\n    \n},\n\n    \n\"method\"\n:\n \n[\n\n        \n{\n\n            \n\"title\"\n:\n \n\"Checking our system is healthy\"\n,\n\n            \n\"probes\"\n:\n \n{\n\n                \n\"steady\"\n:\n \n{\n\n                    \n\"layer\"\n:\n \n\"kubernetes\"\n,\n\n                    \n\"name\"\n:\n \n\"microservices-all-healthy\"\n\n                \n}\n\n            \n}\n\n        \n},\n\n        \n{\n\n            \n\"title\"\n:\n \n\"Killing the provider abruptly\"\n,\n\n            \n\"action\"\n:\n \n{\n\n                \n\"layer\"\n:\n \n\"kubernetes\"\n,\n\n                \n\"name\"\n:\n \n\"kill-microservice\"\n,\n\n                \n\"parameters\"\n:\n \n{\n\n                    \n\"name\"\n:\n \n\"my-provider-service\"\n\n                \n},\n\n                \n\"pauses\"\n:\n \n{\n\n                    \n\"after\"\n:\n \n10\n\n                \n}\n\n            \n},\n\n            \n\"probes\"\n:\n \n{\n\n                \n\"steady\"\n:\n \n{\n\n                    \n\"layer\"\n:\n \n\"kubernetes\"\n,\n\n                    \n\"name\"\n:\n \n\"microservice-available-and-healthy\"\n,\n\n                    \n\"parameters\"\n:\n \n{\n\n                        \n\"name\"\n:\n \n\"my-provider-service\"\n\n                    \n}\n\n                \n},\n\n                \n\"close\"\n:\n \n{\n\n                    \n\"layer\"\n:\n \n\"kubernetes\"\n,\n\n                    \n\"name\"\n:\n \n\"microservice-is-not-available\"\n,\n\n                    \n\"parameters\"\n:\n \n{\n\n                        \n\"name\"\n:\n \n\"my-provider-service\"\n\n                    \n}\n\n                \n}\n\n            \n}\n\n        \n},\n\n        \n{\n\n            \n\"title\"\n:\n \n\"Consumer should not be impacted by provider's failure\"\n,\n\n            \n\"probes\"\n:\n \n{\n\n                \n\"steady\"\n:\n \n{\n\n                    \n\"layer\"\n:\n \n\"spring\"\n,\n\n                    \n\"name\"\n:\n \n\"endpoint-should-respond-ok\"\n,\n\n                    \n\"parameters\"\n:\n \n{\n\n                        \n\"url\"\n:\n \n\"http://192.168.99.100:32220/invokeConsumedService\"\n\n                    \n}\n\n                \n}\n\n            \n}\n\n        \n}\n\n    \n]\n\n\n}\n\n\n\n\n\nThe key concepts of the Chaos Toolkit are \nExperiments\n, \nTarget Layers\n and the experiment\u2019s \nMethod\n. The \nMethod\n contains a combination of \nProbes\n and \nActions\n.\n\n\nExperiments\n\u00b6\n\n\nA Chaos Toolkit experiment is provided in a single file and is currently expressed in JSON.\n\n\nTarget Layers\n\u00b6\n\n\nA target layer is in fact a collection of extensions that allow the experiment to target specific systems to apply the experiment to. Out of the box support for Kubernetes (Platform layer) and Spring (Application Layer) is currently provided and we intend to extend this out rapidly into other technologies.\n\n\nWhen you execute an experiment\u2019s probes and actions it is against a particular target layer.\n\n\nMethod\n\u00b6\n\n\nAn experiment\u2019s activities are contained within its \nMethod\n block.\n\n\nProbes\n\u00b6\n\n\nA probe is a way of detecting a particular set of conditions in the system that is undergoing experimentation.\n\n\nActions\n\u00b6\n\n\nAn action is a particular activity that needs to be enacted on the system under experimentation.",
+            "title": "Concepts"
+        },
+        {
+            "location": "/overview/concepts/#chaos-engeering-concepts-in-the-chaos-toolkit",
+            "text": "If you haven\u2019t already, we strongly recommend reading the fantastic  Chaos Engineering  book from O\u2019Reilly Media. This book will give you some fantastic background on the whole Chaos Engineering discipline, and it\u2019s free!  Chaos Engineering is a discipline that allows you to surface weaknesses, and eventually build confidence, in complex and often distributed systems.   The Chaos Toolkit aims to give you the simplest experience for writing and running your own Chaos Engineering experiments. The main concepts are all expressed in an experiment definition, of which the following is an example from the  Chaos Toolkit Samples  project:  { \n     \"title\" :   \"System is resilient to provider's failures\" , \n     \"description\" :   \"Can our consumer survive gracefully a provider's failure?\" , \n     \"target-layers\" :   { \n         \"platforms\" :   [ \n             {   \"key\" :   \"kubernetes\"   } \n         ], \n         \"applications\" :   [ \n             {   \"key\" :   \"spring\"   } \n         ] \n     }, \n     \"method\" :   [ \n         { \n             \"title\" :   \"Checking our system is healthy\" , \n             \"probes\" :   { \n                 \"steady\" :   { \n                     \"layer\" :   \"kubernetes\" , \n                     \"name\" :   \"microservices-all-healthy\" \n                 } \n             } \n         }, \n         { \n             \"title\" :   \"Killing the provider abruptly\" , \n             \"action\" :   { \n                 \"layer\" :   \"kubernetes\" , \n                 \"name\" :   \"kill-microservice\" , \n                 \"parameters\" :   { \n                     \"name\" :   \"my-provider-service\" \n                 }, \n                 \"pauses\" :   { \n                     \"after\" :   10 \n                 } \n             }, \n             \"probes\" :   { \n                 \"steady\" :   { \n                     \"layer\" :   \"kubernetes\" , \n                     \"name\" :   \"microservice-available-and-healthy\" , \n                     \"parameters\" :   { \n                         \"name\" :   \"my-provider-service\" \n                     } \n                 }, \n                 \"close\" :   { \n                     \"layer\" :   \"kubernetes\" , \n                     \"name\" :   \"microservice-is-not-available\" , \n                     \"parameters\" :   { \n                         \"name\" :   \"my-provider-service\" \n                     } \n                 } \n             } \n         }, \n         { \n             \"title\" :   \"Consumer should not be impacted by provider's failure\" , \n             \"probes\" :   { \n                 \"steady\" :   { \n                     \"layer\" :   \"spring\" , \n                     \"name\" :   \"endpoint-should-respond-ok\" , \n                     \"parameters\" :   { \n                         \"url\" :   \"http://192.168.99.100:32220/invokeConsumedService\" \n                     } \n                 } \n             } \n         } \n     ]  }   The key concepts of the Chaos Toolkit are  Experiments ,  Target Layers  and the experiment\u2019s  Method . The  Method  contains a combination of  Probes  and  Actions .",
+            "title": "Chaos Engeering Concepts in the Chaos Toolkit"
+        },
+        {
+            "location": "/overview/concepts/#experiments",
+            "text": "A Chaos Toolkit experiment is provided in a single file and is currently expressed in JSON.",
+            "title": "Experiments"
+        },
+        {
+            "location": "/overview/concepts/#target-layers",
+            "text": "A target layer is in fact a collection of extensions that allow the experiment to target specific systems to apply the experiment to. Out of the box support for Kubernetes (Platform layer) and Spring (Application Layer) is currently provided and we intend to extend this out rapidly into other technologies.  When you execute an experiment\u2019s probes and actions it is against a particular target layer.",
+            "title": "Target Layers"
+        },
+        {
+            "location": "/overview/concepts/#method",
+            "text": "An experiment\u2019s activities are contained within its  Method  block.",
+            "title": "Method"
+        },
+        {
+            "location": "/overview/concepts/#probes",
+            "text": "A probe is a way of detecting a particular set of conditions in the system that is undergoing experimentation.",
+            "title": "Probes"
+        },
+        {
+            "location": "/overview/concepts/#actions",
+            "text": "An action is a particular activity that needs to be enacted on the system under experimentation.",
+            "title": "Actions"
+        },
+        {
+            "location": "/usage/install/",
+            "text": "How to Install the Chaos Toolkit\n\u00b6\n\n\nYou can either install the chaostoolkit command line or run it directly as a\ncontainer. The former expects \nPython 3.5+\n properly\nsetup on your machine while the latter expects a tool implementing the\n\nOCI 1.0 specification\n, such as \nDocker\n or \nrunc\n.\n\n\nPython Requirements\n\u00b6\n\n\nchaostoolkit\n is implemented in Python 3 and this require a working Python\ninstallation to run. It officially supports Python 3.5+ but may work with\nother versions of the language. It has only been tested against CPython.\n\n\nInstall Python\n\u00b6\n\n\nInstall Python for your system:\n\n\nOn MacOSX:\n\n\n$ brew install python3\n\n\n\n\nOn Debian/Ubuntu:\n\n\n$ sudo apt-get install python3 python3-venv\n\n\n\n\nOn CentOS:\n\n\n$ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm\n$ sudo yum -y install python35\n\n\n\n\nOn Windows:\n\n\nDownload the latest binary installer\n from the Python website.\n\n\nCreate a virtual environment\n\u00b6\n\n\nDependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment. Let\u2019s create first such a virtual environment:\n\n\n$ python3 -m venv ~/.venvs/chaostk\n\n\n\n\nMake sure to always activate your virtual environment before using it:\n\n\n$ source  ~/.venvs/chaostk/bin/activate\n\n\n\n\n\n\nTip\n\n\nYou may want to use \nvirtualenvwrapper\n to make this process much nicer.\n\n\n\n\nInstall the CLI\n\u00b6\n\n\nInstall \nchaostoolkit\n in the virtual environment as follows:\n\n\n(chaostk) $ pip install chaostoolkit\n\n\n\n\nYou can verify the command was installed by running:\n\n\n(chaostk) $ chaos --version\n\n\n\n\n\n\nActivate your virtual environment\n\n\nRemember to always activate your virtual environment before running the\n\nchaos\n command.\n\n\n\n\nDownload the container image\n\u00b6\n\n\nYou can run the chaostoolkit from a container rather than install it.\n\n\nFor instance, using \nDocker\n, you can pull the\n\nchaostoolkit image\n:\n\n\n$ docker pull chaostoolkit/chaostoolkit",
+            "title": "Install"
+        },
+        {
+            "location": "/usage/install/#how-to-install-the-chaos-toolkit",
+            "text": "You can either install the chaostoolkit command line or run it directly as a\ncontainer. The former expects  Python 3.5+  properly\nsetup on your machine while the latter expects a tool implementing the OCI 1.0 specification , such as  Docker  or  runc .",
+            "title": "How to Install the Chaos Toolkit"
+        },
+        {
+            "location": "/usage/install/#python-requirements",
+            "text": "chaostoolkit  is implemented in Python 3 and this require a working Python\ninstallation to run. It officially supports Python 3.5+ but may work with\nother versions of the language. It has only been tested against CPython.",
+            "title": "Python Requirements"
+        },
+        {
+            "location": "/usage/install/#install-python",
+            "text": "Install Python for your system:  On MacOSX:  $ brew install python3  On Debian/Ubuntu:  $ sudo apt-get install python3 python3-venv  On CentOS:  $ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm\n$ sudo yum -y install python35  On Windows:  Download the latest binary installer  from the Python website.",
+            "title": "Install Python"
+        },
+        {
+            "location": "/usage/install/#create-a-virtual-environment",
+            "text": "Dependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment. Let\u2019s create first such a virtual environment:  $ python3 -m venv ~/.venvs/chaostk  Make sure to always activate your virtual environment before using it:  $ source  ~/.venvs/chaostk/bin/activate   Tip  You may want to use  virtualenvwrapper  to make this process much nicer.",
+            "title": "Create a virtual environment"
+        },
+        {
+            "location": "/usage/install/#install-the-cli",
+            "text": "Install  chaostoolkit  in the virtual environment as follows:  (chaostk) $ pip install chaostoolkit  You can verify the command was installed by running:  (chaostk) $ chaos --version   Activate your virtual environment  Remember to always activate your virtual environment before running the chaos  command.",
+            "title": "Install the CLI"
+        },
+        {
+            "location": "/usage/install/#download-the-container-image",
+            "text": "You can run the chaostoolkit from a container rather than install it.  For instance, using  Docker , you can pull the chaostoolkit image :  $ docker pull chaostoolkit/chaostoolkit",
+            "title": "Download the container image"
+        },
+        {
+            "location": "/usage/running/",
+            "text": "Running the Chaos Toolkit\n\u00b6\n\n\nThe \nchaostoolkit\n CLI will display commands it supports as follows:\n\n\n(venv) $ chaos --help\n\n\n\n\nExecuting a plan\n\u00b6\n\n\nThe main function of the \nchaostoolkit\n CLI is to execute the plan you\ndeclared. This is done as follows:\n\n\n(venv) $ chaos run my-plan.json\n\n\n\n\nYou can initially perform a dry run:\n\n\n(venv) $ chaos run --dry my-plan.json\n\n\n\n\nchaostoolkit\n will log all the steps it follows from your plan.\n\n\nIf you run the command from a container, you may use a command such as:\n\n\n$ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json\n\n\n\n\nThis command snippet shows how you would share your \nKubernetes\n\n and \nminikube\n configurations if your experiment targets Kubernetes.",
+            "title": "Run"
+        },
+        {
+            "location": "/usage/running/#running-the-chaos-toolkit",
+            "text": "The  chaostoolkit  CLI will display commands it supports as follows:  (venv) $ chaos --help",
+            "title": "Running the Chaos Toolkit"
+        },
+        {
+            "location": "/usage/running/#executing-a-plan",
+            "text": "The main function of the  chaostoolkit  CLI is to execute the plan you\ndeclared. This is done as follows:  (venv) $ chaos run my-plan.json  You can initially perform a dry run:  (venv) $ chaos run --dry my-plan.json  chaostoolkit  will log all the steps it follows from your plan.  If you run the command from a container, you may use a command such as:  $ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json  This command snippet shows how you would share your  Kubernetes \n and  minikube  configurations if your experiment targets Kubernetes.",
+            "title": "Executing a plan"
+        }
+    ]
+}

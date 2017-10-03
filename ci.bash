@@ -5,7 +5,7 @@ function build-docs () {
     echo "Building the documentation"
     mkdir /tmp/site
     cd /tmp/site
-    git clone https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit-documentation/chaostoolkit-documentation.git .
+    git clone https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git .
     git checkout gh-pages
     cd -
     mkdocs build --strict -d /tmp/site

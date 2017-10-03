@@ -34,6 +34,8 @@ extra:
       link: https://github.com/chaostoolkit
     - type: twitter
       link: https://twitter.com/chaostoolkit
+    - type: slack
+      link: https://join.chaostoolkit.org/
 
 pages:
 - Overview:

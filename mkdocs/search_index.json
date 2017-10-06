@@ -2,7 +2,7 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to the Chaos Toolkit Project\n\u00b6\n\n\nThe Chaos Toolkit is a free, open source project that enables you to create and\napply Chaos Experiments to various types of infrastructure, platforms and\napplications.\n\n\nRunning experiments is as simple as:\n\n\n$ chaos run an-experiment.json\n\n\n\n\nThis takes the description of your experiment, runs it and ourput a reports\nto share with your team.\n\n\nGoals\n\u00b6\n\n\nThe Chaos Toolkit aims at simplifying your journey through the\n\nPrinciples of Chaos Engineering\n and more generally considers that\nyou should embrace continuously observe and poke your system to empower your\nteam in face of adversity.\n\n\nCome join the Chaos Toolkit community\n\u00b6\n\n\nThe Chaos Toolkit is an \nopen source project\n and strives on a diverse and\ncooperative community. We welcome input and discussions on the project itself\nbut also on the \nPrinciples of Chaos Engineering\n in general.\n\n\nPlease \njoin us\n!",
+            "text": "Welcome to the Chaos Toolkit Project\n\u00b6\n\n\nThe Chaos Toolkit is a free, open source project that enables you to create and\napply Chaos Experiments to various types of infrastructure, platforms and\napplications.\n\n\nRunning experiments is as simple as:\n\n\n$ chaos run an-experiment.json\n\n\n\n\nThis takes the description of your experiment, runs it and ourput a reports\nto share with your team.\n\n\nMission\n\u00b6\n\n\nThe Chaos Toolkit aims at simplifying your journey through the\n\nPrinciples of Chaos Engineering\n and more generally considers that\nyou should embrace continuously observe and poke your system to empower your\nteam in face of adversity.\n\n\nCome join the Chaos Toolkit community\n\u00b6\n\n\nThe Chaos Toolkit is an \nopen source project\n and strives on a diverse and\ncooperative community. We welcome input and discussions on the project itself\nbut also on the \nPrinciples of Chaos Engineering\n in general.\n\n\nPlease \njoin us\n!",
             "title": "Introduction"
         },
         {
@@ -11,9 +11,9 @@
             "title": "Welcome to the Chaos Toolkit Project"
         },
         {
-            "location": "/#goals",
+            "location": "/#mission",
             "text": "The Chaos Toolkit aims at simplifying your journey through the Principles of Chaos Engineering  and more generally considers that\nyou should embrace continuously observe and poke your system to empower your\nteam in face of adversity.",
-            "title": "Goals"
+            "title": "Mission"
         },
         {
             "location": "/#come-join-the-chaos-toolkit-community",

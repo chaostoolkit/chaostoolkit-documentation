@@ -13,7 +13,7 @@ $ chaos run an-experiment.json
 This takes the description of your experiment, runs it and ourput a reports
 to share with your team.
 
-## Goals
+## Mission
 
 The Chaos Toolkit aims at simplifying your journey through the
 [Principles of Chaos Engineering][principles] and more generally considers that

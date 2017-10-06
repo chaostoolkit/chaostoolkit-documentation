@@ -1,4 +1,4 @@
-# Welcome to the Chaos Toolkit Documentation
+# Welcome to the Chaos Toolkit Project
 
 The Chaos Toolkit is a free, open source project that enables you to create and
 apply Chaos Experiments to various types of infrastructure, platforms and
@@ -23,7 +23,7 @@ team in face of adversity.
 ## Come join the Chaos Toolkit community
 
 The Chaos Toolkit is an [open source project][oss] and strives on a diverse and
-cooperative community. We welcome input and disucssions on the project itself
+cooperative community. We welcome input and discussions on the project itself
 but also on the [Principles of Chaos Engineering][principles] in general.
 
 Please [join us][join]!

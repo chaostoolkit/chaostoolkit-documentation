@@ -660,10 +660,13 @@ are implemented as Python functions.</p>
 <h3 id="technical-choices">Technical Choices<a class="headerlink" href="#technical-choices" title="Permanent link">&para;</a></h3>
 <h4 id="python-3">Python 3<a class="headerlink" href="#python-3" title="Permanent link">&para;</a></h4>
 <p>The Chaos Toolkit is implemented in <a href="https://www.python.org/">Python 3</a>. A high-level language with
-a long successfuly story for writing tools.</p>
+a long successfuly story for writing great software. It&rsquo;s a common choice for
+tooling purpose.</p>
 <p>The language supports readbility well and has a large ecosystem of libraries. It
 is also well-spread and easy to install. The choice to not support Python 2 is
 a look at Python&rsquo;s present and future.</p>
+<p>The choice for a dynamic language was also motivated because the Chaos Toolkit
+manipulates a lot of strings and that task is made straightforward with Python.</p>
 <p>Although Python cannot generate (well, not easily) standalone binaries like
 <a href="https://golang.org/">golang</a> would. We do not believe this will harm the project and hope that
 package managers will eventually provide native installers.</p>
@@ -675,7 +678,7 @@ rather than modified.</p>
 <p>Generally speaking, the project draws inspirations from certain ideas of 
 <a href="https://en.wikipedia.org/wiki/Functional_programming">functional paradigms</a> but does not enforce them strictly. One notable
 area where the code strays away from these principles is the use of exceptions
-rather than returning error code. This may change if the community expresses
+rather than returning error codes. This may change if the community expresses
 such an intention.</p>
                 
                   

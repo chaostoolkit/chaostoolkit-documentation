@@ -104,6 +104,86 @@
             "location": "/usage/running/#executing-a-plan",
             "text": "The main function of the  chaostoolkit  CLI is to execute the plan you\ndeclared. This is done as follows:  (venv) $ chaos run my-plan.json  You can initially perform a dry run:  (venv) $ chaos run --dry my-plan.json  chaostoolkit  will log all the steps it follows from your plan.  If you run the command from a container, you may use a command such as:  $ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json  This command snippet shows how you would share your  Kubernetes \n and  minikube  configurations if your experiment targets Kubernetes.",
             "title": "Executing a plan"
+        },
+        {
+            "location": "/technology/",
+            "text": "Technology\n\u00b6\n\n\nKey values\n\u00b6\n\n\nThe following key values of the Chaos Toolkit reflect the mindset the community\nhas when engineering the Chaos Toolkit project.\n\n\nSimplicity\n\u00b6\n\n\nThe Chaos Toolkit aims at being a simple piece of technology both from a user\nand developer perspective.\n\n\nTo achieve simplicity, the Chaos Toolkit comes as a command line interface\ndriven by a description file. As a user, this means no code and no need to \nlearn a programming language. As a developer, this reduces the functional\nsurface area to consider.\n\n\nExtensibility\n\u00b6\n\n\nThe Chaos Toolkit does not wish to be a monolith and strives to be extended to\nfully reach its goal through community driven efforts.\n\n\nBy using a description file, the implementation is not prescribed by the Chaos\nToolkit project. Although we fully expect the community to eventually settle on\ncertain implementations of probes and actions.\n\n\nReadability\n\u00b6\n\n\nWe believe code readbility is a factor for positive maintenance and evolutivity.\n\n\nReadable code never goes out of fashion. As the code of the Chaos Toolkit is\nmostly written in Python, best practices such as defined in \nPEP8\n.\n\n\nDiversity\n\u00b6\n\n\nAlthough not strictly speaking referring to the technological aspect of the \nproject, having diversity in the community will contribute to a better project\noverall.\n\n\nCore Projects\n\u00b6\n\n\nThe Chaos Toolkit is made of several projects that work together to provide its\nservice.\n\n\nchaostoolkit\n\u00b6\n\n\nThe \nchaostoolkit\n project is the command-line interface (CLI), in other words\nthe command executed by users to run their experiments.\n\n\nThat project tries to remain as shallow as possible, only providing the user\ninterface commands by gluing other projects together.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-lib\n\u00b6\n\n\nThe \nchaostoolkit-lib\n project is the core library which implements\nthe \ncore concepts\n of the Chaos Toolkit.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-documentation\n\u00b6\n\n\nThe \nchaostoolkit-documehtation\n is the documentation source and\nrenderer of the Chaos Toolkit. Namely, that project generates the website you\nare currently reading.\n\n\nThis project is implemented in Python 3 by generating HTML from Markdown\ndocuments.\n\n\nExtension Projects\n\u00b6\n\n\nIn addition to the core projects, the Chaos Toolkit manages some extension\nprojects which provide probes and/or actions for experiments.\n\n\nchaostoolkit-kubernetes-support\n\u00b6\n\n\nThe \nchaostoolkit-kubernetes-support\n implements probes and actions\nfor experiments targetting a \nKubernetes\n cluster. Those activities\nare implemented as Python functions.\n\n\nThis project is implemented in Python 3.\n\n\nTechnical Choices\n\u00b6\n\n\nPython 3\n\u00b6\n\n\nThe Chaos Toolkit is implemented in \nPython 3\n. A high-level language with\na long successfuly story for writing tools.\n\n\nThe language supports readbility well and has a large ecosystem of libraries. It\nis also well-spread and easy to install. The choice to not support Python 2 is\na look at Python\u2019s present and future.\n\n\nAlthough Python cannot generate (well, not easily) standalone binaries like\n\ngolang\n would. We do not believe this will harm the project and hope that\npackage managers will eventually provide native installers.\n\n\nFunctional\n\u00b6\n\n\nWell, this project is not truly a functional piece of code but the code relies\nas little as possible on stateful constructions as provided by classes.\n\n\nMutable data structures are used but mostly created and returned from functions\nrather than modified.\n\n\nGenerally speaking, the project draws inspirations from certain ideas of \n\nfunctional paradigms\n but does not enforce them strictly. One notable\narea where the code strays away from these principles is the use of exceptions\nrather than returning error code. This may change if the community expresses\nsuch an intention.",
+            "title": "Overview"
+        },
+        {
+            "location": "/technology/#technology",
+            "text": "",
+            "title": "Technology"
+        },
+        {
+            "location": "/technology/#key-values",
+            "text": "The following key values of the Chaos Toolkit reflect the mindset the community\nhas when engineering the Chaos Toolkit project.",
+            "title": "Key values"
+        },
+        {
+            "location": "/technology/#simplicity",
+            "text": "The Chaos Toolkit aims at being a simple piece of technology both from a user\nand developer perspective.  To achieve simplicity, the Chaos Toolkit comes as a command line interface\ndriven by a description file. As a user, this means no code and no need to \nlearn a programming language. As a developer, this reduces the functional\nsurface area to consider.",
+            "title": "Simplicity"
+        },
+        {
+            "location": "/technology/#extensibility",
+            "text": "The Chaos Toolkit does not wish to be a monolith and strives to be extended to\nfully reach its goal through community driven efforts.  By using a description file, the implementation is not prescribed by the Chaos\nToolkit project. Although we fully expect the community to eventually settle on\ncertain implementations of probes and actions.",
+            "title": "Extensibility"
+        },
+        {
+            "location": "/technology/#readability",
+            "text": "We believe code readbility is a factor for positive maintenance and evolutivity.  Readable code never goes out of fashion. As the code of the Chaos Toolkit is\nmostly written in Python, best practices such as defined in  PEP8 .",
+            "title": "Readability"
+        },
+        {
+            "location": "/technology/#diversity",
+            "text": "Although not strictly speaking referring to the technological aspect of the \nproject, having diversity in the community will contribute to a better project\noverall.",
+            "title": "Diversity"
+        },
+        {
+            "location": "/technology/#core-projects",
+            "text": "The Chaos Toolkit is made of several projects that work together to provide its\nservice.",
+            "title": "Core Projects"
+        },
+        {
+            "location": "/technology/#chaostoolkit",
+            "text": "The  chaostoolkit  project is the command-line interface (CLI), in other words\nthe command executed by users to run their experiments.  That project tries to remain as shallow as possible, only providing the user\ninterface commands by gluing other projects together.  This project is implemented in Python 3.",
+            "title": "chaostoolkit"
+        },
+        {
+            "location": "/technology/#chaostoolkit-lib",
+            "text": "The  chaostoolkit-lib  project is the core library which implements\nthe  core concepts  of the Chaos Toolkit.  This project is implemented in Python 3.",
+            "title": "chaostoolkit-lib"
+        },
+        {
+            "location": "/technology/#chaostoolkit-documentation",
+            "text": "The  chaostoolkit-documehtation  is the documentation source and\nrenderer of the Chaos Toolkit. Namely, that project generates the website you\nare currently reading.  This project is implemented in Python 3 by generating HTML from Markdown\ndocuments.",
+            "title": "chaostoolkit-documentation"
+        },
+        {
+            "location": "/technology/#extension-projects",
+            "text": "In addition to the core projects, the Chaos Toolkit manages some extension\nprojects which provide probes and/or actions for experiments.",
+            "title": "Extension Projects"
+        },
+        {
+            "location": "/technology/#chaostoolkit-kubernetes-support",
+            "text": "The  chaostoolkit-kubernetes-support  implements probes and actions\nfor experiments targetting a  Kubernetes  cluster. Those activities\nare implemented as Python functions.  This project is implemented in Python 3.",
+            "title": "chaostoolkit-kubernetes-support"
+        },
+        {
+            "location": "/technology/#technical-choices",
+            "text": "",
+            "title": "Technical Choices"
+        },
+        {
+            "location": "/technology/#python-3",
+            "text": "The Chaos Toolkit is implemented in  Python 3 . A high-level language with\na long successfuly story for writing tools.  The language supports readbility well and has a large ecosystem of libraries. It\nis also well-spread and easy to install. The choice to not support Python 2 is\na look at Python\u2019s present and future.  Although Python cannot generate (well, not easily) standalone binaries like golang  would. We do not believe this will harm the project and hope that\npackage managers will eventually provide native installers.",
+            "title": "Python 3"
+        },
+        {
+            "location": "/technology/#functional",
+            "text": "Well, this project is not truly a functional piece of code but the code relies\nas little as possible on stateful constructions as provided by classes.  Mutable data structures are used but mostly created and returned from functions\nrather than modified.  Generally speaking, the project draws inspirations from certain ideas of  functional paradigms  but does not enforce them strictly. One notable\narea where the code strays away from these principles is the use of exceptions\nrather than returning error code. This may change if the community expresses\nsuch an intention.",
+            "title": "Functional"
         }
     ]
 }

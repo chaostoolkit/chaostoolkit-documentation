@@ -98,11 +98,15 @@ This project is implemented in Python 3.
 #### Python 3
 
 The Chaos Toolkit is implemented in [Python 3][py3k]. A high-level language with
-a long successfuly story for writing tools.
+a long successfuly story for writing great software. It's a common choice for
+tooling purpose.
 
 The language supports readbility well and has a large ecosystem of libraries. It
 is also well-spread and easy to install. The choice to not support Python 2 is
 a look at Python's present and future.
+
+The choice for a dynamic language was also motivated because the Chaos Toolkit
+manipulates a lot of strings and that task is made straightforward with Python.
 
 Although Python cannot generate (well, not easily) standalone binaries like
 [golang][go] would. We do not believe this will harm the project and hope that
@@ -122,7 +126,7 @@ rather than modified.
 Generally speaking, the project draws inspirations from certain ideas of 
 [functional paradigms][funcpara] but does not enforce them strictly. One notable
 area where the code strays away from these principles is the use of exceptions
-rather than returning error code. This may change if the community expresses
+rather than returning error codes. This may change if the community expresses
 such an intention.
 
 [funcpara]: https://en.wikipedia.org/wiki/Functional_programming

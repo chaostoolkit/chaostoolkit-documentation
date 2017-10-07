@@ -44,3 +44,5 @@ pages:
 - Getting Started:
     - Install: usage/install.md
     - Run: usage/running.md
+- Technology:
+    - Overview: technology/index.md

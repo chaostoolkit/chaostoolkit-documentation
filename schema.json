@@ -1,0 +1,269 @@
+{
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "type": "object",
+    "required": [
+        "method",
+        "title" 
+    ],
+    "properties": {
+        "description": {
+            "type": "string",
+            "description": "Describing the Chaos experiment to provide context"
+        },
+        "title": {
+            "type": "string",
+            "description": "The high-level title of the Chaos experiment"
+        },
+        "method": {
+            "type": "array",
+            "description": "The activities to try our the hypothesis",
+            "items": [
+                { "$ref": "#definitions/step" }   
+            ]
+        }
+    },
+    "definitions": {
+        "step": {
+            "type": "object",
+            "title": "A step of the method. Made of actions and/or probes",
+            "properties": {
+                "title": {
+                    "type": "string",
+                    "title": "A description of the step"
+                }
+            },
+            "additionalProperties": {
+                "anyOf": [
+                    {
+                        "$ref": "#/definitions/probes"
+                    },
+                    {
+                        "$ref": "#/definitions/action"
+                    }
+                ]
+            }
+        },
+        "action": {
+            "type": "object",
+            "description": "The hypothesis enactment",
+            "required": [
+                "arguments",
+                "layer",
+                "title",
+                "type"
+            ],
+            "properties": {
+                "arguments": {
+                    "type": "object",
+                    "properties": {}
+                },
+                "type": {
+                    "type": "string"
+                },
+                "layer": {
+                    "type": "string"
+                },
+                "title": {
+                    "type": "string"
+                },
+                "negate": {
+                    "type": "boolean",
+                    "title": "Sould the Chaos Toolkit take the opposite of the action's result?",
+                    "enum": [true, false]
+                },
+                "timeout": {
+                    "type": "number",
+                    "title": "The maximum duration the Chaos toolkit will wait for the action to complete"
+                },
+                "pauses": {
+                    "type": "number",
+                    "title": "Pauses the Chaos toolkit may pause before or after an action",
+                    "properties": {
+                        "before": {
+                            "type": "number",
+                            "title": "How long before triggering the action (in seconds)"
+                        },
+                        "after": {
+                            "type": "number",
+                            "title": "How long after the action was triggered (in seconds)"
+                        }
+                    }
+                }
+            }
+        },
+        "probe": {
+            "type": "object",
+            "oneOf": [
+                {
+                    "$ref": "#/definitions/python-probe"
+                },
+                {
+                    "$ref": "#/definitions/process-probe"
+                },
+                {
+                    "$ref": "#/definitions/http-probe"
+                }
+            ]
+        },
+        "python-probe": {
+            "type": "object",
+            "required": [
+                "layer",
+                "title",
+                "type",
+                "module",
+                "func"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "title": "The kind of probe implementation",
+                    "pattern": "^(python)$"
+                },
+                "layer": {
+                    "type": "string",
+                    "title": "The layer the probe applies at",
+                    "enum": [
+                        "infrastructure",
+                        "platform",
+                        "application"
+                    ]
+                },
+                "title": {
+                    "type": "string",
+                    "title": "A short description of the probe"
+                },
+                "arguments": {
+                    "type": "object",
+                    "title": "A K->V mapping that is passed as-is to the probe",
+                    "properties": {}
+                },
+                "negate": {
+                    "type": "boolean",
+                    "title": "Sould the Chaos Toolkit take the opposite of the probe's result?",
+                    "enum": [true, false]
+                },
+                "module": {
+                    "type": "string",
+                    "title": "A Python module path the Chaos Toolkit can import at runtime"
+                },
+                "func": {
+                    "type": "string",
+                    "title": "A function name exposed in the module"
+                }
+            }
+        },
+        "process-probe": {
+            "type": "object",
+            "required": [
+                "layer",
+                "title",
+                "type",
+                "path"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "title": "The kind of probe implementation",
+                    "pattern": "^(process)$"
+                },
+                "layer": {
+                    "type": "string",
+                    "title": "The layer the probe applies at",
+                    "enum": [
+                        "infrastructure",
+                        "platform",
+                        "application"
+                    ]
+                },
+                "title": {
+                    "type": "string",
+                    "title": "A short description of the probe"
+                },
+                "arguments": {
+                    "type": "object",
+                    "title": "A K->V mapping that is passed as-is to the probe",
+                    "properties": {}
+                },
+                "negate": {
+                    "type": "boolean",
+                    "title": "Sould the Chaos Toolkit take the opposite of the probe's result?",
+                    "enum": [true, false]
+                },
+                "path": {
+                    "type": "string",
+                    "title": "The path to an executable to call"
+                }
+            }
+        },
+        "http-probe": {
+            "type": "object",
+            "required": [
+                "layer",
+                "title",
+                "type",
+                "url"
+            ],
+            "properties": {
+                "type": {
+                    "type": "string",
+                    "title": "The kind of probe implementation",
+                    "pattern": "^(http)$"
+                },
+                "layer": {
+                    "type": "string",
+                    "title": "The layer the probe applies at",
+                    "enum": [
+                        "infrastructure",
+                        "platform",
+                        "application"
+                    ]
+                },
+                "title": {
+                    "type": "string",
+                    "title": "A short description of the probe"
+                },
+                "arguments": {
+                    "type": "object",
+                    "title": "A K->V mapping that is passed as-is to the probe",
+                    "properties": {}
+                },
+                "url": {
+                    "type": "string",
+                    "title": "A deferencable URL"
+                },
+                "method": {
+                    "type": "string",
+                    "title": "A valid HTTP method",
+                    "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "DELETE",
+                        "PATCH"
+                    ]
+                },
+                "headers": {
+                    "type": "object",
+                    "properties": {}
+                },
+                "negate": {
+                    "type": "boolean",
+                    "title": "Sould the Chaos Toolkit take the opposite of the probe's result?",
+                    "enum": [true, false]
+                }
+            }
+        },
+        "probes": {
+            "type": "object",
+            "properties": {
+                "steady": {
+                    "$ref": "#/definitions/probe"
+                },
+                "close": {
+                    "$ref": "#/definitions/probe"
+                }
+            }
+        }
+    }
+}

@@ -46,3 +46,5 @@ pages:
     - Run: usage/running.md
 - Technology:
     - Overview: technology/index.md
+    - Experiment: technology/experiment.md
+    - Extend: technology/extend.md

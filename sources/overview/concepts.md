@@ -93,7 +93,7 @@ An experiment's activities are contained within its `Method` block.
 
 ## Probes
 
-A probe is a way of detecting a particular set of conditions in the system that is undergoing experimentation.
+A probe is a way of observing a particular set of conditions in the system that is undergoing experimentation.
 
 ## Actions
 

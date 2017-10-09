@@ -41,6 +41,7 @@ pages:
 - Overview:
     - Introduction: index.md
     - Concepts: overview/concepts.md
+    - FAQ: faq.md
 - Getting Started:
     - Install: usage/install.md
     - Run: usage/running.md

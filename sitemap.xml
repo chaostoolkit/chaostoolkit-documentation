@@ -32,6 +32,12 @@
     </url>
         
     <url>
+     <loc>/usage/upgrade/</loc>
+     <lastmod>2017-10-09</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
      <loc>/usage/running/</loc>
      <lastmod>2017-10-09</lastmod>
      <changefreq>daily</changefreq>

@@ -238,6 +238,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../upgrade/" title="Upgrade" class="md-nav__link">
+      Upgrade
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -391,21 +403,27 @@
                 
                 <h1 id="running-the-chaos-toolkit">Running the Chaos Toolkit<a class="headerlink" href="#running-the-chaos-toolkit" title="Permanent link">&para;</a></h1>
 <p>The <code>chaostoolkit</code> CLI will display commands it supports as follows:</p>
-<div class="codehilite"><pre><span></span>(venv) $ chaos --help
+<div class="codehilite"><pre><span></span>(chaostk) $ chaos --help
 </pre></div>
 
+<div class="admonition note">
+<p class="admonition-title">Activate the Python virtual environment</p>
+<p>If you run the Chaos Toolkit directly, rather than using a container,
+always ensure you have activated the virtual environment so that it can
+be found along its dependencies:</p>
+<div class="codehilite"><pre><span></span>$ source ~/.venvs/chaostk/bin/activate
+(chaostk) $
+</pre></div>
+
+</div>
 <h3 id="executing-a-plan">Executing a plan<a class="headerlink" href="#executing-a-plan" title="Permanent link">&para;</a></h3>
 <p>The main function of the <code>chaostoolkit</code> CLI is to execute the plan you
 declared. This is done as follows:</p>
-<div class="codehilite"><pre><span></span>(venv) $ chaos run my-plan.json
-</pre></div>
-
-<p>You can initially perform a dry run:</p>
-<div class="codehilite"><pre><span></span>(venv) $ chaos run --dry my-plan.json
+<div class="codehilite"><pre><span></span>(chaostk) $ chaos run my-plan.json
 </pre></div>
 
 <p><code>chaostoolkit</code> will log all the steps it follows from your plan.</p>
-<p>If you run the command from a container, you may use a command such as:</p>
+<p>If you run the command from a container:</p>
 <div class="codehilite"><pre><span></span>$ docker run --rm -it \
     --user `id -u` \
     -v $HOME/.kube:/root/.kube \
@@ -416,6 +434,12 @@ declared. This is done as follows:</p>
 
 <p>This command snippet shows how you would share your <a href="https://kubernetes.io/">Kubernetes</a>
  and <a href="https://github.com/kubernetes/minikube">minikube</a> configurations if your experiment targets Kubernetes.</p>
+<div class="admonition warning">
+<p class="admonition-title">Battery not included in the container</p>
+<p>Depending on your experiment, running as a container may not be as simple
+as it looks because all the extensions (Python packages, commands to run,
+config files&hellip;) are not included in the base image.</p>
+</div>
                 
                   
                 
@@ -434,7 +458,7 @@ declared. This is done as follows:</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../install/" title="Install" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../upgrade/" title="Upgrade" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -443,7 +467,7 @@ declared. This is done as follows:</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Install
+                Upgrade
               </span>
             </div>
           </a>

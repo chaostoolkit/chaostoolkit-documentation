@@ -102,12 +102,12 @@
         },
         {
             "location": "/usage/install/",
-            "text": "How to Install the Chaos Toolkit\n\u00b6\n\n\nYou can either install the chaostoolkit command line or run it directly as a\ncontainer. The former expects \nPython 3.5+\n properly\nsetup on your machine while the latter expects a tool implementing the\n\nOCI 1.0 specification\n, such as \nDocker\n or \nrunc\n.\n\n\nPython Requirements\n\u00b6\n\n\nchaostoolkit\n is implemented in Python 3 and this require a working Python\ninstallation to run. It officially supports Python 3.5+ but may work with\nother versions of the language. It has only been tested against CPython.\n\n\nInstall Python\n\u00b6\n\n\nInstall Python for your system:\n\n\nOn MacOSX:\n\n\n$ brew install python3\n\n\n\n\nOn Debian/Ubuntu:\n\n\n$ sudo apt-get install python3 python3-venv\n\n\n\n\nOn CentOS:\n\n\n$ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm\n$ sudo yum -y install python35\n\n\n\n\nOn Windows:\n\n\nDownload the latest binary installer\n from the Python website.\n\n\nCreate a virtual environment\n\u00b6\n\n\nDependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment. Let\u2019s create first such a virtual environment:\n\n\n$ python3 -m venv ~/.venvs/chaostk\n\n\n\n\nMake sure to always activate your virtual environment before using it:\n\n\n$ source  ~/.venvs/chaostk/bin/activate\n\n\n\n\n\n\nTip\n\n\nYou may want to use \nvirtualenvwrapper\n to make this process much nicer.\n\n\n\n\nInstall the CLI\n\u00b6\n\n\nInstall \nchaostoolkit\n in the virtual environment as follows:\n\n\n(chaostk) $ pip install chaostoolkit\n\n\n\n\nYou can verify the command was installed by running:\n\n\n(chaostk) $ chaos --version\n\n\n\n\n\n\nActivate your virtual environment\n\n\nRemember to always activate your virtual environment before running the\n\nchaos\n command.\n\n\n\n\nDownload the container image\n\u00b6\n\n\nYou can run the chaostoolkit from a container rather than install it.\n\n\nFor instance, using \nDocker\n, you can pull the\n\nchaostoolkit image\n:\n\n\n$ docker pull chaostoolkit/chaostoolkit",
+            "text": "How to Install the Chaos Toolkit\n\u00b6\n\n\nYou can either install the chaostoolkit command line or run it from a container.\n\n\nThe former expects \nPython 3.5+\n properly setup on your machine while\nthe latter expects a tool implementing the \nOCI 1.0 specification\n, \nsuch as \nDocker\n or \nrunc\n.\n\n\nPython Requirements\n\u00b6\n\n\nchaostoolkit\n is implemented in Python 3 and this require a working Python\ninstallation to run. It officially supports Python 3.5+ but may work with\nother versions of the language. It has only been tested against CPython.\n\n\nInstall Python\n\u00b6\n\n\nInstall Python for your system:\n\n\nOn MacOSX:\n\n\n$ brew install python3\n\n\n\n\nOn Debian/Ubuntu:\n\n\n$ sudo apt-get install python3 python3-venv\n\n\n\n\nOn CentOS:\n\n\n$ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm\n$ sudo yum -y install python35\n\n\n\n\nOn Windows:\n\n\nDownload the latest binary installer\n from the Python website.\n\n\nCreate a virtual environment\n\u00b6\n\n\nDependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment.\n\n\n$ python3 -m venv ~/.venvs/chaostk\n\n\n\n\nMake sure to always activate your virtual environment before using it:\n\n\n$ source  ~/.venvs/chaostk/bin/activate\n\n\n\n\n\n\nTip\n\n\nYou may want to use \nvirtualenvwrapper\n to make this process much nicer.\n\n\n\n\nInstall the CLI\n\u00b6\n\n\nInstall \nchaostoolkit\n in the virtual environment as follows:\n\n\n(chaostk) $ pip install chaostoolkit\n\n\n\n\nYou can verify the command was installed by running:\n\n\n(chaostk) $ chaos --version\n\n\n\n\nDownload the container image\n\u00b6\n\n\nYou can run the chaostoolkit from a container rather than install it.\n\n\nFor instance, using \nDocker\n, you can pull the\n\nchaostoolkit image\n:\n\n\n$ docker pull chaostoolkit/chaostoolkit",
             "title": "Install"
         },
         {
             "location": "/usage/install/#how-to-install-the-chaos-toolkit",
-            "text": "You can either install the chaostoolkit command line or run it directly as a\ncontainer. The former expects  Python 3.5+  properly\nsetup on your machine while the latter expects a tool implementing the OCI 1.0 specification , such as  Docker  or  runc .",
+            "text": "You can either install the chaostoolkit command line or run it from a container.  The former expects  Python 3.5+  properly setup on your machine while\nthe latter expects a tool implementing the  OCI 1.0 specification , \nsuch as  Docker  or  runc .",
             "title": "How to Install the Chaos Toolkit"
         },
         {
@@ -122,12 +122,12 @@
         },
         {
             "location": "/usage/install/#create-a-virtual-environment",
-            "text": "Dependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment. Let\u2019s create first such a virtual environment:  $ python3 -m venv ~/.venvs/chaostk  Make sure to always activate your virtual environment before using it:  $ source  ~/.venvs/chaostk/bin/activate   Tip  You may want to use  virtualenvwrapper  to make this process much nicer.",
+            "text": "Dependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment.  $ python3 -m venv ~/.venvs/chaostk  Make sure to always activate your virtual environment before using it:  $ source  ~/.venvs/chaostk/bin/activate   Tip  You may want to use  virtualenvwrapper  to make this process much nicer.",
             "title": "Create a virtual environment"
         },
         {
             "location": "/usage/install/#install-the-cli",
-            "text": "Install  chaostoolkit  in the virtual environment as follows:  (chaostk) $ pip install chaostoolkit  You can verify the command was installed by running:  (chaostk) $ chaos --version   Activate your virtual environment  Remember to always activate your virtual environment before running the chaos  command.",
+            "text": "Install  chaostoolkit  in the virtual environment as follows:  (chaostk) $ pip install chaostoolkit  You can verify the command was installed by running:  (chaostk) $ chaos --version",
             "title": "Install the CLI"
         },
         {
@@ -136,18 +136,38 @@
             "title": "Download the container image"
         },
         {
+            "location": "/usage/upgrade/",
+            "text": "How to Upgrade the Chaos Toolkit\n\u00b6\n\n\nUsing pip\n\u00b6\n\n\nYou can update your Chaos Toolkit installation as follows:\n\n\n(chaostk) $ pip install -U chaostoolkit\n\n\n\n\nUsing a container image\n\u00b6\n\n\nIf you downloaded the Docker image of the toolkit, you can pull it again:\n\n\n$ docker pull chaostoolkit/chaostoolkit",
+            "title": "Upgrade"
+        },
+        {
+            "location": "/usage/upgrade/#how-to-upgrade-the-chaos-toolkit",
+            "text": "",
+            "title": "How to Upgrade the Chaos Toolkit"
+        },
+        {
+            "location": "/usage/upgrade/#using-pip",
+            "text": "You can update your Chaos Toolkit installation as follows:  (chaostk) $ pip install -U chaostoolkit",
+            "title": "Using pip"
+        },
+        {
+            "location": "/usage/upgrade/#using-a-container-image",
+            "text": "If you downloaded the Docker image of the toolkit, you can pull it again:  $ docker pull chaostoolkit/chaostoolkit",
+            "title": "Using a container image"
+        },
+        {
             "location": "/usage/running/",
-            "text": "Running the Chaos Toolkit\n\u00b6\n\n\nThe \nchaostoolkit\n CLI will display commands it supports as follows:\n\n\n(venv) $ chaos --help\n\n\n\n\nExecuting a plan\n\u00b6\n\n\nThe main function of the \nchaostoolkit\n CLI is to execute the plan you\ndeclared. This is done as follows:\n\n\n(venv) $ chaos run my-plan.json\n\n\n\n\nYou can initially perform a dry run:\n\n\n(venv) $ chaos run --dry my-plan.json\n\n\n\n\nchaostoolkit\n will log all the steps it follows from your plan.\n\n\nIf you run the command from a container, you may use a command such as:\n\n\n$ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json\n\n\n\n\nThis command snippet shows how you would share your \nKubernetes\n\n and \nminikube\n configurations if your experiment targets Kubernetes.",
+            "text": "Running the Chaos Toolkit\n\u00b6\n\n\nThe \nchaostoolkit\n CLI will display commands it supports as follows:\n\n\n(chaostk) $ chaos --help\n\n\n\n\n\n\nActivate the Python virtual environment\n\n\nIf you run the Chaos Toolkit directly, rather than using a container,\nalways ensure you have activated the virtual environment so that it can\nbe found along its dependencies:\n\n\n$ source ~/.venvs/chaostk/bin/activate\n(chaostk) $\n\n\n\n\n\n\nExecuting a plan\n\u00b6\n\n\nThe main function of the \nchaostoolkit\n CLI is to execute the plan you\ndeclared. This is done as follows:\n\n\n(chaostk) $ chaos run my-plan.json\n\n\n\n\nchaostoolkit\n will log all the steps it follows from your plan.\n\n\nIf you run the command from a container:\n\n\n$ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json\n\n\n\n\nThis command snippet shows how you would share your \nKubernetes\n\n and \nminikube\n configurations if your experiment targets Kubernetes.\n\n\n\n\nBattery not included in the container\n\n\nDepending on your experiment, running as a container may not be as simple\nas it looks because all the extensions (Python packages, commands to run,\nconfig files\u2026) are not included in the base image.",
             "title": "Run"
         },
         {
             "location": "/usage/running/#running-the-chaos-toolkit",
-            "text": "The  chaostoolkit  CLI will display commands it supports as follows:  (venv) $ chaos --help",
+            "text": "The  chaostoolkit  CLI will display commands it supports as follows:  (chaostk) $ chaos --help   Activate the Python virtual environment  If you run the Chaos Toolkit directly, rather than using a container,\nalways ensure you have activated the virtual environment so that it can\nbe found along its dependencies:  $ source ~/.venvs/chaostk/bin/activate\n(chaostk) $",
             "title": "Running the Chaos Toolkit"
         },
         {
             "location": "/usage/running/#executing-a-plan",
-            "text": "The main function of the  chaostoolkit  CLI is to execute the plan you\ndeclared. This is done as follows:  (venv) $ chaos run my-plan.json  You can initially perform a dry run:  (venv) $ chaos run --dry my-plan.json  chaostoolkit  will log all the steps it follows from your plan.  If you run the command from a container, you may use a command such as:  $ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json  This command snippet shows how you would share your  Kubernetes \n and  minikube  configurations if your experiment targets Kubernetes.",
+            "text": "The main function of the  chaostoolkit  CLI is to execute the plan you\ndeclared. This is done as follows:  (chaostk) $ chaos run my-plan.json  chaostoolkit  will log all the steps it follows from your plan.  If you run the command from a container:  $ docker run --rm -it \\\n    --user `id -u` \\\n    -v $HOME/.kube:/root/.kube \\\n    -v $HOME/.minikube:$HOME/.minikube \\\n    -v `pwd`:/tmp/chaos \\\n    chaostoolkit/chaostoolkit run /tmp/chaos/my-plan.json  This command snippet shows how you would share your  Kubernetes \n and  minikube  configurations if your experiment targets Kubernetes.   Battery not included in the container  Depending on your experiment, running as a container may not be as simple\nas it looks because all the extensions (Python packages, commands to run,\nconfig files\u2026) are not included in the base image.",
             "title": "Executing a plan"
         },
         {

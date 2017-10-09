@@ -1,9 +1,10 @@
 # How to Install the Chaos Toolkit
 
-You can either install the chaostoolkit command line or run it directly as a
-container. The former expects [Python 3.5+][python] properly
-setup on your machine while the latter expects a tool implementing the
-[OCI 1.0 specification][oci], such as [Docker][] or [runc][].
+You can either install the chaostoolkit command line or run it from a container.
+
+The former expects [Python 3.5+][python] properly setup on your machine while
+the latter expects a tool implementing the [OCI 1.0 specification][oci], 
+such as [Docker][] or [runc][].
 
 [python]: https://www.python.org/
 [oci]: https://www.opencontainers.org/
@@ -48,7 +49,7 @@ On Windows:
 
 Dependencies can be installed for your system via its package management but,
 more likely, you will want to install them yourself in a local virtual
-environment. Let's create first such a virtual environment:
+environment.
 
 ```
 $ python3 -m venv ~/.venvs/chaostk
@@ -78,11 +79,6 @@ You can verify the command was installed by running:
 ```
 (chaostk) $ chaos --version
 ```
-
-!!! note "Activate your virtual environment"
-    Remember to always activate your virtual environment before running the
-    `chaos` command.
-
 ### Download the container image
 
 You can run the chaostoolkit from a container rather than install it.

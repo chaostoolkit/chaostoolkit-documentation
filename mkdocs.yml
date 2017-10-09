@@ -44,6 +44,7 @@ pages:
     - FAQ: faq.md
 - Getting Started:
     - Install: usage/install.md
+    - Upgrade: usage/upgrade.md
     - Run: usage/running.md
 - Technology:
     - Overview: technology/index.md

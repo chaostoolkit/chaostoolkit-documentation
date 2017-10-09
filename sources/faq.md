@@ -69,9 +69,9 @@ into the Chaos Toolkit.
 
 ### How can I contribute?
 
-The Chaos Toolkit welcomes contributors! To help the project, please got to
+The Chaos Toolkit welcomes contributors! To help the project, please go to
 the right project on [GitHub][gh] and create an issue. If you feel like it,
-do not hesitate to fork the right project, make a change and submit a 
-pull-request to the upstream project. 
+do not hesitate to fork the repository, make a change and submit a 
+pull-request to the upstream project for review.
 
 [gh]: https://github.com/chaostoolkit

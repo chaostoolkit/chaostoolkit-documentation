@@ -56,6 +56,51 @@
             "title": "Actions"
         },
         {
+            "location": "/faq/",
+            "text": "FAQ\n\u00b6\n\n\nWhat is the Chaos Toolkit?\n\u00b6\n\n\nIt is an open-source software that runs an experiment against your system to\nconfirm or infirm an hypothesis. Colloquially this refers to the \nC\nhaos Engineering Principles\n.\n\n\nWhy do I need to run experiments?\n\u00b6\n\n\nSystems do not live in a vacuum, they are subjected to real world events, some\nexpected and tolerated, others considered as attacks. Waiting for those\nconditions arise does not give the time your team needs to handle, learn and\nadapt to the situation at hand.\n\n\nIn many countries, fire alarm tests are conducted at random in offices so \npeople learn how to react well for the benefit of everyone. Software systems\nshould go through the same exercises . The Chaos Toolkit hopes to make it \nsimple and safe to run experiments like these.\n\n\nWhy a toolkit?\n\u00b6\n\n\nCurrently, running experiments is not an easy task because the ecosystem is \nstill fairly young. Complex cases have been demonstrated at large corporations\nsuch as Netflix or LinkedIn. Tools such as \nChAP\n or \nSimoorg\n\nare powerful but quite involved.\n\n\nThe Chaos Toolkit aims at providing a more straightforward initial user\nexperience to gain confidence in doing Chaos Engineering experiments. The\nsimpler it gets the greater our cognitive capacity to understand what is going\non.\n\n\nUltimately, the Chaos Toolkit should lead you on the path to using richer tools\nsuch as those cited above.\n\n\nWhat does the Chaos Toolkit do?\n\u00b6\n\n\nThe Chaos Toolkit user-interface is a command line that takes a JSON-encoded\nfile describing the experiment to run. It consists of a sequence of activities\nthe toolkit executes in order to produce a final report. \n\n\nThe activities are of two kinds. Probes observe the system at various point of\nthe experiment. Actions interact with the system to change its state. Usually\nthe action represents the hypothesis you are trying to learn from.\n\n\nWho is behind the Chaos Toolkit?\n\u00b6\n\n\nThe effort was initiated by \nRuss Miles\n and\n\nSylvain Hellegouarch\n, two engineers passionate about fluidity in\ncomplex systems. However, their vision is really to build a\n\nstrong community\n of engineer experiences to feedback\ninto the Chaos Toolkit.\n\n\nWhat is the license of the Chaos Toolkit?\n\u00b6\n\n\nApache 2.0\n.\n\n\nHow can I contribute?\n\u00b6\n\n\nThe Chaos Toolkit welcomes contributors! To help the project, please got to\nthe right project on \nGitHub\n and create an issue. If you feel like it,\ndo not hesitate to fork the right project, make a change and submit a \npull-request to the upstream project.",
+            "title": "FAQ"
+        },
+        {
+            "location": "/faq/#faq",
+            "text": "",
+            "title": "FAQ"
+        },
+        {
+            "location": "/faq/#what-is-the-chaos-toolkit",
+            "text": "It is an open-source software that runs an experiment against your system to\nconfirm or infirm an hypothesis. Colloquially this refers to the \nC haos Engineering Principles .",
+            "title": "What is the Chaos Toolkit?"
+        },
+        {
+            "location": "/faq/#why-do-i-need-to-run-experiments",
+            "text": "Systems do not live in a vacuum, they are subjected to real world events, some\nexpected and tolerated, others considered as attacks. Waiting for those\nconditions arise does not give the time your team needs to handle, learn and\nadapt to the situation at hand.  In many countries, fire alarm tests are conducted at random in offices so \npeople learn how to react well for the benefit of everyone. Software systems\nshould go through the same exercises . The Chaos Toolkit hopes to make it \nsimple and safe to run experiments like these.",
+            "title": "Why do I need to run experiments?"
+        },
+        {
+            "location": "/faq/#why-a-toolkit",
+            "text": "Currently, running experiments is not an easy task because the ecosystem is \nstill fairly young. Complex cases have been demonstrated at large corporations\nsuch as Netflix or LinkedIn. Tools such as  ChAP  or  Simoorg \nare powerful but quite involved.  The Chaos Toolkit aims at providing a more straightforward initial user\nexperience to gain confidence in doing Chaos Engineering experiments. The\nsimpler it gets the greater our cognitive capacity to understand what is going\non.  Ultimately, the Chaos Toolkit should lead you on the path to using richer tools\nsuch as those cited above.",
+            "title": "Why a toolkit?"
+        },
+        {
+            "location": "/faq/#what-does-the-chaos-toolkit-do",
+            "text": "The Chaos Toolkit user-interface is a command line that takes a JSON-encoded\nfile describing the experiment to run. It consists of a sequence of activities\nthe toolkit executes in order to produce a final report.   The activities are of two kinds. Probes observe the system at various point of\nthe experiment. Actions interact with the system to change its state. Usually\nthe action represents the hypothesis you are trying to learn from.",
+            "title": "What does the Chaos Toolkit do?"
+        },
+        {
+            "location": "/faq/#who-is-behind-the-chaos-toolkit",
+            "text": "The effort was initiated by  Russ Miles  and Sylvain Hellegouarch , two engineers passionate about fluidity in\ncomplex systems. However, their vision is really to build a strong community  of engineer experiences to feedback\ninto the Chaos Toolkit.",
+            "title": "Who is behind the Chaos Toolkit?"
+        },
+        {
+            "location": "/faq/#what-is-the-license-of-the-chaos-toolkit",
+            "text": "Apache 2.0 .",
+            "title": "What is the license of the Chaos Toolkit?"
+        },
+        {
+            "location": "/faq/#how-can-i-contribute",
+            "text": "The Chaos Toolkit welcomes contributors! To help the project, please got to\nthe right project on  GitHub  and create an issue. If you feel like it,\ndo not hesitate to fork the right project, make a change and submit a \npull-request to the upstream project.",
+            "title": "How can I contribute?"
+        },
+        {
             "location": "/usage/install/",
             "text": "How to Install the Chaos Toolkit\n\u00b6\n\n\nYou can either install the chaostoolkit command line or run it directly as a\ncontainer. The former expects \nPython 3.5+\n properly\nsetup on your machine while the latter expects a tool implementing the\n\nOCI 1.0 specification\n, such as \nDocker\n or \nrunc\n.\n\n\nPython Requirements\n\u00b6\n\n\nchaostoolkit\n is implemented in Python 3 and this require a working Python\ninstallation to run. It officially supports Python 3.5+ but may work with\nother versions of the language. It has only been tested against CPython.\n\n\nInstall Python\n\u00b6\n\n\nInstall Python for your system:\n\n\nOn MacOSX:\n\n\n$ brew install python3\n\n\n\n\nOn Debian/Ubuntu:\n\n\n$ sudo apt-get install python3 python3-venv\n\n\n\n\nOn CentOS:\n\n\n$ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm\n$ sudo yum -y install python35\n\n\n\n\nOn Windows:\n\n\nDownload the latest binary installer\n from the Python website.\n\n\nCreate a virtual environment\n\u00b6\n\n\nDependencies can be installed for your system via its package management but,\nmore likely, you will want to install them yourself in a local virtual\nenvironment. Let\u2019s create first such a virtual environment:\n\n\n$ python3 -m venv ~/.venvs/chaostk\n\n\n\n\nMake sure to always activate your virtual environment before using it:\n\n\n$ source  ~/.venvs/chaostk/bin/activate\n\n\n\n\n\n\nTip\n\n\nYou may want to use \nvirtualenvwrapper\n to make this process much nicer.\n\n\n\n\nInstall the CLI\n\u00b6\n\n\nInstall \nchaostoolkit\n in the virtual environment as follows:\n\n\n(chaostk) $ pip install chaostoolkit\n\n\n\n\nYou can verify the command was installed by running:\n\n\n(chaostk) $ chaos --version\n\n\n\n\n\n\nActivate your virtual environment\n\n\nRemember to always activate your virtual environment before running the\n\nchaos\n command.\n\n\n\n\nDownload the container image\n\u00b6\n\n\nYou can run the chaostoolkit from a container rather than install it.\n\n\nFor instance, using \nDocker\n, you can pull the\n\nchaostoolkit image\n:\n\n\n$ docker pull chaostoolkit/chaostoolkit",
             "title": "Install"

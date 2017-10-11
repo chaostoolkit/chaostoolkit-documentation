@@ -7,7 +7,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
-        <meta name="description" content="Documentation for the Chaos Toolkit">
+        <meta name="description" content="Chaos Toolkit">
       
       
       
@@ -372,6 +372,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#background-activities" title="Background Activities" class="md-nav__link">
+    Background Activities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" title="Secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#structure-schema" title="Structure Schema" class="md-nav__link">
     Structure Schema
   </a>
@@ -477,6 +491,20 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#background-activities" title="Background Activities" class="md-nav__link">
+    Background Activities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#secrets" title="Secrets" class="md-nav__link">
+    Secrets
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#structure-schema" title="Structure Schema" class="md-nav__link">
     Structure Schema
   </a>
@@ -543,7 +571,7 @@ given point of your experiment.</p>
 <p>As seen before, the Chaos Toolkit defines two kinds of probes:</p>
 <ul>
 <li>steady probes: appropriate to observe the steady state of your system before
-  an action is trggered</li>
+  an action is triggered</li>
 <li>close probes: appropriate to observe the close state after an action is 
   triggered</li>
 </ul>
@@ -553,6 +581,43 @@ given point of your experiment.</p>
 maybe triggering a resource failure.</p>
 <p>Although an experiment can declare many actions, it is better to keep the
 hypothesis comprehensible to make the analysis simpler and conclusive.</p>
+<h3 id="background-activities">Background Activities<a class="headerlink" href="#background-activities" title="Permanent link">&para;</a></h3>
+<p>Activities run sequentially by default. Sometimes, you may wish to trigger an
+action and observe the system for a while. To do so, you can declare that
+activities are executed in background. The experiment will start tha backrground
+activity and move right away to the next activity. It will wait for all
+background activities to complete before terminating.</p>
+<p>To declare a background activity, add the following flag to its declaration:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;background&quot;</span><span class="err">:</span> <span class="kc">true</span>
+</pre></div>
+
+<h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
+<p>An experiment may require some secrets to pass to its activities when executed.
+The Chaos Toolkit supports for declaring those by either inlining the values
+in the experiment itself, or by referencing environmental variables.
+Eventually, it will likely support fetching secrets from products such as
+<a href="https://www.vaultproject.io">vault</a>.</p>
+<p>Declare secrets at the top of your experiment as follows:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;secrets&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;prometheus&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;env.PROMETHEUS_USERNAME&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;env.PROMETHEUS_PASSWORD&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Secrets are loaded when the experiment starts and fails if one of them cannot
+be found in the current environment.</p>
+<p>Then, reference it from any activity by using:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;secrets&quot;</span><span class="err">:</span> <span class="s2">&quot;prometheus&quot;</span>
+</pre></div>
+
+<p>The Chaos Toolkit, will inject those secrets down to the activity function.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Chaos Toolkit does not log secrets nor does it store them into the
+resulting report it generates.</p>
+</div>
 <h3 id="structure-schema">Structure Schema<a class="headerlink" href="#structure-schema" title="Permanent link">&para;</a></h3>
 <p>An experiment is stored in a JSON-encoded file. It has the following
 <a href="https://github.com/chaostoolkit/chaostoolkit-documentation/blob/master/schema.json">schema</a>.</p>

@@ -1,6 +1,6 @@
 site_name: Chaos Toolkit
 site_author: The chaostoolkit Team
-site_description: Documentation for the Chaos Toolkit
+site_description: Chaos Toolkit
 copyright: '&copy; 2017 chaostoolkit team'
 theme: material
 docs_dir: sources

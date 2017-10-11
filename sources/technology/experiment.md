@@ -47,7 +47,7 @@ given point of your experiment.
 As seen before, the Chaos Toolkit defines two kinds of probes:
 
 * steady probes: appropriate to observe the steady state of your system before
-  an action is trggered
+  an action is triggered
 * close probes: appropriate to observe the close state after an action is 
   triggered
 
@@ -61,6 +61,55 @@ maybe triggering a resource failure.
 Although an experiment can declare many actions, it is better to keep the
 hypothesis comprehensible to make the analysis simpler and conclusive.
 
+### Background Activities
+
+Activities run sequentially by default. Sometimes, you may wish to trigger an
+action and observe the system for a while. To do so, you can declare that
+activities are executed in background. The experiment will start tha backrground
+activity and move right away to the next activity. It will wait for all
+background activities to complete before terminating.
+
+To declare a background activity, add the following flag to its declaration:
+
+```json
+"background": true
+```
+
+### Secrets
+
+An experiment may require some secrets to pass to its activities when executed.
+The Chaos Toolkit supports for declaring those by either inlining the values
+in the experiment itself, or by referencing environmental variables.
+Eventually, it will likely support fetching secrets from products such as
+[vault][].
+
+[vault]: https://www.vaultproject.io
+
+Declare secrets at the top of your experiment as follows:
+
+```json
+"secrets": {
+    "prometheus": {
+        "username": "env.PROMETHEUS_USERNAME",
+        "password": "env.PROMETHEUS_PASSWORD"
+    }
+}
+```
+
+Secrets are loaded when the experiment starts and fails if one of them cannot
+be found in the current environment.
+
+Then, reference it from any activity by using:
+
+```json
+"secrets": "prometheus"
+```
+
+The Chaos Toolkit, will inject those secrets down to the activity function.
+
+!!! note
+    The Chaos Toolkit does not log secrets nor does it store them into the
+    resulting report it generates.
 
 ### Structure Schema
 

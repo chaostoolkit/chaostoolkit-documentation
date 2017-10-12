@@ -17,7 +17,7 @@ to share with your team.
 
 The Chaos Toolkit aims at simplifying your journey through the
 [Principles of Chaos Engineering][principles] and more generally considers that
-you should embrace continuously observe and poke your system to empower your
+you should embrace continuously observing and poking your system to empower your
 team in face of adversity.
 
 ## Come join the Chaos Toolkit community

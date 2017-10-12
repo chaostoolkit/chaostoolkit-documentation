@@ -6,7 +6,7 @@ applications.
 
 Running experiments is as simple as:
 
-```
+```sh
 $ chaos run an-experiment.json
 ```
 

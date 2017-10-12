@@ -8,6 +8,8 @@ google_analytics:
   - UA-107338053-1
   - auto
 markdown_extensions:
+  - markdown_include.include:
+      base_path: "sources/shared"
   - admonition
   - codehilite(guess_lang=false, linenums=false)
   - def_list
@@ -46,6 +48,7 @@ pages:
     - Install: usage/install.md
     - Upgrade: usage/upgrade.md
     - Run: usage/running.md
+    - Tutorials: usage/tutorial.md
 - Technology:
     - Overview: technology/index.md
     - Experiment: technology/experiment.md

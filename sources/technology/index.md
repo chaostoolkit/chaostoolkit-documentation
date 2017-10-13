@@ -82,14 +82,27 @@ documents.
 In addition to the core projects, the Chaos Toolkit manages some extension
 projects which provide probes and/or actions for experiments.
 
-#### chaostoolkit-kubernetes-support
+#### chaostoolkit-kubernetes
 
-The [chaostoolkit-kubernetes-support][chaoskube] implements probes and actions
+The [chaostoolkit-kubernetes][chaoskube] implements probes and actions
 for experiments targetting a [Kubernetes][kubernetes] cluster. Those activities
 are implemented as Python functions.
 
-[chaoskube]: https://github.com/chaostoolkit/chaostoolkit-kubernetes-support
+[chaoskube]: https://github.com/chaostoolkit/chaostoolkit-kubernetes
 [kubernetes]: https://kubernetes.io/
+
+This project is implemented in Python 3.
+
+#### chaostoolkit-gremlin
+
+The [chaostoolkit-gremlin][chaosgremlin] implements actions
+for experiments exploring resource failures (CPU, Memory, Network...) in their
+system through the [Gremlin, Inc.][gremlin] services. Those activities
+are implemented as Python functions talking to the [Gremlin API][gremlinapi].
+
+[chaoskube]: https://github.com/chaostoolkit/chaostoolkit-gremlin
+[gremlin]: https://gremlininc.com/
+[gremlinapi]: https://help.gremlininc.com/api/
 
 This project is implemented in Python 3.
 

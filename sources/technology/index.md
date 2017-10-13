@@ -100,7 +100,7 @@ for experiments exploring resource failures (CPU, Memory, Network...) in their
 system through the [Gremlin, Inc.][gremlin] services. Those activities
 are implemented as Python functions talking to the [Gremlin API][gremlinapi].
 
-[chaoskube]: https://github.com/chaostoolkit/chaostoolkit-gremlin
+[chaosgremlin]: https://github.com/chaostoolkit/chaostoolkit-gremlin
 [gremlin]: https://gremlininc.com/
 [gremlinapi]: https://help.gremlininc.com/api/
 

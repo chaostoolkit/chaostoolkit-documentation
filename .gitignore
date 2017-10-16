@@ -108,3 +108,7 @@ docs/site/
 
 # pytest results
 junit-test-results.xml
+
+
+sources/shared/**/chaos-report.json
+sources/shared/**/*.dat*

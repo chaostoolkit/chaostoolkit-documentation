@@ -17,8 +17,49 @@ adapt to the situation at hand.
 
 In many countries, fire alarm tests are conducted at random in offices so 
 people learn how to react well for the benefit of everyone. Software systems
-should go through the same exercises . The Chaos Toolkit hopes to make it 
+should go through the same exercises. The Chaos Toolkit hopes to make it 
 simple and safe to run experiments like these.
+
+### Engaging the team and organisation
+
+Chaos engineering aims at making you learn from your system. This is not a lone
+activity but a team, potentially the whole organisation, endeavour.
+
+Indeed, a hypothesis you could set the hypothesis "we have been hacked and lost
+users sensitive data, we should issue a statement we are doing everything to
+fix the problem within 15mn". This experiment is not really technical but
+organisational: is the chain of information and command working effectively?
+
+### Isn't it testing?
+
+We do not consider testing and chaos engineering to conflict with each other.
+They both provide useful and actionable feedback. Where they differ is their
+objective. 
+
+Testing is a process that aims at telling you if your application,
+within controlled boundaries, runs as expected. 
+
+Chaos engineering is a displine of posing a hypothesis before collecting
+evidence to reject or accept that hypothesis.
+
+A test is sort of an hypothesis in its own. The difference lies in the
+experimental approach of the chaos engineering displine. It asks a question and
+then observe the system to see if we can answer that question positively or
+negatively.
+
+Incidentaly, some forms of testing are not too dissmilar to a chaos engineering
+experiment. Say for instance, you run a load testing. Your hypothesis is that
+response time should not be impacted under load. By running your experiment,
+you may answer that question.
+
+### Isn't it monitoring?
+
+Much like chaos engineering is not testing, it should not be conflated with
+monitoring. If anything, chaos engineering strives for good monitoring for it
+helps observing the system during the experiment.
+
+Monitoring surfaces, informs and may even react to confitions in your system.
+But this is not answering a question like chaos engineering tries to do.
 
 ### Why a toolkit?
 

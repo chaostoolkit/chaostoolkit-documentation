@@ -106,6 +106,18 @@ are implemented as Python functions talking to the [Gremlin API][gremlinapi].
 
 This project is implemented in Python 3.
 
+#### chaostoolkit-prometheus
+
+The [chaostoolkit-prometheus][chaosprom] project implements probes to fetch
+information from your system through [Prometheus][prometheus]. Those probes
+are implemented as Python functions talking to the [Prometheus API][promapi].
+
+[chaosprom]: https://github.com/chaostoolkit/chaostoolkit-prometheus
+[prometheus]: https://prometheus.io/
+[promapi]: https://prometheus.io/docs/querying/api/
+
+This project is implemented in Python 3.
+
 ### Technical Choices
 
 #### Python 3

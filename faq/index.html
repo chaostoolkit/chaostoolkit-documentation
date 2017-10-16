@@ -238,6 +238,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#engaging-the-team-and-organisation" title="Engaging the team and organisation" class="md-nav__link">
+    Engaging the team and organisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnt-it-testing" title="Isn't it testing?" class="md-nav__link">
+    Isn't it testing?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnt-it-monitoring" title="Isn't it monitoring?" class="md-nav__link">
+    Isn't it monitoring?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#why-a-toolkit" title="Why a toolkit?" class="md-nav__link">
     Why a toolkit?
   </a>
@@ -464,6 +485,27 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#engaging-the-team-and-organisation" title="Engaging the team and organisation" class="md-nav__link">
+    Engaging the team and organisation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnt-it-testing" title="Isn't it testing?" class="md-nav__link">
+    Isn't it testing?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#isnt-it-monitoring" title="Isn't it monitoring?" class="md-nav__link">
+    Isn't it monitoring?
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#why-a-toolkit" title="Why a toolkit?" class="md-nav__link">
     Why a toolkit?
   </a>
@@ -532,8 +574,37 @@ conditions arise does not give the time your team needs to handle, learn and
 adapt to the situation at hand.</p>
 <p>In many countries, fire alarm tests are conducted at random in offices so 
 people learn how to react well for the benefit of everyone. Software systems
-should go through the same exercises . The Chaos Toolkit hopes to make it 
+should go through the same exercises. The Chaos Toolkit hopes to make it 
 simple and safe to run experiments like these.</p>
+<h3 id="engaging-the-team-and-organisation">Engaging the team and organisation<a class="headerlink" href="#engaging-the-team-and-organisation" title="Permanent link">&para;</a></h3>
+<p>Chaos engineering aims at making you learn from your system. This is not a lone
+activity but a team, potentially the whole organisation, endeavour.</p>
+<p>Indeed, a hypothesis you could set the hypothesis &ldquo;we have been hacked and lost
+users sensitive data, we should issue a statement we are doing everything to
+fix the problem within 15mn&rdquo;. This experiment is not really technical but
+organisational: is the chain of information and command working effectively?</p>
+<h3 id="isnt-it-testing">Isn&rsquo;t it testing?<a class="headerlink" href="#isnt-it-testing" title="Permanent link">&para;</a></h3>
+<p>We do not consider testing and chaos engineering to conflict with each other.
+They both provide useful and actionable feedback. Where they differ is their
+objective. </p>
+<p>Testing is a process that aims at telling you if your application,
+within controlled boundaries, runs as expected. </p>
+<p>Chaos engineering is a displine of posing a hypothesis before collecting
+evidence to reject or accept that hypothesis.</p>
+<p>A test is sort of an hypothesis in its own. The difference lies in the
+experimental approach of the chaos engineering displine. It asks a question and
+then observe the system to see if we can answer that question positively or
+negatively.</p>
+<p>Incidentaly, some forms of testing are not too dissmilar to a chaos engineering
+experiment. Say for instance, you run a load testing. Your hypothesis is that
+response time should not be impacted under load. By running your experiment,
+you may answer that question.</p>
+<h3 id="isnt-it-monitoring">Isn&rsquo;t it monitoring?<a class="headerlink" href="#isnt-it-monitoring" title="Permanent link">&para;</a></h3>
+<p>Much like chaos engineering is not testing, it should not be conflated with
+monitoring. If anything, chaos engineering strives for good monitoring for it
+helps observing the system during the experiment.</p>
+<p>Monitoring surfaces, informs and may even react to confitions in your system.
+But this is not answering a question like chaos engineering tries to do.</p>
 <h3 id="why-a-toolkit">Why a toolkit?<a class="headerlink" href="#why-a-toolkit" title="Permanent link">&para;</a></h3>
 <p>Currently, running experiments is not an easy task because the ecosystem is 
 still fairly young. Complex cases have been demonstrated at large corporations

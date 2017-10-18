@@ -1,6 +1,6 @@
 {
     "title": "Does our service tolerate the loss of its exchange file?",
-    "description": "Our srevice reads data from an exchange file, can it support that file disappearing?",
+    "description": "Our service reads data from an exchange file, can it support that file disappearing?",
     "method": [
         {
             "title": "Is the file currently where it ought to be?",
@@ -14,6 +14,7 @@
                     "arguments": {
                         "path": "./exchange.dat"
                     }
+             
                 }
             }
         },
@@ -32,12 +33,13 @@
             }
         },
         {
-            "title": "Our service should not break",
+            "title": "Our service should either respond or tell us it is not available",
             "probes": {
                 "steady": {
                     "title": "Calling our service",
                     "layer": "application",
                     "type": "http",
+                    "expected_status": 503,
                     "url": "http://localhost:8080/"
                 }
             }

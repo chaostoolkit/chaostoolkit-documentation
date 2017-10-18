@@ -106,16 +106,19 @@ the last probe performs a HTTP call on your behalf. Please review the
 To run the experiment, use the `chaostoolkit` CLI as follows:
 
 ```sh
-$ chaos run experiment.json
-[2017-10-12 10:17:42 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
-[2017-10-12 10:17:42 INFO] Loading secrets...
-[2017-10-12 10:17:42 INFO] Steady State: Looking for data file
-[2017-10-12 10:17:42 INFO] Steady State succeeded
-[2017-10-12 10:17:42 INFO] Action: Move the configuration to a different name
-[2017-10-12 10:17:42 INFO] Action succeeded
-[2017-10-12 10:17:42 INFO] Steady State: Calling our service
-[2017-10-12 10:17:42 ERROR] Steady State failed: A server error occurred.  Please contact the administrator.
-[2017-10-12 10:17:42 INFO] Experiment is now complete
+(chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
+[2017-10-18 15:37:40 WARNING] Moving to sources/shared/snippets/tutorials
+[2017-10-18 15:37:40 INFO] Experiment: Does our service tolerate the loss of its exchange file?
+[2017-10-18 15:37:40 INFO] Step: Is the file currently where it ought to be?
+[2017-10-18 15:37:40 INFO]   Steady State: Looking for data file
+[2017-10-18 15:37:40 INFO]   => succeeded with 'True'
+[2017-10-18 15:37:40 INFO] Step: Next, we pretend that configuration is gone
+[2017-10-18 15:37:40 INFO]   Action: Move the configuration to a different name
+[2017-10-18 15:37:40 INFO]   => succeeded with 'None'
+[2017-10-18 15:37:40 INFO] Step: Our service should either respond or tell us it is not available
+[2017-10-18 15:37:40 INFO]   Steady State: Calling our service
+[2017-10-18 15:37:40 ERROR]    => failed: A server error occurred.  Please contact the administrator.
+[2017-10-18 15:37:40 INFO] Experiment is now complete
 ```
 
 Notice the error towards the end, it tells us the service failed with an
@@ -153,16 +156,19 @@ it easy for the benefit of this tutorial.
 Let's run again our experiment now that we have fixed and restart our service:
 
 ```sh
-$ chaos run experiment.json
-[2017-10-12 10:18:09 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
-[2017-10-12 10:18:09 INFO] Loading secrets...
-[2017-10-12 10:18:09 INFO] Steady State: Looking for data file
-[2017-10-12 10:18:09 INFO] Steady State succeeded
-[2017-10-12 10:18:09 INFO] Action: Move the configuration to a different name
-[2017-10-12 10:18:09 INFO] Action succeeded
-[2017-10-12 10:18:09 INFO] Steady State: Calling our service
-[2017-10-12 10:18:09 ERROR] Steady State failed: Exchange file is not ready
-[2017-10-12 10:18:09 INFO] Experiment is now complete
+(chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
+[2017-10-18 15:38:51 WARNING] Moving to sources/shared/snippets/tutorials
+[2017-10-18 15:38:51 INFO] Experiment: Does our service tolerate the loss of its exchange file?
+[2017-10-18 15:38:51 INFO] Step: Is the file currently where it ought to be?
+[2017-10-18 15:38:51 INFO]   Steady State: Looking for data file
+[2017-10-18 15:38:51 INFO]   => succeeded with 'True'
+[2017-10-18 15:38:51 INFO] Step: Next, we pretend that configuration is gone
+[2017-10-18 15:38:51 INFO]   Action: Move the configuration to a different name
+[2017-10-18 15:38:51 INFO]   => succeeded with 'None'
+[2017-10-18 15:38:51 INFO] Step: Our service should either respond or tell us it is not available
+[2017-10-18 15:38:51 INFO]   Steady State: Calling our service
+[2017-10-18 15:38:51 INFO]   => succeeded with 'Exchange file is not ready'
+[2017-10-18 15:38:51 INFO] Experiment is now complete
 ```
 
 Notice the error towards the end, it tells us the service failed still but now

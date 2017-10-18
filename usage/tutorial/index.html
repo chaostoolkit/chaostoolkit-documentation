@@ -642,7 +642,7 @@ documentation.</p>
 <p>Below is the experiment for our hypothesis:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Does our service tolerate the loss of its exchange file?&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Our srevice reads data from an exchange file, can it support that file disappearing?&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service reads data from an exchange file, can it support that file disappearing?&quot;</span><span class="p">,</span>
     <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Is the file currently where it ought to be?&quot;</span><span class="p">,</span>
@@ -656,6 +656,7 @@ documentation.</p>
                     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
                         <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./exchange.dat&quot;</span>
                     <span class="p">}</span>
+
                 <span class="p">}</span>
             <span class="p">}</span>
         <span class="p">},</span>
@@ -674,12 +675,13 @@ documentation.</p>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service should not break&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service should either respond or tell us it is not available&quot;</span><span class="p">,</span>
             <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Calling our service&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;application&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;expected_status&quot;</span><span class="p">:</span> <span class="mi">503</span><span class="p">,</span>
                     <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/&quot;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
@@ -706,16 +708,19 @@ the last probe performs a HTTP call on your behalf. Please review the
 <a href="../../technology/extend/">documentation</a> for other supported implementations.</p>
 <h4 id="run-your-experiment">Run your experiment<a class="headerlink" href="#run-your-experiment" title="Permanent link">&para;</a></h4>
 <p>To run the experiment, use the <code>chaostoolkit</code> CLI as follows:</p>
-<div class="codehilite"><pre><span></span>$ chaos run experiment.json
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Running experiment: Does our service tolerate the loss of its exchange file?
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Loading secrets...
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Steady State: Looking <span class="k">for</span> data file
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Steady State succeeded
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Action: Move the configuration to a different name
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Action succeeded
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Steady State: Calling our service
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 ERROR<span class="o">]</span> Steady State failed: A server error occurred.  Please contact the administrator.
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:17:42 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
+<div class="codehilite"><pre><span></span><span class="o">(</span>chaostk<span class="o">)</span> $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 WARNING<span class="o">]</span> Moving to sources/shared/snippets/tutorials
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Experiment: Does our service tolerate the loss of its exchange file?
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Is the file currently where it ought to be?
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Steady State: Looking <span class="k">for</span> data file
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;True&#39;</span>
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Next, we pretend that configuration is gone
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Action: Move the configuration to a different name
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;None&#39;</span>
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Our service should either respond or tell us it is not available
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Steady State: Calling our service
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 ERROR<span class="o">]</span>    <span class="o">=</span>&gt; failed: A server error occurred.  Please contact the administrator.
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
 </pre></div>
 
 <p>Notice the error towards the end, it tells us the service failed with an
@@ -793,16 +798,19 @@ checked for the path and the time we read content at that location. We keep
 it easy for the benefit of this tutorial.</p>
 <h4 id="run-your-experiment-again">Run your experiment again<a class="headerlink" href="#run-your-experiment-again" title="Permanent link">&para;</a></h4>
 <p>Let&rsquo;s run again our experiment now that we have fixed and restart our service:</p>
-<div class="codehilite"><pre><span></span>$ chaos run experiment.json
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Running experiment: Does our service tolerate the loss of its exchange file?
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Loading secrets...
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Steady State: Looking <span class="k">for</span> data file
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Steady State succeeded
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Action: Move the configuration to a different name
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Action succeeded
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Steady State: Calling our service
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 ERROR<span class="o">]</span> Steady State failed: Exchange file is not ready
-<span class="o">[</span><span class="m">2017</span>-10-12 <span class="m">10</span>:18:09 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
+<div class="codehilite"><pre><span></span><span class="o">(</span>chaostk<span class="o">)</span> $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 WARNING<span class="o">]</span> Moving to sources/shared/snippets/tutorials
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Experiment: Does our service tolerate the loss of its exchange file?
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Is the file currently where it ought to be?
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Steady State: Looking <span class="k">for</span> data file
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;True&#39;</span>
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Next, we pretend that configuration is gone
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Action: Move the configuration to a different name
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;None&#39;</span>
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Our service should either respond or tell us it is not available
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Steady State: Calling our service
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;Exchange file is not ready&#39;</span>
+<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
 </pre></div>
 
 <p>Notice the error towards the end, it tells us the service failed still but now

@@ -1,4 +1,4 @@
-# Welcome to the Chaos Toolkit Project
+# An Open API for Chaos Engineering
 
 The Chaos Toolkit is a free, open source project that enables you to create and
 apply Chaos Experiments to various types of infrastructure, platforms and
@@ -19,6 +19,9 @@ The Chaos Toolkit aims at simplifying your journey through the
 [Principles of Chaos Engineering][principles] and more generally considers that
 you should embrace continuously observing and poking your system to empower your
 team in face of adversity.
+
+The Chaos Toolkit proposes an Open API for Chaos Engineering that will federate
+communities around the discipline with a standard, open and evolutive API.
 
 ## Come join the Chaos Toolkit community
 

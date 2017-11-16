@@ -10,7 +10,7 @@ Running experiments is as simple as:
 $ chaos run an-experiment.json
 ```
 
-This takes the description of your experiment, runs it and ourput a reports
+This takes the description of your experiment, runs it and outputs a report
 to share with your team.
 
 ## Mission

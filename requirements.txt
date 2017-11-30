@@ -3,3 +3,5 @@ pygments
 pymdown-extensions
 mkdocs-material
 markdown-include
+jinja2
+yasha

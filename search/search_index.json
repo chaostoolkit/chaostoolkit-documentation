@@ -237,7 +237,7 @@
         },
         {
             "location": "/usage/latest/",
-            "text": "The latest release of the \nchaostoolkit\n is \n\n0.2.7\n.\n\n\nYou can upgrade as follows:\n\n\n$\n pip install -U chaostoolkit\n\n\n\n\nPlease, read the\n\nCHANGELOG\n\nfor more information regarding that release.",
+            "text": "The latest release of the \nchaostoolkit\n is \n\n0.2.8\n.\n\n\nYou can upgrade as follows:\n\n\n$\n pip install -U chaostoolkit\n\n\n\n\nPlease, read the\n\nCHANGELOG\n\nfor more information regarding that release.",
             "title": "Latest Release"
         },
         {

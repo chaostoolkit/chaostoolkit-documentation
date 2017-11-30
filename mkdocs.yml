@@ -49,6 +49,7 @@ pages:
     - Upgrade: usage/upgrade.md
     - Run: usage/running.md
     - Tutorials: usage/tutorial.md
+    - Latest Release: usage/releases.md
 - Technology:
     - Overview: technology/index.md
     - Experiment: technology/experiment.md

@@ -236,8 +236,8 @@
             "title": "Go further"
         },
         {
-            "location": "/usage/releases/",
-            "text": "You will now be redirected to the latest release of the chaostoolkit\nautomatically. If you are not, please follow this\n\nlink\n.\n\n\nwindow.location.replace(\"https://github.com/chaostoolkit/chaostoolkit/releases/latest\");",
+            "location": "/usage/latest/",
+            "text": "The latest release of the \nchaostoolkit\n is \n\nnull\n.\n\n\nYou can upgrade as follows:\n\n\n$\n pip install -U chaostoolkit\n\n\n\n\nPlease, read the\n\nCHANGELOG\n\nfor more information regarding that release.",
             "title": "Latest Release"
         },
         {

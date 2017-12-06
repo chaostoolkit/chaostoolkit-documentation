@@ -38,7 +38,8 @@ extra:
       link: https://twitter.com/chaostoolkit
     - type: slack
       link: https://join.chaostoolkit.org/
-
+  repo_name: chaostoolkit
+  repo_url: https://github.com/chaostoolkit/chaostoolkit
 pages:
 - Overview:
     - Introduction: index.md

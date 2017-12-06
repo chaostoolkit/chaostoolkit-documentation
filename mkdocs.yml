@@ -7,6 +7,8 @@ docs_dir: sources
 google_analytics:
   - UA-107338053-1
   - auto
+repo_name: chaostoolkit
+repo_url: https://github.com/chaostoolkit/chaostoolkit
 markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
@@ -38,8 +40,6 @@ extra:
       link: https://twitter.com/chaostoolkit
     - type: slack
       link: https://join.chaostoolkit.org/
-  repo_name: chaostoolkit
-  repo_url: https://github.com/chaostoolkit/chaostoolkit
 pages:
 - Overview:
     - Introduction: index.md

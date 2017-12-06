@@ -24,11 +24,13 @@ function is as follows:
 
 ```json
 {
-    "type": "python",
-    "module": "os.path",
-    "func": "exists",
-    "arguments": {
-        "path": "/some/path"
+    "provider": {
+        "type": "python",
+        "module": "os.path",
+        "func": "exists",
+        "arguments": {
+            "path": "/some/path"
+        }
     }
 }
 ```
@@ -50,10 +52,12 @@ for a process is as follows:
 
 ```json
 {
-    "type": "process",
-    "path": "/sbin/ip",
-    "arguments": {
-        "-a": null
+    "provider": {
+        "type": "process",
+        "path": "/sbin/ip",
+        "arguments": {
+            "-a": null
+        }
     }
 }
 ```
@@ -76,14 +80,16 @@ follows:
 
 ```json
 {
-    "type": "http",
-    "url": "http://httpbin.org/post",
-    "method": "POST",
-    "headers": {
-        "accept": "application/json"
-    },
-    "arguments": {
-        "name": "john" 
+    "provider": {
+        "type": "http",
+        "url": "http://httpbin.org/post",
+        "method": "POST",
+        "headers": {
+            "accept": "application/json"
+        },
+        "arguments": {
+            "name": "john" 
+        }
     }
 }
 ```

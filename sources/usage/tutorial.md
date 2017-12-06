@@ -107,18 +107,20 @@ To run the experiment, use the `chaostoolkit` CLI as follows:
 
 ```sh
 (chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-[2017-10-18 15:37:40 WARNING] Moving to sources/shared/snippets/tutorials
-[2017-10-18 15:37:40 INFO] Experiment: Does our service tolerate the loss of its exchange file?
-[2017-10-18 15:37:40 INFO] Step: Is the file currently where it ought to be?
-[2017-10-18 15:37:40 INFO]   Steady State: Looking for data file
-[2017-10-18 15:37:40 INFO]   => succeeded with 'True'
-[2017-10-18 15:37:40 INFO] Step: Next, we pretend that configuration is gone
-[2017-10-18 15:37:40 INFO]   Action: Move the configuration to a different name
-[2017-10-18 15:37:40 INFO]   => succeeded with 'None'
-[2017-10-18 15:37:40 INFO] Step: Our service should either respond or tell us it is not available
-[2017-10-18 15:37:40 INFO]   Steady State: Calling our service
-[2017-10-18 15:37:40 ERROR]    => failed: A server error occurred.  Please contact the administrator.
-[2017-10-18 15:37:40 INFO] Experiment is now complete
+[2017-12-06 16:12:17 INFO] Validating experiment's syntax
+[2017-12-06 16:12:17 INFO] Experiment looks valid
+[2017-12-06 16:12:17 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
+[2017-12-06 16:12:17 INFO] Steady state hypothesis: The exchange file must exist
+[2017-12-06 16:12:17 INFO] Probe: exchange-file-exists
+[2017-12-06 16:12:17 INFO]   => succeeded with 'True'
+[2017-12-06 16:12:17 INFO] Steady state hypothesis is met, we can carry on!
+[2017-12-06 16:12:17 INFO] Action: move-exchange-file
+[2017-12-06 16:12:17 INFO]   => succeeded without any result value
+[2017-12-06 16:12:17 INFO] Probe: service-is-unavailable
+[2017-12-06 16:12:17 ERROR]    => failed: A server error occurred.  Please contact the administrator.
+[2017-12-06 16:12:17 INFO] Experiment is now complete. Let's rollback...
+[2017-12-06 16:12:17 INFO] No declared rollbacks, let's move on.
+[2017-12-06 16:12:17 INFO] Experiment is now completed
 ```
 
 Notice the error towards the end, it tells us the service failed with an
@@ -157,18 +159,20 @@ Let's run again our experiment now that we have fixed and restart our service:
 
 ```sh
 (chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-[2017-10-18 15:38:51 WARNING] Moving to sources/shared/snippets/tutorials
-[2017-10-18 15:38:51 INFO] Experiment: Does our service tolerate the loss of its exchange file?
-[2017-10-18 15:38:51 INFO] Step: Is the file currently where it ought to be?
-[2017-10-18 15:38:51 INFO]   Steady State: Looking for data file
-[2017-10-18 15:38:51 INFO]   => succeeded with 'True'
-[2017-10-18 15:38:51 INFO] Step: Next, we pretend that configuration is gone
-[2017-10-18 15:38:51 INFO]   Action: Move the configuration to a different name
-[2017-10-18 15:38:51 INFO]   => succeeded with 'None'
-[2017-10-18 15:38:51 INFO] Step: Our service should either respond or tell us it is not available
-[2017-10-18 15:38:51 INFO]   Steady State: Calling our service
-[2017-10-18 15:38:51 INFO]   => succeeded with 'Exchange file is not ready'
-[2017-10-18 15:38:51 INFO] Experiment is now complete
+[2017-12-06 16:12:32 INFO] Validating experiment's syntax
+[2017-12-06 16:12:32 INFO] Experiment looks valid
+[2017-12-06 16:12:32 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
+[2017-12-06 16:12:32 INFO] Steady state hypothesis: The exchange file must exist
+[2017-12-06 16:12:32 INFO] Probe: exchange-file-exists
+[2017-12-06 16:12:32 INFO]   => succeeded with 'True'
+[2017-12-06 16:12:32 INFO] Steady state hypothesis is met, we can carry on!
+[2017-12-06 16:12:32 INFO] Action: move-exchange-file
+[2017-12-06 16:12:32 INFO]   => succeeded without any result value
+[2017-12-06 16:12:32 INFO] Probe: service-is-unavailable
+[2017-12-06 16:12:32 INFO]   => succeeded with 'Exchange file is not ready'
+[2017-12-06 16:12:32 INFO] Experiment is now complete. Let's rollback...
+[2017-12-06 16:12:32 INFO] No declared rollbacks, let's move on.
+[2017-12-06 16:12:32 INFO] Experiment is now completed
 ```
 
 Notice the error towards the end, it tells us the service failed still but now

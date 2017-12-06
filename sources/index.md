@@ -7,7 +7,7 @@ applications.
 Running experiments is as simple as:
 
 ```sh
-$ chaos run an-experiment.json
+$ chaos run experiment.json
 ```
 
 This takes the description of your experiment, runs it and outputs a report

@@ -226,8 +226,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#target-layers" title="Target Layers" class="md-nav__link">
-    Target Layers
+  <a href="#steady-state-hypothesis" title="Steady State Hypothesis" class="md-nav__link">
+    Steady State Hypothesis
   </a>
   
 </li>
@@ -249,6 +249,13 @@
         <li class="md-nav__item">
   <a href="#actions" title="Actions" class="md-nav__link">
     Actions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rollbacks" title="Rollbacks" class="md-nav__link">
+    Rollbacks
   </a>
   
 </li>
@@ -451,8 +458,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#target-layers" title="Target Layers" class="md-nav__link">
-    Target Layers
+  <a href="#steady-state-hypothesis" title="Steady State Hypothesis" class="md-nav__link">
+    Steady State Hypothesis
   </a>
   
 </li>
@@ -478,6 +485,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#rollbacks" title="Rollbacks" class="md-nav__link">
+    Rollbacks
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -494,87 +508,98 @@
                 
                 
                 <h1 id="chaos-engeering-concepts-in-the-chaos-toolkit">Chaos Engeering Concepts in the Chaos Toolkit<a class="headerlink" href="#chaos-engeering-concepts-in-the-chaos-toolkit" title="Permanent link">&para;</a></h1>
-<p>If you haven&rsquo;t already, we strongly recommend reading the fantastic <a href="http://www.oreilly.com/webops-perf/free/chaos-engineering.csp">Chaos Engineering</a> book from O&rsquo;Reilly Media. This book will give you some fantastic background on the whole Chaos Engineering discipline, and it&rsquo;s free!</p>
-<p>Chaos Engineering is a discipline that allows you to surface weaknesses, and eventually build confidence, in complex and often distributed systems. </p>
-<p>The Chaos Toolkit aims to give you the simplest experience for writing and running your own Chaos Engineering experiments. The main concepts are all expressed in an experiment definition, of which the following is an example from the <a href="https://github.com/chaostoolkit/chaostoolkit-samples">Chaos Toolkit Samples</a> project:</p>
+<p>If you haven&rsquo;t already, we strongly recommend reading the fantastic
+<a href="http://www.oreilly.com/webops-perf/free/chaos-engineering.csp">Chaos Engineering</a> book from O&rsquo;Reilly Media. This
+book will give you some fantastic background on the whole Chaos Engineering
+discipline, and it&rsquo;s free!</p>
+<p>Chaos Engineering is a discipline that allows you to surface weaknesses, and
+eventually build confidence, in complex and often distributed systems. </p>
+<p>The Chaos Toolkit aims to give you the simplest experience for writing and
+running your own Chaos Engineering experiments. The main concepts are all
+expressed in an experiment definition, of which the following is an example
+from the
+<a href="https://github.com/chaostoolkit/chaostoolkit-samples">Chaos Toolkit Samples</a>
+project:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;System is resilient to provider&#39;s failures&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Can our consumer survive gracefully a provider&#39;s failure?&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;target-layers&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;platforms&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span> <span class="p">}</span>
-        <span class="p">],</span>
-        <span class="nt">&quot;applications&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span> <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;spring&quot;</span> <span class="p">}</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;service&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;spring&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Services are all available and healthy&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-services-are-healthy&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;all_microservices_healthy&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
         <span class="p">]</span>
     <span class="p">},</span>
     <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Checking our system is healthy&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservices-all-healthy&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Killing the provider abruptly&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;kill-microservice&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-provider-service&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;kill_microservice&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-provider-service&quot;</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">10</span>
                 <span class="p">}</span>
             <span class="p">},</span>
-            <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-available-and-healthy&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-provider-service&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">},</span>
-                <span class="nt">&quot;close&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-is-not-available&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-provider-service&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
+            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">10</span>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Consumer should not be impacted by provider&#39;s failure&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;spring&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;endpoint-should-respond-ok&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://192.168.99.100:32220/invokeConsumedService&quot;</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
+            <span class="nt">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;all-services-are-healthy&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;consumer-service-must-still-respond&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://192.168.42.58:31018/invokeConsumedService&quot;</span>
             <span class="p">}</span>
         <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;rollbacks&quot;</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
 </pre></div>
 
-<p>The key concepts of the Chaos Toolkit are <code>Experiments</code>, <code>Target Layers</code> and the experiment&rsquo;s <code>Method</code>. The <code>Method</code> contains a combination of <code>Probes</code> and <code>Actions</code>.</p>
+<p>The key concepts of the Chaos Toolkit are <code>Experiments</code>,
+<code>Steady State Hypothesis</code> and the experiment&rsquo;s <code>Method</code>. The <code>Method</code>
+contains a combination of <code>Probes</code> and <code>Actions</code>.</p>
 <h2 id="experiments">Experiments<a class="headerlink" href="#experiments" title="Permanent link">&para;</a></h2>
-<p>A Chaos Toolkit experiment is provided in a single file and is currently expressed in JSON.</p>
-<h2 id="target-layers">Target Layers<a class="headerlink" href="#target-layers" title="Permanent link">&para;</a></h2>
-<p>A target layer is in fact a collection of extensions that allow the experiment to target specific systems to apply the experiment to. Out of the box support for Kubernetes (Platform layer) and Spring (Application Layer) is currently provided and we intend to extend this out rapidly into other technologies.</p>
-<p>When you execute an experiment&rsquo;s probes and actions it is against a particular target layer.</p>
+<p>A Chaos Toolkit experiment is provided in a single file and is currently
+expressed in JSON.</p>
+<h2 id="steady-state-hypothesis">Steady State Hypothesis<a class="headerlink" href="#steady-state-hypothesis" title="Permanent link">&para;</a></h2>
+<p>A Steady State Hypothesis describes &ldquo;what normal looks like&rdquo; for your system
+in order for the experiment to surface information you can make sense of.</p>
+<p>Indeed, should your system be already in a broken state, your experiment
+could be difficult to interpret.</p>
+<p>There is a single Steady State Hypothesis per experiment and is made of
+probes. If any of those fail, the experiment is halted.</p>
 <h2 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h2>
 <p>An experiment&rsquo;s activities are contained within its <code>Method</code> block.</p>
 <h2 id="probes">Probes<a class="headerlink" href="#probes" title="Permanent link">&para;</a></h2>
-<p>A probe is a way of observing a particular set of conditions in the system that is undergoing experimentation.</p>
+<p>A probe is a way of observing a particular set of conditions in the system that
+is undergoing experimentation.</p>
 <h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
-<p>An action is a particular activity that needs to be enacted on the system under experimentation.</p>
+<p>An action is a particular activity that needs to be enacted on the system under
+experimentation.</p>
+<h2 id="rollbacks">Rollbacks<a class="headerlink" href="#rollbacks" title="Permanent link">&para;</a></h2>
+<p>An experiment may define a sequence of actions that revert what was undone
+during the experiment.</p>
                 
                   
                 

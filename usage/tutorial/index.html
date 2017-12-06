@@ -666,28 +666,33 @@ documentation.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Does our service tolerate the loss of its exchange file?&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service reads data from an exchange file, can it support that file disappearing?&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Is the file currently where it ought to be?&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Looking for data file&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;application&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;tutorial&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;filesystem&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The exchange file must exist&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;exchange-file-exists&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
                         <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;./exchange.dat&quot;</span>
                     <span class="p">}</span>
-
                 <span class="p">}</span>
             <span class="p">}</span>
-        <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Next, we pretend that configuration is gone&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;action&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Move the configuration to a different name&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;application&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;move-exchange-file&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;rename&quot;</span><span class="p">,</span>
@@ -698,15 +703,12 @@ documentation.</p>
             <span class="p">}</span>
         <span class="p">},</span>
         <span class="p">{</span>
-            <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service should either respond or tell us it is not available&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;steady&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Calling our service&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;layer&quot;</span><span class="p">:</span> <span class="s2">&quot;application&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;expected_status&quot;</span><span class="p">:</span> <span class="mi">503</span><span class="p">,</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/&quot;</span>
-                <span class="p">}</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;service-is-unavailable&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;expected_status&quot;</span><span class="p">:</span> <span class="mi">503</span><span class="p">,</span>
+                <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/&quot;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">]</span>
@@ -732,18 +734,20 @@ the last probe performs a HTTP call on your behalf. Please review the
 <h4 id="run-your-experiment">Run your experiment<a class="headerlink" href="#run-your-experiment" title="Permanent link">&para;</a></h4>
 <p>To run the experiment, use the <code>chaostoolkit</code> CLI as follows:</p>
 <div class="codehilite"><pre><span></span><span class="o">(</span>chaostk<span class="o">)</span> $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 WARNING<span class="o">]</span> Moving to sources/shared/snippets/tutorials
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Experiment: Does our service tolerate the loss of its exchange file?
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Is the file currently where it ought to be?
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Steady State: Looking <span class="k">for</span> data file
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;True&#39;</span>
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Next, we pretend that configuration is gone
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Action: Move the configuration to a different name
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;None&#39;</span>
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Step: Our service should either respond or tell us it is not available
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span>   Steady State: Calling our service
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 ERROR<span class="o">]</span>    <span class="o">=</span>&gt; failed: A server error occurred.  Please contact the administrator.
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:37:40 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:17 INFO<span class="o">]</span> Validating experiment<span class="s1">&#39;s syntax</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Experiment looks valid</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Running experiment: Does our service tolerate the loss of its exchange file?</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Steady state hypothesis: The exchange file must exist</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Probe: exchange-file-exists</span>
+<span class="s1">[2017-12-06 16:12:17 INFO]   =&gt; succeeded with &#39;</span>True<span class="s1">&#39;</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Steady state hypothesis is met, we can carry on!</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Action: move-exchange-file</span>
+<span class="s1">[2017-12-06 16:12:17 INFO]   =&gt; succeeded without any result value</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Probe: service-is-unavailable</span>
+<span class="s1">[2017-12-06 16:12:17 ERROR]    =&gt; failed: A server error occurred.  Please contact the administrator.</span>
+<span class="s1">[2017-12-06 16:12:17 INFO] Experiment is now complete. Let&#39;</span>s rollback...
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:17 INFO<span class="o">]</span> No declared rollbacks, let<span class="err">&#39;</span>s move on.
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:17 INFO<span class="o">]</span> Experiment is now completed
 </pre></div>
 
 <p>Notice the error towards the end, it tells us the service failed with an
@@ -822,18 +826,20 @@ it easy for the benefit of this tutorial.</p>
 <h4 id="run-your-experiment-again">Run your experiment again<a class="headerlink" href="#run-your-experiment-again" title="Permanent link">&para;</a></h4>
 <p>Let&rsquo;s run again our experiment now that we have fixed and restart our service:</p>
 <div class="codehilite"><pre><span></span><span class="o">(</span>chaostk<span class="o">)</span> $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 WARNING<span class="o">]</span> Moving to sources/shared/snippets/tutorials
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Experiment: Does our service tolerate the loss of its exchange file?
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Is the file currently where it ought to be?
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Steady State: Looking <span class="k">for</span> data file
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;True&#39;</span>
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Next, we pretend that configuration is gone
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Action: Move the configuration to a different name
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;None&#39;</span>
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Step: Our service should either respond or tell us it is not available
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   Steady State: Calling our service
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span>   <span class="o">=</span>&gt; succeeded with <span class="s1">&#39;Exchange file is not ready&#39;</span>
-<span class="o">[</span><span class="m">2017</span>-10-18 <span class="m">15</span>:38:51 INFO<span class="o">]</span> Experiment is now <span class="nb">complete</span>
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:32 INFO<span class="o">]</span> Validating experiment<span class="s1">&#39;s syntax</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Experiment looks valid</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Running experiment: Does our service tolerate the loss of its exchange file?</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Steady state hypothesis: The exchange file must exist</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Probe: exchange-file-exists</span>
+<span class="s1">[2017-12-06 16:12:32 INFO]   =&gt; succeeded with &#39;</span>True<span class="s1">&#39;</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Steady state hypothesis is met, we can carry on!</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Action: move-exchange-file</span>
+<span class="s1">[2017-12-06 16:12:32 INFO]   =&gt; succeeded without any result value</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Probe: service-is-unavailable</span>
+<span class="s1">[2017-12-06 16:12:32 INFO]   =&gt; succeeded with &#39;</span>Exchange file is not ready<span class="s1">&#39;</span>
+<span class="s1">[2017-12-06 16:12:32 INFO] Experiment is now complete. Let&#39;</span>s rollback...
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:32 INFO<span class="o">]</span> No declared rollbacks, let<span class="err">&#39;</span>s move on.
+<span class="o">[</span><span class="m">2017</span>-12-06 <span class="m">16</span>:12:32 INFO<span class="o">]</span> Experiment is now completed
 </pre></div>
 
 <p>Notice the error towards the end, it tells us the service failed still but now

@@ -518,11 +518,13 @@ it supports three extension mechanisms:</p>
 can use any Python package your activity needs. The structure for a Python
 function is as follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/some/path&quot;</span>
+    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/some/path&quot;</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -539,10 +541,12 @@ will raise an error.</p>
 <p>The Chaos Toolkit can run external processes, found in the PATH. The structure
 for a process is as follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/sbin/ip&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;-a&quot;</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;/sbin/ip&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;-a&quot;</span><span class="p">:</span> <span class="kc">null</span>
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -559,14 +563,16 @@ the activity will be considered failed.</p>
 <p>The Chaos Toolkit can call HTTP endpoints.The structure for a HTTP call is as
 follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://httpbin.org/post&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span> 
+    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://httpbin.org/post&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;accept&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;john&quot;</span> 
+        <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

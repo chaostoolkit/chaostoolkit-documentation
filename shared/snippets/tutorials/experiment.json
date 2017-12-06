@@ -1,28 +1,33 @@
 {
     "title": "Does our service tolerate the loss of its exchange file?",
     "description": "Our service reads data from an exchange file, can it support that file disappearing?",
-    "method": [
-        {
-            "title": "Is the file currently where it ought to be?",
-            "probes": {
-                "steady": {
-                    "title": "Looking for data file",
-                    "layer": "application",
+    "tags": [
+        "tutorial",
+        "filesystem"
+    ],
+    "steady-state-hypothesis": {
+        "title": "The exchange file must exist",
+        "probes": [
+            {
+                "type": "probe",
+                "name": "exchange-file-exists",
+                "tolerance": true,
+                "provider": {
                     "type": "python",
                     "module": "os.path",
                     "func": "exists",
                     "arguments": {
                         "path": "./exchange.dat"
                     }
-             
                 }
             }
-        },
+        ]
+    },
+    "method": [
         {
-            "title": "Next, we pretend that configuration is gone",
-            "action": {
-                "title": "Move the configuration to a different name",
-                "layer": "application",
+            "name": "move-exchange-file",
+            "type": "action",
+            "provider": {
                 "type": "python",
                 "module": "os",
                 "func": "rename",
@@ -33,15 +38,12 @@
             }
         },
         {
-            "title": "Our service should either respond or tell us it is not available",
-            "probes": {
-                "steady": {
-                    "title": "Calling our service",
-                    "layer": "application",
-                    "type": "http",
-                    "expected_status": 503,
-                    "url": "http://localhost:8080/"
-                }
+            "type": "probe",
+            "name": "service-is-unavailable",
+            "provider": {
+                "type": "http",
+                "expected_status": 503,
+                "url": "http://localhost:8080/"
             }
         }
     ]

@@ -5,19 +5,19 @@
         
     <url>
      <loc>/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/overview/concepts/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/faq/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -27,31 +27,31 @@
         
     <url>
      <loc>/usage/install/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/upgrade/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/running/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/tutorial/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/latest/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -61,19 +61,23 @@
         
     <url>
      <loc>/technology/</loc>
-     <lastmod>2017-12-06</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/technology/experiment/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/technology/extend/</loc>
-     <lastmod>2017-12-06</lastmod>
+     <lastmod>2017-12-07</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/api/experiment/</loc>
+     <lastmod>2017-12-07</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

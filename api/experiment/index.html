@@ -997,7 +997,11 @@ named <code>tolerance</code>.</p>
 <li>a Probe object</li>
 </ul>
 <p>In the case of a scalar or the sequence, the tolerance validation MUST be
-strict. In the case of a <a href="#probe">Probe</a> object, the tolerance validation is left
+strict. The value returned by the <a href="#probe">Probe</a> MUST be checked against the
+scalar value. The experiment MUST bail when both fail to match.</p>
+<p>When the <code>tolerance</code> is a sequence of two scalars, the returned value from
+the <a href="#probe">Probe</a> MUST fall within the boundaries they form.</p>
+<p>In the case of a <a href="#probe">Probe</a> object, the tolerance validation is left
 undefined as it is controlled by the <a href="#probe">Probe</a> itself. However, it is
 RECOMMENDED that the <code>tolerance</code> <a href="#probe">Probe</a> acts strictly in order to improve
 the readability of the experiment&rsquo;s results.</p>

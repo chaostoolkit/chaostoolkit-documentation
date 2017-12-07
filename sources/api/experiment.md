@@ -135,7 +135,13 @@ The `tolerance` property's value MUST be one of:
 * a Probe object
 
 In the case of a scalar or the sequence, the tolerance validation MUST be
-strict. In the case of a [Probe][pb] object, the tolerance validation is left
+strict. The value returned by the [Probe][pb] MUST be checked against the
+scalar value. The experiment MUST bail when both fail to match.
+
+When the `tolerance` is a sequence of two scalars, the returned value from
+the [Probe][pb] MUST fall within the boundaries they form.
+
+In the case of a [Probe][pb] object, the tolerance validation is left
 undefined as it is controlled by the [Probe][pb] itself. However, it is
 RECOMMENDED that the `tolerance` [Probe][pb] acts strictly in order to improve
 the readability of the experiment's results.

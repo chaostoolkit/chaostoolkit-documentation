@@ -10,8 +10,10 @@ Running experiments is as simple as:
 $ chaos run experiment.json
 ```
 
-This takes the description of your experiment, runs it and outputs a report
-to share with your team.
+This takes the description of your experiment, as per the [API][api], runs it
+and outputs a report to share with your team.
+
+[api]: /api/experiment/
 
 ## Mission
 
@@ -20,8 +22,9 @@ The Chaos Toolkit aims at simplifying your journey through the
 you should embrace continuously observing and poking your system to empower your
 team in face of adversity.
 
-The Chaos Toolkit proposes an Open API for Chaos Engineering that will federate
-communities around the discipline with a standard, open and evolutive API.
+The Chaos Toolkit proposes an [Open API][api] for Chaos Engineering that will
+federate communities around the discipline with a standard, open and evolutive
+API.
 
 ## Come join the Chaos Toolkit community
 

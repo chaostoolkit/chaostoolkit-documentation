@@ -53,5 +53,6 @@ pages:
     - Latest Release: usage/latest.md
 - Technology:
     - Overview: technology/index.md
-    - Experiment: technology/experiment.md
     - Extend: technology/extend.md
+- API:
+    - Experiment: api/experiment.md

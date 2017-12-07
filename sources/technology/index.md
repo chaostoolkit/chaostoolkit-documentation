@@ -1,11 +1,11 @@
-## Technology
+# Technology
 
-### Key values
+## Key values
 
 The following key values of the Chaos Toolkit reflect the mindset the community
 has when engineering the Chaos Toolkit project.
 
-#### Simplicity
+### Simplicity
 
 The Chaos Toolkit aims at being a simple piece of technology both from a user
 and developer perspective.
@@ -15,7 +15,7 @@ driven by a description file. As a user, this means no code and no need to
 learn a programming language. As a developer, this reduces the functional
 surface area to consider.
 
-#### Extensibility
+### Extensibility
 
 The Chaos Toolkit does not wish to be a monolith and strives to be extended to
 fully reach its goal through community driven efforts.
@@ -24,7 +24,7 @@ By using a description file, the implementation is not prescribed by the Chaos
 Toolkit project. Although we fully expect the community to eventually settle on
 certain implementations of probes and actions.
 
-#### Readability
+### Readability
 
 We believe code readbility is a factor for positive maintenance and evolutivity.
 
@@ -33,18 +33,18 @@ mostly written in Python, best practices such as defined in [PEP8][pep8].
 
 [pep8]: https://www.python.org/dev/peps/pep-0008/
 
-#### Diversity
+### Diversity
 
 Although not strictly speaking referring to the technological aspect of the 
 project, having diversity in the community will contribute to a better project
 overall.
 
-### Core Projects
+## Core Projects
 
 The Chaos Toolkit is made of several projects that work together to provide its
 service.
 
-#### chaostoolkit
+### chaostoolkit
 
 The [chaostoolkit][] project is the command-line interface (CLI), in other words
 the command executed by users to run their experiments.
@@ -56,7 +56,7 @@ interface commands by gluing other projects together.
 
 This project is implemented in Python 3.
 
-#### chaostoolkit-lib
+### chaostoolkit-lib
 
 The [chaostoolkit-lib][chaoslib] project is the core library which implements
 the [core concepts][concepts] of the Chaos Toolkit.
@@ -66,7 +66,7 @@ the [core concepts][concepts] of the Chaos Toolkit.
 
 This project is implemented in Python 3.
 
-#### chaostoolkit-documentation
+### chaostoolkit-documentation
 
 The [chaostoolkit-documehtation][chaosdoc] is the documentation source and
 renderer of the Chaos Toolkit. Namely, that project generates the website you
@@ -77,12 +77,12 @@ are currently reading.
 This project is implemented in Python 3 by generating HTML from Markdown
 documents.
 
-### Extension Projects
+## Extension Projects
 
 In addition to the core projects, the Chaos Toolkit manages some extension
 projects which provide probes and/or actions for experiments.
 
-#### chaostoolkit-kubernetes
+### chaostoolkit-kubernetes
 
 The [chaostoolkit-kubernetes][chaoskube] project implements probes and actions
 for experiments targetting a [Kubernetes][kubernetes] cluster. Those activities
@@ -93,7 +93,7 @@ are implemented as Python functions.
 
 This project is implemented in Python 3.
 
-#### chaostoolkit-gremlin
+### chaostoolkit-gremlin
 
 The [chaostoolkit-gremlin][chaosgremlin] project implements actions
 for experiments exploring resource failures (CPU, Memory, Network...) in their
@@ -106,7 +106,7 @@ are implemented as Python functions talking to the [Gremlin API][gremlinapi].
 
 This project is implemented in Python 3.
 
-#### chaostoolkit-prometheus
+### chaostoolkit-prometheus
 
 The [chaostoolkit-prometheus][chaosprom] project implements probes to fetch
 information from your system through [Prometheus][prometheus]. Those probes
@@ -118,9 +118,9 @@ are implemented as Python functions talking to the [Prometheus API][promapi].
 
 This project is implemented in Python 3.
 
-### Technical Choices
+## Technical Choices
 
-#### Python 3
+### Python 3
 
 The Chaos Toolkit is implemented in [Python 3][py3k]. A high-level language with
 a long successfuly story for writing great software. It's a common choice for
@@ -140,7 +140,7 @@ package managers will eventually provide native installers.
 [py3k]: https://www.python.org/
 [go]: https://golang.org/
 
-#### Functional
+### Functional
 
 Well, this project is not truly a functional piece of code but the code relies
 as little as possible on stateful constructions as provided by classes.
@@ -156,7 +156,7 @@ such an intention.
 
 [funcpara]: https://en.wikipedia.org/wiki/Functional_programming
 
-#### JSON
+### JSON
 
 The experiment description and structure is encoded using JSON. The choice for
 JSON over YAML is because it leaves less room for ambiguity and is marginally

@@ -479,6 +479,16 @@
             "location": "/api/experiment/#minimal-experiment",
             "text": "Here is an example of the most minimal experiment:  { \n     \"version\" :   \"0.1.0\" , \n     \"title\" :   \"Moving a file from under our feet is forgivable\" , \n     \"description\" :   \"Our application should re-create a file that was removed\" , \n     \"steady-state-hypothesis\" :   { \n         \"title\" :   \"The file must be around first\" , \n         \"probes\" :   [ \n             { \n                 \"type\" :   \"python\" , \n                 \"name\" :   \"file-must-exist\" , \n                 \"tolerance\" :   true , \n                 \"provider\" :   { \n                     \"module\" :   \"os.path\" , \n                     \"func\" :   \"exists\" , \n                     \"arguments\" :   { \n                         \"path\" :   \"some/file\" \n                     } \n                 } \n             } \n         ] \n     }, \n     \"method\" :   [ \n         { \n             \"type\" :   \"action\" , \n             \"name\" :   \"file-be-gone\" , \n             \"provider\" :   { \n                 \"module\" :   \"os.path\" , \n                 \"func\" :   \"remove\" , \n                 \"arguments\" :   { \n                     \"path\" :   \"some/file\" \n                 } \n             }, \n             \"pauses\" :   { \n                 \"after\" :   5 \n             } \n         }, \n         { \n             \"ref\" :   \"file-must-exist\" \n         } \n     ]  }",
             "title": "Minimal Experiment"
+        },
+        {
+            "location": "/api/journal/",
+            "text": "Experiment Journal\n\u00b6\n\n\nThe Journal API defines the output of an Experiment. This is by and large\nstill a work in progress.",
+            "title": "Journal"
+        },
+        {
+            "location": "/api/journal/#experiment-journal",
+            "text": "The Journal API defines the output of an Experiment. This is by and large\nstill a work in progress.",
+            "title": "Experiment Journal"
         }
     ]
 }

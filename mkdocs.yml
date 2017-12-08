@@ -56,3 +56,4 @@ pages:
     - Extend: technology/extend.md
 - API:
     - Experiment: api/experiment.md
+    - Journal: api/journal.md

@@ -527,11 +527,9 @@ environment variable MUST be declared in the `key` property as a JSON string.
 ```json
 {
     "configuration": {
-        "vault": {
-            "address": {
-                "type": "env",
-                "key": "VAULT_ADDR"
-            }
+        "vault_address": {
+            "type": "env",
+            "key": "VAULT_ADDR"
         }
     }
 }

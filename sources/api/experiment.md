@@ -492,13 +492,12 @@ string.
 Configuration is meant to provide runtime values to [actions][action] and
 [probes][probe].
 
-The `configuration` element MUST be a JSON object which properties are
-identifiers referenced from probes and actions. The value of each property
-MUST be a JSON object which properties are considered the configuration keys.
+The `configuration` element MUST be a JSON object. The value of each property
+MUST be a JSON string or object which properties are considered the
+configuration lookup. Configuration must be passed to all Probes and actions
+requring it. Probes and actions MUST NOT modify the configuration.
 
-Probes and actions MUST NOT modify the configuration.
-
- Configurations MUST be passed a mapping of keys and values to probes and
+Configurations MUST be passed a mapping of keys and values to probes and
 actions.
 
 An example of a `configuration` element at the top-level:
@@ -506,19 +505,12 @@ An example of a `configuration` element at the top-level:
 ```json
 {
     "configuration": {
-        "vault": {
-            "address": "http://127.0.0.1:8080"
+        "some_service": "http://127.0.0.1:8080",
+        "vault_addr": {
+            "type": "env",
+            "key": "VAULT_ADDR"
         }
     }
-}
-```
-
-This can then referenced from probes or actions:
-
-```json
-{
-    "type": "probe",
-    "configuration": "vault"
 }
 ```
 

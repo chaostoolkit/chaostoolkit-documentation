@@ -107,20 +107,18 @@ To run the experiment, use the `chaostoolkit` CLI as follows:
 
 ```sh
 (chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-[2017-12-06 16:12:17 INFO] Validating experiment's syntax
-[2017-12-06 16:12:17 INFO] Experiment looks valid
-[2017-12-06 16:12:17 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
-[2017-12-06 16:12:17 INFO] Steady state hypothesis: The exchange file must exist
-[2017-12-06 16:12:17 INFO] Probe: exchange-file-exists
-[2017-12-06 16:12:17 INFO]   => succeeded with 'True'
-[2017-12-06 16:12:17 INFO] Steady state hypothesis is met, we can carry on!
-[2017-12-06 16:12:17 INFO] Action: move-exchange-file
-[2017-12-06 16:12:17 INFO]   => succeeded without any result value
-[2017-12-06 16:12:17 INFO] Probe: service-is-unavailable
-[2017-12-06 16:12:17 ERROR]    => failed: A server error occurred.  Please contact the administrator.
-[2017-12-06 16:12:17 INFO] Experiment is now complete. Let's rollback...
-[2017-12-06 16:12:17 INFO] No declared rollbacks, let's move on.
-[2017-12-06 16:12:17 INFO] Experiment is now completed
+[2017-12-17 20:48:27 INFO] Validating experiment's syntax
+[2017-12-17 20:48:27 INFO] Experiment looks valid
+[2017-12-17 20:48:27 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
+[2017-12-17 20:48:27 INFO] Steady state hypothesis: The exchange file must exist
+[2017-12-17 20:48:27 INFO] Probe: exchange-file-exists
+[2017-12-17 20:48:27 INFO] Steady state hypothesis is met, we can carry on!
+[2017-12-17 20:48:27 INFO] Action: move-exchange-file
+[2017-12-17 20:48:27 INFO] Probe: service-is-unavailable
+[2017-12-17 20:48:27 ERROR]   => failed: HTTP call failed with code 500 (expected 503): A server error occurred.  Please contact the administrator.
+[2017-12-17 20:48:27 INFO] Let's rollback...
+[2017-12-17 20:48:27 INFO] No declared rollbacks, let's move on.
+[2017-12-17 20:48:27 INFO] Experiment ended with status: completed
 ```
 
 Notice the error towards the end, it tells us the service failed with an
@@ -159,24 +157,21 @@ Let's run again our experiment now that we have fixed and restart our service:
 
 ```sh
 (chaostk) $ chaos --change-dir sources/shared/snippets/tutorials run experiment.json
-[2017-12-06 16:12:32 INFO] Validating experiment's syntax
-[2017-12-06 16:12:32 INFO] Experiment looks valid
-[2017-12-06 16:12:32 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
-[2017-12-06 16:12:32 INFO] Steady state hypothesis: The exchange file must exist
-[2017-12-06 16:12:32 INFO] Probe: exchange-file-exists
-[2017-12-06 16:12:32 INFO]   => succeeded with 'True'
-[2017-12-06 16:12:32 INFO] Steady state hypothesis is met, we can carry on!
-[2017-12-06 16:12:32 INFO] Action: move-exchange-file
-[2017-12-06 16:12:32 INFO]   => succeeded without any result value
-[2017-12-06 16:12:32 INFO] Probe: service-is-unavailable
-[2017-12-06 16:12:32 INFO]   => succeeded with 'Exchange file is not ready'
-[2017-12-06 16:12:32 INFO] Experiment is now complete. Let's rollback...
-[2017-12-06 16:12:32 INFO] No declared rollbacks, let's move on.
-[2017-12-06 16:12:32 INFO] Experiment is now completed
+[2017-12-17 20:49:41 INFO] Validating experiment's syntax
+[2017-12-17 20:49:41 INFO] Experiment looks valid
+[2017-12-17 20:49:41 INFO] Running experiment: Does our service tolerate the loss of its exchange file?
+[2017-12-17 20:49:41 INFO] Steady state hypothesis: The exchange file must exist
+[2017-12-17 20:49:41 INFO] Probe: exchange-file-exists
+[2017-12-17 20:49:41 INFO] Steady state hypothesis is met, we can carry on!
+[2017-12-17 20:49:41 INFO] Action: move-exchange-file
+[2017-12-17 20:49:41 INFO] Probe: service-is-unavailable
+[2017-12-17 20:49:41 INFO] Let's rollback...
+[2017-12-17 20:49:41 INFO] No declared rollbacks, let's move on.
+[2017-12-17 20:49:41 INFO] Experiment ended with status: completed
 ```
 
-Notice the error towards the end, it tells us the service failed still but now
-we get the error we designed our service for.
+Notice we do not see the error any more because the probe matched its
+expectation.
 
 #### Go further
 

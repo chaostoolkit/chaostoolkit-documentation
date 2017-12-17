@@ -625,6 +625,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#variable-substitution" title="Variable Substitution" class="md-nav__link">
+    Variable Substitution
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -872,6 +879,13 @@
         
       </ul>
     </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#variable-substitution" title="Variable Substitution" class="md-nav__link">
+    Variable Substitution
+  </a>
   
 </li>
         
@@ -1303,6 +1317,13 @@ environment variable MUST be declared in the <code>key</code> property as a JSON
 <span class="p">}</span>
 </pre></div>
 
+<h3 id="variable-substitution">Variable Substitution<a class="headerlink" href="#variable-substitution" title="Permanent link">&para;</a></h3>
+<p>Probes and Actions argument values MAY be dynamically resolved at runtime. </p>
+<p>Dynamic values MUST follow the syntax <code>${name}</code> where <code>name</code> is an identifier
+declared in either the Configuration or Secrets sections. When <code>name</code> is
+declared in both sections, the Configuration section MUST take precedence.</p>
+<p>Dynamic values MUST be substituted before being passed to Probes or Actions.</p>
+<p>Other values, such as the HTTP Probe url, MAY be sustituted as well.</p>
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>The following examples MUST NOT be considered normatives.</p>
 <h3 id="minimal-experiment">Minimal Experiment<a class="headerlink" href="#minimal-experiment" title="Permanent link">&para;</a></h3>

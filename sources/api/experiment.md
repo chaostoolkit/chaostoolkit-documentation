@@ -535,6 +535,17 @@ environment variable MUST be declared in the `key` property as a JSON string.
 }
 ```
 
+### Variable Substitution
+
+Probes and Actions argument values MAY be dynamically resolved at runtime. 
+
+Dynamic values MUST follow the syntax `${name}` where `name` is an identifier
+declared in either the Configuration or Secrets sections. When `name` is
+declared in both sections, the Configuration section MUST take precedence.
+
+Dynamic values MUST be substituted before being passed to Probes or Actions.
+
+Other values, such as the HTTP Probe url, MAY be sustituted as well.
 
 ## Examples
 

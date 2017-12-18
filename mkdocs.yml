@@ -51,9 +51,14 @@ pages:
     - Run: usage/running.md
     - Tutorials: usage/tutorial.md
     - Latest Release: usage/latest.md
-- Technology:
-    - Overview: technology/index.md
-    - Extend: technology/extend.md
+- Project Overview:
+    - Key Project Values: project/values.md
+    - Core Projects: project/core.md
+    - Extensions: project/extensions.md
+    - Technology Choices: project/technologies.md
+- Extending Chaos Toolkit:
+    - Extension Approaches: extending/approaches.md
+    - Python: extending/extending-with-python.md
 - API:
     - Experiment: api/experiment.md
     - Journal: api/journal.md

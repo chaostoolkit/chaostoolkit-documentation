@@ -56,6 +56,9 @@ pages:
     - Core Projects: project/core.md
     - Extensions: project/extensions.md
     - Technology Choices: project/technologies.md
+- Extending Chaos Toolkit:
+    - Extension Approaches: extending/approaches.md
+    - Python: extending/extending-with-python.md
 - API:
     - Experiment: api/experiment.md
     - Journal: api/journal.md

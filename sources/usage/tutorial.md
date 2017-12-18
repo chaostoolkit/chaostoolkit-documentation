@@ -99,7 +99,7 @@ The steady probe and the action are implemented by using Python functions while
 the last probe performs a HTTP call on your behalf. Please review the
 [documentation][extension] for other supported implementations.
 
-[extension]: ../technology/extend.md
+[extension]: ../extending/approaches.md
 
 #### Run your experiment
 

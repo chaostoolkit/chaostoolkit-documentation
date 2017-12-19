@@ -20,7 +20,6 @@ The `query` probe will naturally, if specified with some tolerances, be a good c
     There is already a [chaostoolkit-prometheus extension project](https://github.com/chaostoolkit/chaostoolkit-prometheus) and the tutorial shown here is based on how it was originally developed.
 
 [steady-state]: /overview/concepts/#steady-state-hypothesis
-[Prometheus]: https://prometheus.io/
 
 ## Creating a new Extension based on the Template project
 
@@ -267,8 +266,29 @@ Results (3.64s):
        4 passed
 ```
 
-## Summary
+## Using your new probes
 
-That's it! You have now created your first Python-based extension to the Chaos Toolkit. You can now release and distribute this project using a system such as PyPi so that it can be installed and called from Chaos Toolkit experiments all over the world.
+That's all you need to do! You have now created your first Python-based extension to the Chaos Toolkit. You can now release and distribute this project using a system such as PyPi so that it can be installed and called from Chaos Toolkit experiments all over the world.
+
+As an example, here is a snippet showing how a chaos experiment could look using your new [Prometheus][] `query` probe:
+
+```json
+{
+    "type": "probe",
+    "name": "fetch-cpu-just-2mn-ago",
+    "provider": {
+        "type": "python",
+        "module": "chaosprometheus.probes",
+        "func": "query",
+        "arguments": {
+            "query": "process_cpu_seconds_total{job='websvc'}",
+            "when": "2 minutes ago"
+        }
+    }
+}
+```
+[Prometheus]: https://prometheus.io/
+
+## Next Steps
 
 In the next tutorial we will take a look at how to create an extension that includes actions that can be called to inject failure from your chaos experiments.

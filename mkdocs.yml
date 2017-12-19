@@ -52,6 +52,7 @@ pages:
     - Latest Release: usage/latest.md
 - Tutorials: 
     - Creating and Running your first Chaos Experiment: tutorials/create-run-first-experiment.md
+    - Create a new Chaos Toolkit Extension with Custom Probes: tutorials/custom-extension-probes.md
 - Project Overview:
     - Key Project Values: project/values.md
     - Core Projects: project/core.md

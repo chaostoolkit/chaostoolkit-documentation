@@ -1,9 +1,9 @@
-## Create your first Experiment
+# Creating and Running your first Chaos Experiment
 
 This walkthrough will drive you the basics of writing your very first
 experiment.
 
-### Define your hypothesis
+## Define your hypothesis
 
 Before you start writing code, you need to define your hypthesis. What is it
 you are trying to confirm or infirm?
@@ -24,13 +24,13 @@ There are various ways to come up with an hypothesis:
 However you come up with your hypothesis, make sure you can analyse the 
 result so keep its scope and objective simple and comprehensible.
 
-### Get the requirements
+## Get the requirements
 
 Often, an experiment involves fairly specific access to observe or interact
 with the system. Make sure you can gather the right permissions and people on
 board.
 
-### A first experiment: a missing file
+## A first experiment: a missing file
 
 Let's say we have a service that polls a local file every second to see if new
 content was added for processing. Development made the assumption the file
@@ -69,7 +69,7 @@ $ python service.py
 
 [tut01]: https://github.com/chaostoolkit/chaostoolkit-documentation/tree/master/sources/shared/snippets/tutorials/
 
-#### Declare your experiment
+### Declare your experiment
 
 Below is the experiment for our hypothesis:
 
@@ -101,7 +101,7 @@ the last probe performs a HTTP call on your behalf. Please review the
 
 [extension]: ../extending/approaches.md
 
-#### Run your experiment
+### Run your experiment
 
 To run the experiment, use the `chaostoolkit` CLI as follows:
 
@@ -127,7 +127,7 @@ unexpected error.
 At this stage, you need to pause and analyse the results of this experiment
 to decide what to do next.
 
-#### Fix your service
+### Fix your service
 
 When we ran our service, it broke because the file was not found when read.
 Fixing it can take various aspects, we could ensure the file can never be
@@ -151,7 +151,7 @@ checked for the path and the time we read content at that location. We keep
 it easy for the benefit of this tutorial.
 
 
-#### Run your experiment again
+### Run your experiment again
 
 Let's run again our experiment now that we have fixed and restart our service:
 
@@ -173,7 +173,7 @@ Let's run again our experiment now that we have fixed and restart our service:
 Notice we do not see the error any more because the probe matched its
 expectation.
 
-#### Go further
+### Go further
 
 In this tutorial, you first approached the Chaos Toolkit to apply experiments
 against your system to confirm or infirm your initial hypothesis.

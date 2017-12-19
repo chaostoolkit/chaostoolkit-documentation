@@ -16,6 +16,9 @@ The extension we are going to create here will be a simple integration with [Pro
 
 The `query` probe will naturally, if specified with some tolerances, be a good candidate for use as part of a [Stead State Hypothesis][steady-state] as well as a general-purpose probe.
 
+!!! note
+    There is already a [chaostoolkit-prometheus extension project](https://github.com/chaostoolkit/chaostoolkit-prometheus) and the tutorial shown here is based on how it was originally developed.
+
 [steady-state]: /overview/concepts/#steady-state-hypothesis
 [Prometheus]: https://prometheus.io/
 

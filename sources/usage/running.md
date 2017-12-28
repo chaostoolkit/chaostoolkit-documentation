@@ -52,3 +52,26 @@ This command snippet shows how you would share your [Kubernetes][kube]
     as it looks because all the extensions (Python packages, commands to run,
     config files...) are not included in the base image.
 
+
+### Generating a report
+
+When an experiment completes, a journal is generated and stored in the
+`chaos-report.json` file. A PDF or HTML report may be generated from this
+journal using the [chaostoolkit-reporting][chaosreport] library.
+
+[chaosreport]: https://github.com/chaostoolkit/chaostoolkit-reporting
+
+First, install that library as per its README. Do note this involves a few
+dependencies, both system-wide and Python-wide.
+
+To generate a PDF report, run the following command:
+
+```
+$ chaos report --export-format=pdf chaos-report.json report.pdf
+```
+
+while a HTML report will be done as follows:
+
+```
+$ chaos report --export-format=html5 chaos-report.json report.html
+```

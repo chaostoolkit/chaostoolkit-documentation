@@ -32,7 +32,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.5">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.2.6">
     
     
       
@@ -40,7 +40,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.bcabdff3.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.6525f7f6.css">
       
     
     
@@ -345,6 +345,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#generating-a-report" title="Generating a report" class="md-nav__link">
+    Generating a report
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -614,6 +621,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#generating-a-report" title="Generating a report" class="md-nav__link">
+    Generating a report
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -670,6 +684,19 @@ declared. This is done as follows:</p>
 as it looks because all the extensions (Python packages, commands to run,
 config files&hellip;) are not included in the base image.</p>
 </div>
+<h3 id="generating-a-report">Generating a report<a class="headerlink" href="#generating-a-report" title="Permanent link">&para;</a></h3>
+<p>When an experiment completes, a journal is generated and stored in the
+<code>chaos-report.json</code> file. A PDF or HTML report may be generated from this
+journal using the <a href="https://github.com/chaostoolkit/chaostoolkit-reporting">chaostoolkit-reporting</a> library.</p>
+<p>First, install that library as per its README. Do note this involves a few
+dependencies, both system-wide and Python-wide.</p>
+<p>To generate a PDF report, run the following command:</p>
+<div class="codehilite"><pre><span></span>$ chaos report --export-format=pdf chaos-report.json report.pdf
+</pre></div>
+
+<p>while a HTML report will be done as follows:</p>
+<div class="codehilite"><pre><span></span>$ chaos report --export-format=html5 chaos-report.json report.html
+</pre></div>
                 
                   
                 
@@ -755,7 +782,7 @@ config files&hellip;) are not included in the base image.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.6cdc17f0.js"></script>
+      <script src="../../assets/javascripts/application.cae2244d.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:"../.."}})</script>
       

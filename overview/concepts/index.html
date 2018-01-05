@@ -778,11 +778,8 @@ contains a combination of <code>Probes</code> and <code>Actions</code>.</p>
 expressed in JSON.</p>
 <h2 id="steady-state-hypothesis">Steady State Hypothesis<a class="headerlink" href="#steady-state-hypothesis" title="Permanent link">&para;</a></h2>
 <p>A Steady State Hypothesis describes &ldquo;what normal looks like&rdquo; for your system
-in order for the experiment to surface information you can make sense of.</p>
-<p>Indeed, should your system be already in a broken state, your experiment
-could be difficult to interpret.</p>
-<p>There is a single Steady State Hypothesis per experiment and is made of
-probes. If any of those fail, the experiment is halted.</p>
+in order for the experiment to surface information about weaknesses when compared against the declared &ldquo;normal&rdquo; tolerances of what is measured.</p>
+<p>The Chaos Toolkit uses the Steady State Hypothesis for two purposes. It is used as a check before an experiment is run that the target system is in a recognised <strong><em>normal</em></strong> state. It is also used as the template for comparison of the state of your system <strong><em>after</em></strong> the experiment has been run, forming the results provided by the experiment&rsquo;s report.</p>
 <h2 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h2>
 <p>An experiment&rsquo;s activities are contained within its <code>Method</code> block.</p>
 <h2 id="probes">Probes<a class="headerlink" href="#probes" title="Permanent link">&para;</a></h2>

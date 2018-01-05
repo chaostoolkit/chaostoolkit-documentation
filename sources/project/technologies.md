@@ -13,7 +13,7 @@ a look at Python's present and future.
 The choice for a dynamic language was also motivated because the Chaos Toolkit
 manipulates a lot of strings and that task is made straightforward with Python.
 
-Although Python natively does noy generate (though [it can be done][pyinst])
+Although Python natively does not generate (though [it can be done][pyinst])
 standalone binaries like [golang][go] would. We do not believe this will harm
 the project and hope that package managers will eventually provide native
 installers.

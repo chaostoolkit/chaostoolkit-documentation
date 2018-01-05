@@ -86,13 +86,9 @@ expressed in JSON.
 ## Steady State Hypothesis
 
 A Steady State Hypothesis describes "what normal looks like" for your system
-in order for the experiment to surface information you can make sense of.
+in order for the experiment to surface information about weaknesses when compared against the declared "normal" tolerances of what is measured.
 
-Indeed, should your system be already in a broken state, your experiment
-could be difficult to interpret.
-
-There is a single Steady State Hypothesis per experiment and is made of
-probes. If any of those fail, the experiment is halted.
+The Chaos Toolkit uses the Steady State Hypothesis for two purposes. It is used as a check before an experiment is run that the target system is in a recognised ***normal*** state. It is also used as the template for comparison of the state of your system ***after*** the experiment has been run, forming the results provided by the experiment's report.
 
 ## Method
 

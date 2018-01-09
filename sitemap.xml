@@ -5,19 +5,19 @@
         
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/overview/concepts/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/faq/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -27,25 +27,25 @@
         
     <url>
      <loc>/usage/install/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/upgrade/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/running/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/usage/latest/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -55,13 +55,13 @@
         
     <url>
      <loc>/tutorials/create-run-first-experiment/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/tutorials/custom-extension-probes/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -71,25 +71,25 @@
         
     <url>
      <loc>/project/values/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/project/core/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/project/extensions/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/project/technologies/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -99,13 +99,13 @@
         
     <url>
      <loc>/extending/approaches/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/extending/extending-with-python/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -115,13 +115,13 @@
         
     <url>
      <loc>/api/experiment/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/api/journal/</loc>
-     <lastmod>2018-01-05</lastmod>
+     <lastmod>2018-01-09</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

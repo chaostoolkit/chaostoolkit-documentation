@@ -1327,10 +1327,10 @@ to its initial state.</p>
 consisting of <a href="#action">Actions</a>.</p>
 <p>A failed rollback MUST not bail the sequence of rollbacks.</p>
 <h3 id="secrets">Secrets<a class="headerlink" href="#secrets" title="Permanent link">&para;</a></h3>
-<p>Secrets declare values that need to be passed on to <a href="#action">Actions</a> or 
-[Probes][probe] in a secure manner.</p>
-<p>The ̀<code>secrets</code> property MUST be a JSON object. Its properties are identifiers
-referenced by <a href="#action">Actions</a> and [Probes][probe].</p>
+<p>Secrets declare values that need to be passed on to <a href="#action">Actions</a> or
+<a href="#probe">Probes</a> in a secure manner.</p>
+<p>The <code>secrets</code> property MUST be a JSON object. Its properties are identifiers
+referenced by <a href="#action">Actions</a> and <a href="#probe">Probes</a>.</p>
 <p>The value of each identifier is a JSON object which properties are the secrets
 keys and the properties values are the secrets values.</p>
 <p>Referenced secrets MUST be injected into probes and actions when they are
@@ -1390,7 +1390,7 @@ string.</p>
 
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
 <p>Configuration is meant to provide runtime values to <a href="#action">actions</a> and
-[probes][probe].</p>
+<a href="#probe">probes</a>.</p>
 <p>The <code>configuration</code> element MUST be a JSON object. The value of each property
 MUST be a JSON string or object which properties are considered the
 configuration lookup. Configuration must be passed to all Probes and actions

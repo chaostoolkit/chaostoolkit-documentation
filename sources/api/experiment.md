@@ -407,11 +407,11 @@ A failed rollback MUST not bail the sequence of rollbacks.
 
 ### Secrets
 
-Secrets declare values that need to be passed on to [Actions][action] or 
-[Probes][probe] in a secure manner.
+Secrets declare values that need to be passed on to [Actions][action] or
+[Probes][pb] in a secure manner.
 
-The ̀`secrets` property MUST be a JSON object. Its properties are identifiers
-referenced by [Actions][action] and [Probes][probe].
+The `secrets` property MUST be a JSON object. Its properties are identifiers
+referenced by [Actions][action] and [Probes][pb].
 
 The value of each identifier is a JSON object which properties are the secrets
 keys and the properties values are the secrets values.
@@ -490,7 +490,7 @@ string.
 ### Configuration
 
 Configuration is meant to provide runtime values to [actions][action] and
-[probes][probe].
+[probes][pb].
 
 The `configuration` element MUST be a JSON object. The value of each property
 MUST be a JSON string or object which properties are considered the

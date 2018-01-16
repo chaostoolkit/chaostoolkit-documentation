@@ -5,7 +5,7 @@ experiment.
 
 ## Define your hypothesis
 
-Before you start writing code, you need to define your hypthesis. What is it
+Before you start writing code, you need to define your hypothesis. What is it
 you are trying to confirm or infirm?
 
 There are various ways to come up with an hypothesis:

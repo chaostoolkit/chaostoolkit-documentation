@@ -21,7 +21,7 @@ The [chaostoolkit-lib][chaoslib] project is the core library which implements
 the [core concepts][concepts] of the Chaos Toolkit.
 
 [chaoslib]: https://github.com/chaostoolkit/chaostoolkit-lib
-[concepts]: ../overview/concepts.md
+[concepts]: ../concepts.md
 
 This project is implemented in Python 3.
 

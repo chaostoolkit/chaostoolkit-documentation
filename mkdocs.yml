@@ -41,26 +41,36 @@ extra:
     - type: slack
       link: https://join.chaostoolkit.org/
 pages:
-- Overview:
-    - Introduction: index.md
-    - Concepts: overview/concepts.md
-    - FAQ: faq.md
-- Getting Started:
-    - Install: usage/install.md
-    - Upgrade: usage/upgrade.md
-    - Run: usage/running.md
-    - Latest Release: usage/latest.md
-- Tutorials: 
-    - Creating and Running your first Chaos Experiment: tutorials/create-run-first-experiment.md
-    - Create a new Chaos Toolkit Extension with Custom Probes: tutorials/custom-extension-probes.md
-- Project Overview:
-    - Key Project Values: project/values.md
-    - Core Projects: project/core.md
-    - Extensions: project/extensions.md
-    - Technology Choices: project/technologies.md
-- Extending Chaos Toolkit:
-    - Extension Approaches: extending/approaches.md
-    - Python: extending/extending-with-python.md
-- API:
-    - Experiment: api/experiment.md
-    - Journal: api/journal.md
+- Home: index.md
+- New to Chaos Engineering: new-to-chaos.md
+- Getting Started with the Tutorials: getting-started.md
+- Explore Specific Use Cases: explore-specific-cases.md
+- Explore Third Party and Commercial Integrations: integrations.md
+- Contributing to the Chaos Toolkit: contributing.md
+- Contributors & Sponsors: contributors.md
+- FAQ: faq.md
+- Reference:
+    - Introduction: reference/introduction.md
+    - Concepts: reference/concepts.md
+    - The Chaos Toolkit Workflow: reference/workflow.md
+    - Usage:
+        - Overview: reference/usage/overview.md
+        - Install: reference/usage/install.md
+        - Upgrade: reference/usage/upgrade.md
+        - The CLI: reference/usage/cli.md
+        - Discover: reference/usage/discover.md
+        - Init: reference/usage/init.md
+        - Run: reference/usage/run.md
+        - Report: reference/usage/report.md
+    - Open API:
+        - Experiment: reference/api/experiment.md
+        - Journal: reference/api/journal.md
+    - Extending Chaos Toolkit:
+        - Extension Approaches: reference/extending/approaches.md
+        - Python: reference/extending/extending-with-python.md
+    - Developing Chaos Toolkit:
+        - Key Project Values: reference/developing/values.md
+        - Core Projects: reference/developing/core.md
+        - Extensions: reference/developing/extensions.md
+        - Technology Choices: reference/developing/technologies.md
+

@@ -2,126 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
     
-        
     <url>
      <loc>/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
+    
+
+    
     <url>
-     <loc>/overview/concepts/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc>/new-to-chaos/</loc>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
+    
+
+    
+    <url>
+     <loc>/getting-started/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/explore-specific-cases/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/integrations/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/contributing/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>/contributors/</loc>
+     <lastmod>2018-01-30</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
     <url>
      <loc>/faq/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
-        
     
 
     
         
     <url>
-     <loc>/usage/install/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc>/reference/introduction/</loc>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/usage/upgrade/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc>/reference/concepts/</loc>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/usage/running/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc>/reference/workflow/</loc>
+     <lastmod>2018-01-30</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/usage/latest/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/tutorials/create-run-first-experiment/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/tutorials/custom-extension-probes/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/project/values/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/project/core/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/project/extensions/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/project/technologies/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/extending/approaches/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/extending/extending-with-python/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    
-
-    
-        
-    <url>
-     <loc>/api/experiment/</loc>
-     <lastmod>2018-01-19</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/api/journal/</loc>
-     <lastmod>2018-01-19</lastmod>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         

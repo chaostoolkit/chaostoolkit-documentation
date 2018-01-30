@@ -1,18 +1,10 @@
 # How to Install the Chaos Toolkit
 
-You can either install the chaostoolkit command line or run it from a container.
-
-The former expects [Python 3.5+][python] properly setup on your machine while
-the latter expects a tool implementing the [OCI 1.0 specification][oci], 
-such as [Docker][] or [runc][].
-
-[python]: https://www.python.org/
-[oci]: https://www.opencontainers.org/
-[runc]: https://github.com/opencontainers/runc
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/DoiUo45zZLvISEvnlfeh2Gjlb.js" id="asciicast-DoiUo45zZLvISEvnlfeh2Gjlb" async></script></div>
 
 ## Python Requirements
 
-The [chaostoolkit CLI][cli] is implemented in Python 3 and this require a
+The [chaostoolkit CLI][cli] is implemented in Python 3 and this requires a
 working Python installation to run. It officially supports Python 3.5+. It has
 only been tested against [CPython][python].
 
@@ -22,7 +14,7 @@ only been tested against [CPython][python].
 
 Install Python for your system:
 
-On MacOSX:
+On MacOS X:
 
 ```
 $ brew install python3

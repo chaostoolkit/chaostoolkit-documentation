@@ -1,5 +1,7 @@
 # Welcome to the Chaos Toolkit!
 
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/DoiUo45zZLvISEvnlfeh2Gjlb.js" id="asciicast-DoiUo45zZLvISEvnlfeh2Gjlb" async data-autoplay="true"></script></div>
+
 ***The Chaos Toolkit Workflow: [`discover`](reference/usage/discover.md) -> 
 [`init`](reference/usage/init.md) -> [`run`](reference/usage/run.md) -> 
 [`report`](reference/usage/report.md)***

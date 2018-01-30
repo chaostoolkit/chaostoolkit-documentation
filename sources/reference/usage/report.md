@@ -16,6 +16,8 @@ executing:
 (chaostk) $ chaos report --help
 ```
 
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/CEBXHpfHDMKEvlxgJED8TfaHn.js" id="asciicast-CEBXHpfHDMKEvlxgJED8TfaHn" async></script></div>
+
 A tutorial on how to use the `chaos report` command is available as part of the 
 [Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
 

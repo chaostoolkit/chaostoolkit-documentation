@@ -1,18 +1,9 @@
 # How to Upgrade the Chaos Toolkit
 
-### Using pip
-
-You can update your Chaos Toolkit installation as follows:
+You can update your Chaos Toolkit installation by executing:
 
 ```
 (chaostk) $ pip install -U chaostoolkit
 ```
 
-### Using a container image
-
-If you downloaded the Docker image of the toolkit, you can pull it again:
-
-```
-$ docker pull chaostoolkit/chaostoolkit
-```
-
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/ny6KTzHWX62CSqkInwjepoLEo.js" id="asciicast-ny6KTzHWX62CSqkInwjepoLEo" async></script></div>

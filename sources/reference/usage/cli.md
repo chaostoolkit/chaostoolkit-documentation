@@ -1,3 +1,5 @@
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/qf8ab2dXoTWAmEkozneFCKvc6.js" id="asciicast-qf8ab2dXoTWAmEkozneFCKvc6" async data-autoplay="true"></script></div>
+
 The heart of the Chaos Toolkit is the `chaos` command line.
 
 !!! note "Activate the Python virtual environment"

@@ -84,17 +84,3 @@ You can verify the command was installed by running:
 ```
 (chaostk) $ chaos --version
 ```
-
-## Download the container image
-
-You can run the chaostoolkit from a container rather than install it.
-
-For instance, using [Docker][docker], you can pull the
-[chaostoolkit image][dockerimage]:
-
-[docker]: https://www.docker.com/
-[dockerimage]: https://hub.docker.com/r/chaostoolkit/chaostoolkit/
-
-```
-$ docker pull chaostoolkit/chaostoolkit
-```

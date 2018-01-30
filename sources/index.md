@@ -1,39 +1,31 @@
-# An Open API for Chaos Engineering
+# Welcome to the Chaos Toolkit!
 
-The Chaos Toolkit is a free, open source project that enables you to create and
-apply Chaos Experiments to various types of infrastructure, platforms and
-applications.
+***The Chaos Toolkit Workflow: [`discover`](reference/usage/discover.md) -> 
+[`init`](reference/usage/init.md) -> [`run`](reference/usage/run.md) -> 
+[`report`](reference/usage/report.md)***
 
-Running experiments is as simple as:
+The Chaos Toolkit aims to be the simplest and easiest way to explore building 
+your own [Chaos Engineering](http://principlesofchaos.org/) Experiments. It 
+also aims to define a vendor and technology independent way of specifying 
+Chaos Engineering experiments by providing an 
+[Open API](reference/api/experiment.md).
 
-```sh
-$ chaos run experiment.json
-```
+The Chaos Toolkit provides a [CLI](reference/usage/cli.md) that can be used 
+to execute the [`discover`](reference/usage/discover.md) -> 
+[`init`](reference/usage/init.md) -> [`run`](reference/usage/run.md) -> 
+[`report`](reference/usage/report.md) 
+[Chaos Engineering workflow](reference/workflow.md).
 
-This takes the description of your experiment, as per the [API][api], runs it
-and outputs a report to share with your team.
-
-[api]: /api/experiment/
-
-## Mission
-
-The Chaos Toolkit aims at simplifying your journey through the
-[Principles of Chaos Engineering][principles] and more generally considers that
-you should embrace continuously observing and poking your system to empower your
-team in face of adversity.
-
-The Chaos Toolkit proposes an [Open API][api] for Chaos Engineering that will
-federate communities around the discipline with a standard, open and evolutive
-API.
-
-## Come join the Chaos Toolkit community
-
-The Chaos Toolkit is an [open source project][oss] and strives on a diverse and
-cooperative community. We welcome input and discussions on the project itself
-but also on the [Principles of Chaos Engineering][principles] in general.
-
-Please [join us][join]!
-
-[join]: https://join.chaostoolkit.org/
-[principles]: http://principlesofchaos.org/
-[oss]: https://github.com/chaostoolkit/
+* [New to Chaos Engineering](new-to-chaos.md) - A useful set of links and 
+reference materials if you're new to Chaos Engineering.
+* [Getting Started with the Tutorials](getting-started.md) - Get started quickly 
+with the online, interactive Chaos Toolkit tutorials.
+* [Explore Specific Use Cases](explore-specific-cases.md) - Explore deeper, 
+specific  use case examples of using the Chaos Toolkit.
+* [Explore Third Party and Commercial Integrations](integrations.md) - Explore 
+the growing list of third party ope, free and commercial Chaos Toolkit integrations.
+* [Contributing to the Chaos Toolkit](contributing.md) - There are lots of ways 
+to contribute to the free and open source Chaos Toolkit projects. Start to get involved here.
+* [FAQ](faq.md) - Frequently asked questions about the toolkit.
+* [Reference](reference/introduction.md) - Reference documentation for when 
+you're building your own chaos engineering experiments.

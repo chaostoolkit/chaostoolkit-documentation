@@ -1,6 +1,4 @@
-## FAQ
-
-### What is the Chaos Toolkit?
+## What is the Chaos Toolkit?
 
 It is an open-source software that runs an experiment against your system to
 confirm or infirm an hypothesis. Colloquially this refers to the 
@@ -8,7 +6,7 @@ C[haos Engineering Principles][principles].
 
 [principles]: http://principlesofchaos.org/
 
-### Why do I need to run experiments?
+## Why do I need to run experiments?
 
 Systems do not live in a vacuum, they are subjected to real world events, some
 expected and tolerated, others considered as attacks. Waiting for those
@@ -20,7 +18,7 @@ people learn how to react well for the benefit of everyone. Software systems
 should go through the same exercises. The Chaos Toolkit hopes to make it 
 simple and safe to run experiments like these.
 
-### Engaging the team and organisation
+## Engaging the team and organisation
 
 Chaos engineering aims at making you learn from your system. This is not a lone
 activity but a team, potentially the whole organisation, endeavour.
@@ -30,7 +28,7 @@ users sensitive data, we should issue a statement we are doing everything to
 fix the problem within 15mn". This experiment is not really technical but
 organisational: is the chain of information and command working effectively?
 
-### Isn't it testing?
+## Isn't it testing?
 
 We do not consider testing and chaos engineering to conflict with each other.
 They both provide useful and actionable feedback. Where they differ is their
@@ -52,7 +50,7 @@ experiment. Say for instance, you run a load testing. Your hypothesis is that
 response time should not be impacted under load. By running your experiment,
 you may answer that question.
 
-### Isn't it monitoring?
+## Isn't it monitoring?
 
 Much like chaos engineering is not testing, it should not be conflated with
 monitoring. If anything, chaos engineering strives for good monitoring for it
@@ -61,7 +59,7 @@ helps observing the system during the experiment.
 Monitoring surfaces, informs and may even react to confitions in your system.
 But this is not answering a question like chaos engineering tries to do.
 
-### Why a toolkit?
+## Why a toolkit?
 
 Currently, running experiments is not an easy task because the ecosystem is 
 still fairly young. Complex cases have been demonstrated at large corporations
@@ -80,7 +78,7 @@ on.
 Ultimately, the Chaos Toolkit should lead you on the path to using richer tools
 such as those cited above.
 
-### What does the Chaos Toolkit do?
+## What does the Chaos Toolkit do?
 
 The Chaos Toolkit user-interface is a command line that takes a JSON-encoded
 file describing the experiment to run. It consists of a sequence of activities
@@ -90,7 +88,7 @@ The activities are of two kinds. Probes observe the system at various point of
 the experiment. Actions interact with the system to change its state. Usually
 the action represents the hypothesis you are trying to learn from.
 
-### Who is behind the Chaos Toolkit?
+## Who is behind the Chaos Toolkit?
 
 The effort was initiated by [Russ Miles][russ] and
 [Sylvain Hellegouarch][sylvain], two engineers passionate about fluidity in
@@ -102,13 +100,13 @@ into the Chaos Toolkit.
 [sylvain]: http://www.defuze.org/
 [community]: https://join.chaostoolkit.org/
 
-### What is the license of the Chaos Toolkit?
+## What is the license of the Chaos Toolkit?
 
 [Apache 2.0][apache].
 
 [apache]: https://github.com/chaostoolkit/chaostoolkit/blob/master/LICENSE 
 
-### How can I contribute?
+## How can I contribute?
 
 The Chaos Toolkit welcomes contributors! To help the project, please go to
 the right project on [GitHub][gh] and create an issue. If you feel like it,

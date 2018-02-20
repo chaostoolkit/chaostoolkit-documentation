@@ -647,7 +647,7 @@
         },
         {
             "location": "/reference/developing/extensions/",
-            "text": "Extension Projects\n\u00b6\n\n\nIn addition to the core projects, the Chaos Toolkit manages some extension\nprojects which provide probes and/or actions for experiments.\n\n\nchaostoolkit-kubernetes\n\u00b6\n\n\nThe \nchaostoolkit-kubernetes\n project implements probes and actions\nfor experiments targetting a \nKubernetes\n cluster. Those activities\nare implemented as Python functions.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-gremlin\n\u00b6\n\n\nThe \nchaostoolkit-gremlin\n project implements actions\nfor experiments exploring resource failures (CPU, Memory, Network\u2026) in their\nsystem through the \nGremlin, Inc.\n services. Those activities\nare implemented as Python functions talking to the \nGremlin API\n.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-prometheus\n\u00b6\n\n\nThe \nchaostoolkit-prometheus\n project implements probes to fetch\ninformation from your system through \nPrometheus\n. Those probes\nare implemented as Python functions talking to the \nPrometheus API\n.\n\n\nThis project is implemented in Python 3.",
+            "text": "Extension Projects\n\u00b6\n\n\nIn addition to the core projects, the Chaos Toolkit manages some extension\nprojects which provide probes and/or actions for experiments.\n\n\nOfficial Extensions\n\u00b6\n\n\nchaostoolkit-kubernetes\n\u00b6\n\n\nThe \nchaostoolkit-kubernetes\n project implements probes and actions\nfor experiments targetting a \nKubernetes\n cluster. Those activities\nare implemented as Python functions.\n\n\nThis project is implemented in Python 3.\n\n\nIncubating Extensions\n\u00b6\n\n\nThese extensions are under work and not mature yet to be part of the core\nof the Chaos Toolkit.\n\n\nchaostoolkit-gremlin\n\u00b6\n\n\nThe \nchaostoolkit-gremlin\n project implements actions\nfor experiments exploring resource failures (CPU, Memory, Network\u2026) in their\nsystem through the \nGremlin, Inc.\n services. Those activities\nare implemented as Python functions talking to the \nGremlin API\n.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-prometheus\n\u00b6\n\n\nThe \nchaostoolkit-prometheus\n project implements probes to fetch\ninformation from your system through \nPrometheus\n. Those probes\nare implemented as Python functions talking to the \nPrometheus API\n.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-aws\n\u00b6\n\n\nThe \nchaostoolkit-aws\n project implements actions and probes\nfor experiments exploring chaos engineering against your \nAWS\n environment.\nThose activities are implemented as Python functions talking to the\n\nAWS API\n.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-cloud-foundry\n\u00b6\n\n\nThe \nchaostoolkit-cloud-foundry\n project implements actions and probes\nfor experiments exploring chaos engineering against your \nCloud Foundry\n\nenvironment. Those activities are implemented as Python functions talking to the\n\nCloud Foundry API\n.\n\n\nThis project is implemented in Python 3.\n\n\nchaostoolkit-slack\n\u00b6\n\n\nThe \nchaostoolkit-slack\n project implements the notification\ninterface to push Chaos Toolkit events to Slack channels.\n\n\nThis project is implemented in Python 3.",
             "title": "Extensions"
         },
         {
@@ -656,9 +656,19 @@
             "title": "Extension Projects"
         },
         {
+            "location": "/reference/developing/extensions/#official-extensions",
+            "text": "",
+            "title": "Official Extensions"
+        },
+        {
             "location": "/reference/developing/extensions/#chaostoolkit-kubernetes",
             "text": "The  chaostoolkit-kubernetes  project implements probes and actions\nfor experiments targetting a  Kubernetes  cluster. Those activities\nare implemented as Python functions.  This project is implemented in Python 3.",
             "title": "chaostoolkit-kubernetes"
+        },
+        {
+            "location": "/reference/developing/extensions/#incubating-extensions",
+            "text": "These extensions are under work and not mature yet to be part of the core\nof the Chaos Toolkit.",
+            "title": "Incubating Extensions"
         },
         {
             "location": "/reference/developing/extensions/#chaostoolkit-gremlin",
@@ -669,6 +679,21 @@
             "location": "/reference/developing/extensions/#chaostoolkit-prometheus",
             "text": "The  chaostoolkit-prometheus  project implements probes to fetch\ninformation from your system through  Prometheus . Those probes\nare implemented as Python functions talking to the  Prometheus API .  This project is implemented in Python 3.",
             "title": "chaostoolkit-prometheus"
+        },
+        {
+            "location": "/reference/developing/extensions/#chaostoolkit-aws",
+            "text": "The  chaostoolkit-aws  project implements actions and probes\nfor experiments exploring chaos engineering against your  AWS  environment.\nThose activities are implemented as Python functions talking to the AWS API .  This project is implemented in Python 3.",
+            "title": "chaostoolkit-aws"
+        },
+        {
+            "location": "/reference/developing/extensions/#chaostoolkit-cloud-foundry",
+            "text": "The  chaostoolkit-cloud-foundry  project implements actions and probes\nfor experiments exploring chaos engineering against your  Cloud Foundry \nenvironment. Those activities are implemented as Python functions talking to the Cloud Foundry API .  This project is implemented in Python 3.",
+            "title": "chaostoolkit-cloud-foundry"
+        },
+        {
+            "location": "/reference/developing/extensions/#chaostoolkit-slack",
+            "text": "The  chaostoolkit-slack  project implements the notification\ninterface to push Chaos Toolkit events to Slack channels.  This project is implemented in Python 3.",
+            "title": "chaostoolkit-slack"
         },
         {
             "location": "/reference/developing/technologies/",

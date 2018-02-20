@@ -77,4 +77,5 @@ pages:
         - Core Projects: reference/developing/core.md
         - Extensions: reference/developing/extensions.md
         - Technology Choices: reference/developing/technologies.md
+        - Guidelines: reference/developing/guidelines.md
 

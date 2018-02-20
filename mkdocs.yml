@@ -58,10 +58,12 @@ pages:
         - Install: reference/usage/install.md
         - Upgrade: reference/usage/upgrade.md
         - The CLI: reference/usage/cli.md
+        - Settings: reference/usage/settings.md
         - Discover: reference/usage/discover.md
         - Init: reference/usage/init.md
         - Run: reference/usage/run.md
         - Report: reference/usage/report.md
+        - Notification: reference/usage/notification.md
     - Open API:
         - Experiment: reference/api/experiment.md
         - Journal: reference/api/journal.md

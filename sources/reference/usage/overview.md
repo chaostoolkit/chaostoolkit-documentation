@@ -5,3 +5,4 @@ The Chaos Toolkit implements a specific workflow that intends to help you discov
 * [Init](init.md) to bootstrap your own, new chaos engineering experiments based on what has been [discovered](discover.md).
 * [Run](run.md) your chaos engineering experiments.
 * [Produce great reports](report.md) based on the findings of your chaos engineering experiments.
+* [Notify your team](notification.md) to make your experiments visible to all.

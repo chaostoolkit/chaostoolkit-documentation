@@ -27,6 +27,31 @@ such [The Hitchhiker’s Guide to Python][hitchhiker].
 
 [hitchhiker]: http://docs.python-guide.org/en/latest/
 
+#### The Ultimate Trick
+
+Whenever you code on one of the projects, you should run the following command
+one so that the project you are hacking on is part of your virtual environment
+without being installed:
+
+```console
+(chaostk) $ cd <project-name>
+(chaostk) $ python setup.py develop
+```
+
+Sometimes, your virtual env may be borked and not point to your development
+directory. In that case, make sure to remove any previously installed version
+of the project:
+
+```console
+(chaostk) $ pip uninstall <project-name>
+```
+
+Make then sure your virtual environment point at your local directory with:
+
+```console
+(chaostk) $ pip freeze
+```
+
 ### GitHub
 
 The Chaos Toolkit projects are hosted on [GitHub][gh]. If you wish to

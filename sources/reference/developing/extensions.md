@@ -5,7 +5,7 @@ projects which provide probes and/or actions for experiments.
 
 ### Official Extensions
 
-## chaostoolkit-kubernetes
+#### chaostoolkit-kubernetes
 
 The [chaostoolkit-kubernetes][chaoskube] project implements probes and actions
 for experiments targetting a [Kubernetes][kubernetes] cluster. Those activities
@@ -21,7 +21,7 @@ This project is implemented in Python 3.
 These extensions are under work and not mature yet to be part of the core
 of the Chaos Toolkit.
 
-## chaostoolkit-gremlin
+#### chaostoolkit-gremlin
 
 The [chaostoolkit-gremlin][chaosgremlin] project implements actions
 for experiments exploring resource failures (CPU, Memory, Network...) in their
@@ -34,7 +34,7 @@ are implemented as Python functions talking to the [Gremlin API][gremlinapi].
 
 This project is implemented in Python 3.
 
-## chaostoolkit-prometheus
+#### chaostoolkit-prometheus
 
 The [chaostoolkit-prometheus][chaosprom] project implements probes to fetch
 information from your system through [Prometheus][prometheus]. Those probes
@@ -46,7 +46,7 @@ are implemented as Python functions talking to the [Prometheus API][promapi].
 
 This project is implemented in Python 3.
 
-## chaostoolkit-aws
+#### chaostoolkit-aws
 
 The [chaostoolkit-aws][chaosaws] project implements actions and probes
 for experiments exploring chaos engineering against your [AWS][aws] environment.
@@ -59,7 +59,7 @@ Those activities are implemented as Python functions talking to the
 
 This project is implemented in Python 3.
 
-## chaostoolkit-cloud-foundry
+#### chaostoolkit-cloud-foundry
 
 The [chaostoolkit-cloud-foundry][chaoscf] project implements actions and probes
 for experiments exploring chaos engineering against your [Cloud Foundry][cf]
@@ -72,7 +72,7 @@ environment. Those activities are implemented as Python functions talking to the
 
 This project is implemented in Python 3.
 
-## chaostoolkit-slack
+#### chaostoolkit-slack
 
 The [chaostoolkit-slack][chaosslack] project implements the notification
 interface to push Chaos Toolkit events to Slack channels.

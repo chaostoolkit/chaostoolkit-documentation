@@ -1468,10 +1468,8 @@ should take to complete.</p>
 <li>a <code>arguments</code> property</li>
 <li>a <code>timeout</code> property</li>
 </ul>
-<p>The <code>arguments</code> property MUST be a JSON object which defines the process
-arguments. The properties are the names and each property&rsquo;s value is the
-the argument&rsquo;s value. An argument that does not expect a value MUST set that
-value to the empty string <code>&quot;&quot;</code>.</p>
+<p>The <code>arguments</code> property MUST be a JSON array which defines the process
+arguments. Those arguments are passed in order to the process arguments.</p>
 <p>The <code>timeout</code> property MUST be a JSON number specifying how long the process
 should take to complete.</p>
 <h3 id="rollbacks">Rollbacks<a class="headerlink" href="#rollbacks" title="Permanent link">&para;</a></h3>

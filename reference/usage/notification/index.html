@@ -40,7 +40,7 @@
     
     
       
-        <title>Key Project Values - Chaos Toolkit</title>
+        <title>Notification - Chaos Toolkit</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#key-project-values" tabindex="1" class="md-skip">
+      <a href="#get-notifications-from-the-chaos-toolkit-flow" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Chaos Toolkit
               </span>
               <span class="md-header-nav__topic">
-                Key Project Values
+                Notification
               </span>
             
           
@@ -386,10 +386,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-4" type="checkbox" id="nav-9-4" checked>
     
     <label class="md-nav__link" for="nav-9-4">
       Usage
@@ -407,7 +409,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/overview/" title="Overview" class="md-nav__link">
+    <a href="../overview/" title="Overview" class="md-nav__link">
       Overview
     </a>
   </li>
@@ -419,7 +421,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/install/" title="Install" class="md-nav__link">
+    <a href="../install/" title="Install" class="md-nav__link">
       Install
     </a>
   </li>
@@ -431,7 +433,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/upgrade/" title="Upgrade" class="md-nav__link">
+    <a href="../upgrade/" title="Upgrade" class="md-nav__link">
       Upgrade
     </a>
   </li>
@@ -443,7 +445,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/cli/" title="The CLI" class="md-nav__link">
+    <a href="../cli/" title="The CLI" class="md-nav__link">
       The CLI
     </a>
   </li>
@@ -455,7 +457,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/settings/" title="Settings" class="md-nav__link">
+    <a href="../settings/" title="Settings" class="md-nav__link">
       Settings
     </a>
   </li>
@@ -467,7 +469,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/discover/" title="Discover" class="md-nav__link">
+    <a href="../discover/" title="Discover" class="md-nav__link">
       Discover
     </a>
   </li>
@@ -479,7 +481,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/init/" title="Init" class="md-nav__link">
+    <a href="../init/" title="Init" class="md-nav__link">
       Init
     </a>
   </li>
@@ -491,7 +493,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/run/" title="Run" class="md-nav__link">
+    <a href="../run/" title="Run" class="md-nav__link">
       Run
     </a>
   </li>
@@ -503,7 +505,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../usage/report/" title="Report" class="md-nav__link">
+    <a href="../report/" title="Report" class="md-nav__link">
       Report
     </a>
   </li>
@@ -513,11 +515,97 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../usage/notification/" title="Notification" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Notification
+      </label>
+    
+    <a href="./" title="Notification" class="md-nav__link md-nav__link--active">
       Notification
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#chaos-toolkit-flow-events" title="Chaos Toolkit Flow Events" class="md-nav__link">
+    Chaos Toolkit Flow Events
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#declare-notification-channels" title="Declare Notification Channels" class="md-nav__link">
+    Declare Notification Channels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-events" title="Filter Events" class="md-nav__link">
+    Filter Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-notification-channel" title="HTTP Notification Channel" class="md-nav__link">
+    HTTP Notification Channel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-notification-channel" title="Plugin Notification Channel" class="md-nav__link">
+    Plugin Notification Channel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-notifications-to-slack" title="Send Notifications To Slack" class="md-nav__link">
+    Send Notifications To Slack
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging-notifications" title="Debugging Notifications" class="md-nav__link">
+    Debugging Notifications
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -626,12 +714,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-7" type="checkbox" id="nav-9-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9-7" type="checkbox" id="nav-9-7">
     
     <label class="md-nav__link" for="nav-9-7">
       Developing Chaos Toolkit
@@ -647,70 +733,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Key Project Values
-      </label>
-    
-    <a href="./" title="Key Project Values" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../developing/values/" title="Key Project Values" class="md-nav__link">
       Key Project Values
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#simplicity" title="Simplicity" class="md-nav__link">
-    Simplicity
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extensibility" title="Extensibility" class="md-nav__link">
-    Extensibility
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#readability" title="Readability" class="md-nav__link">
-    Readability
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diversity" title="Diversity" class="md-nav__link">
-    Diversity
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -720,7 +747,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../core/" title="Core Projects" class="md-nav__link">
+    <a href="../../developing/core/" title="Core Projects" class="md-nav__link">
       Core Projects
     </a>
   </li>
@@ -732,7 +759,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../extensions/" title="Extensions" class="md-nav__link">
+    <a href="../../developing/extensions/" title="Extensions" class="md-nav__link">
       Extensions
     </a>
   </li>
@@ -744,7 +771,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../technologies/" title="Technology Choices" class="md-nav__link">
+    <a href="../../developing/technologies/" title="Technology Choices" class="md-nav__link">
       Technology Choices
     </a>
   </li>
@@ -781,29 +808,56 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#simplicity" title="Simplicity" class="md-nav__link">
-    Simplicity
+  <a href="#chaos-toolkit-flow-events" title="Chaos Toolkit Flow Events" class="md-nav__link">
+    Chaos Toolkit Flow Events
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#extensibility" title="Extensibility" class="md-nav__link">
-    Extensibility
+  <a href="#declare-notification-channels" title="Declare Notification Channels" class="md-nav__link">
+    Declare Notification Channels
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filter-events" title="Filter Events" class="md-nav__link">
+    Filter Events
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#http-notification-channel" title="HTTP Notification Channel" class="md-nav__link">
+    HTTP Notification Channel
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#plugin-notification-channel" title="Plugin Notification Channel" class="md-nav__link">
+    Plugin Notification Channel
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-notifications-to-slack" title="Send Notifications To Slack" class="md-nav__link">
+    Send Notifications To Slack
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#readability" title="Readability" class="md-nav__link">
-    Readability
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#diversity" title="Diversity" class="md-nav__link">
-    Diversity
+  <a href="#debugging-notifications" title="Debugging Notifications" class="md-nav__link">
+    Debugging Notifications
   </a>
   
 </li>
@@ -824,33 +878,166 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/developing/values.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/usage/notification.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="key-project-values">Key Project Values<a class="headerlink" href="#key-project-values" title="Permanent link">&para;</a></h1>
-<p>The following key values of the Chaos Toolkit reflect the mindset the community
-has when engineering the Chaos Toolkit project.</p>
-<h2 id="simplicity">Simplicity<a class="headerlink" href="#simplicity" title="Permanent link">&para;</a></h2>
-<p>The Chaos Toolkit aims at being a simple piece of technology both from a user
-and developer perspective.</p>
-<p>To achieve simplicity, the Chaos Toolkit comes as a command line interface
-driven by a description file. As a user, this means no code and no need to 
-learn a programming language. As a developer, this reduces the functional
-surface area to consider.</p>
-<h2 id="extensibility">Extensibility<a class="headerlink" href="#extensibility" title="Permanent link">&para;</a></h2>
-<p>The Chaos Toolkit does not wish to be a monolith and strives to be extended to
-fully reach its goal through community driven efforts.</p>
-<p>By using a description file, the implementation is not prescribed by the Chaos
-Toolkit project. Although we fully expect the community to eventually settle on
-certain implementations of probes and actions.</p>
-<h2 id="readability">Readability<a class="headerlink" href="#readability" title="Permanent link">&para;</a></h2>
-<p>We believe code readbility is a factor for positive maintenance and evolutivity.</p>
-<p>Readable code never goes out of fashion. As the code of the Chaos Toolkit is
-mostly written in Python, best practices such as defined in <a href="https://www.python.org/dev/peps/pep-0008/">PEP8</a>.</p>
-<h2 id="diversity">Diversity<a class="headerlink" href="#diversity" title="Permanent link">&para;</a></h2>
-<p>Although not strictly speaking referring to the technological aspect of the 
-project, having diversity in the community will contribute to a better project
-overall.</p>
+                <h1 id="get-notifications-from-the-chaos-toolkit-flow">Get Notifications From The Chaos Toolkit Flow<a class="headerlink" href="#get-notifications-from-the-chaos-toolkit-flow" title="Permanent link">&para;</a></h1>
+<p>The Chaos Toolkit generates events when it is executed. You may benefit from
+those events to get notified via your chosen notification channels.</p>
+<h2 id="chaos-toolkit-flow-events">Chaos Toolkit Flow Events<a class="headerlink" href="#chaos-toolkit-flow-events" title="Permanent link">&para;</a></h2>
+<p>The Chaos Toolkit defines the following events:</p>
+<p>Discovery flow</p>
+<ul>
+<li><code>&quot;discover-started&quot;</code>: when the discovery flow has begun</li>
+<li><code>&quot;discover-completed&quot;</code>: when the discovery flow has completed</li>
+<li><code>&quot;discover-failed&quot;</code>: when the discovery flow has failed</li>
+</ul>
+<p>Init flow</p>
+<ul>
+<li><code>&quot;init-started&quot;</code>: when the init flow has begun</li>
+<li><code>&quot;init-completed&quot;</code>: when the init flow has completed</li>
+<li><code>&quot;init-failed&quot;</code>: when the init flow has failed</li>
+</ul>
+<p>Run flow</p>
+<ul>
+<li><code>&quot;run-started&quot;</code>: when the run flow has begun</li>
+<li><code>&quot;run-completed&quot;</code>: when the run flow has completed</li>
+<li><code>&quot;run-failed&quot;</code>: when the run flow has failed</li>
+</ul>
+<p>Validate flow</p>
+<ul>
+<li><code>&quot;validate-started&quot;</code>: when the validate flow has begun</li>
+<li><code>&quot;validate-completed&quot;</code>: when the validate flow has completed</li>
+<li><code>&quot;validate-failed&quot;</code>: when the validate flow has failed</li>
+</ul>
+<h2 id="declare-notification-channels">Declare Notification Channels<a class="headerlink" href="#declare-notification-channels" title="Permanent link">&para;</a></h2>
+<p>Notification channels are declared in the Chaos Toolkit
+<a href="../settings/">settings file</a> under the <code>notifications:</code> section.</p>
+<p>Here is an example:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+  <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://mystuff.com/api</span>
+  <span class="l l-Scalar l-Scalar-Plain">verify_tls</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;Bearer</span><span class="nv"> </span><span class="s">1234&quot;</span>
+ <span class="p p-Indicator">-</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+</pre></div>
+
+<p>As you can see, channels are items in a list. Each channel is a mapping
+describing the kind of channel and its required information.</p>
+<p>For instance, here we have two channels. The first one is a call to the HTTPS
+endpoint while the other one uses the <a href="../sl">Chaos Toolkit Extension for Slack</a>
+to send messages to Slack channels.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Notification channels are run sequential to the whole chaos flow, so the
+more you declare, the bigger the impact they could have on the readibility
+of the experiment results.</p>
+</div>
+<h3 id="filter-events">Filter Events<a class="headerlink" href="#filter-events" title="Permanent link">&para;</a></h3>
+<p>By default, all <a href="#chaos-toolkit-flow-events">events</a> are sent to the channels.
+However, you may decide, on a per channel basis, which events you want to be
+sent. This is done by adding the <code>events</code> field to a channel:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+  <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-failed</span>
+</pre></div>
+
+<p>The Slack channel will only receive events when a run experiment fails. This
+is a list so declare as many events as you need.</p>
+<h3 id="http-notification-channel">HTTP Notification Channel<a class="headerlink" href="#http-notification-channel" title="Permanent link">&para;</a></h3>
+<p>A HTTP notification channel tells the Chaos Toolkit it must send the event
+over HTTP (or HTTPS) to the given endpoint. Here is the description of its
+fields:</p>
+<ul>
+<li><code>type</code>: must <code>&quot;http&quot;</code> (required)</li>
+<li><code>url</code>: the endpoint address (required)</li>
+<li><code>verify_tls</code>: <code>true|false</code> depending if the endpoint certificates are
+  self-signed</li>
+<li><code>headers</code>: a mapping where the keys are header names and their associated
+  values</li>
+<li><code>forward_event_payload</code>: <code>true|false</code>. If <code>true</code>, the default, then the event
+  payload is sent to that endpoint in a <code>POST</code> request. Otherwise, a <code>GET</code>
+  request is performed with no body</li>
+</ul>
+<h3 id="plugin-notification-channel">Plugin Notification Channel<a class="headerlink" href="#plugin-notification-channel" title="Permanent link">&para;</a></h3>
+<p>A plugin notification channel is an integration between an external system and
+the Chaos Toolkit event notification flow. It is more capable than basic HTTP
+channels as they are fully fledged Python functions.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>A plugin channel could also be understood as a hook point into the Chaos
+Toolkit flow. Nothing prevents you from writing a plugin that performs
+operations based on those hook events. Please note however that they run
+sequentially to the whole flow, so the longer your operation takes, the
+longer it takes for your chaos experiment to carry on. This may invalidate
+certain experiments when timing is critical.</p>
+</div>
+<p>Here are the fields to declare one:</p>
+<ul>
+<li><code>type</code>: must <code>&quot;plugin&quot;</code> (required)</li>
+<li><code>module</code>: the dotted path to the Python module containing the function to
+  apply (required)</li>
+<li><code>func</code>: the name of the function to apply (in that module), defaults to
+  <code>&quot;notify&quot;</code></li>
+</ul>
+<p>Any other fields will be passed on as-is to the function for its internal usage.
+For instance:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+</pre></div>
+
+<p>The <code>token</code> and <code>channel</code> fields will be provided directly to the <code>notify</code>
+function of the <code>chaosslack.notification</code> module.</p>
+<h2 id="send-notifications-to-slack">Send Notifications To Slack<a class="headerlink" href="#send-notifications-to-slack" title="Permanent link">&para;</a></h2>
+<p>Notifying about Chaos Experiment in a slack channel is so common that we will
+describe this integration here.</p>
+<p>First, you must install the <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-slack">Chaos Toolkit Integration for Slack</a> as usual:</p>
+<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip install -U chaostoolkit-slack
+</pre></div>
+
+<p>Then, you should declare your notification channels as follows in the Chaos
+Toolkit <a href="../settings/">settings file</a>:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+ <span class="p p-Indicator">-</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+</pre></div>
+
+<p>You may define as many channels as you need, for instance for different kind
+of events.</p>
+<p>The <code>token</code> and <code>channel</code> fields are mandatory in this case. The <code>token</code> field
+must be set to a valid Slack token. You may start with a <a href="https://api.slack.com/custom-integrations/legacy-tokens">legacy token</a>
+before moving on to a <a href="../slackapp">Slack App</a> as per Slack <a href="https://api.slack.com/docs/token-types">guidelines</a>.</p>
+<p>The Chaos Toolkit itself does not provide a Slack App at this moment.</p>
+<p>The channel must be a name of an existing channel. The
+payload message sent to Slack is defined in the <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-slack">plugin</a>. If you need to
+amend it, please open an <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-slack/issues">issue</a> there.</p>
+<h2 id="debugging-notifications">Debugging Notifications<a class="headerlink" href="#debugging-notifications" title="Permanent link">&para;</a></h2>
+<p>The Chaos Toolkit does its best to not break the experiment when an event
+could not be pushed. If you do not see the notification you were expecting,
+you should start investigating in the <code>chaostoolkit.og</code> file. Indeed, in that
+case the error is logged at the <code>DEBUG</code> level with, hopefully, enough
+information why the event could not be sent.</p>
+<p>If the error occurs inside the core Chaos Toolkit library, please raise an
+<a href="https://github.com/chaostoolkit/chaostoolkit-lib/issues">issue there</a>. Otherwise, raise an issue with the appropriate
+plugin.</p>
                 
                   
                 
@@ -869,7 +1056,7 @@ overall.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../extending/extending-with-python/" title="Python" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../report/" title="Report" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -878,19 +1065,19 @@ overall.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Python
+                Report
               </span>
             </div>
           </a>
         
         
-          <a href="../core/" title="Core Projects" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../api/experiment/" title="Experiment" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Core Projects
+                Experiment
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

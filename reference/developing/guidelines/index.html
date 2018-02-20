@@ -736,6 +736,19 @@
     Programming Environment
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ultimate-trick" title="The Ultimate Trick" class="md-nav__link">
+    The Ultimate Trick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -825,6 +838,19 @@
     Programming Environment
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-ultimate-trick" title="The Ultimate Trick" class="md-nav__link">
+    The Ultimate Trick
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -898,6 +924,24 @@ Toolkit is implemented in Python so make sure to have the right tooling for it.<
 </ul>
 <p>If you&rsquo;re not familiar with Python, you will find a few helpful books online,
 such <a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide to Python</a>.</p>
+<h4 id="the-ultimate-trick">The Ultimate Trick<a class="headerlink" href="#the-ultimate-trick" title="Permanent link">&para;</a></h4>
+<p>Whenever you code on one of the projects, you should run the following command
+one so that the project you are hacking on is part of your virtual environment
+without being installed:</p>
+<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> <span class="nb">cd</span> &lt;project-name&gt;
+<span class="gp">(chaostk) $</span> python setup.py develop
+</pre></div>
+
+<p>Sometimes, your virtual env may be borked and not point to your development
+directory. In that case, make sure to remove any previously installed version
+of the project:</p>
+<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip uninstall &lt;project-name&gt;
+</pre></div>
+
+<p>Make then sure your virtual environment point at your local directory with:</p>
+<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip freeze
+</pre></div>
+
 <h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
 <p>The Chaos Toolkit projects are hosted on <a href="https://github.com/chaostoolkit/">GitHub</a>. If you wish to
 <a href="../../../contributing/">contribute</a>, you will need to have an account there.</p>

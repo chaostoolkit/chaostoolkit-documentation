@@ -40,6 +40,8 @@ extra:
       link: https://twitter.com/chaostoolkit
     - type: slack
       link: https://join.chaostoolkit.org/
+    - type: medium
+      link: https://medium.com/chaos-toolkit
 pages:
 - Home: index.md
 - New to Chaos Engineering: new-to-chaos.md

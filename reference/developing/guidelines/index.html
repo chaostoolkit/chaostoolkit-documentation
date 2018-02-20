@@ -40,7 +40,7 @@
     
     
       
-        <title>Extensions - Chaos Toolkit</title>
+        <title>Guidelines - Chaos Toolkit</title>
       
     
     
@@ -92,7 +92,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#extension-projects" tabindex="1" class="md-skip">
+      <a href="#developer-guidelines" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -118,7 +118,7 @@
                 Chaos Toolkit
               </span>
               <span class="md-header-nav__topic">
-                Extensions
+                Guidelines
               </span>
             
           
@@ -671,110 +671,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Extensions
-      </label>
-    
-    <a href="./" title="Extensions" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../extensions/" title="Extensions" class="md-nav__link">
       Extensions
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#official-extensions" title="Official Extensions" class="md-nav__link">
-    Official Extensions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-kubernetes" title="chaostoolkit-kubernetes" class="md-nav__link">
-    chaostoolkit-kubernetes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#incubating-extensions" title="Incubating Extensions" class="md-nav__link">
-    Incubating Extensions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-gremlin" title="chaostoolkit-gremlin" class="md-nav__link">
-    chaostoolkit-gremlin
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-prometheus" title="chaostoolkit-prometheus" class="md-nav__link">
-    chaostoolkit-prometheus
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-aws" title="chaostoolkit-aws" class="md-nav__link">
-    chaostoolkit-aws
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-cloud-foundry" title="chaostoolkit-cloud-foundry" class="md-nav__link">
-    chaostoolkit-cloud-foundry
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-slack" title="chaostoolkit-slack" class="md-nav__link">
-    chaostoolkit-slack
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -794,11 +695,90 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../guidelines/" title="Guidelines" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Guidelines
+      </label>
+    
+    <a href="./" title="Guidelines" class="md-nav__link md-nav__link--active">
       Guidelines
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#programming-environment" title="Programming Environment" class="md-nav__link">
+    Programming Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" title="GitHub" class="md-nav__link">
+    GitHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaos-toolkit-projects-at-a-glance" title="Chaos Toolkit Projects At A Glance" class="md-nav__link">
+    Chaos Toolkit Projects At A Glance
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-an-extension" title="Creating an Extension" class="md-nav__link">
+    Creating an Extension
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-notification-plugin" title="Creating a notification plugin" class="md-nav__link">
+    Creating a notification plugin
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -833,16 +813,30 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#official-extensions" title="Official Extensions" class="md-nav__link">
-    Official Extensions
+  <a href="#overview" title="Overview" class="md-nav__link">
+    Overview
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#chaostoolkit-kubernetes" title="chaostoolkit-kubernetes" class="md-nav__link">
-    chaostoolkit-kubernetes
+  <a href="#programming-environment" title="Programming Environment" class="md-nav__link">
+    Programming Environment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#github" title="GitHub" class="md-nav__link">
+    GitHub
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#chaos-toolkit-projects-at-a-glance" title="Chaos Toolkit Projects At A Glance" class="md-nav__link">
+    Chaos Toolkit Projects At A Glance
   </a>
   
 </li>
@@ -853,50 +847,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#incubating-extensions" title="Incubating Extensions" class="md-nav__link">
-    Incubating Extensions
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-gremlin" title="chaostoolkit-gremlin" class="md-nav__link">
-    chaostoolkit-gremlin
+  <a href="#creating-an-extension" title="Creating an Extension" class="md-nav__link">
+    Creating an Extension
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-prometheus" title="chaostoolkit-prometheus" class="md-nav__link">
-    chaostoolkit-prometheus
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-notification-plugin" title="Creating a notification plugin" class="md-nav__link">
+    Creating a notification plugin
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-aws" title="chaostoolkit-aws" class="md-nav__link">
-    chaostoolkit-aws
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-cloud-foundry" title="chaostoolkit-cloud-foundry" class="md-nav__link">
-    chaostoolkit-cloud-foundry
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#chaostoolkit-slack" title="chaostoolkit-slack" class="md-nav__link">
-    chaostoolkit-slack
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -916,48 +876,103 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/developing/extensions.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/developing/guidelines.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="extension-projects">Extension Projects<a class="headerlink" href="#extension-projects" title="Permanent link">&para;</a></h1>
-<p>In addition to the core projects, the Chaos Toolkit manages some extension
-projects which provide probes and/or actions for experiments.</p>
-<h3 id="official-extensions">Official Extensions<a class="headerlink" href="#official-extensions" title="Permanent link">&para;</a></h3>
-<h4 id="chaostoolkit-kubernetes">chaostoolkit-kubernetes<a class="headerlink" href="#chaostoolkit-kubernetes" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit/chaostoolkit-kubernetes">chaostoolkit-kubernetes</a> project implements probes and actions
-for experiments targetting a <a href="https://kubernetes.io/">Kubernetes</a> cluster. Those activities
-are implemented as Python functions.</p>
-<p>This project is implemented in Python 3.</p>
-<h3 id="incubating-extensions">Incubating Extensions<a class="headerlink" href="#incubating-extensions" title="Permanent link">&para;</a></h3>
-<p>These extensions are under work and not mature yet to be part of the core
-of the Chaos Toolkit.</p>
-<h4 id="chaostoolkit-gremlin">chaostoolkit-gremlin<a class="headerlink" href="#chaostoolkit-gremlin" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit/chaostoolkit-gremlin">chaostoolkit-gremlin</a> project implements actions
-for experiments exploring resource failures (CPU, Memory, Network&hellip;) in their
-system through the <a href="https://gremlininc.com/">Gremlin, Inc.</a> services. Those activities
-are implemented as Python functions talking to the <a href="https://help.gremlininc.com/api/">Gremlin API</a>.</p>
-<p>This project is implemented in Python 3.</p>
-<h4 id="chaostoolkit-prometheus">chaostoolkit-prometheus<a class="headerlink" href="#chaostoolkit-prometheus" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit/chaostoolkit-prometheus">chaostoolkit-prometheus</a> project implements probes to fetch
-information from your system through <a href="https://prometheus.io/">Prometheus</a>. Those probes
-are implemented as Python functions talking to the <a href="https://prometheus.io/docs/querying/api/">Prometheus API</a>.</p>
-<p>This project is implemented in Python 3.</p>
-<h4 id="chaostoolkit-aws">chaostoolkit-aws<a class="headerlink" href="#chaostoolkit-aws" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-aws">chaostoolkit-aws</a> project implements actions and probes
-for experiments exploring chaos engineering against your <a href="https://aws.amazon.com/">AWS</a> environment.
-Those activities are implemented as Python functions talking to the
-<a href="https://aws.amazon.com/documentation/">AWS API</a>.</p>
-<p>This project is implemented in Python 3.</p>
-<h4 id="chaostoolkit-cloud-foundry">chaostoolkit-cloud-foundry<a class="headerlink" href="#chaostoolkit-cloud-foundry" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-cloud-foundry">chaostoolkit-cloud-foundry</a> project implements actions and probes
-for experiments exploring chaos engineering against your <a href="https://www.cloudfoundry.org/">Cloud Foundry</a>
-environment. Those activities are implemented as Python functions talking to the
-<a href="https://apidocs.cloudfoundry.org/">Cloud Foundry API</a>.</p>
-<p>This project is implemented in Python 3.</p>
-<h4 id="chaostoolkit-slack">chaostoolkit-slack<a class="headerlink" href="#chaostoolkit-slack" title="Permanent link">&para;</a></h4>
-<p>The <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-slack">chaostoolkit-slack</a> project implements the notification
-interface to push Chaos Toolkit events to Slack channels.</p>
-<p>This project is implemented in Python 3.</p>
+                <h1 id="developer-guidelines">Developer Guidelines<a class="headerlink" href="#developer-guidelines" title="Permanent link">&para;</a></h1>
+<p>Contributors to the Chaos Toolkit are always welcome. This guide describes the
+general elements you probably need to know to get started. Once past those
+elements, you should dive into the code of each project and come discuss
+on our <a href="https://join.chaostoolkit.org/">Slack</a>.</p>
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<h3 id="programming-environment">Programming Environment<a class="headerlink" href="#programming-environment" title="Permanent link">&para;</a></h3>
+<p>The programming environment really is up to you. However, since the Chaos
+Toolkit is implemented in Python so make sure to have the right tooling for it.</p>
+<p>The most basics are:</p>
+<ul>
+<li>Python 3.5+ installed. Right now, we officially support 3.5 and 3.6 but there
+  should not be harm in using 3.7 as long as it can gracefully degrade down to
+  3.5</li>
+<li>A virtual environment so you can deploy the dependencies in a specific
+  environment</li>
+</ul>
+<p>If you&rsquo;re not familiar with Python, you will find a few helpful books online,
+such <a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide to Python</a>.</p>
+<h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
+<p>The Chaos Toolkit projects are hosted on <a href="https://github.com/chaostoolkit/">GitHub</a>. If you wish to
+<a href="../../../contributing/">contribute</a>, you will need to have an account there.</p>
+<p>The general workflow is to fork the project you wish to contribute to, make your
+changes in a dedicated branch, rebase against the original master and finally
+submit a pull-request to the project with a clear description of the what and
+why.</p>
+<h3 id="chaos-toolkit-projects-at-a-glance">Chaos Toolkit Projects At A Glance<a class="headerlink" href="#chaos-toolkit-projects-at-a-glance" title="Permanent link">&para;</a></h3>
+<p>The Chaos Toolkit is made of several projects. The core ones are:</p>
+<ul>
+<li><a href="https://github.com/chaostoolkit/chaostoolkit">chaostoolkit</a>: the CLI</li>
+<li><a href="https://github.com/chaostoolkit/chaostoolkit-lib">chaostoolkit-lib</a>: the core
+  library that propels the CLI</li>
+</ul>
+<p>Basically, those projects represent the Chaos Toolkit itself. However, the
+toolkit is naked without extensions. The currently core extensions are:</p>
+<ul>
+<li><a href="https://github.com/chaostoolkit/chaostoolkit-kubernetes">chaostoolkit-kubernetes</a></li>
+</ul>
+<p>In addition, there are a
+<a href="https://github.com/chaostoolkit-incubator">bunch of incubating projects</a>.</p>
+<h2 id="creating-an-extension">Creating an Extension<a class="headerlink" href="#creating-an-extension" title="Permanent link">&para;</a></h2>
+<p>One of the most common task you could do is add a new extension for your need.
+Extensions provide activities that experiments use to perform actions or read
+the system&rsquo;s state (via probes).</p>
+<p>An extension is a full fledged Python project. To make it simpler to get
+started the Chaos Toolkit provides a <a href="https://github.com/chaostoolkit/chaostoolkit-extension-template">template project</a> that you can start
+from.</p>
+<p>To get going, clone this project and rename the followings:</p>
+<ul>
+<li>the directory containing the source</li>
+<li>anywhere you find an occurence of the template name (<code>chaostext</code>) with your
+  extension name</li>
+</ul>
+<p>Please, mirror existing extensions in the way they are designed and organized.</p>
+<h2 id="creating-a-notification-plugin">Creating a notification plugin<a class="headerlink" href="#creating-a-notification-plugin" title="Permanent link">&para;</a></h2>
+<p>The Chaos Toolkit triggers events while it runs. Those events may be forwarded
+to any endpoint that you care for through HTTP or, when you need more control,
+a full Python project.</p>
+<p>There is no template for such a project yet but it is very close to an
+extension project except it doesn&rsquo;t have probes and actions. You can therefore
+start by cloning the <a href="https://github.com/chaostoolkit/chaostoolkit-extension-template">extension template project</a> and start from there.</p>
+<p>Instead, it should define a function in a module. That function takes two
+parameters:</p>
+<ul>
+<li>the notification channel settings (coming from the
+  <a href="../../usage/settings/">Chaos Toolkit settings file</a>) as a dictionary</li>
+<li>the event payload as a Python dictionary which is documented
+  <a href="https://github.com/chaostoolkit/chaostoolkit-lib/blob/master/chaoslib/notification.py#L97">here</a></li>
+</ul>
+<p>The event has a <code>payload</code> key which is the content associated to the event. It
+can be one of:</p>
+<ul>
+<li><code>None</code> when there was no payload ()</li>
+<li>a string</li>
+<li>an <a href="../../api/experiment/">experiment</a> dictionary</li>
+<li>an <a href="../../api/journal/">journal</a> dictionary</li>
+</ul>
+<p>Three kind of events can be triggered: <code>started</code>, <code>completed</code> and <code>failed</code> for
+each phase of the flow. Those events are defined
+<a href="https://github.com/chaostoolkit/chaostoolkit-lib/blob/master/chaoslib/notification.py#L21">here</a>.</p>
+<p>A typical notification callback function will look like this:</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+
+<span class="kn">from</span> <span class="nn">chaoslib.notification</span> <span class="kn">import</span> <span class="n">RunFlowEvent</span>
+<span class="kn">from</span> <span class="nn">chaoslib.types</span> <span class="kn">import</span> <span class="n">EventPayload</span>
+
+
+<span class="k">def</span> <span class="nf">notify</span><span class="p">(</span><span class="n">settings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">event</span><span class="p">:</span> <span class="n">EventPayload</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">RunFlowEvent</span><span class="o">.</span><span class="n">RunStarted</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event phase &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;phase&quot;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event timestamp &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event payload &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event error &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">))</span>
+</pre></div>
                 
                   
                 
@@ -976,7 +991,7 @@ interface to push Chaos Toolkit events to Slack channels.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../core/" title="Core Projects" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../technologies/" title="Technology Choices" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -985,25 +1000,11 @@ interface to push Chaos Toolkit events to Slack channels.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Core Projects
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../technologies/" title="Technology Choices" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
                 Technology Choices
               </span>
             </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
           </a>
+        
         
       </nav>
     </div>

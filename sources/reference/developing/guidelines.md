@@ -146,3 +146,15 @@ def notify(settings: Dict[str, Any], event: EventPayload):
         print("Event payload " + event["payload"])
         print("Event error " + event.get("error", "N/A"))
 ```
+
+## Log From Your Extension or Plugin
+
+You can write to the Chaos Toolkit log by using the [logzero][] package.
+
+[logzero]: https://logzero.readthedocs.io/en/latest/
+
+```python
+from logzero import logger
+
+logger.info("Hello!")
+```

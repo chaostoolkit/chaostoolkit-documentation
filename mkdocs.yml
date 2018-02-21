@@ -66,6 +66,7 @@ pages:
         - Run: reference/usage/run.md
         - Report: reference/usage/report.md
         - Notification: reference/usage/notification.md
+        - Investigating: reference/usage/investigating.md
     - Open API:
         - Experiment: reference/api/experiment.md
         - Journal: reference/api/journal.md

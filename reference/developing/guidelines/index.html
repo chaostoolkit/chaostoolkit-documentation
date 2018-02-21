@@ -796,6 +796,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#log-from-your-extension-or-plugin" title="Log From Your Extension or Plugin" class="md-nav__link">
+    Log From Your Extension or Plugin
+  </a>
+  
+</li>
+      
       
       
       
@@ -894,6 +901,13 @@
         <li class="md-nav__item">
   <a href="#creating-a-notification-plugin" title="Creating a notification plugin" class="md-nav__link">
     Creating a notification plugin
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-from-your-extension-or-plugin" title="Log From Your Extension or Plugin" class="md-nav__link">
+    Log From Your Extension or Plugin
   </a>
   
 </li>
@@ -1028,6 +1042,13 @@ each phase of the flow. Those events are defined
         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event timestamp &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;ts&quot;</span><span class="p">])</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event payload &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;payload&quot;</span><span class="p">])</span>
         <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Event error &quot;</span> <span class="o">+</span> <span class="n">event</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;error&quot;</span><span class="p">,</span> <span class="s2">&quot;N/A&quot;</span><span class="p">))</span>
+</pre></div>
+
+<h2 id="log-from-your-extension-or-plugin">Log From Your Extension or Plugin<a class="headerlink" href="#log-from-your-extension-or-plugin" title="Permanent link">&para;</a></h2>
+<p>You can write to the Chaos Toolkit log by using the <a href="https://logzero.readthedocs.io/en/latest/">logzero</a> package.</p>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">logzero</span> <span class="kn">import</span> <span class="n">logger</span>
+
+<span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Hello!&quot;</span><span class="p">)</span>
 </pre></div>
                 
                   

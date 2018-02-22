@@ -5,10 +5,10 @@ you can work with any failure injection and system observability systems that yo
 
 The ChaosToolkit currently [supports][api] three extension approaches:
 
-[api]: /api/experiment
-[pyfuncapi]: /api/experiment#python-provider
-[httpapi]: /api/experiment#http-provider
-[procapi]: /api/experiment#process-provider
+[api]: ../api/experiment.md
+[pyfuncapi]: ../api/experiment.md#python-provider
+[httpapi]: ../api/experiment.md#http-provider
+[procapi]: ../api/experiment.md#process-provider
 
 * [Python function][pyfuncapi]
 * [Process][procapi]

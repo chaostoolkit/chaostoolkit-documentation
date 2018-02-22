@@ -6,8 +6,8 @@ To create your own extension to the Chaos Toolkit using Python, a [template Pyth
 
 To use the Python template extension project, simply download the latest release of [the baseline project][template-project] from GitHub, place this in your own new project, and make the following amendments:
 
-* Edit the name of the project to the name of your unique extension: 
-    * Rename the package directory (`chaosext` in the template) 
+* Edit the name of the project to the name of your unique extension:
+    * Rename the package directory (`chaosext` in the template)
     * Rename the imports in the tests from `chaosext` to the name of your extension's package
     * Make the same change across the `README.md`, the`CHANGELOG.md`, `pytest.ini` and `setup.py`
 * Remove `ci.bash` and `.travis.yml` as these are artifacts from the CI build system for the template only.
@@ -22,6 +22,6 @@ It is conventional to use the `actions.py` module as the place where you expose 
 
 It's also conventional to use the `probes.py` module as the place where you can integrate with your system's existing [observability](https://www.infoq.com/articles/charity-majors-observability-failure) so that those values can be used either for an experiment's [Steady State Hypothesis][hypothesis], or as [simple additional data-gathering probes][simple-probe] that can be declared throughout an experiment's method.
 
-[hypothesis]: /api/experiment/#steady-state-probe-tolerance
-[simple-probe]: /api/experiment/#probe
+[hypothesis]: ../api/experiment.md#steady-state-probe-tolerance
+[simple-probe]: ../api/experiment.md#probe
 

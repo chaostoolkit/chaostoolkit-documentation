@@ -372,7 +372,7 @@ encoding depends on the `"Content-Type"` provided in the `headers` object.
 The `timeout` property MUST be a JSON number specifying how long the request
 should take to complete.
 
-#### Process Provider
+#### Process Provider
 
 A Process Provider declares a process to be called.
 
@@ -485,7 +485,7 @@ string.
 }
 ```
 
-### Configuration
+### Configuration
 
 Configuration is meant to provide runtime values to [actions][action] and
 [probes][pb].
@@ -549,7 +549,7 @@ Other values, such as the HTTP Probe url, MAY be sustituted as well.
 
 The following examples MUST NOT be considered normatives.
 
-### Minimal Experiment
+### Minimal Experiment
 
 Here is an example of the most minimal experiment:
 

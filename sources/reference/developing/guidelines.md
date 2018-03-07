@@ -30,7 +30,7 @@ such [The Hitchhiker’s Guide to Python][hitchhiker].
 #### The Ultimate Trick
 
 Whenever you code on one of the projects, you should run the following command
-one so that the project you are hacking on is part of your virtual environment
+so that the project you are hacking on is part of your virtual environment
 without being installed:
 
 ```console
@@ -46,7 +46,7 @@ of the project:
 (chaostk) $ pip uninstall <project-name>
 ```
 
-Make then sure your virtual environment point at your local directory with:
+Then make sure your virtual environment point at your local directory with:
 
 ```console
 (chaostk) $ pip freeze
@@ -99,6 +99,23 @@ To get going, clone this project and rename the followings:
   extension name
 
 Please, mirror existing extensions in the way they are designed and organized.
+
+### Running `Discover` on a New Extension
+
+Chaos Toolkit extensions often implement functionality that assists in 
+discovering what a system, and the extension against that system, supports. This
+is executed using the `chaos discover` command.
+
+When writing your own implementation of discovery you will often want to test 
+the new functionality locally. To do this you should first execute from your 
+extension workspace:
+
+`$ python setup.py develop`
+
+Then you can exercise your discovery functionality using the `--no-install` flag
+ on the `chaos discover` command, for example:
+
+`chaos discover --no-install ext-name`
 
 ## Creating a notification plugin
 

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.6">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.7.0">
     
     
       
@@ -788,6 +788,19 @@
     Creating an Extension
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-discover-on-a-new-extension" title="Running Discover on a New Extension" class="md-nav__link">
+    Running Discover on a New Extension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -897,6 +910,19 @@
     Creating an Extension
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-discover-on-a-new-extension" title="Running Discover on a New Extension" class="md-nav__link">
+    Running Discover on a New Extension
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -953,7 +979,7 @@ Toolkit is implemented in Python so make sure to have the right tooling for it.<
 such <a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide to Python</a>.</p>
 <h4 id="the-ultimate-trick">The Ultimate Trick<a class="headerlink" href="#the-ultimate-trick" title="Permanent link">&para;</a></h4>
 <p>Whenever you code on one of the projects, you should run the following command
-one so that the project you are hacking on is part of your virtual environment
+so that the project you are hacking on is part of your virtual environment
 without being installed:</p>
 <div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> <span class="nb">cd</span> &lt;project-name&gt;
 <span class="gp">(chaostk) $</span> python setup.py develop
@@ -965,7 +991,7 @@ of the project:</p>
 <div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip uninstall &lt;project-name&gt;
 </pre></div>
 
-<p>Make then sure your virtual environment point at your local directory with:</p>
+<p>Then make sure your virtual environment point at your local directory with:</p>
 <div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip freeze
 </pre></div>
 
@@ -1004,6 +1030,17 @@ from.</p>
   extension name</li>
 </ul>
 <p>Please, mirror existing extensions in the way they are designed and organized.</p>
+<h3 id="running-discover-on-a-new-extension">Running <code>Discover</code> on a New Extension<a class="headerlink" href="#running-discover-on-a-new-extension" title="Permanent link">&para;</a></h3>
+<p>Chaos Toolkit extensions often implement functionality that assists in 
+discovering what a system, and the extension against that system, supports. This
+is executed using the <code>chaos discover</code> command.</p>
+<p>When writing your own implementation of discovery you will often want to test 
+the new functionality locally. To do this you should first execute from your 
+extension workspace:</p>
+<p><code>$ python setup.py develop</code></p>
+<p>Then you can exercise your discovery functionality using the <code>--no-install</code> flag
+ on the <code>chaos discover</code> command, for example:</p>
+<p><code>chaos discover --no-install ext-name</code></p>
 <h2 id="creating-a-notification-plugin">Creating a notification plugin<a class="headerlink" href="#creating-a-notification-plugin" title="Permanent link">&para;</a></h2>
 <p>The Chaos Toolkit triggers events while it runs. Those events may be forwarded
 to any endpoint that you care for through HTTP or, when you need more control,
@@ -1124,7 +1161,7 @@ each phase of the flow. Those events are defined
       
     </div>
     
-      <script src="../../../assets/javascripts/application.02434462.js"></script>
+      <script src="../../../assets/javascripts/application.8eb9be28.js"></script>
       
       <script>app.initialize({version:"0.17.2",url:{base:"../../.."}})</script>
       

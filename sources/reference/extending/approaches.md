@@ -16,3 +16,9 @@ The ChaosToolkit currently [supports][api] three extension approaches:
 
 You can extend your actions and probes by implementing them using one of these
 approaches.
+
+!!! tip
+    The Chaos Toolkit maintains a set of [open-source extensions][ext] ready to
+    be integrated into your Chaos experiments.
+
+[ext]: https://github.com/search?utf8=%E2%9C%93&q=topic%3Achaostoolkit-extension&type=Repositories

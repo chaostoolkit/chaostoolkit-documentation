@@ -76,3 +76,11 @@ You can verify the command was installed by running:
 ```
 (chaostk) $ chaos --version
 ```
+
+## Install Extensions
+
+At this stage, you have installed the `chaos` command line and its core
+library. To fully enjoy the Chaos Toolkit, you will also want to install
+[extensions][ext] for the various facets of your journey into Chaos Engineering.
+
+[ext]: https://github.com/search?utf8=%E2%9C%93&q=topic%3Achaostoolkit-extension&type=Repositories

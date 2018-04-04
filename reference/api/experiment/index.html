@@ -1328,8 +1328,8 @@ be considered valid.</p>
 property which MUST be a valid regular expression. The <code>tolerance</code> succeeds if
 the <a href="#probe">Probe</a> returned value is matched against the pattern.</p>
 <p>When the <code>type</code> property is <code>&quot;jsonpath&quot;</code>, the object MUST have a <code>path</code>
-property which MUST be a valid [JSON Path]. In addition, the object MAY have
-a <code>expect</code> property which is used to compare each value matched by the JSON
+property which MUST be a valid <a href="http://goessner.net/articles/JsonPath/">JSON Path</a>. In addition, the object MAY
+have a <code>expect</code> property which is used to compare each value matched by the JSON
 Path to that value. The <code>expect</code> property value MUST be a scalar. When the
 <code>expect</code> property is not present, the <code>tolerance</code> succeeds if the JSON Path
 matched at least one item.</p>

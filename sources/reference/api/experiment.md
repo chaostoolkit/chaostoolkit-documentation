@@ -131,20 +131,44 @@ named `tolerance`.
 The `tolerance` property's value MUST be one of:
 
 * a scalar: JSON string, number (an integer), boolean
-* a sequence of two scalars defining a lower and upper bounds
-* a Probe object
+* a sequence of scalars: JSON string, number, boolean
+* an object
 
 In the case of a scalar or the sequence, the tolerance validation MUST be
 strict. The value returned by the [Probe][pb] MUST be checked against the
 scalar value. The experiment MUST bail when both fail to match.
 
-When the `tolerance` is a sequence of two scalars, the returned value from
-the [Probe][pb] MUST fall within the boundaries they form.
+When the `tolerance` is a sequence. If it has only two values, those two values
+represent a lower and upper bound within which the [Probe][pb] returned value
+must fall (inclusive).
 
-In the case of a [Probe][pb] object, the tolerance validation is left
-undefined as it is controlled by the [Probe][pb] itself. However, it is
-RECOMMENDED that the `tolerance` [Probe][pb] acts strictly in order to improve
-the readability of the experiment's results.
+When the sequence has more than two elements, the [Probe][pb] returned value
+must be contained in that sequence.
+
+When the `tolerance` is an object, it MUST have a `type` property which MUST
+be one of the followings: `"probe"`, `"regex"` or `"jsonpath"`.
+
+When the `type` property is `"probe"`, the object MUST be a [Probe][pb] that is
+applied. The probe should take two arguments, `value` and `secrets` where
+the value is the [Probe][pb] returned value and secrets a [Secret][secret]
+object or `null`. Its returned status MUST be successful for the `tolerance` to
+be considered valid.
+
+When the `type` property is `"regex"`, the object MUST have a `pattern`
+property which MUST be a valid regular expression. The `tolerance` succeeds if
+the [Probe][pb] returned value is matched against the pattern.
+
+When the `type` property is `"jsonpath"`, the object MUST have a `path`
+property which MUST be a valid [JSON Path]. In addition, the object MAY have
+a `expect` property which is used to compare each value matched by the JSON
+Path to that value. The `expect` property value MUST be a scalar. When the
+`expect` property is not present, the `tolerance` succeeds if the JSON Path
+matched at least one item.
+
+[jp]: http://goessner.net/articles/JsonPath/
+
+In addition, when the [Probe][pb] returned value is an object with a ̀`status`
+property, the tested value is the value of that property.
 
 Some examples of `tolerance` properties.
 
@@ -163,9 +187,14 @@ A string tolerance:
 "tolerance": "OK"
 ```
 
-A sequence tolerance:
+A sequence tolerance with lower and upper bounds:
 ```json
 "tolerance": [4, 9]
+```
+
+A sequence tolerance, the value must be contained in that sequence:
+```json
+"tolerance": [4, 9, 78]
 ```
 
 A [Probe][pb] tolerance:
@@ -181,6 +210,34 @@ A [Probe][pb] tolerance:
             "path": "some/file"
         }
     }
+}
+```
+
+A regex tolerance:
+
+```json
+"tolerance": {
+    "type": "regex",
+    "pattern": "[0-9]{3}"
+}
+```
+
+A jsonpath tolerance:
+
+```json
+"tolerance": {
+    "type": "jsonpath",
+    "path": "foo[*].baz"
+}
+```
+
+A jsonpath tolerance with an expected value to match:
+
+```json
+"tolerance": {
+    "type": "jsonpath",
+    "path": "foo[*].baz",
+    "expect": 4
 }
 ```
 

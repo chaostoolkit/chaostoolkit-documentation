@@ -159,8 +159,8 @@ property which MUST be a valid regular expression. The `tolerance` succeeds if
 the [Probe][pb] returned value is matched against the pattern.
 
 When the `type` property is `"jsonpath"`, the object MUST have a `path`
-property which MUST be a valid [JSON Path]. In addition, the object MAY have
-a `expect` property which is used to compare each value matched by the JSON
+property which MUST be a valid [JSON Path][jp]. In addition, the object MAY
+have a `expect` property which is used to compare each value matched by the JSON
 Path to that value. The `expect` property value MUST be a scalar. When the
 `expect` property is not present, the `tolerance` succeeds if the JSON Path
 matched at least one item.

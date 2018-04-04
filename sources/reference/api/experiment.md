@@ -150,7 +150,7 @@ be one of the followings: `"probe"`, `"regex"` or `"jsonpath"`.
 
 When the `type` property is `"probe"`, the object MUST be a [Probe][pb] that is
 applied. The probe should take two arguments, `value` and `secrets` where
-the value is the [Probe][pb] returned value and secrets a [Secret][secret]
+the value is the [Probe][pb] returned value and secrets a [Secret][secrets]
 object or `null`. Its returned status MUST be successful for the `tolerance` to
 be considered valid.
 
@@ -410,14 +410,10 @@ In addition, the `provider` object MAY declare any of the followings:
 [rfc2616]: https://www.w3.org/Protocols/rfc2616/
 
 The `method` property MUST be a JSON string, such as `"POST"`, as per
-[RFC 2616][rfc2616]. It defaults to `"GET"`.
+[RFC 7231][rfc7231]. It defaults to `"GET"`.
 
 The `headers` property MUST be a JSON object which properties are header names
-and values are header values, as per [RFC 2616][rfc2616].
-
-The `expected_status` property MUST be a JSON number as per [RFC 2616][rfc2616]
-definining the expected HTTP response status for the Probe or Action to be
-considered failed or successful. It defaults to `200`.
+and values are header values, as per [RFC 7231][rfc7231].
 
 When provided, the `arguments` property MUST be a JSON object which
 properties are parameters of the HTTP request.
@@ -428,6 +424,15 @@ encoding depends on the `"Content-Type"` provided in the `headers` object.
 
 The `timeout` property MUST be a JSON number specifying how long the request
 should take to complete.
+
+The HTTP provider MUST return an object with the following properties:
+
+* `status` which MUST be a valid HTTP returned code as defined in
+  [RFC 7231][rfc7231]
+* `headers` which MUST be an object
+* `body` which MUST be a string
+
+[rfc7231]: https://tools.ietf.org/html/rfc7231
 
 #### Process Provider
 
@@ -449,6 +454,14 @@ arguments. Those arguments are passed in order to the process arguments.
 
 The `timeout` property MUST be a JSON number specifying how long the process
 should take to complete.
+
+The Process provider MUST return an object with the following properties:
+
+* `status` which MUST be a scalar of the process return code
+* `stdout` which MUST be bytes sequence encoded with the `UTF-8` encoding
+  representing the stdout payload of the process
+* `stderr` which MUST be bytes sequence encoded with the `UTF-8` encoding
+  representing the stderr payload of the process
 
 ### Rollbacks
 

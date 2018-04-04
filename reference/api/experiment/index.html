@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.0">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.1">
     
     
       
@@ -89,8 +89,8 @@
         
       </defs>
     </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
       <a href="#an-open-api-for-chaos-engineering-experiments" tabindex="1" class="md-skip">
@@ -1306,18 +1306,35 @@ named <code>tolerance</code>.</p>
 <p>The <code>tolerance</code> property&rsquo;s value MUST be one of:</p>
 <ul>
 <li>a scalar: JSON string, number (an integer), boolean</li>
-<li>a sequence of two scalars defining a lower and upper bounds</li>
-<li>a Probe object</li>
+<li>a sequence of scalars: JSON string, number, boolean</li>
+<li>an object</li>
 </ul>
 <p>In the case of a scalar or the sequence, the tolerance validation MUST be
 strict. The value returned by the <a href="#probe">Probe</a> MUST be checked against the
 scalar value. The experiment MUST bail when both fail to match.</p>
-<p>When the <code>tolerance</code> is a sequence of two scalars, the returned value from
-the <a href="#probe">Probe</a> MUST fall within the boundaries they form.</p>
-<p>In the case of a <a href="#probe">Probe</a> object, the tolerance validation is left
-undefined as it is controlled by the <a href="#probe">Probe</a> itself. However, it is
-RECOMMENDED that the <code>tolerance</code> <a href="#probe">Probe</a> acts strictly in order to improve
-the readability of the experiment&rsquo;s results.</p>
+<p>When the <code>tolerance</code> is a sequence. If it has only two values, those two values
+represent a lower and upper bound within which the <a href="#probe">Probe</a> returned value
+must fall (inclusive).</p>
+<p>When the sequence has more than two elements, the <a href="#probe">Probe</a> returned value
+must be contained in that sequence.</p>
+<p>When the <code>tolerance</code> is an object, it MUST have a <code>type</code> property which MUST
+be one of the followings: <code>&quot;probe&quot;</code>, <code>&quot;regex&quot;</code> or <code>&quot;jsonpath&quot;</code>.</p>
+<p>When the <code>type</code> property is <code>&quot;probe&quot;</code>, the object MUST be a <a href="#probe">Probe</a> that is
+applied. The probe should take two arguments, <code>value</code> and <code>secrets</code> where
+the value is the <a href="#probe">Probe</a> returned value and secrets a <a href="#secrets">Secret</a>
+object or <code>null</code>. Its returned status MUST be successful for the <code>tolerance</code> to
+be considered valid.</p>
+<p>When the <code>type</code> property is <code>&quot;regex&quot;</code>, the object MUST have a <code>pattern</code>
+property which MUST be a valid regular expression. The <code>tolerance</code> succeeds if
+the <a href="#probe">Probe</a> returned value is matched against the pattern.</p>
+<p>When the <code>type</code> property is <code>&quot;jsonpath&quot;</code>, the object MUST have a <code>path</code>
+property which MUST be a valid [JSON Path]. In addition, the object MAY have
+a <code>expect</code> property which is used to compare each value matched by the JSON
+Path to that value. The <code>expect</code> property value MUST be a scalar. When the
+<code>expect</code> property is not present, the <code>tolerance</code> succeeds if the JSON Path
+matched at least one item.</p>
+<p>In addition, when the <a href="#probe">Probe</a> returned value is an object with a ̀<code>status</code>
+property, the tested value is the value of that property.</p>
 <p>Some examples of <code>tolerance</code> properties.</p>
 <p>A boolean tolerance:
 <div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="kc">true</span>
@@ -1328,8 +1345,11 @@ the readability of the experiment&rsquo;s results.</p>
 <p>A string tolerance:
 <div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="s2">&quot;OK&quot;</span>
 </pre></div></p>
-<p>A sequence tolerance:
+<p>A sequence tolerance with lower and upper bounds:
 <div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+</pre></div></p>
+<p>A sequence tolerance, the value must be contained in that sequence:
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
 </pre></div></p>
 <p>A <a href="#probe">Probe</a> tolerance:
 <div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
@@ -1345,6 +1365,28 @@ the readability of the experiment&rsquo;s results.</p>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div></p>
+<p>A regex tolerance:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;regex&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;[0-9]{3}&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>A jsonpath tolerance:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;foo[*].baz&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>A jsonpath tolerance with an expected value to match:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;foo[*].baz&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;expect&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+
 <h3 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h3>
 <p>The Method describes the sequence of <a href="#probe">Probe</a> and <a href="#action">Action</a> elements
 to apply. The Method is declared under <code>method</code> property at the top-level of the
@@ -1468,12 +1510,9 @@ used.</p>
 <li>a <code>timeout</code> property</li>
 </ul>
 <p>The <code>method</code> property MUST be a JSON string, such as <code>&quot;POST&quot;</code>, as per
-<a href="https://www.w3.org/Protocols/rfc2616/">RFC 2616</a>. It defaults to <code>&quot;GET&quot;</code>.</p>
+<a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>. It defaults to <code>&quot;GET&quot;</code>.</p>
 <p>The <code>headers</code> property MUST be a JSON object which properties are header names
-and values are header values, as per <a href="https://www.w3.org/Protocols/rfc2616/">RFC 2616</a>.</p>
-<p>The <code>expected_status</code> property MUST be a JSON number as per <a href="https://www.w3.org/Protocols/rfc2616/">RFC 2616</a>
-definining the expected HTTP response status for the Probe or Action to be
-considered failed or successful. It defaults to <code>200</code>.</p>
+and values are header values, as per <a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>.</p>
 <p>When provided, the <code>arguments</code> property MUST be a JSON object which
 properties are parameters of the HTTP request.</p>
 <p>When <code>method</code> is <code>&quot;GET&quot;</code>, the <code>arguments</code> are mapped as a query-string of the
@@ -1481,6 +1520,13 @@ URL. Otherwise, the <code>arguments</code> are passed as the request body&rsquo;
 encoding depends on the <code>&quot;Content-Type&quot;</code> provided in the <code>headers</code> object.</p>
 <p>The <code>timeout</code> property MUST be a JSON number specifying how long the request
 should take to complete.</p>
+<p>The HTTP provider MUST return an object with the following properties:</p>
+<ul>
+<li><code>status</code> which MUST be a valid HTTP returned code as defined in
+  <a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a></li>
+<li><code>headers</code> which MUST be an object</li>
+<li><code>body</code> which MUST be a string</li>
+</ul>
 <h4 id="process-provider">Process Provider<a class="headerlink" href="#process-provider" title="Permanent link">&para;</a></h4>
 <p>A Process Provider declares a process to be called.</p>
 <p>A Process Provider MUST declare the following:</p>
@@ -1497,6 +1543,14 @@ should take to complete.</p>
 arguments. Those arguments are passed in order to the process arguments.</p>
 <p>The <code>timeout</code> property MUST be a JSON number specifying how long the process
 should take to complete.</p>
+<p>The Process provider MUST return an object with the following properties:</p>
+<ul>
+<li><code>status</code> which MUST be a scalar of the process return code</li>
+<li><code>stdout</code> which MUST be bytes sequence encoded with the <code>UTF-8</code> encoding
+  representing the stdout payload of the process</li>
+<li><code>stderr</code> which MUST be bytes sequence encoded with the <code>UTF-8</code> encoding
+  representing the stderr payload of the process</li>
+</ul>
 <h3 id="rollbacks">Rollbacks<a class="headerlink" href="#rollbacks" title="Permanent link">&para;</a></h3>
 <p>Rollbacks declare the sequence of actions that attempt to put the system back
 to its initial state.</p>
@@ -1661,6 +1715,8 @@ declared in both sections, the Configuration section MUST take precedence.</p>
               
               
                 
+
+
               
             </article>
           </div>

@@ -1077,10 +1077,28 @@ definition.</p>
 <li><code>&quot;completed&quot;</code>: when the experiment runs fully. It does not indicate the
   activities in the experiment suceeded, only that they were executed as
   expected</li>
-<li><code>&quot;failed&quot;</code>: when the experiment breaks for unforeseen reason</li>
-<li><code>&quot;aborted&quot;</code>: when the experiment is interrupted (for instance after a
+<li><code>&quot;failed&quot;</code>: when one of the activity reports a failed condition</li>
+<li><code>&quot;aborted&quot;</code>: when the experiment breaks for unforeseen reason</li>
+<li><code>&quot;interrupted&quot;</code>: when the experiment is interrupted (for instance after a
   signal is received)</li>
 </ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>It is important to understand the <code>&quot;completed&quot;</code> status expresses that
+everything ran all the way. An action may not have resulted in what the
+operator wanted but it did not fail. Always review the entire journal to
+fully appreciate the actual outcome of the experiment.</p>
+<p>There are two reasons it could be marked as <code>&quot;failed&quot;</code>. Either a tolerance
+failed or if an extension made a check for a condition. So, for
+instance, let&rsquo;s say the extension made a HTTP call to your service, that
+call returned a 400 rather than 200. If the extension was not designed to
+care for this difference, then the status will be marked as <code>&quot;completed&quot;</code>.
+However, if the extension validated the HTTP response, it may have decided
+to fail the action which would lead to a ̀ &ldquo;failed&rdquo;` status.</p>
+<p>The <code>&quot;aborted&quot;</code> and <code>&quot;interrupted&quot;</code> are different, the former means of a
+crash somehow (say, because of a bug). The latter indicates a signal was
+received. Both MUST bail the entire process.</p>
+</div>
 <p>The <code>start</code> property MUST be a JSON string formatted as per <a href="../rfc3339">RFC 3339</a>
 in UTC timezone.</p>
 <p>The <code>end</code> property MUST be a JSON string formatted as per <a href="../rfc3339">RFC 3339</a> in
@@ -1220,6 +1238,7 @@ and the <code>start</code> datetime.</p>
 </ul>
 <p>This property is set when the action failed in an unforeseeable way and MUST be
 a JSON array or JSON string of the error trace. </p>
+<p>Rollbacks MUST NOT to be applied when the experiment status is <code>&quot;interrupted&quot;</code>.</p>
                 
                   
                 

@@ -65,9 +65,28 @@ The ̀`status` property MUST be a JSON string, one of:
 * `"completed"`: when the experiment runs fully. It does not indicate the
   activities in the experiment suceeded, only that they were executed as
   expected
-* `"failed"`: when the experiment breaks for unforeseen reason
-* `"aborted"`: when the experiment is interrupted (for instance after a
+* `"failed"`: when one of the activity reports a failed condition
+* `"aborted"`: when the experiment breaks for unforeseen reason
+* `"interrupted"`: when the experiment is interrupted (for instance after a
   signal is received)
+
+!!! note
+    It is important to understand the `"completed"` status expresses that
+    everything ran all the way. An action may not have resulted in what the
+    operator wanted but it did not fail. Always review the entire journal to
+    fully appreciate the actual outcome of the experiment.
+    
+    There are two reasons it could be marked as `"failed"`. Either a tolerance
+    failed or if an extension made a check for a condition. So, for
+    instance, let's say the extension made a HTTP call to your service, that
+    call returned a 400 rather than 200. If the extension was not designed to
+    care for this difference, then the status will be marked as `"completed"`.
+    However, if the extension validated the HTTP response, it may have decided
+    to fail the action which would lead to a ̀ "failed"` status.
+
+    The `"aborted"` and `"interrupted"` are different, the former means of a
+    crash somehow (say, because of a bug). The latter indicates a signal was
+    received. Both MUST bail the entire process.
 
 The `start` property MUST be a JSON string formatted as per [RFC 3339](rfc3339)
 in UTC timezone.
@@ -256,3 +275,5 @@ In addition, the activity result MAY contain an additional property:
 
 This property is set when the action failed in an unforeseeable way and MUST be
 a JSON array or JSON string of the error trace. 
+
+Rollbacks MUST NOT to be applied when the experiment status is `"interrupted"`.

@@ -22,12 +22,7 @@ to execute the [`discover`](reference/usage/discover.md) ->
 reference materials if you're new to Chaos Engineering.
 * [Getting Started with the Tutorials](getting-started.md) - Get started quickly 
 with the online, interactive Chaos Toolkit tutorials.
-* [Explore Specific Use Cases](explore-specific-cases.md) - Explore deeper, 
-specific  use case examples of using the Chaos Toolkit.
-* [Explore Third Party and Commercial Integrations](integrations.md) - Explore 
-the growing list of third party ope, free and commercial Chaos Toolkit integrations.
-* [Contributing to the Chaos Toolkit](contributing.md) - There are lots of ways 
+* [Contributing to the Chaos Toolkit](reference/contributing.md) - There are lots of ways 
 to contribute to the free and open source Chaos Toolkit projects. Start to get involved here.
-* [FAQ](faq.md) - Frequently asked questions about the toolkit.
 * [Reference](reference/introduction.md) - Reference documentation for when 
 you're building your own chaos engineering experiments.

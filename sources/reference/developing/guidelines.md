@@ -55,7 +55,7 @@ Then make sure your virtual environment point at your local directory with:
 ### GitHub
 
 The Chaos Toolkit projects are hosted on [GitHub][gh]. If you wish to
-[contribute](../../contributing.md), you will need to have an account there.
+[contribute](../contributing.md), you will need to have an account there.
 
 The general workflow is to fork the project you wish to contribute to, make your
 changes in a dedicated branch, rebase against the original master and finally

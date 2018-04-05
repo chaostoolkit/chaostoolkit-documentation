@@ -2,12 +2,12 @@
     "docs": [
         {
             "location": "/",
-            "text": "Welcome to the Chaos Toolkit!\n\u00b6\n\n\n\n\n\nThe Chaos Toolkit Workflow: \ndiscover\n -> \n\ninit\n -> \nrun\n -> \n\nreport\n\n\nThe Chaos Toolkit aims to be the simplest and easiest way to explore building \nyour own \nChaos Engineering\n Experiments. It \nalso aims to define a vendor and technology independent way of specifying \nChaos Engineering experiments by providing an \n\nOpen API\n.\n\n\nThe Chaos Toolkit provides a \nCLI\n that can be used \nto execute the \ndiscover\n -> \n\ninit\n -> \nrun\n -> \n\nreport\n \n\nChaos Engineering workflow\n.\n\n\n\n\nNew to Chaos Engineering\n - A useful set of links and \nreference materials if you\u2019re new to Chaos Engineering.\n\n\nGetting Started with the Tutorials\n - Get started quickly \nwith the online, interactive Chaos Toolkit tutorials.\n\n\nExplore Specific Use Cases\n - Explore deeper, \nspecific  use case examples of using the Chaos Toolkit.\n\n\nExplore Third Party and Commercial Integrations\n - Explore \nthe growing list of third party ope, free and commercial Chaos Toolkit integrations.\n\n\nContributing to the Chaos Toolkit\n - There are lots of ways \nto contribute to the free and open source Chaos Toolkit projects. Start to get involved here.\n\n\nFAQ\n - Frequently asked questions about the toolkit.\n\n\nReference\n - Reference documentation for when \nyou\u2019re building your own chaos engineering experiments.",
+            "text": "Welcome to the Chaos Toolkit!\n\u00b6\n\n\n\n\n\nThe Chaos Toolkit Workflow: \ndiscover\n -> \n\ninit\n -> \nrun\n -> \n\nreport\n\n\nThe Chaos Toolkit aims to be the simplest and easiest way to explore building \nyour own \nChaos Engineering\n Experiments. It \nalso aims to define a vendor and technology independent way of specifying \nChaos Engineering experiments by providing an \n\nOpen API\n.\n\n\nThe Chaos Toolkit provides a \nCLI\n that can be used \nto execute the \ndiscover\n -> \n\ninit\n -> \nrun\n -> \n\nreport\n \n\nChaos Engineering workflow\n.\n\n\n\n\nNew to Chaos Engineering\n - A useful set of links and \nreference materials if you\u2019re new to Chaos Engineering.\n\n\nGetting Started with the Tutorials\n - Get started quickly \nwith the online, interactive Chaos Toolkit tutorials.\n\n\nContributing to the Chaos Toolkit\n - There are lots of ways \nto contribute to the free and open source Chaos Toolkit projects. Start to get involved here.\n\n\nReference\n - Reference documentation for when \nyou\u2019re building your own chaos engineering experiments.",
             "title": "Home"
         },
         {
             "location": "/#welcome-to-the-chaos-toolkit",
-            "text": "The Chaos Toolkit Workflow:  discover  ->  init  ->  run  ->  report  The Chaos Toolkit aims to be the simplest and easiest way to explore building \nyour own  Chaos Engineering  Experiments. It \nalso aims to define a vendor and technology independent way of specifying \nChaos Engineering experiments by providing an  Open API .  The Chaos Toolkit provides a  CLI  that can be used \nto execute the  discover  ->  init  ->  run  ->  report   Chaos Engineering workflow .   New to Chaos Engineering  - A useful set of links and \nreference materials if you\u2019re new to Chaos Engineering.  Getting Started with the Tutorials  - Get started quickly \nwith the online, interactive Chaos Toolkit tutorials.  Explore Specific Use Cases  - Explore deeper, \nspecific  use case examples of using the Chaos Toolkit.  Explore Third Party and Commercial Integrations  - Explore \nthe growing list of third party ope, free and commercial Chaos Toolkit integrations.  Contributing to the Chaos Toolkit  - There are lots of ways \nto contribute to the free and open source Chaos Toolkit projects. Start to get involved here.  FAQ  - Frequently asked questions about the toolkit.  Reference  - Reference documentation for when \nyou\u2019re building your own chaos engineering experiments.",
+            "text": "The Chaos Toolkit Workflow:  discover  ->  init  ->  run  ->  report  The Chaos Toolkit aims to be the simplest and easiest way to explore building \nyour own  Chaos Engineering  Experiments. It \nalso aims to define a vendor and technology independent way of specifying \nChaos Engineering experiments by providing an  Open API .  The Chaos Toolkit provides a  CLI  that can be used \nto execute the  discover  ->  init  ->  run  ->  report   Chaos Engineering workflow .   New to Chaos Engineering  - A useful set of links and \nreference materials if you\u2019re new to Chaos Engineering.  Getting Started with the Tutorials  - Get started quickly \nwith the online, interactive Chaos Toolkit tutorials.  Contributing to the Chaos Toolkit  - There are lots of ways \nto contribute to the free and open source Chaos Toolkit projects. Start to get involved here.  Reference  - Reference documentation for when \nyou\u2019re building your own chaos engineering experiments.",
             "title": "Welcome to the Chaos Toolkit!"
         },
         {
@@ -23,32 +23,12 @@
         {
             "location": "/explore-specific-cases/",
             "text": "Once you\u2019re familiar with the basics of the Chaos Toolkit\u2019s Workflow you can begin to explore how this can be applied to specific targets through further tutorials:\n\n\n\n\nApplying Chaos Engineering to Cloud Native Microservices on Kubernetes",
-            "title": "Explore Specific Use Cases"
+            "title": "Specific Use Cases"
         },
         {
             "location": "/integrations/",
             "text": "The Chaos Toolkit uses a number of third-party integrations to probe and act upon\nyour systems. Some of these integrations are commercial and there is a growing \ncatalogue of \nonline tutorials around these integrations as well\n.",
-            "title": "Explore Third Party and Commercial Integrations"
-        },
-        {
-            "location": "/contributing/",
-            "text": "The Chaos Toolkit is a free and open source tool \nand\n a \ncommunity-driven \nset of projects\n. The \ncommunity\u2019s input is what makes this project special and a success. \n\n\nYour input could take the form of \nraising issues\n, \nvoting for issues\n, \n\nstarring projects\n, \njoining us on our \ncommunity Slack team\n, \nsubmitting pull requests\n, or even \nsuggesting whole new extension projects\n. \n\n\nWhatever you can contribute, \nwe\u2019re listening and want you to help us drive the \nproject forward\n.\n\n\nThe Chaos Toolkit Incubator\n\u00b6\n\n\nNew potential projects should be first incubated in the \n\nChaos Toolkit Incubator\n until they \nare ready to be moved into the main \n\nChaos Toolkit suite of projects\n. \nConditions for graduating a project from the Incubator to the main suite of \nprojects include:\n\n\n\n\nCorrect Licensing and Certification of Origin.\n\n\nA popular starred and used extension to the Chaos Toolkit.\n\n\nActive and prompt project issue resolution.\n\n\n\n\nLicensing and Certification of Origin\n\u00b6\n\n\nEvery project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed \nunder the \nApache License, Version 2.0\n and abides by the \nDeveloper Certificate of Origin\n on all accepted commits to the \nmaster\n branch.",
-            "title": "Contributing to the Chaos Toolkit"
-        },
-        {
-            "location": "/contributing/#the-chaos-toolkit-incubator",
-            "text": "New potential projects should be first incubated in the  Chaos Toolkit Incubator  until they \nare ready to be moved into the main  Chaos Toolkit suite of projects . \nConditions for graduating a project from the Incubator to the main suite of \nprojects include:   Correct Licensing and Certification of Origin.  A popular starred and used extension to the Chaos Toolkit.  Active and prompt project issue resolution.",
-            "title": "The Chaos Toolkit Incubator"
-        },
-        {
-            "location": "/contributing/#licensing-and-certification-of-origin",
-            "text": "Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed \nunder the  Apache License, Version 2.0  and abides by the  Developer Certificate of Origin  on all accepted commits to the  master  branch.",
-            "title": "Licensing and Certification of Origin"
-        },
-        {
-            "location": "/contributors/",
-            "text": "The Chaos Toolkit is a community-driven, free and open source collection \nof core projects that are gratefully contributed to by:\n\n\n\n\nChaos Toolkit\n\n\nChaos Toolkit Library\n\n\nChaos Toolkit Reporting\n\n\nChaos Toolkit Documentation\n\n\nChaos Toolkit Tutorials\n\n\n\n\nThe Chaos Toolkit is also sponsored by the following:\n\n\n\n\nChaosIQ.io\n - \nChaosIQ\n \nprovides expert \ntraining\n, \n\nconsultancy\n and \n\nproducts\n to help you \nsuccessfully get the advantages of Chaos Engineering in your own organisations.",
-            "title": "Contributors & Sponsors"
+            "title": "Third Party and Commercial Integrations"
         },
         {
             "location": "/faq/",
@@ -574,6 +554,26 @@
             "location": "/reference/api/journal/#rollbacks",
             "text": "The  rollbacks  property holds the outcomes of the  rollbacks  element.  The  rollbacks  property MUST be a JSON array of  action  results.  Each action result MUST declare the following properties:   a  activity  property  a  status  property  a  start  property  a  end  property  a  duration  property  a  output  property   The  activity  property MUST be a JSON object, a raw copy of the executed action .  The  status  property MUST be a JSON string, one of  \"succeeded\"  or  \"failed\" .  The  start  property MUST be a JSON string formatted as per  RFC 3339 \nin UTC timezone.  The  end  property MUST be a JSON string formatted as per  RFC 3339  in\nUTC timezone.  The  duration  MUST be a JSON number of difference between the  end  datetime\nand the  start  datetime.  The  output  MUST be a JSON string or  null .  In addition, the activity result MAY contain an additional property:   a  exception  property   This property is set when the action failed in an unforeseeable way and MUST be\na JSON array or JSON string of the error trace.",
             "title": "Rollbacks"
+        },
+        {
+            "location": "/reference/contributing/",
+            "text": "The Chaos Toolkit is a free and open source tool \nand\n a \ncommunity-driven \nset of projects\n. The \ncommunity\u2019s input is what makes this project special and a success. \n\n\nYour input could take the form of \nraising issues\n, \nvoting for issues\n, \n\nstarring projects\n, \njoining us on our \ncommunity Slack team\n, \nsubmitting pull requests\n, or even \nsuggesting whole new extension projects\n. \n\n\nWhatever you can contribute, \nwe\u2019re listening and want you to help us drive the \nproject forward\n.\n\n\nThe Chaos Toolkit Incubator\n\u00b6\n\n\nNew potential projects should be first incubated in the \n\nChaos Toolkit Incubator\n until they \nare ready to be moved into the main \n\nChaos Toolkit suite of projects\n. \nConditions for graduating a project from the Incubator to the main suite of \nprojects include:\n\n\n\n\nCorrect Licensing and Certification of Origin.\n\n\nA popular starred and used extension to the Chaos Toolkit.\n\n\nActive and prompt project issue resolution.\n\n\n\n\nLicensing and Certification of Origin\n\u00b6\n\n\nEvery project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed \nunder the \nApache License, Version 2.0\n and abides by the \nDeveloper Certificate of Origin\n on all accepted commits to the \nmaster\n branch.",
+            "title": "Contributing to the Chaos Toolkit"
+        },
+        {
+            "location": "/reference/contributing/#the-chaos-toolkit-incubator",
+            "text": "New potential projects should be first incubated in the  Chaos Toolkit Incubator  until they \nare ready to be moved into the main  Chaos Toolkit suite of projects . \nConditions for graduating a project from the Incubator to the main suite of \nprojects include:   Correct Licensing and Certification of Origin.  A popular starred and used extension to the Chaos Toolkit.  Active and prompt project issue resolution.",
+            "title": "The Chaos Toolkit Incubator"
+        },
+        {
+            "location": "/reference/contributing/#licensing-and-certification-of-origin",
+            "text": "Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed \nunder the  Apache License, Version 2.0  and abides by the  Developer Certificate of Origin  on all accepted commits to the  master  branch.",
+            "title": "Licensing and Certification of Origin"
+        },
+        {
+            "location": "/reference/contributors/",
+            "text": "The Chaos Toolkit is a community-driven, free and open source collection \nof core projects that are gratefully contributed to by:\n\n\n\n\nChaos Toolkit\n\n\nChaos Toolkit Library\n\n\nChaos Toolkit Reporting\n\n\nChaos Toolkit Documentation\n\n\nChaos Toolkit Tutorials\n\n\n\n\nThe Chaos Toolkit is also sponsored by the following:\n\n\n\n\nChaosIQ.io\n - \nChaosIQ\n \nprovides expert \ntraining\n, \n\nconsultancy\n and \n\nproducts\n to help you \nsuccessfully get the advantages of Chaos Engineering in your own organisations.",
+            "title": "Contributors & Sponsors"
         },
         {
             "location": "/reference/extending/approaches/",

@@ -46,6 +46,8 @@
     
       <link rel="stylesheet" href="./assets/stylesheets/application.78aab2dc.css">
       
+        <link rel="stylesheet" href="./assets/stylesheets/application-palette.6079476c.css">
+      
     
     
       <script src="./assets/javascripts/modernizr.1aa3b519.js"></script>
@@ -62,7 +64,9 @@
     
   </head>
   
-    <body dir="ltr">
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="yellow">
   
     <svg class="md-svg">
       <defs>
@@ -104,7 +108,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="." title="Chaos Toolkit" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img src="./static/images/logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -200,7 +204,7 @@
   <label class="md-nav__title md-nav__title--site" for="drawer">
     <span class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img src="./static/images/logo.png" width="48" height="48">
       
     </span>
     Chaos Toolkit
@@ -810,16 +814,15 @@
                 
                 
                 <h1 id="welcome-to-the-chaos-toolkit">Welcome to the Chaos Toolkit!<a class="headerlink" href="#welcome-to-the-chaos-toolkit" title="Permanent link">&para;</a></h1>
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/DoiUo45zZLvISEvnlfeh2Gjlb.js" id="asciicast-DoiUo45zZLvISEvnlfeh2Gjlb" async data-autoplay="true"></script></div>
-
-<p><strong><em>The Chaos Toolkit Workflow: <a href="reference/usage/discover/"><code>discover</code></a> -&gt; 
-<a href="reference/usage/init/"><code>init</code></a> -&gt; <a href="reference/usage/run/"><code>run</code></a> -&gt; 
-<a href="reference/usage/report/"><code>report</code></a></em></strong></p>
 <p>The Chaos Toolkit aims to be the simplest and easiest way to explore building 
 your own <a href="http://principlesofchaos.org/">Chaos Engineering</a> Experiments. It 
 also aims to define a vendor and technology independent way of specifying 
 Chaos Engineering experiments by providing an 
 <a href="reference/api/experiment/">Open API</a>.</p>
+<p><img src="/static/images/schema-1920.svg">
+<!--
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/DoiUo45zZLvISEvnlfeh2Gjlb.js" id="asciicast-DoiUo45zZLvISEvnlfeh2Gjlb" async data-autoplay="true"></script></div>
+--></p>
 <p>The Chaos Toolkit provides a <a href="reference/usage/cli/">CLI</a> that can be used 
 to execute the <a href="reference/usage/discover/"><code>discover</code></a> -&gt; 
 <a href="reference/usage/init/"><code>init</code></a> -&gt; <a href="reference/usage/run/"><code>run</code></a> -&gt; 

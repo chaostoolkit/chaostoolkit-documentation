@@ -2,7 +2,12 @@ site_name: Chaos Toolkit
 site_author: The chaostoolkit Team
 site_description: Chaos Toolkit
 copyright: '&copy; 2017 chaostoolkit team'
-theme: material
+theme:
+  name: material
+  logo: "static/images/logo.png"
+  palette:
+    primary: "white"
+    accent: "yellow"
 docs_dir: sources
 google_analytics:
   - UA-107338053-1
@@ -30,9 +35,6 @@ markdown_extensions:
   - pymdownx.tasklist(custom_checkbox=true)
   - pymdownx.tilde
 extra:
-  palette:
-    primary: blue-grey
-    accent: blue-grey
   social:
     - type: github
       link: https://github.com/chaostoolkit

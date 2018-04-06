@@ -8,6 +8,8 @@ theme:
   palette:
     primary: "white"
     accent: "yellow"
+extra_css:
+  - 'static/css/extra.css'
 docs_dir: sources
 google_analytics:
   - UA-107338053-1

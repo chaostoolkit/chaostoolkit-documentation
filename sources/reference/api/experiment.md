@@ -430,8 +430,10 @@ When `method` is `"GET"`, the `arguments` are mapped as a query-string of the
 URL. Otherwise, the `arguments` are passed as the request body's data and the
 encoding depends on the `"Content-Type"` provided in the `headers` object.
 
-The `timeout` property MUST be a JSON number specifying how long the request
-should take to complete.
+The `timeout` property MUST be either a JSON number specifying how long the
+request should take to complete. Or a JSON array that MUST made of two JSON
+numbers, the first one indicating the connection timeout, the second the
+request timeout to respond.
 
 The HTTP provider MUST return an object with the following properties:
 

@@ -676,3 +676,35 @@ Here is an example of the most minimal experiment:
     ]
 }
 ```
+
+For reference, here is the YAML equivalent (which is not official but respects
+the specification herein):
+
+```yaml
+---
+version: 0.1.0
+title: Moving a file from under our feet is forgivable
+description: Our application should re-create a file that was removed
+steady-state-hypothesis:
+  title: The file must be around first
+  probes:
+  - type: python
+    name: file-must-exist
+    tolerance: true
+    provider:
+      module: os.path
+      func: exists
+      arguments:
+        path: some/file
+method:
+- type: action
+  name: file-be-gone
+  provider:
+    module: os.path
+    func: remove
+    arguments:
+      path: some/file
+  pauses:
+    after: 5
+- ref: file-must-exist
+```

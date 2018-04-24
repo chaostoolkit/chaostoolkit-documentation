@@ -31,6 +31,14 @@ document are to be interpreted as defined in [RFC 7159][rfc7159].
 
 [rfc7159]: https://tools.ietf.org/html/rfc7159
 
+### Other formats
+
+While this specification uses JSON to define its elements, implementations may
+allow loading from other formats, such as [YAML][yaml]. As long as the output
+of such format respects the specification herein.
+
+[yaml]: http://yaml.org/spec/
+
 ## Journal Elements
 
 ### Overview

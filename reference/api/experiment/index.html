@@ -1602,8 +1602,10 @@ properties are parameters of the HTTP request.</p>
 <p>When <code>method</code> is <code>&quot;GET&quot;</code>, the <code>arguments</code> are mapped as a query-string of the
 URL. Otherwise, the <code>arguments</code> are passed as the request body&rsquo;s data and the
 encoding depends on the <code>&quot;Content-Type&quot;</code> provided in the <code>headers</code> object.</p>
-<p>The <code>timeout</code> property MUST be a JSON number specifying how long the request
-should take to complete.</p>
+<p>The <code>timeout</code> property MUST be either a JSON number specifying how long the
+request should take to complete. Or a JSON array that MUST made of two JSON
+numbers, the first one indicating the connection timeout, the second the
+request timeout to respond.</p>
 <p>The HTTP provider MUST return an object with the following properties:</p>
 <ul>
 <li><code>status</code> which MUST be a valid HTTP returned code as defined in
@@ -1792,6 +1794,36 @@ declared in both sections, the Configuration section MUST take precedence.</p>
         <span class="p">}</span>
     <span class="p">]</span>
 <span class="p">}</span>
+</pre></div>
+
+<p>For reference, here is the YAML equivalent (which is not official but respects
+the specification herein):</p>
+<div class="codehilite"><pre><span></span><span class="nn">---</span>
+<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Moving a file from under our feet is forgivable</span>
+<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Our application should re-create a file that was removed</span>
+<span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The file must be around first</span>
+  <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
+    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
+      <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">exists</span>
+      <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
+<span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-be-gone</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
+    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">remove</span>
+    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
+  <span class="l l-Scalar l-Scalar-Plain">pauses</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">after</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ref</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
 </pre></div>
                 
                   

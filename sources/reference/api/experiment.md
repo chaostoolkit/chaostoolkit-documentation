@@ -708,3 +708,220 @@ method:
     after: 5
 - ref: file-must-exist
 ```
+
+### More Complex Experiment
+
+Below is an example of a fully featured experiment that uses various extensions
+to perform actions, probing and steady-state hypothesis validation.
+
+```json
+{
+    "version": "1.0.0",
+    "title": "Are our users impacted by the loss of a function?",
+    "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
+    "tags": [
+        "kubernetes",
+        "openfaas",
+        "cloudnative"
+    ],
+    "configuration": {
+        "prometheus_base_url": "http://demo.foo.bar"
+    },
+    "secrets": {
+        "global": {
+            "auth": "Basic XYZ"
+        }
+    },
+    "steady-state-hypothesis": {
+        "title": "Function is available",
+        "probes": [
+            {
+                "type": "probe",
+                "name": "function-must-exist",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "secrets": ["faas"],
+                    "url": "http://demo.foo.bar/system/function/astre",
+                    "headers": {
+                        "Authorization": "${auth}"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "function-must-respond",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "timeout": [3, 5],
+                    "secrets": ["global"],
+                    "url": "http://demo.foo.bar/function/astre",
+                    "method": "POST",
+                    "headers": {
+                        "Content-Type": "application/json",
+                        "Authorization": "${auth}"
+                    },
+                    "arguments": {
+                        "city": "Paris"
+                    }
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "type": "action",
+            "name": "simulate-user-traffic",
+            "background": true,
+            "provider": {
+                "type": "process",
+                "path": "vegeta",
+                "arguments": "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
+            }
+        },
+        {
+            "type": "action",
+            "name": "terminate-one-function",
+            "provider": {
+                "type": "python",
+                "module": "chaosk8s.pod.actions",
+                "func": "terminate_pods",
+                "arguments": {
+                    "ns": "openfaas-fn",
+                    "label_selector": "faas_function=astre",
+                    "rand": true
+                }
+            },
+            "pauses": {
+                "before": 5
+            }
+        },
+        {
+            "type": "probe",
+            "name": "fetch-openfaas-gateway-logs",
+            "provider": {
+                "type": "python",
+                "module": "chaosk8s.pod.probes",
+                "func": "read_pod_logs",
+                "arguments": {
+                    "label_selector": "app=gateway",
+                    "last": "35s",
+                    "ns": "openfaas"
+                }
+            }
+        },
+        {
+            "type": "probe",
+            "name": "query-total-function-invocation",
+            "provider": {
+                "type": "python",
+                "module": "chaosprometheus.probes",
+                "func": "query_interval",
+                "secrets": ["global"],
+                "arguments": {
+                    "query": "gateway_function_invocation_total{function_name='astre'}",
+                    "start": "1 minute ago",
+                    "end": "now",
+                    "step": 1
+                }
+            }
+        }
+    ],
+    "rollbacks": []
+}
+```
+
+The equivalent YAML serialization:
+
+```yaml
+---
+version: 1.0.0
+title: Are our users impacted by the loss of a function?
+description: While users query the Astre function, they should not be impacted if
+  one instance goes down.
+tags:
+- kubernetes
+- openfaas
+- cloudnative
+configuration:
+  prometheus_base_url: http://demo.foo.bar
+secrets:
+  global:
+    auth: Basic XYZ
+steady-state-hypothesis:
+  title: Function is available
+  probes:
+  - type: probe
+    name: function-must-exist
+    tolerance: 200
+    provider:
+      type: http
+      secrets:
+      - faas
+      url: http://demo.foo.bar/system/function/astre
+      headers:
+        Authorization: "${auth}"
+  - type: probe
+    name: function-must-respond
+    tolerance: 200
+    provider:
+      type: http
+      timeout:
+      - 3
+      - 5
+      secrets:
+      - global
+      url: http://demo.foo.bar/function/astre
+      method: POST
+      headers:
+        Content-Type: application/json
+        Authorization: "${auth}"
+      arguments:
+        city: Paris
+method:
+- type: action
+  name: simulate-user-traffic
+  background: true
+  provider:
+    type: process
+    path: vegeta
+    arguments: "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1
+      -rate=3 -timeout=3s -duration=30s -output=result.bin"
+- type: action
+  name: terminate-one-function
+  provider:
+    type: python
+    module: chaosk8s.pod.actions
+    func: terminate_pods
+    arguments:
+      ns: openfaas-fn
+      label_selector: faas_function=astre
+      rand: true
+  pauses:
+    before: 5
+- type: probe
+  name: fetch-openfaas-gateway-logs
+  provider:
+    type: python
+    module: chaosk8s.pod.probes
+    func: read_pod_logs
+    arguments:
+      label_selector: app=gateway
+      last: 35s
+      ns: openfaas
+- type: probe
+  name: query-total-function-invocation
+  provider:
+    type: python
+    module: chaosprometheus.probes
+    func: query_interval
+    secrets:
+    - global
+    arguments:
+      query: gateway_function_invocation_total{function_name='astre'}
+      start: 1 minute ago
+      end: now
+      step: 1
+rollbacks: []
+```

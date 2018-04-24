@@ -817,6 +817,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#more-complex-experiment" title="More Complex Experiment" class="md-nav__link">
+    More Complex Experiment
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1270,6 +1277,13 @@
           <li class="md-nav__item">
   <a href="#minimal-experiment" title="Minimal Experiment" class="md-nav__link">
     Minimal Experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#more-complex-experiment" title="More Complex Experiment" class="md-nav__link">
+    More Complex Experiment
   </a>
   
 </li>
@@ -1824,6 +1838,218 @@ the specification herein):</p>
   <span class="l l-Scalar l-Scalar-Plain">pauses</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">after</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ref</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
+</pre></div>
+
+<h3 id="more-complex-experiment">More Complex Experiment<a class="headerlink" href="#more-complex-experiment" title="Permanent link">&para;</a></h3>
+<p>Below is an example of a fully featured experiment that uses various extensions
+to perform actions, probing and steady-state hypothesis validation.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Are our users impacted by the loss of a function?&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;While users query the Astre function, they should not be impacted if one instance goes down.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;openfaas&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;cloudnative&quot;</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;prometheus_base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://demo.foo.bar&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;global&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;auth&quot;</span><span class="p">:</span> <span class="s2">&quot;Basic XYZ&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Function is available&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;function-must-exist&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;faas&quot;</span><span class="p">],</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://demo.foo.bar/system/function/astre&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;${auth}&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;function-must-respond&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;timeout&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
+                    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">],</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://demo.foo.bar/function/astre&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;headers&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;Content-Type&quot;</span><span class="p">:</span> <span class="s2">&quot;application/json&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;Authorization&quot;</span><span class="p">:</span> <span class="s2">&quot;${auth}&quot;</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;city&quot;</span><span class="p">:</span> <span class="s2">&quot;Paris&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;simulate-user-traffic&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;background&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;vegeta&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-one-function&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.actions&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_pods&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;openfaas-fn&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;faas_function=astre&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;rand&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;before&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fetch-openfaas-gateway-logs&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.probes&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;read_pod_logs&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;app=gateway&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;last&quot;</span><span class="p">:</span> <span class="s2">&quot;35s&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;openfaas&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;query-total-function-invocation&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosprometheus.probes&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;query_interval&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;global&quot;</span><span class="p">],</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;gateway_function_invocation_total{function_name=&#39;astre&#39;}&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;1 minute ago&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;now&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;step&quot;</span><span class="p">:</span> <span class="mi">1</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;rollbacks&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>The equivalent YAML serialization:</p>
+<div class="codehilite"><pre><span></span><span class="nn">---</span>
+<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Are our users impacted by the loss of a function?</span>
+<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">While users query the Astre function, they should not be impacted if</span>
+  <span class="l l-Scalar l-Scalar-Plain">one instance goes down.</span>
+<span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cloudnative</span>
+<span class="l l-Scalar l-Scalar-Plain">configuration</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">prometheus_base_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar</span>
+<span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">global</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">auth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic XYZ</span>
+<span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Function is available</span>
+  <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-exist</span>
+    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+      <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">faas</span>
+      <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/system/function/astre</span>
+      <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;${auth}&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-respond</span>
+    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+      <span class="l l-Scalar l-Scalar-Plain">timeout</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+      <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global</span>
+      <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/function/astre</span>
+      <span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
+      <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
+        <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;${auth}&quot;</span>
+      <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+        <span class="l l-Scalar l-Scalar-Plain">city</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Paris</span>
+<span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">simulate-user-traffic</span>
+  <span class="l l-Scalar l-Scalar-Plain">background</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">process</span>
+    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vegeta</span>
+    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="s">&quot;-cpus</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">attack</span><span class="nv"> </span><span class="s">-targets=data/scenario.txt</span><span class="nv"> </span><span class="s">-workers=2</span><span class="nv"> </span><span class="s">-connections=1</span>
+      <span class="s">-rate=3</span><span class="nv"> </span><span class="s">-timeout=3s</span><span class="nv"> </span><span class="s">-duration=30s</span><span class="nv"> </span><span class="s">-output=result.bin&quot;</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate-one-function</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.actions</span>
+    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate_pods</span>
+    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">ns</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas-fn</span>
+      <span class="l l-Scalar l-Scalar-Plain">label_selector</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">faas_function=astre</span>
+      <span class="l l-Scalar l-Scalar-Plain">rand</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="l l-Scalar l-Scalar-Plain">pauses</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">before</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fetch-openfaas-gateway-logs</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.probes</span>
+    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">read_pod_logs</span>
+    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">label_selector</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">app=gateway</span>
+      <span class="l l-Scalar l-Scalar-Plain">last</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">35s</span>
+      <span class="l l-Scalar l-Scalar-Plain">ns</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">query-total-function-invocation</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosprometheus.probes</span>
+    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">query_interval</span>
+    <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+    <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global</span>
+    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
+      <span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">gateway_function_invocation_total{function_name=&#39;astre&#39;}</span>
+      <span class="l l-Scalar l-Scalar-Plain">start</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1 minute ago</span>
+      <span class="l l-Scalar l-Scalar-Plain">end</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">now</span>
+      <span class="l l-Scalar l-Scalar-Plain">step</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="l l-Scalar l-Scalar-Plain">rollbacks</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
 </pre></div>
                 
                   

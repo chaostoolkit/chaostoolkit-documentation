@@ -10,7 +10,7 @@ The ChaosToolkit currently [supports][api] three extension approaches:
 [httpapi]: ../api/experiment.md#http-provider
 [procapi]: ../api/experiment.md#process-provider
 
-* [Python function][pyfuncapi]
+* [Python function][pyfuncapi]: see [this page](extending-with-python.md) for more information on creating Python extensions
 * [Process][procapi]
 * [HTTP][httpapi]
 

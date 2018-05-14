@@ -6,3 +6,5 @@ markdown-include
 jinja2
 yasha
 tornado<5
+pyyaml
+yapf

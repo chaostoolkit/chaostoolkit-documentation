@@ -48,41 +48,39 @@ extra:
       link: https://medium.com/chaos-toolkit
 pages:
 - Home: index.md
-- New to Chaos Engineering: new-to-chaos.md
-- Getting Started with the Tutorials: getting-started.md
-- Explore:
-    - Specific Use Cases: explore-specific-cases.md
-    - Third Party and Commercial Integrations: integrations.md
-- FAQ: faq.md
-- Reference:
-    - Introduction: reference/introduction.md
-    - Concepts: reference/concepts.md
-    - The Chaos Toolkit Workflow: reference/workflow.md
-    - Usage:
-        - Overview: reference/usage/overview.md
-        - Install: reference/usage/install.md
-        - Upgrade: reference/usage/upgrade.md
-        - The CLI: reference/usage/cli.md
-        - Settings: reference/usage/settings.md
+- Usage:
+    - Install: reference/usage/install.md
+    - Upgrade: reference/usage/upgrade.md
+    - CLI:
+        - Overview: reference/usage/cli.md
         - Discover: reference/usage/discover.md
         - Init: reference/usage/init.md
         - Run: reference/usage/run.md
         - Report: reference/usage/report.md
-        - Notification: reference/usage/notification.md
-        - Investigating: reference/usage/investigating.md
-    - Open API:
-        - Experiment: reference/api/experiment.md
-        - Journal: reference/api/journal.md
-    - Contribute:
-        - Contributing to the Chaos Toolkit: reference/contributing.md
-        - Contributors & Sponsors: reference/contributors.md
-    - Extend:
-        - Extension Approaches: reference/extending/approaches.md
-        - Python: reference/extending/extending-with-python.md
-    - Develop:
+        - Notify: reference/usage/notification.md
+- Tutorials:
+    - Get Started with the Chaos Toolkit: reference/tutorial.md
+- Drivers Reference:
+    - AWS: drivers/aws.md
+    - Azure: drivers/azure.md
+    - Cloud Foundry: drivers/cloudfoundry.md
+    - GCE: drivers/gce.md
+    - Humio: drivers/humio.md
+    - Kubernetes: drivers/kubernetes.md
+    - Prometheus: drivers/prometheus.md
+- Chaos Open API:
+    - Concepts: reference/concepts.md
+    - Experiment: reference/api/experiment.md
+    - Journal: reference/api/journal.md
+- Contribute:
+    - Contributing to the Chaos Toolkit: reference/contributing.md
+    - Project Management:
         - Key Project Values: reference/developing/values.md
         - Core Projects: reference/developing/core.md
-        - Extensions: reference/developing/extensions.md
         - Technology Choices: reference/developing/technologies.md
-        - Guidelines: reference/developing/guidelines.md
+- Develop:
+    - Guidelines: reference/developing/guidelines.md
+    - Create Extension:
+        - Extension Approaches: reference/extending/approaches.md
+        - Python: reference/extending/extending-with-python.md
 

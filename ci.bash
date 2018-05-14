@@ -1,6 +1,39 @@
 #!/bin/bash
 set -eo pipefail
 
+function fetch-and-install-chaostoolkit-packages() {
+    cd extensions-doc-builder
+    mkdir deps
+
+    pip install chaostoolkit chaostoolkit-lib
+
+    pip download \
+        --no-deps \
+        --no-cache-dir \
+        --dest deps \
+        --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus \
+        -r requirements-toolkit.txt
+
+    cd deps
+    for archive in *.tar.gz;
+    do
+        tar zxvf "$archive"
+        dirname=$(basename $archive .tar.gz)
+        cd $dirname
+        python setup.py develop
+        cd ..
+    done
+    cd ../..
+}
+
+function build-drivers-doc () {
+    cd extensions-doc-builder
+
+    python ext2md.py
+
+    cd ..
+}
+
 function build-docs () {
     echo "Building the documentation"
     mkdir /tmp/site
@@ -21,6 +54,7 @@ function publish-docs () {
 }
 
 function main () {
+    fetch-and-install-chaostoolkit-packages || return 1
     build-docs || return 1
 
     if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == false ]]; then

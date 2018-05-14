@@ -112,3 +112,4 @@ junit-test-results.xml
 
 sources/shared/**/chaos-report.json
 sources/shared/**/*.dat*
+extensions-doc-builder/deps/

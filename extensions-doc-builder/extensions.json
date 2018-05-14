@@ -1,0 +1,37 @@
+[
+    {
+        "name": "chaosaws",
+        "doc_path": "../sources/drivers/aws.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-aws"
+    },
+    {
+        "name": "chaosk8s",
+        "doc_path": "../sources/drivers/kubernetes.md",
+        "repo": "https://github.com/chaostoolkit/chaostoolkit-kubernetes"
+    },
+    {
+        "name": "chaosgce",
+        "doc_path": "../sources/drivers/gce.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-google-cloud"
+    },
+    {
+        "name": "chaoscf",
+        "doc_path": "../sources/drivers/cloudfoundry.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-cloud-foundry"
+    },
+    {
+        "name": "chaosazure",
+        "doc_path": "../sources/drivers/azure.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-azure"
+    },
+    {
+        "name": "chaosprometheus",
+        "doc_path": "../sources/drivers/prometheus.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-prometheus"
+    },
+    {
+        "name": "chaoshumio",
+        "doc_path": "../sources/drivers/humio.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-humio"
+    }
+]

@@ -1,50 +1,106 @@
 {
-    "title": "Does our service tolerate the loss of its exchange file?",
-    "description": "Our service reads data from an exchange file, can it support that file disappearing?",
-    "tags": [
-        "tutorial",
-        "filesystem"
-    ],
+    "version": "1.0.0",
+    "title": "What is the impact of an expired certificate on our application chain?",
+    "description": "If a certificate expires, we should gracefully deal with the issue.",
+    "tags": ["tls"],
     "steady-state-hypothesis": {
-        "title": "The exchange file must exist",
+        "title": "Application responds",
         "probes": [
             {
                 "type": "probe",
-                "name": "exchange-file-exists",
+                "name": "the-astre-service-must-be-running",
                 "tolerance": true,
                 "provider": {
                     "type": "python",
                     "module": "os.path",
                     "func": "exists",
                     "arguments": {
-                        "path": "./exchange.dat"
+                        "path": "astre.pid"
                     }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "the-sunset-service-must-be-running",
+                "tolerance": true,
+                "provider": {
+                    "type": "python",
+                    "module": "os.path",
+                    "func": "exists",
+                    "arguments": {
+                        "path": "sunset.pid"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "we-can-request-sunset",
+                "tolerance": 200,
+                "provider": {
+                    "type": "http",
+                    "timeout": 3,
+                    "verify_tls": false,
+                    "url": "https://localhost:8443/city/Paris"
                 }
             }
         ]
     },
     "method": [
         {
-            "name": "move-exchange-file",
             "type": "action",
+            "name": "swap-to-expired-cert",
             "provider": {
-                "type": "python",
-                "module": "os",
-                "func": "rename",
-                "arguments": {
-                    "src": "./exchange.dat",
-                    "dst": "./exchange.dat.old"
-                }
+                "type": "process",
+                "path": "cp",
+                "arguments": "expired-cert.pem cert.pem"
             }
         },
         {
             "type": "probe",
-            "name": "service-is-unavailable",
+            "name": "read-tls-cert-expiry-date",
             "provider": {
-                "type": "http",
-                "expected_status": 503,
-                "url": "http://localhost:8080/"
+                "type": "process",
+                "path": "openssl",
+                "arguments": "x509 -enddate -noout -in cert.pem"
             }
+        },
+        {
+            "type": "action",
+            "name": "restart-astre-service-to-pick-up-certificate",
+            "provider": {
+                "type": "process",
+                "path": "pkill",
+                "arguments": "--echo -HUP -F astre.pid"
+            }
+        },
+        {
+            "type": "action",
+            "name": "restart-sunset-service-to-pick-up-certificate",
+            "provider": {
+                "type": "process",
+                "path": "pkill",
+                "arguments": "--echo -HUP -F sunset.pid"
+            },
+            "pauses": {
+                "after": 1
+            }
+        }
+    ],
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "swap-to-vald-cert",
+            "provider": {
+                "type": "process",
+                "path": "cp",
+                "arguments": "valid-cert.pem cert.pem"
+            }
+        },
+        {
+            "ref": "restart-astre-service-to-pick-up-certificate"
+        },
+        {
+            "ref": "restart-sunset-service-to-pick-up-certificate"
         }
     ]
 }

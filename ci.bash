@@ -55,6 +55,7 @@ function publish-docs () {
 
 function main () {
     fetch-and-install-chaostoolkit-packages || return 1
+    build-drivers-doc || return 1
     build-docs || return 1
 
     if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == false ]]; then

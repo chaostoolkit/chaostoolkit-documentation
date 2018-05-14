@@ -5,7 +5,7 @@ function fetch-and-install-chaostoolkit-packages() {
     cd extensions-doc-builder
     mkdir deps
 
-    pip install chaostoolkit chaostoolkit-lib
+    pip install chaostoolkit chaostoolkit-lib httplib2
 
     pip download \
         --no-deps \

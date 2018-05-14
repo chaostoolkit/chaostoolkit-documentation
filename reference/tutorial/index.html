@@ -1,0 +1,1652 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="Chaos Toolkit">
+      
+      
+      
+        <meta name="author" content="The chaostoolkit Team">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-0.17.3, mkdocs-material-2.7.3">
+    
+    
+      
+        <title>Get Started with the Chaos Toolkit - Chaos Toolkit</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.8d40d89b.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.6079476c.css">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+      <link rel="stylesheet" href="../../static/css/extra.css">
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="yellow">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448"
+    viewBox="0 0 416 448" id="github">
+  <path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19-18.125
+        8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19 18.125-8.5
+        18.125 8.5 10.75 19 3.125 20.5zM320 304q0 10-3.125 20.5t-10.75
+        19-18.125 8.5-18.125-8.5-10.75-19-3.125-20.5 3.125-20.5 10.75-19
+        18.125-8.5 18.125 8.5 10.75 19 3.125 20.5zM360
+        304q0-30-17.25-51t-46.75-21q-10.25 0-48.75 5.25-17.75 2.75-39.25
+        2.75t-39.25-2.75q-38-5.25-48.75-5.25-29.5 0-46.75 21t-17.25 51q0 22 8
+        38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0
+        37.25-1.75t35-7.375 30.5-15 20.25-25.75 8-38.375zM416 260q0 51.75-15.25
+        82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5-41.75
+        1.125q-19.5 0-35.5-0.75t-36.875-3.125-38.125-7.5-34.25-12.875-30.25-20.25-21.5-28.75q-15.5-30.75-15.5-82.75
+        0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25
+        30.875q36.75-8.75 77.25-8.75 37 0 70 8 26.25-20.5
+        46.75-30.25t47.25-9.75q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34
+        99.5z" />
+</svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#a-simple-walkthrough" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="Chaos Toolkit" class="md-header-nav__button md-logo">
+          
+            <img src="../../static/images/logo.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Chaos Toolkit
+              </span>
+              <span class="md-header-nav__topic">
+                Get Started with the Chaos Toolkit
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+
+  <a href="https://github.com/chaostoolkit/chaostoolkit/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      chaostoolkit
+    </div>
+  </a>
+
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../static/images/logo.png" width="48" height="48">
+      
+    </span>
+    Chaos Toolkit
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+
+  <a href="https://github.com/chaostoolkit/chaostoolkit/" title="Go to repository" class="md-source" data-md-source="github">
+    
+      <div class="md-source__icon">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <use xlink:href="#github" width="24" height="24"></use>
+        </svg>
+      </div>
+    
+    <div class="md-source__repository">
+      chaostoolkit
+    </div>
+  </a>
+
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Home" class="md-nav__link">
+      Home
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Usage
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Usage
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/install/" title="Install" class="md-nav__link">
+      Install
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/upgrade/" title="Upgrade" class="md-nav__link">
+      Upgrade
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      CLI
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        CLI
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/cli/" title="Overview" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/discover/" title="Discover" class="md-nav__link">
+      Discover
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/init/" title="Init" class="md-nav__link">
+      Init
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/run/" title="Run" class="md-nav__link">
+      Run
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/report/" title="Report" class="md-nav__link">
+      Report
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../usage/notification/" title="Notify" class="md-nav__link">
+      Notify
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      Tutorials
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Tutorials
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Get Started with the Chaos Toolkit
+      </label>
+    
+    <a href="./" title="Get Started with the Chaos Toolkit" class="md-nav__link md-nav__link--active">
+      Get Started with the Chaos Toolkit
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-ready" title="Get Ready" class="md-nav__link">
+    Get Ready
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-code" title="Get the Code" class="md-nav__link">
+    Get the Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-chaos-toolkit" title="Install the Chaos Toolkit" class="md-nav__link">
+    Install the Chaos Toolkit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-binaries" title="Third-party binaries" class="md-nav__link">
+    Third-party binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-dependencies" title="Install the Application dependencies" class="md-nav__link">
+    Install the Application dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-experiment" title="Your First Experiment" class="md-nav__link">
+    Your First Experiment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-a-potential-weakness" title="Explore a Potential Weakness" class="md-nav__link">
+    Explore a Potential Weakness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-the-steady-state-hypothesis" title="Define the Steady State Hypothesis" class="md-nav__link">
+    Define the Steady State Hypothesis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-conditions" title="Changing the Conditions" class="md-nav__link">
+    Changing the Conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-an-experiment-to-observe-the-weakness" title="Declare an Experiment to Observe the Weakness" class="md-nav__link">
+    Declare an Experiment to Observe the Weakness
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-various-sections-of-an-experiment" title="The Various Sections of an Experiment" class="md-nav__link">
+    The Various Sections of an Experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-kinds-of-activities" title="Different Kinds of Activities" class="md-nav__link">
+    Different Kinds of Activities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolerances-in-the-hypothesis" title="Tolerances in the Hypothesis" class="md-nav__link">
+    Tolerances in the Hypothesis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-experiment" title="Run the Experiment" class="md-nav__link">
+    Run the Experiment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-the-experiment-without-the-application" title="Start the Experiment without the Application" class="md-nav__link">
+    Start the Experiment without the Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-application" title="Start the Application" class="md-nav__link">
+    Start the Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-experiment_1" title="Run the Experiment" class="md-nav__link">
+    Run the Experiment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report-on-your-findings" title="Report on your Findings" class="md-nav__link">
+    Report on your Findings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-the-journal-of-the-run" title="Review the Journal of the Run" class="md-nav__link">
+    Review the Journal of the Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-report" title="Generate a Report" class="md-nav__link">
+    Generate a Report
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learnings-and-responses" title="Learnings and Responses" class="md-nav__link">
+    Learnings and Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" title="Next?" class="md-nav__link">
+    Next?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Drivers Reference
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Drivers Reference
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/aws/" title="AWS" class="md-nav__link">
+      AWS
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/azure/" title="Azure" class="md-nav__link">
+      Azure
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/cloudfoundry/" title="Cloud Foundry" class="md-nav__link">
+      Cloud Foundry
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/gce/" title="GCE" class="md-nav__link">
+      GCE
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/humio/" title="Humio" class="md-nav__link">
+      Humio
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/kubernetes/" title="Kubernetes" class="md-nav__link">
+      Kubernetes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../drivers/prometheus/" title="Prometheus" class="md-nav__link">
+      Prometheus
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Chaos Open API
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Chaos Open API
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../concepts/" title="Concepts" class="md-nav__link">
+      Concepts
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/experiment/" title="Experiment" class="md-nav__link">
+      Experiment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/journal/" title="Journal" class="md-nav__link">
+      Journal
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Contribute
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Contribute
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../contributing/" title="Contributing to the Chaos Toolkit" class="md-nav__link">
+      Contributing to the Chaos Toolkit
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6-2" type="checkbox" id="nav-6-2">
+    
+    <label class="md-nav__link" for="nav-6-2">
+      Project Management
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-6-2">
+        Project Management
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../developing/values/" title="Key Project Values" class="md-nav__link">
+      Key Project Values
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../developing/core/" title="Core Projects" class="md-nav__link">
+      Core Projects
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../developing/technologies/" title="Technology Choices" class="md-nav__link">
+      Technology Choices
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Develop
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Develop
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../developing/guidelines/" title="Guidelines" class="md-nav__link">
+      Guidelines
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
+    
+    <label class="md-nav__link" for="nav-7-2">
+      Create Extension
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-2">
+        Create Extension
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extending/approaches/" title="Extension Approaches" class="md-nav__link">
+      Extension Approaches
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../extending/extending-with-python/" title="Python" class="md-nav__link">
+      Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#get-ready" title="Get Ready" class="md-nav__link">
+    Get Ready
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#get-the-code" title="Get the Code" class="md-nav__link">
+    Get the Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-chaos-toolkit" title="Install the Chaos Toolkit" class="md-nav__link">
+    Install the Chaos Toolkit
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#third-party-binaries" title="Third-party binaries" class="md-nav__link">
+    Third-party binaries
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-the-application-dependencies" title="Install the Application dependencies" class="md-nav__link">
+    Install the Application dependencies
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#your-first-experiment" title="Your First Experiment" class="md-nav__link">
+    Your First Experiment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explore-a-potential-weakness" title="Explore a Potential Weakness" class="md-nav__link">
+    Explore a Potential Weakness
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#define-the-steady-state-hypothesis" title="Define the Steady State Hypothesis" class="md-nav__link">
+    Define the Steady State Hypothesis
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-conditions" title="Changing the Conditions" class="md-nav__link">
+    Changing the Conditions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-an-experiment-to-observe-the-weakness" title="Declare an Experiment to Observe the Weakness" class="md-nav__link">
+    Declare an Experiment to Observe the Weakness
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-various-sections-of-an-experiment" title="The Various Sections of an Experiment" class="md-nav__link">
+    The Various Sections of an Experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#different-kinds-of-activities" title="Different Kinds of Activities" class="md-nav__link">
+    Different Kinds of Activities
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tolerances-in-the-hypothesis" title="Tolerances in the Hypothesis" class="md-nav__link">
+    Tolerances in the Hypothesis
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-the-experiment" title="Run the Experiment" class="md-nav__link">
+    Run the Experiment
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#start-the-experiment-without-the-application" title="Start the Experiment without the Application" class="md-nav__link">
+    Start the Experiment without the Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#start-the-application" title="Start the Application" class="md-nav__link">
+    Start the Application
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-the-experiment_1" title="Run the Experiment" class="md-nav__link">
+    Run the Experiment
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#report-on-your-findings" title="Report on your Findings" class="md-nav__link">
+    Report on your Findings
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#review-the-journal-of-the-run" title="Review the Journal of the Run" class="md-nav__link">
+    Review the Journal of the Run
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generate-a-report" title="Generate a Report" class="md-nav__link">
+    Generate a Report
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#learnings-and-responses" title="Learnings and Responses" class="md-nav__link">
+    Learnings and Responses
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next" title="Next?" class="md-nav__link">
+    Next?
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/tutorial.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                <h1 id="a-simple-walkthrough">A simple Walkthrough<a class="headerlink" href="#a-simple-walkthrough" title="Permanent link">&para;</a></h1>
+<p>When you practice chaos engineering, you are discovering how your system
+reacts following certain conditions you inject. By doing this in a controlled
+fashion, you may learn how to change the system accordingly.</p>
+<p>This tutorial will quickly give you a tour of the basic elements of an
+experiment.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You will find interactive tutorials on the <a href="https://katacoda.com/chaostoolkit">KataCoda platform</a> as
+well.</p>
+</div>
+<h2 id="get-ready">Get Ready<a class="headerlink" href="#get-ready" title="Permanent link">&para;</a></h2>
+<p>Before you can run the experiment against your system, you will need to have
+it setup.</p>
+<h3 id="get-the-code">Get the Code<a class="headerlink" href="#get-the-code" title="Permanent link">&para;</a></h3>
+<h3 id="install-the-chaos-toolkit">Install the Chaos Toolkit<a class="headerlink" href="#install-the-chaos-toolkit" title="Permanent link">&para;</a></h3>
+<p>You must install the Chaos Toolkit and its dependencies for the purpose of this
+tutorial. While we suggest you go through the <a href="../usage/install/">install</a> section, it boils
+down to:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install -U chaostoolkit
+</pre></div>
+
+<h3 id="third-party-binaries">Third-party binaries<a class="headerlink" href="#third-party-binaries" title="Permanent link">&para;</a></h3>
+<p>The experiment will use the following binaries, make sure you have them in your
+PATH:</p>
+<ul>
+<li>openssl</li>
+<li>pkill</li>
+</ul>
+<h3 id="install-the-application-dependencies">Install the Application dependencies<a class="headerlink" href="#install-the-application-dependencies" title="Permanent link">&para;</a></h3>
+<p>Our application is made of a simple set of two microservices that converse
+with each other over HTTPS.</p>
+<p>As you should already run Python 3 for the toolkit itself, we assume you are set
+accordingly, please install only the application dependencies:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install -U -r apps/astre/requirements.txt -r apps/sunset/requirements.txt
+</pre></div>
+
+<h2 id="your-first-experiment">Your First Experiment<a class="headerlink" href="#your-first-experiment" title="Permanent link">&para;</a></h2>
+<h3 id="explore-a-potential-weakness">Explore a Potential Weakness<a class="headerlink" href="#explore-a-potential-weakness" title="Permanent link">&para;</a></h3>
+<p>So, looking at our application, what could we consider as of interest to
+discover through an experiment? Well, we are using HTTPS between the two
+services in our application, what if the certificate expired?</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In such a simple setup, we appreciate that things will likely break and, in
+general there is no point to run an experiment when you already know the
+outcome. However, let&rsquo;s humour ourselves for the sake of learning the
+basics behind the Chaos Toolkit.</p>
+</div>
+<p>We can intuit things will fall apart if the sunset service cannot talk the
+astre service but, should the chain be part of much more complex graph of
+services, it could be difficult to fully understand all the branches that
+would be affected nor how badly. So, it may still be useful to experiment by
+injecting an expired certificate.</p>
+<h3 id="define-the-steady-state-hypothesis">Define the Steady State Hypothesis<a class="headerlink" href="#define-the-steady-state-hypothesis" title="Permanent link">&para;</a></h3>
+<p>You can only learn if you know where you start from and what a good baseline
+for your application is.</p>
+<p>Here we assume two things:</p>
+<ul>
+<li>the services are running</li>
+<li>we can call the sunset service to retrieve the sunset time for a given city</li>
+</ul>
+<p>During our experiment, we will vary the conditions of the system and expect the
+state to remain valid.</p>
+<h3 id="changing-the-conditions">Changing the Conditions<a class="headerlink" href="#changing-the-conditions" title="Permanent link">&para;</a></h3>
+<p>In this tutorial, we are going to set an expired certificate and restart the
+services. We will then call our application and see how its response.</p>
+<h3 id="declare-an-experiment-to-observe-the-weakness">Declare an Experiment to Observe the Weakness<a class="headerlink" href="#declare-an-experiment-to-observe-the-weakness" title="Permanent link">&para;</a></h3>
+<p>At this stage, we can create an experiment that tells how the system behaves
+when a certificate expires.</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the impact of an expired certificate on our application chain?&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;If a certificate expires, we should gracefully deal with the issue.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;tls&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Application responds&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;the-astre-service-must-be-running&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;astre.pid&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;the-sunset-service-must-be-running&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;sunset.pid&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;we-can-request-sunset&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;timeout&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nt">&quot;verify_tls&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://localhost:8443/city/Paris&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-to-expired-cert&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;cp&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;expired-cert.pem cert.pem&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read-tls-cert-expiry-date&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;openssl&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;x509 -enddate -noout -in cert.pem&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-astre-service-to-pick-up-certificate&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;pkill&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;--echo -HUP -F astre.pid&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-sunset-service-to-pick-up-certificate&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;pkill&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;--echo -HUP -F sunset.pid&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">1</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;rollbacks&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-to-vald-cert&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;cp&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;valid-cert.pem cert.pem&quot;</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-astre-service-to-pick-up-certificate&quot;</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-sunset-service-to-pick-up-certificate&quot;</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+</pre></div>
+
+<h4 id="the-various-sections-of-an-experiment">The Various Sections of an Experiment<a class="headerlink" href="#the-various-sections-of-an-experiment" title="Permanent link">&para;</a></h4>
+<p>Let&rsquo;s now go through the experiment blocks.</p>
+<p>The steady state hypothesis declares the various probes that will be applied
+as part of the hypothesis check.</p>
+<p>The hypothesis is played twice. The first time before we do anything else to
+ensure the system is indeed in a normal state, here we check the services are
+running by looking up their PID files and we call the sunset service which
+should respond OK. The second time the hypothesis is applied is after the
+conditions were changed in the system, to validate it is still in a normal
+state.</p>
+<p>The method is the block which changes the conditions of our system/application.
+Here, we swap the valid certificate for an expired one and restart the services
+by sending them a SIGHUP signal.</p>
+<p>Finally, the rollback section (which is optional) tries to remediate to the
+changes we made, in this case by swapping back to the valid certificate.</p>
+<h4 id="different-kinds-of-activities">Different Kinds of Activities<a class="headerlink" href="#different-kinds-of-activities" title="Permanent link">&para;</a></h4>
+<p>It is interesting to notice that the hypothesis uses probes while rollbacks are
+made of actions only. The method may use both. The reason is that the
+hypothesis is only about querying the system while rollbacks act on it. Finally,
+it is often useful to query the system while we change the conditions, for
+future analysis.</p>
+<p>Probes and Actions are activities that do not differ in the way they work, it&rsquo;s
+only their goal that differs.</p>
+<p>You can create activities that make HTTP calls, execute processes or perform
+more complex operations through extensions (often implemented in Python). This
+tutorial showcases a bit of all of those.</p>
+<h4 id="tolerances-in-the-hypothesis">Tolerances in the Hypothesis<a class="headerlink" href="#tolerances-in-the-hypothesis" title="Permanent link">&para;</a></h4>
+<p>Hypothesis probes expect a <code>tolerance</code> property which tells the Chaos Toolkit
+how to validate a certain aspect of the state. In our example, tolerances are
+rather simple. We check file exists and that a HTTP request returns a status
+code of <code>200</code>. Richer tolerances can be created by using regex or jsonpath.</p>
+<h2 id="run-the-experiment">Run the Experiment<a class="headerlink" href="#run-the-experiment" title="Permanent link">&para;</a></h2>
+<h3 id="start-the-experiment-without-the-application">Start the Experiment without the Application<a class="headerlink" href="#start-the-experiment-without-the-application" title="Permanent link">&para;</a></h3>
+<p>To run the experiment, simply execute the following command:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> chaos run experiment.json
+<span class="go">[2018-05-14 18:38:04 INFO] Validating the experiment&#39;s syntax</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Experiment looks valid</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Running experiment: What is the impact of an expired certificate on our application chain?</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Steady state hypothesis: Application responds</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Probe: the-astre-service-must-be-running</span>
+<span class="go">[2018-05-14 18:38:04 CRITICAL] Steady state probe &#39;the-astre-service-must-be-running&#39; is not in the given tolerance so failing this experiment</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Let&#39;s rollback...</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Rollback: swap-to-vald-cert</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Action: swap-to-vald-cert</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Rollback: None</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Action: restart-astre-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Rollback: None</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Action: restart-sunset-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:38:04 INFO] Pausing after activity for 1s...</span>
+<span class="go">[2018-05-14 18:38:05 INFO] Experiment ended with status: failed</span>
+</pre></div>
+
+<p>Because we ran this command before we even started our application, our
+steady-state hypothesis failed and bailed the experiment immediatly.</p>
+<p>Note that the rolllbacks will run anyway. They are only bypassed when you
+send a SIGINT or SIGTERM signal to the <code>chaos</code> process because the toolkit
+assumes you may want to review your system.</p>
+<h3 id="start-the-application">Start the Application<a class="headerlink" href="#start-the-application" title="Permanent link">&para;</a></h3>
+<p>You may now run the application.</p>
+<p>First, copy the valid certificate as follows:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> cp valid-cert.pem cert.pem
+</pre></div>
+
+<p>Next, start the services:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> python3 apps/astre/app.py
+<span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGTERM.</span>
+<span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGHUP.</span>
+<span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGUSR1.</span>
+<span class="go">[14/May/2018:16:11:09] ENGINE Bus STARTING</span>
+<span class="go">[14/May/2018:16:11:09] ENGINE Serving on https://127.0.0.1:8444</span>
+<span class="go">[14/May/2018:16:11:09] ENGINE Bus STARTE</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="gp">$</span> python3 apps/sunset/app.py
+<span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGTERM.</span>
+<span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGHUP.</span>
+<span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGUSR1.</span>
+<span class="go">[14/May/2018:16:13:58] ENGINE Bus STARTING</span>
+<span class="go">[14/May/2018:16:13:58] ENGINE Serving on https://127.0.0.1:8443</span>
+<span class="go">[14/May/2018:16:13:58] ENGINE Bus STARTED</span>
+</pre></div>
+
+<p>Now you may perform a simple call:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> curl -k https://localhost:8443/city/Paris
+<span class="go">The sunset will occur at 2018-05-14T21:23:09+02:00 in Paris</span>
+</pre></div>
+
+<p>What happens is that the sunset service performs a call to the astre service
+for the data and simply render them to you, as plain text. Both services are
+chained together over HTTPS.</p>
+<h3 id="run-the-experiment_1">Run the Experiment<a class="headerlink" href="#run-the-experiment_1" title="Permanent link">&para;</a></h3>
+<p>Now your application is running, execute the experiment once again:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> chaos run experiment.json
+<span class="go">[2018-05-14 18:41:09 INFO] Validating the experiment&#39;s syntax</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Experiment looks valid</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Running experiment: What is the impact of an expired certificate on our application chain?</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Steady state hypothesis: Application responds</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Probe: the-astre-service-must-be-running</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Probe: the-sunset-service-must-be-running</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Probe: we-can-request-sunset</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Steady state hypothesis is met!</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Action: swap-to-expired-cert</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Probe: read-tls-cert-expiry-date</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Action: restart-astre-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Action: restart-sunset-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:41:09 INFO] Pausing after activity for 1s...</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Steady state hypothesis: Application responds</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Probe: the-astre-service-must-be-running</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Probe: the-sunset-service-must-be-running</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Probe: we-can-request-sunset</span>
+<span class="go">[2018-05-14 18:41:10 CRITICAL] Steady state probe &#39;we-can-request-sunset&#39; is not in the given tolerance so failing this experiment</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Let&#39;s rollback...</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Rollback: swap-to-vald-cert</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Action: swap-to-vald-cert</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Rollback: None</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Action: restart-astre-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Rollback: None</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Action: restart-sunset-service-to-pick-up-certificate</span>
+<span class="go">[2018-05-14 18:41:10 INFO] Pausing after activity for 1s...</span>
+<span class="go">[2018-05-14 18:41:11 INFO] Experiment ended with status: failed</span>
+</pre></div>
+
+<p>Each activity is run in the order it appears in the experiment. Notice now how
+the hypothesis is not met after we swapped the certificates. But, we learn
+something interesting, even if expected, using an expired certificate does not
+prevent our services to even start.</p>
+<h2 id="report-on-your-findings">Report on your Findings<a class="headerlink" href="#report-on-your-findings" title="Permanent link">&para;</a></h2>
+<h3 id="review-the-journal-of-the-run">Review the Journal of the Run<a class="headerlink" href="#review-the-journal-of-the-run" title="Permanent link">&para;</a></h3>
+<p>You may now review the journal generated by the run:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> cat journal.json
+</pre></div>
+
+<p>It contains the activities runs and the output of each of them.</p>
+<h3 id="generate-a-report">Generate a Report<a class="headerlink" href="#generate-a-report" title="Permanent link">&para;</a></h3>
+<p>You can generate a PDF (or HTML, markdown&hellip;) report from the journal if you
+install the <a href="https://github.com/chaostoolkit/chaostoolkit-reporting">chaostoolkit-reporting</a> plugin first:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> chaos report --export-format<span class="o">=</span>pdf journal.json report.pdf
+</pre></div>
+
+<h3 id="learnings-and-responses">Learnings and Responses<a class="headerlink" href="#learnings-and-responses" title="Permanent link">&para;</a></h3>
+<p>In this experiment, we proved what we guessed initially, that an expired
+certificate will create trouble and break the application for our users. What
+could be the responses?</p>
+<ul>
+<li>Use a circuit-breaker to provide a more meaningful, and controlled, answer
+  to the caller</li>
+<li>Prevent the service to start when the certificate is uses is expired</li>
+<li>Put some monitoring in place on our certificates and trigger an alert when
+  they get close to their end date</li>
+<li>Move to Let&rsquo;s Encrypt and renew our certs automatically</li>
+</ul>
+<p>For each of thes potential responses, you could create an experiment should they
+unearth potential new questions.</p>
+<h2 id="next">Next?<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
+<p>An experiment is never the end game. The flow should be continous and you
+should create and run experiments regularly.</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../usage/notification/" title="Notify" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Notify
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../drivers/aws/" title="AWS" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                AWS
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy; 2017 chaostoolkit team
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://github.com/chaostoolkit" class="md-footer-social__link fa fa-github"></a>
+    
+      <a href="https://twitter.com/chaostoolkit" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="https://join.chaostoolkit.org/" class="md-footer-social__link fa fa-slack"></a>
+    
+      <a href="https://medium.com/chaos-toolkit" class="md-footer-social__link fa fa-medium"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.b438e6c5.js"></script>
+      
+      <script>app.initialize({version:"0.17.3",url:{base:"../.."}})</script>
+      
+    
+    
+      
+        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(e){e.host!=document.location.host&&e.addEventListener("click",function(){var a=e.getAttribute("data-md-action")||"follow";ga("send","event","outbound",a,e.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+      
+    
+  </body>
+</html>

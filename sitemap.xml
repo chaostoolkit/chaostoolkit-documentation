@@ -4,23 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/new-to-chaos/</loc>
-     <lastmod>2018-05-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    
-
-    
-    <url>
-     <loc>/getting-started/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -28,44 +12,108 @@
     
         
     <url>
-     <loc>/explore-specific-cases/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <loc>/reference/usage/install/</loc>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/integrations/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <loc>/reference/usage/upgrade/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc></loc>
+     <lastmod></lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     
 
     
+        
     <url>
-     <loc>/faq/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <loc>/reference/tutorial/</loc>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
     
 
     
         
     <url>
-     <loc>/reference/introduction/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <loc>/drivers/aws/</loc>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
+        
+    <url>
+     <loc>/drivers/azure/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/drivers/cloudfoundry/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/drivers/gce/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/drivers/humio/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/drivers/kubernetes/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/drivers/prometheus/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
         
     <url>
      <loc>/reference/concepts/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
-     <loc>/reference/workflow/</loc>
-     <lastmod>2018-05-04</lastmod>
+     <loc>/reference/api/experiment/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>/reference/api/journal/</loc>
+     <lastmod>2018-05-14</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+        
+    <url>
+     <loc>/reference/contributing/</loc>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -75,21 +123,13 @@
      <changefreq>daily</changefreq>
     </url>
         
-    <url>
-     <loc></loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
+    
+
+    
         
     <url>
-     <loc></loc>
-     <lastmod></lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc></loc>
-     <lastmod></lastmod>
+     <loc>/reference/developing/guidelines/</loc>
+     <lastmod>2018-05-14</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

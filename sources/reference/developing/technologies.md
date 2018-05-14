@@ -37,10 +37,3 @@ rather than returning error codes. This may change if the community expresses
 such an intention.
 
 [funcpara]: https://en.wikipedia.org/wiki/Functional_programming
-
-## JSON
-
-The experiment description and structure is encoded using JSON. The choice for
-JSON over YAML is because it leaves less room for ambiguity and is marginally
-less readable for a structure with a shallow depth like Chaos Toolkit
-experiments.

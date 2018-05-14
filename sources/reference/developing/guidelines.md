@@ -82,42 +82,10 @@ In addition, there are a
 
 ## Creating an Extension
 
-One of the most common task you could do is add a new extension for your need.
-Extensions provide activities that experiments use to perform actions or read
-the system's state (via probes).
+Please review the various [approaches](../extending/approaches.md) to extend
+the toolkit.
 
-An extension is a full fledged Python project. To make it simpler to get
-started the Chaos Toolkit provides a [template project][ext] that you can start
-from.
-
-[ext]: https://github.com/chaostoolkit/chaostoolkit-extension-template
-
-To get going, clone this project and rename the followings:
-
-* the directory containing the source
-* anywhere you find an occurence of the template name (`chaostext`) with your
-  extension name
-
-Please, mirror existing extensions in the way they are designed and organized.
-
-### Running `Discover` on a New Extension
-
-Chaos Toolkit extensions often implement functionality that assists in 
-discovering what a system, and the extension against that system, supports. This
-is executed using the `chaos discover` command.
-
-When writing your own implementation of discovery you will often want to test 
-the new functionality locally. To do this you should first execute from your 
-extension workspace:
-
-`$ python setup.py develop`
-
-Then you can exercise your discovery functionality using the `--no-install` flag
- on the `chaos discover` command, for example:
-
-`chaos discover --no-install ext-name`
-
-## Creating a notification plugin
+## Creating a Notification Plugin
 
 The Chaos Toolkit triggers events while it runs. Those events may be forwarded
 to any endpoint that you care for through HTTP or, when you need more control,
@@ -127,11 +95,13 @@ There is no template for such a project yet but it is very close to an
 extension project except it doesn't have probes and actions. You can therefore
 start by cloning the [extension template project][ext] and start from there.
 
+[ext]: https://github.com/chaostoolkit/chaostoolkit-extension-template
+
 Instead, it should define a function in a module. That function takes two
 parameters:
 
 * the notification channel settings (coming from the
-  [Chaos Toolkit settings file](../usage/settings.md)) as a dictionary
+  [Chaos Toolkit settings file](../usage/cli.md#create-the-settings-file)) as a dictionary
 * the event payload as a Python dictionary which is documented
   [here](https://github.com/chaostoolkit/chaostoolkit-lib/blob/master/chaoslib/notification.py#L97)
 
@@ -154,24 +124,15 @@ from typing import Any, Dict
 
 from chaoslib.notification import RunFlowEvent
 from chaoslib.types import EventPayload
-
+import logzero
 
 def notify(settings: Dict[str, Any], event: EventPayload):
     if event["name"] == RunFlowEvent.RunStarted.value:
-        print("Event phase " + event["phase"])
-        print("Event timestamp " + event["ts"])
-        print("Event payload " + event["payload"])
-        print("Event error " + event.get("error", "N/A"))
+        logzero.info("Event phase " + event["phase"])
+        logzero.info("Event timestamp " + event["ts"])
+        logzero.info("Event payload " + event["payload"])
+        logzero.info("Event error " + event.get("error", "N/A"))
 ```
 
-## Log From Your Extension or Plugin
-
-You can write to the Chaos Toolkit log by using the [logzero][] package.
-
-[logzero]: https://logzero.readthedocs.io/en/latest/
-
-```python
-from logzero import logger
-
-logger.info("Hello!")
-```
+`logzero` is a third-party package that the Chaos Toolkit uses to log when
+it runs.

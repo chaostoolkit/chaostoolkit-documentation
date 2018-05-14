@@ -34,7 +34,8 @@ Validate flow
 ## Declare Notification Channels
 
 Notification channels are declared in the Chaos Toolkit
-[settings file](settings.md) under the `notifications:` section.
+[settings file](cli.md#configure-the-chaos-toolkit) under the `notifications:`
+section.
 
 Here is an example:
 
@@ -152,7 +153,7 @@ First, you must install the [Chaos Toolkit Integration for Slack][sl] as usual:
 ```
 
 Then, you should declare your notification channels as follows in the Chaos
-Toolkit [settings file](settings.md):
+Toolkit settings file.
 
 ```yaml
 notifications:

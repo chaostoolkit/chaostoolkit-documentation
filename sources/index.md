@@ -6,6 +6,8 @@ also aims to define a vendor and technology independent way of specifying
 Chaos Engineering experiments by providing an 
 [Open API](reference/api/experiment.md).
 
+<img src="https://chaostoolkit.org/static/detect-weakness.fbbaf411.svg">
+
 We suggest you start with the [tutorials][] to get a feel for how the Chaos
 Toolkit can help you automate your Chaos Engineering effort. Once you are ready
 for your own experiments, have a look at the various [driver extensions][drivers]

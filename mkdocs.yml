@@ -4,6 +4,7 @@ site_description: Chaos Toolkit
 copyright: '&copy; 2017-2018 chaostoolkit team'
 theme:
   name: material
+  favicon: "static/images/favicon.ico"
   logo: "static/images/logo.png"
   palette:
     primary: "white"

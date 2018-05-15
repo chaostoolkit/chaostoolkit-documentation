@@ -1686,8 +1686,8 @@ for details on said filters.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;describe-instances&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filters&quot;</span><span class="p">:</span> <span class="p">[]</span>
@@ -1782,8 +1782,8 @@ a random instance will be selected.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-instance&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ec2.actions&quot;</span><span class="p">,</span>
@@ -1873,8 +1873,8 @@ of the given availability zone.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-instances&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ec2.actions&quot;</span><span class="p">,</span>
@@ -1950,8 +1950,8 @@ of the given availability zone.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-cluster&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -2050,8 +2050,8 @@ default cluster will be picked up.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-service&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ecs.actions&quot;</span><span class="p">,</span>
@@ -2141,12 +2141,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;deregister-container-instance&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ecs.actions&quot;</span><span class="p">,</span>
@@ -2230,12 +2230,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;service-is-deploying&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;service&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ecs.probes&quot;</span><span class="p">,</span>
@@ -2326,12 +2326,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-task&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;task_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;task_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;cluster&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.ecs.actions&quot;</span><span class="p">,</span>
@@ -2417,12 +2417,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;attach-role-policy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.iam.actions&quot;</span><span class="p">,</span>
@@ -2520,12 +2520,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-policy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;policy&quot;</span><span class="p">:</span> <span class="p">{},</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;policy&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.iam.actions&quot;</span><span class="p">,</span>
@@ -2610,12 +2610,12 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;detach-role-policy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;role_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosaws.iam.actions&quot;</span><span class="p">,</span>
@@ -2692,8 +2692,8 @@ instance will remain orphan.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-policy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;arn&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>

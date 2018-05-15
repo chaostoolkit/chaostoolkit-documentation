@@ -47,7 +47,7 @@ function build-docs () {
 function publish-docs () {
     echo "Publishing the documentation"
     cd /tmp/site
-    echo "chaostoolkit.org" > CNAME
+    echo "docs.chaostoolkit.org" > CNAME
     git add .
     git commit -a -m "Built from ${TRAVIS_COMMIT}"
     git push

@@ -1,7 +1,7 @@
 site_name: Chaos Toolkit
-site_author: The chaostoolkit Team
+site_author: The Chaos Toolkit Team
 site_description: Chaos Toolkit
-copyright: '&copy; 2017 chaostoolkit team'
+copyright: '&copy; 2017-2018 chaostoolkit team'
 theme:
   name: material
   logo: "static/images/logo.png"

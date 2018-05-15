@@ -20,6 +20,10 @@ it setup.
 
 ### Get the Code
 
+The code can be found [here][codetut].
+
+[codetut]: https://github.com/chaostoolkit/chaostoolkit-documentation/tree/master/sources/shared/snippets/tutorials
+
 ### Install the Chaos Toolkit
 
 You must install the Chaos Toolkit and its dependencies for the purpose of this
@@ -49,7 +53,7 @@ As you should already run Python 3 for the toolkit itself, we assume you are set
 accordingly, please install only the application dependencies:
 
 ```console
-$ pip install -U -r apps/astre/requirements.txt -r apps/sunset/requirements.txt
+$ pip install -U -r requirements.txt
 ```
 
 ## Your First Experiment

@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -13,13 +13,13 @@
         
     <url>
      <loc>/reference/usage/install/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/usage/upgrade/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -35,7 +35,7 @@
         
     <url>
      <loc>/reference/tutorial/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -45,43 +45,43 @@
         
     <url>
      <loc>/drivers/aws/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/azure/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/cloudfoundry/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/gce/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/humio/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/kubernetes/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/drivers/prometheus/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -91,19 +91,19 @@
         
     <url>
      <loc>/reference/concepts/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/api/experiment/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/reference/api/journal/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -113,7 +113,7 @@
         
     <url>
      <loc>/reference/contributing/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -129,7 +129,7 @@
         
     <url>
      <loc>/reference/developing/guidelines/</loc>
-     <lastmod>2018-05-15</lastmod>
+     <lastmod>2018-06-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         

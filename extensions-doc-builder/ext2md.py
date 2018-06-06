@@ -137,16 +137,14 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 }
             }
             if not can_be_called_without_args:
-                if not args:
-                    continue
+                if args:
+                    as_json["provider"]["arguments"] = {}
+                    for arg in args:
+                        if arg["required"] == "No":
+                            continue
 
-                as_json["provider"]["arguments"] = {}
-                for arg in args:
-                    if arg["required"] == "No":
-                        continue
-
-                    arg_type = get_activity_default_value(arg["type"])
-                    as_json["provider"]["arguments"][arg["name"]] = arg_type
+                        arg_type = get_activity_default_value(arg["type"])
+                        as_json["provider"]["arguments"][arg["name"]] = arg_type
 
             activities.append({
                 "type": activity_type,

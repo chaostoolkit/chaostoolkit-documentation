@@ -69,6 +69,7 @@ pages:
     - Humio: drivers/humio.md
     - Kubernetes: drivers/kubernetes.md
     - Prometheus: drivers/prometheus.md
+    - Spring: drivers/spring.md
 - Chaos Open API:
     - Concepts: reference/concepts.md
     - Experiment: reference/api/experiment.md

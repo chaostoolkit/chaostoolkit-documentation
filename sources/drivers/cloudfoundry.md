@@ -2,7 +2,7 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.5.0 |
+| **Version**           | 0.5.1 |
 | **Repository**        | https://github.com/chaostoolkit-incubator/chaostoolkit-cloud-foundry |
 
 
@@ -1318,6 +1318,64 @@ provider:
   arguments:
     app_name: ''
   func: get_app_stats
+  module: chaoscf.probes
+  type: python
+type: probe
+
+```
+
+
+
+***
+
+#### `list_apps`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | probe |
+| **Module**            | chaoscf.probes |
+| **Name**              | list_apps |
+| **Return**              | mapping |
+
+
+List all applications available to the authorized user.
+
+See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html to
+understand the content of the response.
+
+**Signature:**
+
+```python
+def list_apps(configuration: Dict[str, Dict[str, str]],
+              secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+
+
+**Usage:**
+
+```json
+{
+  "name": "list-apps",
+  "type": "probe",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.probes",
+    "func": "list_apps"
+  }
+}
+```
+
+```yaml
+name: list-apps
+provider:
+  func: list_apps
   module: chaoscf.probes
   type: python
 type: probe

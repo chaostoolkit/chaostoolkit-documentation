@@ -2,7 +2,7 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.4.2 |
+| **Version**           | 0.5.1 |
 | **Repository**        | https://github.com/chaostoolkit-incubator/chaostoolkit-aws |
 
 
@@ -295,13 +295,11 @@ you should create the according sub-package.
 
 If the support you want to provide is for a new AWS service that [boto][] does
 not support yet, this requires direct call to the API endpoint via the
-[requests][] package. For instance, as of April 2018, [AWS EKS][eks] is not
-yet available in boto3, so let see how we can still use it.
+[requests][] package. Say we have a new service, not yet supported by boto3
 
 [eks]: https://aws.amazon.com/eks/
-
-Note: at this stage, the EKS API isn't publicly documented so let's just
-assume it defines a "Terminate Worker Noder" API.
+[boto]: https://boto3.readthedocs.io/en/latest/index.html
+[requests]: http://docs.python-requests.org/en/master/
 
 ```python
 from chaoslib.types import Configuration, Secrets
@@ -313,14 +311,14 @@ def terminate_worker_node(worker_node_id: str,
                           configuration: Configuration=None,
                           secrets: Secrets=None) -> AWSResponse:
     """
-    Terminate a EKS worker node.
+    Terminate a worker node.
     """
     params = {
         "DryRun": True,
         "WorkerNodeId.1": worker_node_id
     }
     response = signed_api_call(
-        'eks', path='/2018-01-01/worker/terminate',
+        'some-new-service-name', path='/2018-01-01/worker/terminate',
         method='POST', params=params,
         configuration=configuration, secrets=secrets)
     return response.json()
@@ -575,6 +573,73 @@ type: action
 
 
 ### ecs
+
+
+
+***
+
+#### `are_all_desired_tasks_running`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | probe |
+| **Module**            | chaosaws.ecs.probes |
+| **Name**              | are_all_desired_tasks_running |
+| **Return**              | boolean |
+
+
+Checks to make sure desired and running tasks counts are equal
+
+**Signature:**
+
+```python
+def are_all_desired_tasks_running(
+        cluster: str,
+        service: str,
+        configuration: Dict[str, Dict[str, str]] = None,
+        secrets: Dict[str, Dict[str, str]] = None) -> bool:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **cluster**      | string |  | Yes |
+| **service**      | string |  | Yes |
+
+
+**Usage:**
+
+```json
+{
+  "name": "are-all-desired-tasks-running",
+  "type": "probe",
+  "provider": {
+    "type": "python",
+    "module": "chaosaws.ecs.probes",
+    "func": "are_all_desired_tasks_running",
+    "arguments": {
+      "cluster": "",
+      "service": ""
+    }
+  }
+}
+```
+
+```yaml
+name: are-all-desired-tasks-running
+provider:
+  arguments:
+    cluster: ''
+    service: ''
+  func: are_all_desired_tasks_running
+  module: chaosaws.ecs.probes
+  type: python
+type: probe
+
+```
 
 
 
@@ -857,13 +922,18 @@ type: probe
 | **Return**              | mapping |
 
 
-Stop a given ECS task instance
+Stop a given ECS task instance. If no task_id provided, a random task of
+the given service is stopped.
+
+You can specify a cluster by its ARN identifier or, if not provided, the
+default cluster will be picked up.
 
 **Signature:**
 
 ```python
-def stop_task(cluster: str,
-              task_id: str,
+def stop_task(cluster: str = None,
+              task_id: str = None,
+              service: str = None,
               reason: str = 'Chaos Testing',
               configuration: Dict[str, Dict[str, str]] = None,
               secrets: Dict[str, Dict[str, str]] = None) -> Dict[str, Any]:
@@ -875,8 +945,9 @@ def stop_task(cluster: str,
 
 | Name | Type | Default | Required |
 | --------------------- | ------------- | ------------- | ------------- |
-| **cluster**      | string |  | Yes |
-| **task_id**      | string |  | Yes |
+| **cluster**      | string | null | No |
+| **task_id**      | string | null | No |
+| **service**      | string | null | No |
 | **reason**      | string | "Chaos Testing" | No |
 
 
@@ -889,11 +960,7 @@ def stop_task(cluster: str,
   "provider": {
     "type": "python",
     "module": "chaosaws.ecs.actions",
-    "func": "stop_task",
-    "arguments": {
-      "cluster": "",
-      "task_id": ""
-    }
+    "func": "stop_task"
   }
 }
 ```
@@ -901,13 +968,264 @@ def stop_task(cluster: str,
 ```yaml
 name: stop-task
 provider:
-  arguments:
-    cluster: ''
-    task_id: ''
   func: stop_task
   module: chaosaws.ecs.actions
   type: python
 type: action
+
+```
+
+
+
+
+### eks
+
+
+
+***
+
+#### `create_cluster`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaosaws.eks.actions |
+| **Name**              | create_cluster |
+| **Return**              | mapping |
+
+
+Create a new EKS cluster.
+
+**Signature:**
+
+```python
+def create_cluster(
+        name: str,
+        role_arn: str,
+        vpc_config: Dict[str, Any],
+        version: str = None,
+        configuration: Dict[str, Dict[str, str]] = None,
+        secrets: Dict[str, Dict[str, str]] = None) -> Dict[str, Any]:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **name**      | string |  | Yes |
+| **role_arn**      | string |  | Yes |
+| **vpc_config**      | mapping |  | Yes |
+| **version**      | string | null | No |
+
+
+**Usage:**
+
+```json
+{
+  "name": "create-cluster",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaosaws.eks.actions",
+    "func": "create_cluster",
+    "arguments": {
+      "name": "",
+      "role_arn": "",
+      "vpc_config": {}
+    }
+  }
+}
+```
+
+```yaml
+name: create-cluster
+provider:
+  arguments:
+    name: ''
+    role_arn: ''
+    vpc_config: {}
+  func: create_cluster
+  module: chaosaws.eks.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
+#### `delete_cluster`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaosaws.eks.actions |
+| **Name**              | delete_cluster |
+| **Return**              | mapping |
+
+
+Delete the given EKS cluster.
+
+**Signature:**
+
+```python
+def delete_cluster(
+        name: str = None,
+        configuration: Dict[str, Dict[str, str]] = None,
+        secrets: Dict[str, Dict[str, str]] = None) -> Dict[str, Any]:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **name**      | string | null | No |
+
+
+**Usage:**
+
+```json
+{
+  "name": "delete-cluster",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaosaws.eks.actions",
+    "func": "delete_cluster"
+  }
+}
+```
+
+```yaml
+name: delete-cluster
+provider:
+  func: delete_cluster
+  module: chaosaws.eks.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
+#### `describe_cluster`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | probe |
+| **Module**            | chaosaws.eks.probes |
+| **Name**              | describe_cluster |
+| **Return**              | mapping |
+
+
+Describe an EKS cluster.
+
+**Signature:**
+
+```python
+def describe_cluster(
+        name: str,
+        configuration: Dict[str, Dict[str, str]] = None,
+        secrets: Dict[str, Dict[str, str]] = None) -> Dict[str, Any]:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **name**      | string |  | Yes |
+
+
+**Usage:**
+
+```json
+{
+  "name": "describe-cluster",
+  "type": "probe",
+  "provider": {
+    "type": "python",
+    "module": "chaosaws.eks.probes",
+    "func": "describe_cluster",
+    "arguments": {
+      "name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: describe-cluster
+provider:
+  arguments:
+    name: ''
+  func: describe_cluster
+  module: chaosaws.eks.probes
+  type: python
+type: probe
+
+```
+
+
+
+***
+
+#### `list_clusters`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | probe |
+| **Module**            | chaosaws.eks.probes |
+| **Name**              | list_clusters |
+| **Return**              | mapping |
+
+
+List EKS clusters available to the authenticated account.
+
+**Signature:**
+
+```python
+def list_clusters(configuration: Dict[str, Dict[str, str]] = None,
+                  secrets: Dict[str, Dict[str, str]] = None) -> Dict[str, Any]:
+    pass
+
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+
+
+**Usage:**
+
+```json
+{
+  "name": "list-clusters",
+  "type": "probe",
+  "provider": {
+    "type": "python",
+    "module": "chaosaws.eks.probes",
+    "func": "list_clusters"
+  }
+}
+```
+
+```yaml
+name: list-clusters
+provider:
+  func: list_clusters
+  module: chaosaws.eks.probes
+  type: python
+type: probe
 
 ```
 

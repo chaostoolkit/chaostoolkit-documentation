@@ -2,7 +2,7 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.2.1 |
+| **Version**           | 0.2.2 |
 | **Repository**        | https://github.com/chaostoolkit-incubator/chaostoolkit-google-cloud |
 
 

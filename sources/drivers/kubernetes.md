@@ -2,7 +2,7 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.16.1 |
+| **Version**           | 0.16.2 |
 | **Repository**        | https://github.com/chaostoolkit/chaostoolkit-kubernetes |
 
 

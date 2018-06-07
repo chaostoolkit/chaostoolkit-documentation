@@ -33,5 +33,10 @@
         "name": "chaoshumio",
         "doc_path": "../sources/drivers/humio.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-humio"
+    },
+    {
+        "name": "chaosspring",
+        "doc_path": "../sources/drivers/spring.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-spring"
     }
 ]

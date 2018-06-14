@@ -40,12 +40,11 @@ Generally speaking, you should consider the followings:
   submitted it? We are not talking about enterrprise support but merely
   basic issues overview and bug fixes from time to time
 
-Notice also that we deal with contributors via GitHub teams. For any new
-project, we create a dedicated team and add you as a contributor to it with
-read/write permissions. The Chaos Toolkit does not add you as a collaborator of
-the organization for management reasons. Collaborators are external contributors
-with permissions to specific repositories access. This reduces the security
-surface risks in case a contributor account is breached.
+Notice also that we deal with contributors on a repository basis.
+Collaborators are external contributors with little permissions to the org and
+write permissions to the repositories they contribute to. We suggest that
+accounts should have 2FA enabled. This reduces the security surface risks in
+case a contributor account is breached.
 
 
 ## Licensing and Certification of Origin

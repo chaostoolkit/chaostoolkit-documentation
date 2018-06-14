@@ -21,6 +21,33 @@ projects include:
 * ***A popular starred and used extension to the Chaos Toolkit.***
 * ***Active and prompt project issue resolution.***
 
+### How to submit your own project to the incubator?
+
+The incubator is a place for community projects to be collected. If you think
+your extension makes sense as a community project, please don't hesitate to
+suggest it. The best place to start is on the
+[community Slack team](https://join.chaostoolkit.org/) to announce it.
+
+Generally speaking, you should consider the followings:
+
+* Can your project be made publicly available? Think it should respect
+  the [Developer Certificate of Origin](https://developercertificate.org/)
+* Does it serve your own purpose or can it be used by anyone?
+* What license do you want to set on it? We tend to prefer permissive licenses
+  that are recognized by the
+  [Open Source project](https://opensource.org/licenses), such as Apache or BSD
+* Will you be able to provide basic support to the project after you have
+  submitted it? We are not talking about enterrprise support but merely
+  basic issues overview and bug fixes from time to time
+
+Notice also that we deal with contributors via GitHub teams. For any new
+project, we create a dedicated team and add you as a contributor to it with
+read/write permissions. The Chaos Toolkit does not add you as a collaborator of
+the organization for management reasons. Collaborators are external contributors
+with permissions to specific repositories access. This reduce the security
+surface risks in case a contributor account is breached.
+
+
 ## Licensing and Certification of Origin
 
 Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed 

@@ -44,7 +44,7 @@ Notice also that we deal with contributors via GitHub teams. For any new
 project, we create a dedicated team and add you as a contributor to it with
 read/write permissions. The Chaos Toolkit does not add you as a collaborator of
 the organization for management reasons. Collaborators are external contributors
-with permissions to specific repositories access. This reduce the security
+with permissions to specific repositories access. This reduces the security
 surface risks in case a contributor account is breached.
 
 

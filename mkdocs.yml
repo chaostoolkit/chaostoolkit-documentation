@@ -62,6 +62,7 @@ pages:
 - Tutorials:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
 - Drivers Reference:
+    - Overview: drivers/overview.md
     - AWS: drivers/aws.md
     - Azure: drivers/azure.md
     - Cloud Foundry: drivers/cloudfoundry.md

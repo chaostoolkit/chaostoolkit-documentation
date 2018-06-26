@@ -192,10 +192,10 @@ First, copy the valid certificate as follows:
 $ cp valid-cert.pem cert.pem
 ```
 
-Next, start the services:
+Next, start the services, in one terminal:
 
 ```console
-$ python3 apps/astre/app.py
+$ python3 astre.py
 [14/May/2018:16:11:09] ENGINE Listening for SIGTERM.
 [14/May/2018:16:11:09] ENGINE Listening for SIGHUP.
 [14/May/2018:16:11:09] ENGINE Listening for SIGUSR1.
@@ -203,9 +203,10 @@ $ python3 apps/astre/app.py
 [14/May/2018:16:11:09] ENGINE Serving on https://127.0.0.1:8444
 [14/May/2018:16:11:09] ENGINE Bus STARTE
 ```
+Then, in another terminal:
 
 ```console
-$ python3 apps/sunset/app.py
+$ python3 sunset.py
 [14/May/2018:16:13:58] ENGINE Listening for SIGTERM.
 [14/May/2018:16:13:58] ENGINE Listening for SIGHUP.
 [14/May/2018:16:13:58] ENGINE Listening for SIGUSR1.

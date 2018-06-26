@@ -2,147 +2,147 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
      <loc>/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/install/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/upgrade/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/cli/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/discover/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/init/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/run/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/report/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/usage/notification/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/tutorial/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/overview/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/aws/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/azure/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/cloudfoundry/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/gce/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/humio/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/kubernetes/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/prometheus/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/drivers/spring/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/concepts/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/api/experiment/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/api/journal/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/contributing/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/developing/values/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/developing/core/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/developing/technologies/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/developing/guidelines/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/extending/approaches/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
      <loc>/reference/extending/extending-with-python/</loc>
-     <lastmod>2018-06-16</lastmod>
+     <lastmod>2018-06-26</lastmod>
      <changefreq>daily</changefreq>
     </url>
 </urlset>

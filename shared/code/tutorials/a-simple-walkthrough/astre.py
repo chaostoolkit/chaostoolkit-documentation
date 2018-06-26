@@ -45,10 +45,9 @@ def run():
         "log.screen": True,
         "server.socket_port": 8444,
         "server.ssl_module": "builtin",
-        "server.ssl_private_key": os.path.join(cur_dir, "../../key.pem"),
-        "server.ssl_certificate": os.path.join(cur_dir, "../../cert.pem")
+        "server.ssl_private_key": os.path.join(cur_dir, "key.pem"),
+        "server.ssl_certificate": os.path.join(cur_dir, "cert.pem")
     })
-    Daemonizer(cherrypy.engine).subscribe()
     PIDFile(cherrypy.engine, 'astre.pid').subscribe()
     cherrypy.quickstart(Root())
 

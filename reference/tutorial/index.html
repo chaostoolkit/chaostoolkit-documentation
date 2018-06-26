@@ -1491,8 +1491,8 @@ assumes you may want to review your system.</p>
 <div class="codehilite"><pre><span></span><span class="gp">$</span> cp valid-cert.pem cert.pem
 </pre></div>
 
-<p>Next, start the services:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python3 apps/astre/app.py
+<p>Next, start the services, in one terminal:</p>
+<p><div class="codehilite"><pre><span></span><span class="gp">$</span> python3 astre.py
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGTERM.</span>
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGHUP.</span>
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGUSR1.</span>
@@ -1500,8 +1500,8 @@ assumes you may want to review your system.</p>
 <span class="go">[14/May/2018:16:11:09] ENGINE Serving on https://127.0.0.1:8444</span>
 <span class="go">[14/May/2018:16:11:09] ENGINE Bus STARTE</span>
 </pre></div>
-
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python3 apps/sunset/app.py
+Then, in another terminal:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> python3 sunset.py
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGTERM.</span>
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGHUP.</span>
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGUSR1.</span>

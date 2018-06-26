@@ -20,9 +20,13 @@ it setup.
 
 ### Get the Code
 
-The code can be found [here][codetut].
+You can fetch the code as follows:
 
-[codetut]: https://github.com/chaostoolkit/chaostoolkit-documentation/tree/master/sources/shared/snippets/tutorials
+```console
+$ git clone https://github.com/chaostoolkit/chaostoolkit-documentation-code
+```
+
+This particular tutorial is under `tutorials/a-simple-walkthrough`.
 
 ### Install the Chaos Toolkit
 
@@ -100,7 +104,7 @@ At this stage, we can create an experiment that tells how the system behaves
 when a certificate expires.
 
 ```json
-{!snippets/tutorials/experiment.json!}
+{!code/tutorials/a-simple-walkthrough/experiment.json!}
 ```
 
 #### The Various Sections of an Experiment

@@ -40,7 +40,7 @@
     
     
       
-        <title>Run - Chaos Toolkit</title>
+        <title>Schedule - Chaos Toolkit</title>
       
     
     
@@ -104,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#the-chaos-run-command" tabindex="1" class="md-skip">
+      <a href="#scheduling-your-experiments" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -130,7 +130,7 @@
                 Chaos Toolkit
               </span>
               <span class="md-header-nav__topic">
-                Run
+                Schedule
               </span>
             
           
@@ -359,63 +359,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Run
-      </label>
-    
-    <a href="./" title="Run" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../run/" title="Run" class="md-nav__link">
       Run
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#executing-an-experiment-plan" title="Executing an Experiment Plan" class="md-nav__link">
-    Executing an Experiment Plan
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rehearsing-an-experiment-execution" title="Rehearsing an experiment execution" class="md-nav__link">
-    Rehearsing an experiment execution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-an-experiment-without-validation" title="Run an experiment without validation" class="md-nav__link">
-    Run an experiment without validation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -447,11 +395,20 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../scheduling/" title="Schedule" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" title="Schedule" class="md-nav__link md-nav__link--active">
       Schedule
     </a>
+    
   </li>
 
         
@@ -938,36 +895,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#executing-an-experiment-plan" title="Executing an Experiment Plan" class="md-nav__link">
-    Executing an Experiment Plan
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#rehearsing-an-experiment-execution" title="Rehearsing an experiment execution" class="md-nav__link">
-    Rehearsing an experiment execution
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-an-experiment-without-validation" title="Run an experiment without validation" class="md-nav__link">
-    Run an experiment without validation
-  </a>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -978,35 +905,17 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/usage/run.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/reference/usage/scheduling.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="the-chaos-run-command">The <code>chaos run</code> command<a class="headerlink" href="#the-chaos-run-command" title="Permanent link">&para;</a></h1>
-<p>You use the <code>chaos run</code> command to execute your declarative chaos engineering 
-experiments. To see the options that can be passed to the <code>chaos run</code> command, 
-execute:</p>
-<div class="codehilite"><pre><span></span>(chaostk) $ chaos run --help
-</pre></div>
-
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/3nGlsYW1GkX1VW9ACy3gGURhi.js" id="asciicast-3nGlsYW1GkX1VW9ACy3gGURhi" async></script></div>
-
-<p>A tutorial on how to use the <code>chaos run</code> command is available as part of the 
-<a href="https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started">Chaos Toolkit&rsquo;s Getting Started tutorials.</a></p>
-<h3 id="executing-an-experiment-plan">Executing an Experiment Plan<a class="headerlink" href="#executing-an-experiment-plan" title="Permanent link">&para;</a></h3>
-<p>To execute an experiment plan you simply pass it to the <code>chaos run</code> command:</p>
-<div class="codehilite"><pre><span></span>(chaostk) $ chaos run experiment.json
-</pre></div>
-
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/RVci6wzv7hHH1ZEOtoM7rsZVT.js" id="asciicast-RVci6wzv7hHH1ZEOtoM7rsZVT" async></script></div>
-
-<p><code>chaostoolkit</code> will log all the steps it follows from your plan in a journal by 
-default called <code>chaos-report.json</code>. You can specify the name of this journal 
-output file using the <code>--report-path</code> option.</p>
-<h2 id="rehearsing-an-experiment-execution">Rehearsing an experiment execution<a class="headerlink" href="#rehearsing-an-experiment-execution" title="Permanent link">&para;</a></h2>
-<p>To test that you have a valid experiment you can pass the <code>--dry</code> option.</p>
-<h2 id="run-an-experiment-without-validation">Run an experiment without validation<a class="headerlink" href="#run-an-experiment-without-validation" title="Permanent link">&para;</a></h2>
-<p>You can run an experiment and skip the experiment&rsquo;s validation using the 
-<code>--no-validation</code> option.</p>
+                <h1 id="scheduling-your-experiments">Scheduling your Experiments<a class="headerlink" href="#scheduling-your-experiments" title="Permanent link">&para;</a></h1>
+<p>Scheduling is not built into the Chaos Toolkit itself. However it is common 
+to want to run an experiment periodically when you may not be at the keyboard.</p>
+<p>In these cases we recommend using a system such as 
+<a href="https://en.wikipedia.org/wiki/Cron"><code>cron</code></a> to schedule your experiment 
+executions. You can also use a <a href="https://kubernetes.io/docs/concepts/workloads/controllers/jobs-run-to-completion/">Kubernetes job</a> 
+ to give you full control over the lifecycle of that job using the 
+ common Kubernetes features.</p>
                 
                   
                 
@@ -1027,7 +936,7 @@ output file using the <code>--report-path</code> option.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../init/" title="Init" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../notification/" title="Notify" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1036,19 +945,19 @@ output file using the <code>--report-path</code> option.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Init
+                Notify
               </span>
             </div>
           </a>
         
         
-          <a href="../report/" title="Report" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../tutorial/" title="Get Started with the Chaos Toolkit" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Report
+                Get Started with the Chaos Toolkit
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

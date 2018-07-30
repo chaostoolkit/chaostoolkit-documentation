@@ -24,8 +24,15 @@ $ pip install -r requirements.txt
 [venv]: https://virtualenv.pypa.io/en/stable/
 [pip]: https://pip.pypa.io/en/stable/installing/
 
-Once the dependencies are installed, you can start a local server to view the
-docs:
+Once the dependencies are installed you need to ensure you have also installed
+ any submodules (i.e. source code for the docs is in a separate submodule) 
+using:
+
+```
+$ git submodule update --init
+```
+
+Finally you can start a local server to view the docs:
 
 ```
 $ mkdocs serve

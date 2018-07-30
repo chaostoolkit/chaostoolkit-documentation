@@ -86,4 +86,6 @@ pages:
     - Create Extension:
         - Extension Approaches: reference/extending/approaches.md
         - Python: reference/extending/extending-with-python.md
-
+- Resources:
+    - Logos: resources/logos.md
+    - Slides: resources/slides.md

@@ -105,9 +105,15 @@ An experiment MAY finally declare:
 
 * a `tags` property
 * a `secrets` property
+* an `extension` property
 
 Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.
+
+[Extensions][ext] define opaque payloads for vendors to carry valuable
+information.
+
+[ext]: #extensions
 
 ### Steady State Hypothesis
 
@@ -624,6 +630,30 @@ declared in both sections, the Configuration section MUST take precedence.
 Dynamic values MUST be substituted before being passed to Probes or Actions.
 
 Other values, such as the HTTP Probe url, MAY be sustituted as well.
+
+### Extensions
+
+An Experiment MAY declare an `extensions` property which MUST be an array
+of objects. Each object MUST declare a non-empty `name` property.
+
+Extensions are used in two scenarios:
+
+* future core features that need to be ironed out by the community first
+* vendor specific payload
+
+In both cases, their actual usage is runtime dependent, this specification
+does not declare any meaning to an extension.
+
+Below is an example of an Extension:
+
+```json
+{
+    "extensions": [{
+        "name": "vendorX",
+        "data": "..."
+    }]
+}
+```
 
 ## Examples
 

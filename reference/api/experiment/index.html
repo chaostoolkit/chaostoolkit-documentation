@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-0.17.5, mkdocs-material-2.9.4">
+      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
     
     
       
@@ -104,7 +104,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#an-open-api-for-chaos-engineering-experiments" tabindex="1" class="md-skip">
+      <a href="../../../#an-open-api-for-chaos-engineering-experiments" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -841,6 +841,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#extensions" title="Extensions" class="md-nav__link">
+    Extensions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1348,6 +1355,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#extensions" title="Extensions" class="md-nav__link">
+    Extensions
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1467,9 +1481,12 @@ should be as descriptive as possible to clarify the experiment&rsquo;s rationale
 <ul>
 <li>a <code>tags</code> property</li>
 <li>a <code>secrets</code> property</li>
+<li>an <code>extension</code> property</li>
 </ul>
 <p>Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.</p>
+<p><a href="#extensions">Extensions</a> define opaque payloads for vendors to carry valuable
+information.</p>
 <h3 id="steady-state-hypothesis">Steady State Hypothesis<a class="headerlink" href="#steady-state-hypothesis" title="Permanent link">&para;</a></h3>
 <p>The Steady State Hypothesis element describes what normal looks like in your
 system before the Method element is applied. If the steady state is not met,
@@ -1850,6 +1867,25 @@ declared in either the Configuration or Secrets sections. When <code>name</code>
 declared in both sections, the Configuration section MUST take precedence.</p>
 <p>Dynamic values MUST be substituted before being passed to Probes or Actions.</p>
 <p>Other values, such as the HTTP Probe url, MAY be sustituted as well.</p>
+<h3 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h3>
+<p>An Experiment MAY declare an <code>extensions</code> property which MUST be an array
+of objects. Each object MUST declare a non-empty <code>name</code> property.</p>
+<p>Extensions are used in two scenarios:</p>
+<ul>
+<li>future core features that need to be ironed out by the community first</li>
+<li>vendor specific payload</li>
+</ul>
+<p>In both cases, their actual usage is runtime dependent, this specification
+does not declare any meaning to an extension.</p>
+<p>Below is an example of an Extension:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;extensions&quot;</span><span class="p">:</span> <span class="p">[{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;vendorX&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}]</span>
+<span class="p">}</span>
+</pre></div>
+
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
 <p>The following examples MUST NOT be considered normatives.</p>
 <h3 id="minimal-experiment">Minimal Experiment<a class="headerlink" href="#minimal-experiment" title="Permanent link">&para;</a></h3>
@@ -2226,9 +2262,9 @@ to perform actions, probing and steady-state hypothesis validation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.30f6b8b1.js"></script>
+      <script src="../../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"0.17.5",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0",url:{base:"../../.."}})</script>
       
     
     

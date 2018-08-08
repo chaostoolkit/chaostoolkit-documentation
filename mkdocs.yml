@@ -47,7 +47,7 @@ extra:
       link: https://join.chaostoolkit.org/
     - type: medium
       link: https://medium.com/chaos-toolkit
-pages:
+nav:
 - Home: index.md
 - Usage:
     - Install: reference/usage/install.md

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -559,41 +559,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#humio-dataspace-token" title="Humio Dataspace &amp; Token" class="md-nav__link">
-    Humio Dataspace &amp; Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -987,41 +952,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#humio-dataspace-token" title="Humio Dataspace &amp; Token" class="md-nav__link">
-    Humio Dataspace &amp; Token
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1092,58 +1022,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-humio"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-humio.svg?branch=master" /></a></p>
-<p>This project is an extension for the Chaos Toolkit to target <a href="https://www.humio.com/">Humio</a>.</p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>This package requires Python 3.5+</p>
-<p>To be used from your experiment, this package must be installed in the Python
-environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaostoolkit</a> already lives.</p>
-<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-humio
-</pre></div>
-
-<h2 id="humio-dataspace-token">Humio Dataspace &amp; Token<a class="headerlink" href="#humio-dataspace-token" title="Permanent link">&para;</a></h2>
-<p>To use this extension, you will need two pieces of information from Humio.
-First, the dataspace which you want to send logs to. Second a <a href="https://cloud.humio.com/docs/http-api/index.html#api-token">API token</a>
-for an user with permissions to that space.</p>
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use this extension, edit your <a href="http://chaostoolkit.org/reference/usage/settings/">chaostoolkit settings</a> by adding the
-following payload:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio.notification</span>
-    <span class="l l-Scalar l-Scalar-Plain">dataspace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-space</span>
-    <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-token</span>
-</pre></div>
-
-<p>By default all events will be forwarded to that channel. You may filter only
-those events you care for:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio.notification</span>
-    <span class="l l-Scalar l-Scalar-Plain">dataspace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-space</span>
-    <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-token</span>
-    <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-failed</span>
-      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-started</span>
-</pre></div>
-
-<p>Only sends those two events.</p>
-<h2 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
-<p>To run the tests for the project execute the following:</p>
-<div class="codehilite"><pre><span></span>$ pytest
-</pre></div>
-
-<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
-<p>If you wish to contribute more functions to this package, you are more than
-welcome to do so. Please, fork this project, make your changes following the
-usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
-review.</p>
-<p>The Chaos Toolkit projects require all contributors must sign a
-<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
-into the master branch of the repository. Please, make sure you can abide by
-the rules of the DCO before submitting a PR.</p>
+<p>N/A</p>
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="notification">notification<a class="headerlink" href="#notification" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1216,12 +1095,12 @@ the rules of the DCO before submitting a PR.</p>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{},</span>
-      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{}</span>
+      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -1327,7 +1206,7 @@ the rules of the DCO before submitting a PR.</p>
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
       
     
     

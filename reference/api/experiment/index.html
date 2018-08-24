@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -1428,7 +1428,7 @@ are still emerging. However, it appears certain concepts are settling down
 enough to start agreeing on a shared understanding.</p>
 <p>This specification is not prescriptive and does not aim at forcing the
 community into one direction, rather it strives at providing a common
-vocabulary that new practicionners can easily make sense of.</p>
+vocabulary that new practitioners can easily make sense of.</p>
 <p>It is necessary to appreciate that this document does not specify what tools,
 such as the Chaos Monkey or similar, should look like. Instead, this document
 specifies how Chaos Engineering Experiment could be described, shared and
@@ -1608,7 +1608,7 @@ through the <code>ref</code> property.</p>
 </ul>
 <p>The <code>type</code> property MUST be the JSON string <code>&quot;probe&quot;</code>. </p>
 <p>The <code>name</code> property is a free-form JSON string that MAY be considered as an
-identifier withing the experiment.</p>
+identifier within the experiment.</p>
 <p>It MAY also declare:</p>
 <ul>
 <li>a <code>secret</code> property</li>
@@ -1624,7 +1624,7 @@ when not declared, the Probe requires no configuration.</p>
 <p>The <code>background</code> property MUST be a JSON boolean value either <code>true</code> or <code>false</code>.
 It is assumed that, when that property is not declared, it is set to <code>false</code>.
 When that property is set to <code>true</code> it indicates the Probe MUST not block
-and the next Action or Probe should immediatly be applied.</p>
+and the next Action or Probe should immediately be applied.</p>
 <p>When a Probe references another Probe in the Experiment, the Probe MUST
 declare a single property called <code>ref</code>.</p>
 <p>The <code>ref</code> property MUST be a JSON string which MUST be the name of a declared
@@ -1642,7 +1642,7 @@ Action through the <code>ref</code> property.</p>
 </ul>
 <p>The <code>type</code> property MUST be the JSON string <code>&quot;action&quot;</code>. </p>
 <p>The <code>name</code> property is a free-form JSON string that MAY be considered as an
-identifier withing the experiment.</p>
+identifier within the experiment.</p>
 <p>It MAY also declare:</p>
 <ul>
 <li>a <code>secret</code> property</li>
@@ -1659,7 +1659,7 @@ when not declared, the Action requires no configuration.</p>
 <p>The <code>background</code> property MUST be a JSON boolean value either <code>true</code> or <code>false</code>.
 It is assumed that, when that property is not declared, it is set to <code>false</code>.
 When that property is set to <code>true</code> it indicates the Action MUST not block
-and the next Action or Probe should immediatly be applied.</p>
+and the next Action or Probe should immediately be applied.</p>
 <p>The <code>pauses</code> property MUST be a JSON object which MAY have one or the two
 following properties:</p>
 <ul>
@@ -1667,7 +1667,7 @@ following properties:</p>
 <li><code>after</code></li>
 </ul>
 <p>In both cases, the value MUST be JSON number indicating the number of seconds to
-wait before continuining. The <code>before</code> pause MUST be performed before the Action
+wait before continuing. The <code>before</code> pause MUST be performed before the Action
 while the <code>after</code> MUST be performed afterwards.</p>
 <p>When a Action references another Action in the Experiment, the Action MUST
 declare a single property called <code>ref</code>.</p>
@@ -1829,7 +1829,7 @@ string.</p>
 <p>The <code>configuration</code> element MUST be a JSON object. The value of each property
 MUST be a JSON string or object which properties are considered the
 configuration lookup. Configuration must be passed to all Probes and actions
-requring it. Probes and actions MUST NOT modify the configuration.</p>
+requiring it. Probes and actions MUST NOT modify the configuration.</p>
 <p>Configurations MUST be passed a mapping of keys and values to probes and
 actions.</p>
 <p>An example of a <code>configuration</code> element at the top-level:</p>
@@ -1866,7 +1866,7 @@ environment variable MUST be declared in the <code>key</code> property as a JSON
 declared in either the Configuration or Secrets sections. When <code>name</code> is
 declared in both sections, the Configuration section MUST take precedence.</p>
 <p>Dynamic values MUST be substituted before being passed to Probes or Actions.</p>
-<p>Other values, such as the HTTP Probe url, MAY be sustituted as well.</p>
+<p>Other values, such as the HTTP Probe url, MAY be substituted as well.</p>
 <h3 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h3>
 <p>An Experiment MAY declare an <code>extensions</code> property which MUST be an array
 of objects. Each object MUST declare a non-empty <code>name</code> property.</p>
@@ -1887,7 +1887,7 @@ does not declare any meaning to an extension.</p>
 </pre></div>
 
 <h2 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h2>
-<p>The following examples MUST NOT be considered normatives.</p>
+<p>The following examples MUST NOT be considered normative.</p>
 <h3 id="minimal-experiment">Minimal Experiment<a class="headerlink" href="#minimal-experiment" title="Permanent link">&para;</a></h3>
 <p>Here is an example of the most minimal experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -2264,7 +2264,7 @@ to perform actions, probing and steady-state hypothesis validation.</p>
     
       <script src="../../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0",url:{base:"../../.."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"../../.."}})</script>
       
     
     

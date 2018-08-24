@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
     
     
       
@@ -1356,7 +1356,7 @@ services in our application, what if the certificate expired?</p>
 <p class="admonition-title">Tip</p>
 <p>In such a simple setup, we appreciate that things will likely break and, in
 general there is no point to run an experiment when you already know the
-outcome. However, let&rsquo;s humour ourselves for the sake of learning the
+outcome. However, let&rsquo;s humor ourselves for the sake of learning the
 basics behind the Chaos Toolkit.</p>
 </div>
 <p>We can intuit things will fall apart if the sunset service cannot talk the
@@ -1376,7 +1376,7 @@ for your application is.</p>
 state to remain valid.</p>
 <h3 id="changing-the-conditions">Changing the Conditions<a class="headerlink" href="#changing-the-conditions" title="Permanent link">&para;</a></h3>
 <p>In this tutorial, we are going to set an expired certificate and restart the
-services. We will then call our application and see how its response.</p>
+services. We will then call our application and see how it responds.</p>
 <h3 id="declare-an-experiment-to-observe-the-weakness">Declare an Experiment to Observe the Weakness<a class="headerlink" href="#declare-an-experiment-to-observe-the-weakness" title="Permanent link">&para;</a></h3>
 <p>At this stage, we can create an experiment that tells how the system behaves
 when a certificate expires.</p>
@@ -1541,8 +1541,8 @@ code of <code>200</code>. Richer tolerances can be created by using regex or jso
 </pre></div>
 
 <p>Because we ran this command before we even started our application, our
-steady-state hypothesis failed and bailed the experiment immediatly.</p>
-<p>Note that the rolllbacks will run anyway. They are only bypassed when you
+steady-state hypothesis failed and bailed the experiment immediately.</p>
+<p>Note that the rollbacks will run anyway. They are only bypassed when you
 send a SIGINT or SIGTERM signal to the <code>chaos</code> process because the toolkit
 assumes you may want to review your system.</p>
 <h3 id="start-the-application">Start the Application<a class="headerlink" href="#start-the-application" title="Permanent link">&para;</a></h3>
@@ -1634,15 +1634,15 @@ could be the responses?</p>
 <ul>
 <li>Use a circuit-breaker to provide a more meaningful, and controlled, answer
   to the caller</li>
-<li>Prevent the service to start when the certificate is uses is expired</li>
+<li>Prevent the service to start when the certificate it uses is expired</li>
 <li>Put some monitoring in place on our certificates and trigger an alert when
   they get close to their end date</li>
 <li>Move to Let&rsquo;s Encrypt and renew our certs automatically</li>
 </ul>
-<p>For each of thes potential responses, you could create an experiment should they
+<p>For each of these potential responses, you could create an experiment should they
 unearth potential new questions.</p>
 <h2 id="next">Next?<a class="headerlink" href="#next" title="Permanent link">&para;</a></h2>
-<p>An experiment is never the end game. The flow should be continous and you
+<p>An experiment is never the end game. The flow should be continuous and you
 should create and run experiments regularly.</p>
                 
                   
@@ -1734,7 +1734,7 @@ should create and run experiments regularly.</p>
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
       
     
     

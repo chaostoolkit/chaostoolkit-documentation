@@ -9,11 +9,7 @@ N/A
 
 ## Exported Activities
 
-
-
 ### actions
-
-
 
 ***
 
@@ -25,7 +21,6 @@ N/A
 | **Module**            | chaoscf.actions |
 | **Name**              | delete_app |
 | **Return**              | None |
-
 
 Delete application.
 
@@ -40,7 +35,6 @@ def delete_app(app_name: str,
                org_name: str = None,
                space_name: str = None):
     pass
-
 ```
 
 **Arguments:**
@@ -50,7 +44,6 @@ def delete_app(app_name: str,
 | **app_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
-
 
 **Usage:**
 
@@ -80,8 +73,6 @@ provider:
 type: action
 
 ```
-
-
 
 ***
 

@@ -95,7 +95,7 @@ type: probe
 
 Stop a single EC2 instance.
 
-You may provide an instance id explicitely or, if you only specify the AZ,
+You may provide an instance id explicitly or, if you only specify the AZ,
 a random instance will be selected.
 
 **Signature:**
@@ -423,7 +423,7 @@ type: action
 | **Return**              | mapping |
 
 
-Deregister a given ECS container. Becareful that tasks handled by this
+Deregister a given ECS container. Be careful that tasks handled by this
 instance will remain orphan.
 
 **Signature:**

@@ -33,7 +33,7 @@ The node pool config must be passed a mapping to the `body` parameter and
 respect the REST API.
 
 If `wait_until_complete` is set to `True` (the default), the function
-will block until the node pool is ready. Otherwise, will return immediatly
+will block until the node pool is ready. Otherwise, will return immediately
 with the operation information.
 
 See: https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create
@@ -105,7 +105,7 @@ Delete node pool from the given cluster/zone of the provided project.
 
 If `wait_until_complete` is set to `True` (the default), the function
 will block until the node pool is deleted. Otherwise, will return
-immediatly with the operation information.
+immediately with the operation information.
 
 See: https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create
 

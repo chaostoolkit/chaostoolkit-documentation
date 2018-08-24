@@ -71,7 +71,7 @@ services in our application, what if the certificate expired?
 !!! tip
     In such a simple setup, we appreciate that things will likely break and, in
     general there is no point to run an experiment when you already know the
-    outcome. However, let's humour ourselves for the sake of learning the
+    outcome. However, let's humor ourselves for the sake of learning the
     basics behind the Chaos Toolkit.
 
 We can intuit things will fall apart if the sunset service cannot talk the
@@ -96,7 +96,7 @@ state to remain valid.
 ### Changing the Conditions
 
 In this tutorial, we are going to set an expired certificate and restart the
-services. We will then call our application and see how its response.
+services. We will then call our application and see how it responds.
 
 ### Declare an Experiment to Observe the Weakness
 
@@ -177,9 +177,9 @@ $ chaos run experiment.json
 ```
 
 Because we ran this command before we even started our application, our
-steady-state hypothesis failed and bailed the experiment immediatly.
+steady-state hypothesis failed and bailed the experiment immediately.
 
-Note that the rolllbacks will run anyway. They are only bypassed when you
+Note that the rollbacks will run anyway. They are only bypassed when you
 send a SIGINT or SIGTERM signal to the `chaos` process because the toolkit
 assumes you may want to review your system.
 
@@ -298,15 +298,15 @@ could be the responses?
 
 * Use a circuit-breaker to provide a more meaningful, and controlled, answer
   to the caller
-* Prevent the service to start when the certificate is uses is expired
+* Prevent the service to start when the certificate it uses is expired
 * Put some monitoring in place on our certificates and trigger an alert when
   they get close to their end date
 * Move to Let's Encrypt and renew our certs automatically
 
-For each of thes potential responses, you could create an experiment should they
+For each of these potential responses, you could create an experiment should they
 unearth potential new questions.
 
 ## Next?
 
-An experiment is never the end game. The flow should be continous and you
+An experiment is never the end game. The flow should be continuous and you
 should create and run experiments regularly.

@@ -26,7 +26,7 @@ enough to start agreeing on a shared understanding.
 
 This specification is not prescriptive and does not aim at forcing the
 community into one direction, rather it strives at providing a common
-vocabulary that new practicionners can easily make sense of.
+vocabulary that new practitioners can easily make sense of.
 
 It is necessary to appreciate that this document does not specify what tools,
 such as the Chaos Monkey or similar, should look like. Instead, this document
@@ -282,7 +282,7 @@ When declared fully, a Probe MUST declare:
 The `type` property MUST be the JSON string `"probe"`. 
 
 The `name` property is a free-form JSON string that MAY be considered as an
-identifier withing the experiment.
+identifier within the experiment.
 
 It MAY also declare:
 
@@ -301,7 +301,7 @@ when not declared, the Probe requires no configuration.
 The `background` property MUST be a JSON boolean value either `true` or `false`.
 It is assumed that, when that property is not declared, it is set to `false`.
 When that property is set to `true` it indicates the Probe MUST not block
-and the next Action or Probe should immediatly be applied.
+and the next Action or Probe should immediately be applied.
 
 When a Probe references another Probe in the Experiment, the Probe MUST
 declare a single property called `ref`.
@@ -327,7 +327,7 @@ When declared fully, a Action MUST declare:
 The `type` property MUST be the JSON string `"action"`. 
 
 The `name` property is a free-form JSON string that MAY be considered as an
-identifier withing the experiment.
+identifier within the experiment.
 
 It MAY also declare:
 
@@ -347,7 +347,7 @@ when not declared, the Action requires no configuration.
 The `background` property MUST be a JSON boolean value either `true` or `false`.
 It is assumed that, when that property is not declared, it is set to `false`.
 When that property is set to `true` it indicates the Action MUST not block
-and the next Action or Probe should immediatly be applied.
+and the next Action or Probe should immediately be applied.
 
 The `pauses` property MUST be a JSON object which MAY have one or the two
 following properties:
@@ -356,7 +356,7 @@ following properties:
 * `after`
 
 In both cases, the value MUST be JSON number indicating the number of seconds to
-wait before continuining. The `before` pause MUST be performed before the Action
+wait before continuing. The `before` pause MUST be performed before the Action
 while the `after` MUST be performed afterwards.
 
 When a Action references another Action in the Experiment, the Action MUST
@@ -579,7 +579,7 @@ Configuration is meant to provide runtime values to [actions][action] and
 The `configuration` element MUST be a JSON object. The value of each property
 MUST be a JSON string or object which properties are considered the
 configuration lookup. Configuration must be passed to all Probes and actions
-requring it. Probes and actions MUST NOT modify the configuration.
+requiring it. Probes and actions MUST NOT modify the configuration.
 
 Configurations MUST be passed a mapping of keys and values to probes and
 actions.
@@ -629,7 +629,7 @@ declared in both sections, the Configuration section MUST take precedence.
 
 Dynamic values MUST be substituted before being passed to Probes or Actions.
 
-Other values, such as the HTTP Probe url, MAY be sustituted as well.
+Other values, such as the HTTP Probe url, MAY be substituted as well.
 
 ### Extensions
 
@@ -657,7 +657,7 @@ Below is an example of an Extension:
 
 ## Examples
 
-The following examples MUST NOT be considered normatives.
+The following examples MUST NOT be considered normative.
 
 ### Minimal Experiment
 

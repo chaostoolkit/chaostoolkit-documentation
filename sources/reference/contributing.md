@@ -3,7 +3,7 @@ community-driven [set of projects](https://github.com/chaostoolkit). The
 community's input is what makes this project special and a success. 
 
 Your input could take the form of ***raising issues***, ***voting for issues***, 
-***starring projects***, ***joining us on our [community Slack team](https://join.chaostoolkit.org/)***, ***submitting pull requests***, or even ***suggesting whole new extension projects***. 
+***starring projects***, ***joining us on our [community Slack team](https://join.chaostoolkit.org/)***, ***submitting pull requests***, or even ***suggesting whole new extension projects***.
 
 Whatever you can contribute, ***we're listening and want you to help us drive the 
 project forward***.
@@ -37,7 +37,7 @@ Generally speaking, you should consider the followings:
   that are recognized by the
   [Open Source project](https://opensource.org/licenses), such as Apache or BSD
 * Will you be able to provide basic support to the project after you have
-  submitted it? We are not talking about enterrprise support but merely
+  submitted it? We are not talking about enterprise support but merely
   basic issues overview and bug fixes from time to time
 
 Notice also that we deal with contributors on a repository basis.
@@ -46,8 +46,7 @@ write permissions to the repositories they contribute to. We suggest that
 accounts should have 2FA enabled. This reduces the security surface risks in
 case a contributor account is breached.
 
-
 ## Licensing and Certification of Origin
 
-Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed 
+Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed
 under the [Apache License, Version 2.0](https://github.com/chaostoolkit/chaostoolkit/blob/master/LICENSE) and abides by the [Developer Certificate of Origin](https://developercertificate.org/) on all accepted commits to the `master` branch.

@@ -431,7 +431,7 @@ instance as well afterwards. This is the case on GCE for instance.
 
 If `all` is set to `True`, all nodes will be terminated.
 If `rand` is set to `True`, one random node will be terminated.
-If ̀`count` is set to a positive number, only a upto `count` nodes
+If ̀`count` is set to a positive number, only a up to `count` nodes
 (randomly picked) will be terminated. Otherwise, the first retrieved node
 will be terminated.
 

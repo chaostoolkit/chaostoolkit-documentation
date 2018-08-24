@@ -71,7 +71,7 @@ definition.
 The ̀`status` property MUST be a JSON string, one of:
 
 * `"completed"`: when the experiment runs fully. It does not indicate the
-  activities in the experiment suceeded, only that they were executed as
+  activities in the experiment succeeded, only that they were executed as
   expected
 * `"failed"`: when one of the activity reports a failed condition
 * `"aborted"`: when the experiment breaks for unforeseen reason
@@ -83,7 +83,7 @@ The ̀`status` property MUST be a JSON string, one of:
     everything ran all the way. An action may not have resulted in what the
     operator wanted but it did not fail. Always review the entire journal to
     fully appreciate the actual outcome of the experiment.
-    
+
     There are two reasons it could be marked as `"failed"`. Either a tolerance
     failed or if an extension made a check for a condition. So, for
     instance, let's say the extension made a HTTP call to your service, that

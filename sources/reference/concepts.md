@@ -1,14 +1,14 @@
-# Chaos Engeering Concepts in the Chaos Toolkit
+# Chaos Engineering Concepts in the Chaos Toolkit
 
 If you haven't already, we strongly recommend reading the fantastic
-[Chaos Engineering][chaos-engingeering-book] book from O'Reilly Media. This
+[Chaos Engineering][chaos-engineering-book] book from O'Reilly Media. This
 book will give you some fantastic background on the whole Chaos Engineering
 discipline, and it's free!
 
-[chaos-engingeering-book]: http://www.oreilly.com/webops-perf/free/chaos-engineering.csp
+[chaos-engineering-book]: http://www.oreilly.com/webops-perf/free/chaos-engineering.csp
 
 Chaos Engineering is a discipline that allows you to surface weaknesses, and
-eventually build confidence, in complex and often distributed systems. 
+eventually build confidence, in complex and often distributed systems.
 
 The Chaos Toolkit aims to give you the simplest experience for writing and
 running your own Chaos Engineering experiments. The main concepts are all
@@ -108,4 +108,3 @@ experimentation.
 
 An experiment may define a sequence of actions that revert what was undone
 during the experiment.
-

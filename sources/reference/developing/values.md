@@ -24,7 +24,7 @@ certain implementations of probes and actions.
 
 ## Readability
 
-We believe code readbility is a factor for positive maintenance and evolutivity.
+We believe code readability is a factor for positive maintenance and evolutivity.
 
 Readable code never goes out of fashion. As the code of the Chaos Toolkit is
 mostly written in Python, best practices such as defined in [PEP8][pep8].

@@ -65,7 +65,7 @@ to send messages to Slack channels.
 
 !!! warning
     Notification channels are run sequential to the whole chaos flow, so the
-    more you declare, the bigger the impact they could have on the readibility
+    more you declare, the bigger the impact they could have on the readability
     of the experiment results.
 
 ### Filter Events

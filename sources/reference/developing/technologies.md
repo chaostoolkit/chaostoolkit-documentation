@@ -3,10 +3,10 @@
 ## Python 3
 
 The Chaos Toolkit is implemented in [Python 3][py3k]. A high-level language with
-a long successfuly story for writing great software. It's a common choice for
+a long successfully story for writing great software. It's a common choice for
 tooling purpose.
 
-The language supports readbility well and has a large ecosystem of libraries. It
+The language supports readability well and has a large ecosystem of libraries. It
 is also well-spread and easy to install. The choice to not support Python 2 is
 a look at Python's present and future.
 

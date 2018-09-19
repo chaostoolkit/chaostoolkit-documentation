@@ -1191,6 +1191,7 @@ as well as runtime entries.</p>
 <li>a <code>start</code> property</li>
 <li>a <code>end</code> property</li>
 <li>a <code>duration</code> property</li>
+<li>a <code>deviated</code> property</li>
 </ul>
 <p>The <code>experiment</code> property MUST be a copy of the run experiment as-is and is
 therefore a JSON object. It MUST follow the <a href="../experiment/">Experiment</a>
@@ -1222,6 +1223,9 @@ to fail the action which would lead to a ̀ &ldquo;failed&rdquo;` status.</p>
 crash somehow (say, because of a bug). The latter indicates a signal was
 received. Both MUST bail the entire process.</p>
 </div>
+<p>The <code>deviated</code> property MUST be a boolean flag that MUST be set to <code>true</code> when
+the steady-state was executed after the experimental method but reported that,
+at least, one of its probes failed to match the expected tolerance.</p>
 <p>The <code>start</code> property MUST be a JSON string formatted as per <a href="rfc3339">RFC 3339</a>
 in UTC timezone.</p>
 <p>The <code>end</code> property MUST be a JSON string formatted as per <a href="rfc3339">RFC 3339</a> in

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
     
     
       
@@ -58,8 +58,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -1454,16 +1454,16 @@ with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_new_nodepool&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1546,16 +1546,16 @@ immediatly with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_nodepool&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1657,17 +1657,17 @@ cordonned so it cannot be scheduled any longer.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;swap_nodepool&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
+      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1771,7 +1771,7 @@ cordonned so it cannot be scheduled any longer.</p>
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
     

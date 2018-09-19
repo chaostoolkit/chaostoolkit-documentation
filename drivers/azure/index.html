@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.2, mkdocs-material-3.0.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.0.4">
     
     
       
@@ -58,8 +58,8 @@
       <script src="../../assets/javascripts/modernizr.1aa3b519.js"></script>
     
     
-      <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
       
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
@@ -1463,13 +1463,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos_report&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.probes&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1549,16 +1549,16 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_chaos&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1631,13 +1631,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_chaos&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1738,7 +1738,7 @@ on authenticating with the service.</p>
     
       <script src="../../assets/javascripts/application.583bbe55.js"></script>
       
-      <script>app.initialize({version:"1.0.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
     

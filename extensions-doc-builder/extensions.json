@@ -38,5 +38,10 @@
         "name": "chaosspring",
         "doc_path": "../sources/drivers/spring.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-spring"
+    },
+    {
+        "name": "chaostoxi",
+        "doc_path": "../sources/drivers/toxiproxy.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-toxiproxy"
     }
 ]

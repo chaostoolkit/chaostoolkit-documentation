@@ -14,3 +14,4 @@ You can create your own drivers privately or publicly to customise the toolkit f
 | [`chaosk8s`](./kubernetes.md) | Probes and Actions for Kubernetes |
 | [`chaosprometheus`](./prometheus.md) | Probes for Prometheus |
 | [`chaosspring`](./spring.md) | Probes and Actions for Spring Boot |
+| [`chaostoxi`](./toxiproxy.md) | Probes and Actions for Toxi Proxy |

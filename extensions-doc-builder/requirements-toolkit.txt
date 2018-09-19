@@ -6,3 +6,4 @@ chaostoolkit-google-cloud
 chaostoolkit-humio
 chaostoolkit-prometheus
 chaostoolkit-spring
+chaostoolkit-toxiproxy

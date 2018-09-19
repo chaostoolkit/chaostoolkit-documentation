@@ -64,14 +64,19 @@ nav:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
 - Drivers Reference:
     - Overview: drivers/overview.md
-    - AWS: drivers/aws.md
-    - Azure: drivers/azure.md
-    - Cloud Foundry: drivers/cloudfoundry.md
-    - GCE: drivers/gce.md
-    - Humio: drivers/humio.md
-    - Kubernetes: drivers/kubernetes.md
-    - Prometheus: drivers/prometheus.md
-    - Spring: drivers/spring.md
+    - Infrastructure/Platform:
+      - AWS: drivers/aws.md
+      - Azure: drivers/azure.md
+      - Cloud Foundry: drivers/cloudfoundry.md
+      - GCE: drivers/gce.md
+      - Kubernetes: drivers/kubernetes.md
+    - Application:
+      - Spring: drivers/spring.md
+    - Network:
+      - ToxiProxy: drivers/toxiproxy.md
+    - Observability:
+      - Humio: drivers/humio.md
+      - Prometheus: drivers/prometheus.md
 - Chaos Open API:
     - Concepts: reference/concepts.md
     - Experiment: reference/api/experiment.md

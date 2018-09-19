@@ -63,6 +63,7 @@ A journal MUST declare:
 * a `start` property
 * a `end` property
 * a `duration` property
+* a `deviated` property
 
 The `experiment` property MUST be a copy of the run experiment as-is and is
 therefore a JSON object. It MUST follow the [Experiment](experiment.md)
@@ -95,6 +96,10 @@ The ̀`status` property MUST be a JSON string, one of:
     The `"aborted"` and `"interrupted"` are different, the former means of a
     crash somehow (say, because of a bug). The latter indicates a signal was
     received. Both MUST bail the entire process.
+
+The `deviated` property MUST be a boolean flag that MUST be set to `true` when
+the steady-state was executed after the experimental method but reported that,
+at least, one of its probes failed to match the expected tolerance.
 
 The `start` property MUST be a JSON string formatted as per [RFC 3339](rfc3339)
 in UTC timezone.

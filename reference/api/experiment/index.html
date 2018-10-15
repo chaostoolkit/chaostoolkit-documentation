@@ -1577,7 +1577,7 @@ elements and the order in which they should be applied.</p>
 <li>a <code>steady-state-hypothesis</code> property</li>
 <li>a <code>method</code> property</li>
 </ul>
-<p>The <code>version</code> property MUST be <code>&quot;0.1.0&quot;</code>.</p>
+<p>The <code>version</code> property MUST be <code>"0.1.0"</code>.</p>
 <p>The experiment&rsquo;s <code>title</code> and <code>description</code> are meant for humans and therefore
 should be as descriptive as possible to clarify the experiment&rsquo;s rationale.</p>
 <p>Title and description are JSON strings with no maximum length.</p>
@@ -1628,16 +1628,16 @@ must fall (inclusive).</p>
 <p>When the sequence has more than two elements, the <a href="#probe">Probe</a> returned value
 must be contained in that sequence.</p>
 <p>When the <code>tolerance</code> is an object, it MUST have a <code>type</code> property which MUST
-be one of the followings: <code>&quot;probe&quot;</code>, <code>&quot;regex&quot;</code> or <code>&quot;jsonpath&quot;</code>.</p>
-<p>When the <code>type</code> property is <code>&quot;probe&quot;</code>, the object MUST be a <a href="#probe">Probe</a> that is
+be one of the followings: <code>"probe"</code>, <code>"regex"</code> or <code>"jsonpath"</code>.</p>
+<p>When the <code>type</code> property is <code>"probe"</code>, the object MUST be a <a href="#probe">Probe</a> that is
 applied. The probe should take two arguments, <code>value</code> and <code>secrets</code> where
 the value is the <a href="#probe">Probe</a> returned value and secrets a <a href="#secrets">Secret</a>
 object or <code>null</code>. Its returned status MUST be successful for the <code>tolerance</code> to
 be considered valid.</p>
-<p>When the <code>type</code> property is <code>&quot;regex&quot;</code>, the object MUST have a <code>pattern</code>
+<p>When the <code>type</code> property is <code>"regex"</code>, the object MUST have a <code>pattern</code>
 property which MUST be a valid regular expression. The <code>tolerance</code> succeeds if
 the <a href="#probe">Probe</a> returned value is matched against the pattern.</p>
-<p>When the <code>type</code> property is <code>&quot;jsonpath&quot;</code>, the object MUST have a <code>path</code>
+<p>When the <code>type</code> property is <code>"jsonpath"</code>, the object MUST have a <code>path</code>
 property which MUST be a valid <a href="http://goessner.net/articles/JsonPath/">JSON Path</a>. In addition, the object MAY
 have a <code>expect</code> property which is used to compare each value matched by the JSON
 Path to that value. The <code>expect</code> property value MUST be a scalar. When the
@@ -1714,7 +1714,7 @@ through the <code>ref</code> property.</p>
 <li>a <code>name</code> property</li>
 <li>a <code>provider</code> property</li>
 </ul>
-<p>The <code>type</code> property MUST be the JSON string <code>&quot;probe&quot;</code>. </p>
+<p>The <code>type</code> property MUST be the JSON string <code>"probe"</code>. </p>
 <p>The <code>name</code> property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.</p>
 <p>It MAY also declare:</p>
@@ -1748,7 +1748,7 @@ Action through the <code>ref</code> property.</p>
 <li>a <code>name</code> property</li>
 <li>a <code>provider</code> property</li>
 </ul>
-<p>The <code>type</code> property MUST be the JSON string <code>&quot;action&quot;</code>. </p>
+<p>The <code>type</code> property MUST be the JSON string <code>"action"</code>. </p>
 <p>The <code>name</code> property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.</p>
 <p>It MAY also declare:</p>
@@ -1784,7 +1784,7 @@ Action.</p>
 <h3 id="action-or-probe-provider">Action or Probe Provider<a class="headerlink" href="#action-or-probe-provider" title="Permanent link">&para;</a></h3>
 <p>A provider MUST be a JSON object which MUST declare a <code>type</code> property that
 decides the other expected properties.</p>
-<p>The <code>type</code> property MUST be one of <code>&quot;python&quot;</code>, <code>&quot;http&quot;</code> or <code>&quot;process&quot;</code>.</p>
+<p>The <code>type</code> property MUST be one of <code>"python"</code>, <code>"http"</code> or <code>"process"</code>.</p>
 <h4 id="python-provider">Python Provider<a class="headerlink" href="#python-provider" title="Permanent link">&para;</a></h4>
 <p>A Python Provider declares a Python function to be applied.</p>
 <p>A Python Provider MUST declare the following:</p>
@@ -1819,15 +1819,15 @@ used.</p>
 <li>a <code>arguments</code> property</li>
 <li>a <code>timeout</code> property</li>
 </ul>
-<p>The <code>method</code> property MUST be a JSON string, such as <code>&quot;POST&quot;</code>, as per
-<a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>. It defaults to <code>&quot;GET&quot;</code>.</p>
+<p>The <code>method</code> property MUST be a JSON string, such as <code>"POST"</code>, as per
+<a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>. It defaults to <code>"GET"</code>.</p>
 <p>The <code>headers</code> property MUST be a JSON object which properties are header names
 and values are header values, as per <a href="https://tools.ietf.org/html/rfc7231">RFC 7231</a>.</p>
 <p>When provided, the <code>arguments</code> property MUST be a JSON object which
 properties are parameters of the HTTP request.</p>
-<p>When <code>method</code> is <code>&quot;GET&quot;</code>, the <code>arguments</code> are mapped as a query-string of the
+<p>When <code>method</code> is <code>"GET"</code>, the <code>arguments</code> are mapped as a query-string of the
 URL. Otherwise, the <code>arguments</code> are passed as the request body&rsquo;s data and the
-encoding depends on the <code>&quot;Content-Type&quot;</code> provided in the <code>headers</code> object.</p>
+encoding depends on the <code>"Content-Type"</code> provided in the <code>headers</code> object.</p>
 <p>The <code>timeout</code> property MUST be either a JSON number specifying how long the
 request should take to complete. Or a JSON array that MUST made of two JSON
 numbers, the first one indicating the connection timeout, the second the
@@ -1900,7 +1900,7 @@ applied. Probes and actions MUST NOT modify the secrets.</p>
 <p>Secrets MAY be inlined in the <a href="#experiment">Experiment</a> directly.</p>
 <h4 id="environment-secrets">Environment Secrets<a class="headerlink" href="#environment-secrets" title="Permanent link">&para;</a></h4>
 <p>Secrets MAY be retrieved from the environment. In that case, they must be
-declared as a JSON object with a <code>type</code> property set to <code>&quot;env&quot;</code>. The
+declared as a JSON object with a <code>type</code> property set to <code>"env"</code>. The
 environment variable MUST be declared in the <code>key</code> property as a JSON string.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1916,7 +1916,7 @@ environment variable MUST be declared in the <code>key</code> property as a JSON
 
 <h4 id="vault-secrets">Vault Secrets<a class="headerlink" href="#vault-secrets" title="Permanent link">&para;</a></h4>
 <p>Secrets MAY be retrieved from a <a href="https://www.vaultproject.io/">HashiCorp vault instance</a>. In that case,
-they must be declared as a JSON object with a <code>type</code> property set to <code>&quot;vault&quot;</code>.
+they must be declared as a JSON object with a <code>type</code> property set to <code>"vault"</code>.
 The path to the key MUST be declared in the <code>key</code> property as a JSON
 string.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1956,7 +1956,7 @@ actions.</p>
 <p>Configurations MAY be inlined in the <a href="#experiment">Experiment</a> directly.</p>
 <h4 id="environment-configurations">Environment Configurations<a class="headerlink" href="#environment-configurations" title="Permanent link">&para;</a></h4>
 <p>Configurations MAY be retrieved from the environment. In that case, they must be
-declared as a JSON object with a <code>type</code> property set to <code>&quot;env&quot;</code>. The
+declared as a JSON object with a <code>type</code> property set to <code>"env"</code>. The
 environment variable MUST be declared in the <code>key</code> property as a JSON string.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>

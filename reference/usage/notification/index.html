@@ -1164,27 +1164,27 @@ those events to get notified via your chosen notification channels.</p>
 <p>The Chaos Toolkit defines the following events:</p>
 <p>Discovery flow</p>
 <ul>
-<li><code>&quot;discover-started&quot;</code>: when the discovery flow has begun</li>
-<li><code>&quot;discover-completed&quot;</code>: when the discovery flow has completed</li>
-<li><code>&quot;discover-failed&quot;</code>: when the discovery flow has failed</li>
+<li><code>"discover-started"</code>: when the discovery flow has begun</li>
+<li><code>"discover-completed"</code>: when the discovery flow has completed</li>
+<li><code>"discover-failed"</code>: when the discovery flow has failed</li>
 </ul>
 <p>Init flow</p>
 <ul>
-<li><code>&quot;init-started&quot;</code>: when the init flow has begun</li>
-<li><code>&quot;init-completed&quot;</code>: when the init flow has completed</li>
-<li><code>&quot;init-failed&quot;</code>: when the init flow has failed</li>
+<li><code>"init-started"</code>: when the init flow has begun</li>
+<li><code>"init-completed"</code>: when the init flow has completed</li>
+<li><code>"init-failed"</code>: when the init flow has failed</li>
 </ul>
 <p>Run flow</p>
 <ul>
-<li><code>&quot;run-started&quot;</code>: when the run flow has begun</li>
-<li><code>&quot;run-completed&quot;</code>: when the run flow has completed</li>
-<li><code>&quot;run-failed&quot;</code>: when the run flow has failed</li>
+<li><code>"run-started"</code>: when the run flow has begun</li>
+<li><code>"run-completed"</code>: when the run flow has completed</li>
+<li><code>"run-failed"</code>: when the run flow has failed</li>
 </ul>
 <p>Validate flow</p>
 <ul>
-<li><code>&quot;validate-started&quot;</code>: when the validate flow has begun</li>
-<li><code>&quot;validate-completed&quot;</code>: when the validate flow has completed</li>
-<li><code>&quot;validate-failed&quot;</code>: when the validate flow has failed</li>
+<li><code>"validate-started"</code>: when the validate flow has begun</li>
+<li><code>"validate-completed"</code>: when the validate flow has completed</li>
+<li><code>"validate-failed"</code>: when the validate flow has failed</li>
 </ul>
 <h2 id="declare-notification-channels">Declare Notification Channels<a class="headerlink" href="#declare-notification-channels" title="Permanent link">&para;</a></h2>
 <p>Notification channels are declared in the Chaos Toolkit
@@ -1237,7 +1237,7 @@ is a list so declare as many events as you need.</p>
 over HTTP (or HTTPS) to the given endpoint. Here is the description of its
 fields:</p>
 <ul>
-<li><code>type</code>: must <code>&quot;http&quot;</code> (required)</li>
+<li><code>type</code>: must <code>"http"</code> (required)</li>
 <li><code>url</code>: the endpoint address (required)</li>
 <li><code>verify_tls</code>: <code>true|false</code> depending if the endpoint certificates are
   self-signed</li>
@@ -1262,11 +1262,11 @@ certain experiments when timing is critical.</p>
 </div>
 <p>Here are the fields to declare one:</p>
 <ul>
-<li><code>type</code>: must <code>&quot;plugin&quot;</code> (required)</li>
+<li><code>type</code>: must <code>"plugin"</code> (required)</li>
 <li><code>module</code>: the dotted path to the Python module containing the function to
   apply (required)</li>
 <li><code>func</code>: the name of the function to apply (in that module), defaults to
-  <code>&quot;notify&quot;</code></li>
+  <code>"notify"</code></li>
 </ul>
 <p>Any other fields will be passed on as-is to the function for its internal usage.
 For instance:</p>

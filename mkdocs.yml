@@ -21,13 +21,17 @@ markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
   - admonition
-  - codehilite(guess_lang=false, linenums=false)
+  - codehilite:
+      guess_lang: False
+      linenums: False
   - def_list
   - footnotes
   - meta
   - smarty
-  - toc(permalink=true)
-  - pymdownx.betterem(smart_enable=all)
+  - toc:
+      permalink: True
+  - pymdownx.betterem:
+      smart_enable: "all"
   - pymdownx.caret
   - pymdownx.critic
   - pymdownx.inlinehilite
@@ -35,7 +39,8 @@ markdown_extensions:
   - pymdownx.mark
   - pymdownx.smartsymbols
   - pymdownx.superfences
-  - pymdownx.tasklist(custom_checkbox=true)
+  - pymdownx.tasklist:
+      custom_checkbox: True
   - pymdownx.tilde
 extra:
   social:

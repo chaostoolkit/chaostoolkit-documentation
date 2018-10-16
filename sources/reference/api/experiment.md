@@ -121,7 +121,7 @@ such as "reliability" or "durability", that an experiment contribute to. This
 information can be aggregated together with other experiments' contributions to
 better appreciate where the focus is put and where it is not.
 
-[contrib]: #contribution-model
+[contrib]: #contributions
 
 ### Steady State Hypothesis
 

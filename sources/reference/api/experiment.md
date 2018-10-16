@@ -422,6 +422,12 @@ decides the other expected properties.
 
 The `type` property MUST be one of `"python"`, `"http"` or `"process"`.
 
+!!! info
+    This specification only mentions those three providers but it could grow
+    to [support more][otherproviders], such as `"go"`, `"rust"` or `"grpc"`...
+
+[otherproviders]: https://github.com/chaostoolkit/chaostoolkit-lib/issues/38
+
 #### Python Provider
 
 A Python Provider declares a Python function to be applied.

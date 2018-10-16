@@ -820,6 +820,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#contributions" title="Contributions" class="md-nav__link">
+    Contributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#method" title="Method" class="md-nav__link">
     Method
   </a>
@@ -1334,6 +1341,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#contributions" title="Contributions" class="md-nav__link">
+    Contributions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#method" title="Method" class="md-nav__link">
     Method
   </a>
@@ -1590,11 +1604,16 @@ should be as descriptive as possible to clarify the experiment&rsquo;s rationale
 <li>a <code>tags</code> property</li>
 <li>a <code>secrets</code> property</li>
 <li>an <code>extension</code> property</li>
+<li>a <code>contributions</code> property</li>
 </ul>
 <p>Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.</p>
 <p><a href="#extensions">Extensions</a> define opaque payloads for vendors to carry valuable
 information.</p>
+<p><a href="#contribution-model">Contribution</a> describes valuable properties of the target system,
+such as &ldquo;reliability&rdquo; or &ldquo;durability&rdquo;, that an experiment contribute to. This
+information can be aggregated together with other experiments&rsquo; contributions to
+better appreciate where the focus is put and where it is not.</p>
 <h3 id="steady-state-hypothesis">Steady State Hypothesis<a class="headerlink" href="#steady-state-hypothesis" title="Permanent link">&para;</a></h3>
 <p>The Steady State Hypothesis element describes what normal looks like in your
 system before the Method element is applied. If the steady state is not met,
@@ -1697,6 +1716,39 @@ property, the tested value is the value of that property.</p>
 <span class="p">}</span>
 </pre></div>
 
+<h3 id="contributions">Contributions<a class="headerlink" href="#contributions" title="Permanent link">&para;</a></h3>
+<p>Contributions describe the valuable system properties an experiment targets as
+well as how much they contributes to it. Those properties usually refer to
+aspects stakeholders care about. Aggregated they offer a powerful metric about
+the effort and focus on building confidence across the system.</p>
+<p>Contributions are declared under the top-level <code>contributions</code> property as an
+object. Properties of that object MUST be JSON strings representing the name
+of a contribution. The values MUST be the weight of a given contribution and
+MUST be one of <code>"high"</code>, <code>"medium"</code>, <code>"low"</code> or <code>"none"</code>. The <code>"none"</code> value
+is not the same as a missing contribution from the <code>contributions</code> object.
+That value marks explicitly that a given contribution is not addressed by an
+experiment. A missing contribution means impact via this experiment is unknown
+for this contribution.</p>
+<p>Here is a contribution example:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
+    <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scalability&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This sample tells us that the experiment contributes mainly to exploring
+reliability of the system and moderately to its scability. However, it is
+explicit here this experiment does not address security.</p>
+<p>On the other hand:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
+    <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;scalability&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This tells us the same about reliability and scalability but we can&rsquo;t presume
+anything about security.</p>
 <h3 id="method">Method<a class="headerlink" href="#method" title="Permanent link">&para;</a></h3>
 <p>The Method describes the sequence of <a href="#probe">Probe</a> and <a href="#action">Action</a> elements
 to apply. The Method is declared under <code>method</code> property at the top-level of the
@@ -1999,9 +2051,13 @@ does not declare any meaning to an extension.</p>
 <h3 id="minimal-experiment">Minimal Experiment<a class="headerlink" href="#minimal-experiment" title="Permanent link">&para;</a></h3>
 <p>Here is an example of the most minimal experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;0.1.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Moving a file from under our feet is forgivable&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Our application should re-create a file that was removed&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;contributions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;availability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span>
+    <span class="p">},</span>
     <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The file must be around first&quot;</span><span class="p">,</span>
         <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -2044,9 +2100,12 @@ does not declare any meaning to an extension.</p>
 <p>For reference, here is the YAML equivalent (which is not official but respects
 the specification herein):</p>
 <div class="codehilite"><pre><span></span><span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">0.1.0</span>
+<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
 <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Moving a file from under our feet is forgivable</span>
 <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Our application should re-create a file that was removed</span>
+<span class="l l-Scalar l-Scalar-Plain">contributions</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">reliability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="l l-Scalar l-Scalar-Plain">availability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
 <span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The file must be around first</span>
   <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>
@@ -2078,6 +2137,12 @@ to perform actions, probing and steady-state hypothesis validation.</p>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Are our users impacted by the loss of a function?&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;While users query the Astre function, they should not be impacted if one instance goes down.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;contributions&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;availability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;performance&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span>
+    <span class="p">},</span>
     <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="s2">&quot;kubernetes&quot;</span><span class="p">,</span>
         <span class="s2">&quot;openfaas&quot;</span><span class="p">,</span>
@@ -2197,6 +2262,11 @@ to perform actions, probing and steady-state hypothesis validation.</p>
 <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Are our users impacted by the loss of a function?</span>
 <span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">While users query the Astre function, they should not be impacted if</span>
   <span class="l l-Scalar l-Scalar-Plain">one instance goes down.</span>
+<span class="l l-Scalar l-Scalar-Plain">contributions</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">reliability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="l l-Scalar l-Scalar-Plain">availability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="l l-Scalar l-Scalar-Plain">performance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">medium</span>
+  <span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">none</span>
 <span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>

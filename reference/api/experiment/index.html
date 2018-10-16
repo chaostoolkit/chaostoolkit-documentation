@@ -1837,6 +1837,11 @@ Action.</p>
 <p>A provider MUST be a JSON object which MUST declare a <code>type</code> property that
 decides the other expected properties.</p>
 <p>The <code>type</code> property MUST be one of <code>"python"</code>, <code>"http"</code> or <code>"process"</code>.</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>This specification only mentions those three providers but it could grow
+to <a href="https://github.com/chaostoolkit/chaostoolkit-lib/issues/38">support more</a>, such as <code>"go"</code>, <code>"rust"</code> or <code>"grpc"</code>&hellip;</p>
+</div>
 <h4 id="python-provider">Python Provider<a class="headerlink" href="#python-provider" title="Permanent link">&para;</a></h4>
 <p>A Python Provider declares a Python function to be applied.</p>
 <p>A Python Provider MUST declare the following:</p>

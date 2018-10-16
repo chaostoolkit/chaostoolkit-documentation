@@ -106,6 +106,7 @@ An experiment MAY finally declare:
 * a `tags` property
 * a `secrets` property
 * an `extension` property
+* a `contributions` property
 
 Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.
@@ -114,6 +115,13 @@ strings.
 information.
 
 [ext]: #extensions
+
+[Contribution][contrib] describes valuable properties of the target system,
+such as "reliability" or "durability", that an experiment contribute to. This
+information can be aggregated together with other experiments' contributions to
+better appreciate where the focus is put and where it is not.
+
+[contrib]: #contribution-model
 
 ### Steady State Hypothesis
 
@@ -254,6 +262,48 @@ A jsonpath tolerance with an expected value to match:
     "expect": 4
 }
 ```
+
+### Contributions
+
+Contributions describe the valuable system properties an experiment targets as
+well as how much they contributes to it. Those properties usually refer to
+aspects stakeholders care about. Aggregated they offer a powerful metric about
+the effort and focus on building confidence across the system.
+
+Contributions are declared under the top-level `contributions` property as an
+object. Properties of that object MUST be JSON strings representing the name
+of a contribution. The values MUST be the weight of a given contribution and
+MUST be one of `"high"`, `"medium"`, `"low"` or `"none"`. The `"none"` value
+is not the same as a missing contribution from the `contributions` object.
+That value marks explicitly that a given contribution is not addressed by an
+experiment. A missing contribution means impact via this experiment is unknown
+for this contribution.
+
+Here is a contribution example:
+
+```json
+"contributions": {  
+    "reliability": "high",
+    "security": "none",
+    "scalability": "medium"
+}
+```
+
+This sample tells us that the experiment contributes mainly to exploring
+reliability of the system and moderately to its scability. However, it is
+explicit here this experiment does not address security.
+
+On the other hand:
+
+```json
+"contributions": {  
+    "reliability": "high",
+    "scalability": "medium"
+}
+```
+
+This tells us the same about reliability and scalability but we can't presume
+anything about security.
 
 ### Method
 
@@ -665,9 +715,13 @@ Here is an example of the most minimal experiment:
 
 ```json
 {
-    "version": "0.1.0",
+    "version": "1.0.0",
     "title": "Moving a file from under our feet is forgivable",
     "description": "Our application should re-create a file that was removed",
+    "contributions": {
+        "reliability": "high",
+        "availability": "high"
+    },
     "steady-state-hypothesis": {
         "title": "The file must be around first",
         "probes": [
@@ -712,9 +766,12 @@ the specification herein):
 
 ```yaml
 ---
-version: 0.1.0
+version: 1.0.0
 title: Moving a file from under our feet is forgivable
 description: Our application should re-create a file that was removed
+contributions:
+  reliability: high
+  availability: high
 steady-state-hypothesis:
   title: The file must be around first
   probes:
@@ -749,6 +806,12 @@ to perform actions, probing and steady-state hypothesis validation.
     "version": "1.0.0",
     "title": "Are our users impacted by the loss of a function?",
     "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
+    "contributions": {
+        "reliability": "high",
+        "availability": "high",
+        "performance": "medium",
+        "security": "none"
+    },
     "tags": [
         "kubernetes",
         "openfaas",
@@ -870,6 +933,11 @@ version: 1.0.0
 title: Are our users impacted by the loss of a function?
 description: While users query the Astre function, they should not be impacted if
   one instance goes down.
+contributions:
+  reliability: high
+  availability: high
+  performance: medium
+  security: none
 tags:
 - kubernetes
 - openfaas

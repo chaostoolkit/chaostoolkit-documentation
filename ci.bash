@@ -6,7 +6,11 @@ function fetch-and-install-chaostoolkit-packages() {
     mkdir deps
 
     pip install -U chaostoolkit chaostoolkit-lib httplib2 uritemplate pytzdata
+    
+    # collect all the dependencies for our drivers
+    pip install -U -r requirements-toolkit.txt
 
+    # now let's get them as archives for building their docs
     pip download \
         --no-deps \
         --no-cache-dir \

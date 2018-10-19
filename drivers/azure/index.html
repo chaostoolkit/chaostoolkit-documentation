@@ -544,74 +544,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" title="Configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#credentials" title="Credentials" class="md-nav__link">
-    Credentials
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
-    Putting it all together
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" title="Develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1144,74 +1076,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" title="Configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#credentials" title="Credentials" class="md-nav__link">
-    Credentials
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
-    Putting it all together
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" title="Develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1296,207 +1160,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-azure"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-azure.svg?branch=master" /></a>
-<a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-azure.svg" /></a></p>
-<p>This project is a collection of <a href="http://chaostoolkit.org/reference/api/experiment/#action">actions</a> and <a href="http://chaostoolkit.org/reference/api/experiment/#probe">probes</a>, gathered as an
-extension to the <a href="http://chaostoolkit.org">Chaos Toolkit</a>. It targets the
-<a href="https://azure.microsoft.com/en-us/">Microsoft Azure</a> platform.</p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>This package requires Python 3.5+</p>
-<p>To be used from your experiment, this package must be installed in the Python
-environment where <a href="http://chaostoolkit.org">chaostoolkit</a> already lives.</p>
-<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-azure
-</pre></div>
-
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>To use the probes and actions from this package, add the following to your
-experiment file:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-service-factory-chaos&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.factory.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_chaos&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;azure&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;TimeToRunInSeconds&quot;</span><span class="p">:</span> <span class="mi">45</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span><span class="err">,</span>
-<span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-service-factory-chaos&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.factory.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_chaos&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;azure&quot;</span><span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>That&rsquo;s it!</p>
-<p>Please explore the code to see existing probes and actions.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<h3 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h3>
-<p>This extension uses the [requests][] library under the hood. This library
-expects that you have a PFX certificate, converted as to the PEM format, that
-allows you to authenticate with the <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-controlled-chaos">Service Factory</a> endpoint.</p>
-<p>Generally speaking, there are two ways of doing this:</p>
-<ul>
-<li>you have <a href="https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-connect-to-secure-cluster">created</a> a configuration file where you will run the
-  experiment from (so with a <code>~/.sfctl/config</code> file)</li>
-<li>
-<p>you explicitely pass the correct environment variables to the experiment
-  definition as follows:</p>
-<p>Configuration section:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;https://XYZ.westus.cloudapp.azure.com:19080&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;verify_tls&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-    <span class="nt">&quot;use_ca&quot;</span><span class="p">:</span> <span class="kc">false</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>Secrets section:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;azure&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;pem&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;pem_path&quot;</span><span class="p">:</span> <span class="s2">&quot;./cluster-client-cert.pem&quot;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>The PEM can also be passed as an environment variable:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;azure&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;pem&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;pem_content&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;AZURE_PEM&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>The environment variable name can be anything.</p>
-</li>
-</ul>
-<h3 id="putting-it-all-together">Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">&para;</a></h3>
-<p>Here is a full example:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;endpoint&quot;</span><span class="p">:</span> <span class="s2">&quot;https://XYZ.westus.cloudapp.azure.com:19080&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;verify_tls&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-        <span class="nt">&quot;use_ca&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;azure&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;pem&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;pem_path&quot;</span><span class="p">:</span> <span class="s2">&quot;./cluster-client-cert.pem&quot;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Services is healthy&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;application-must-respond&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
-                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;http&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;verify_tls&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                    <span class="nt">&quot;url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://some-url-in-cluster/&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-service-factory-chaos&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.factory.actions&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_chaos&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;azure&quot;</span><span class="p">],</span>
-                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;TimeToRunInSeconds&quot;</span><span class="p">:</span> <span class="mi">45</span>
-                    <span class="p">}</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">30</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;ref&quot;</span><span class="p">:</span> <span class="s2">&quot;application-must-respond&quot;</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-service-factory-chaos&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.factory.actions&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_chaos&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;azure&quot;</span><span class="p">]</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">5</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-service-factory-chaos-report&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.factory.probes&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos_report&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;azure&quot;</span><span class="p">],</span>
-                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;start_time_utc&quot;</span><span class="p">:</span> <span class="s2">&quot;1 minute ago&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;end_time_utc&quot;</span><span class="p">:</span> <span class="s2">&quot;now&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-
-<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
-<p>If you wish to contribute more functions to this package, you are more than
-welcome to do so. Please, fork this project, make your changes following the
-usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
-review.</p>
-<p>The Chaos Toolkit projects require all contributors must sign a
-<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
-into the master branch of the repository. Please, make sure you can abide by
-the rules of the DCO before submitting a PR.</p>
-<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
-<p>If you wish to develop on this project, make sure to install the development
-dependencies. But first, <a href="http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment">create a virtual environment</a> and then install
-those dependencies.</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install -r requirements-dev.txt -r requirements.txt 
-</pre></div>
-
-<p>Then, point your environment to this directory:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python setup.py develop
-</pre></div>
-
-<p>Now, you can edit the files and they will be automatically be seen by your
-environment, even when running from the <code>chaos</code> command locally.</p>
-<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
-<p>To run the tests for the project execute the following:</p>
-<div class="codehilite"><pre><span></span>$ pytest
-</pre></div>
-
+<p>N/A</p>
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="fabric">fabric<a class="headerlink" href="#fabric" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1573,13 +1237,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos_report&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1659,6 +1323,7 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
@@ -1667,8 +1332,7 @@ on authenticating with the service.</p>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1741,13 +1405,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_chaos&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 

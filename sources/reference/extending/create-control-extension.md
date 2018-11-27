@@ -20,7 +20,7 @@ from chaoslib.types import Activity, Configuration, \
     Experiment, Hypothesis, Journal, Run, Secrets
 
 
-def configure_control(config: Configuration, secrets = Secrets) -> NoReturn:
+def configure_control(config: Configuration, secrets: Secrets) -> NoReturn:
     """
     Configure the control's global state
 

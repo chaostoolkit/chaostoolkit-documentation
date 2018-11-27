@@ -958,11 +958,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
-      Create Extension
+      Driver Extension
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
-        Create Extension
+        Driver Extension
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -985,8 +985,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../../reference/extending/extending-with-python/" title="Python" class="md-nav__link">
-      Python
+    <a href="../../reference/extending/extending-with-python/" title="Extend with Python" class="md-nav__link">
+      Extend with Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Control Extension
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Control Extension
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../reference/extending/create-control-extension/" title="Create Control" class="md-nav__link">
+      Create Control
     </a>
   </li>
 
@@ -1222,15 +1258,15 @@ as-is.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosprometheus.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;query&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosprometheus.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1333,17 +1369,17 @@ colloquially such as <code>"5 minutes ago"</code>.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;query-interval&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;query&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;start&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;end&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosprometheus.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;query_interval&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;query_interval&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosprometheus.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

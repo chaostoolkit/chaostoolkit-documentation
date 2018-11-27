@@ -958,6 +958,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#controls" title="Controls" class="md-nav__link">
+    Controls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#extensions" title="Extensions" class="md-nav__link">
     Extensions
   </a>
@@ -1161,11 +1168,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
     
     <label class="md-nav__link" for="nav-7-2">
-      Create Extension
+      Driver Extension
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
       <label class="md-nav__title" for="nav-7-2">
-        Create Extension
+        Driver Extension
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -1188,8 +1195,44 @@
 
 
   <li class="md-nav__item">
-    <a href="../../extending/extending-with-python/" title="Python" class="md-nav__link">
-      Python
+    <a href="../../extending/extending-with-python/" title="Extend with Python" class="md-nav__link">
+      Extend with Python
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-3" type="checkbox" id="nav-7-3">
+    
+    <label class="md-nav__link" for="nav-7-3">
+      Control Extension
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-7-3">
+        Control Extension
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../extending/create-control-extension/" title="Create Control" class="md-nav__link">
+      Create Control
     </a>
   </li>
 
@@ -1479,6 +1522,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#controls" title="Controls" class="md-nav__link">
+    Controls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#extensions" title="Extensions" class="md-nav__link">
     Extensions
   </a>
@@ -1606,6 +1656,7 @@ should be as descriptive as possible to clarify the experiment&rsquo;s rationale
 <li>a <code>secrets</code> property</li>
 <li>an <code>extension</code> property</li>
 <li>a <code>contributions</code> property</li>
+<li>a <code>controls</code> property</li>
 </ul>
 <p>Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.</p>
@@ -1615,6 +1666,8 @@ information.</p>
 such as &ldquo;reliability&rdquo; or &ldquo;durability&rdquo;, that an experiment contribute to. This
 information can be aggregated together with other experiments&rsquo; contributions to
 better appreciate where the focus is put and where it is not.</p>
+<p><a href="#controls">Controls</a> describe out-of-band capabilities applied during the
+experiment&rsquo;s execution.</p>
 <h3 id="steady-state-hypothesis">Steady State Hypothesis<a class="headerlink" href="#steady-state-hypothesis" title="Permanent link">&para;</a></h3>
 <p>The Steady State Hypothesis element describes what normal looks like in your
 system before the Method element is applied. If the steady state is not met,
@@ -1630,6 +1683,12 @@ this hypothesis.</p>
 <p>Each <a href="#probe">Probe</a> MUST define a <code>tolerance</code> property that acting as a gate
 mechanism for the experiment to carry on or bail. Any <a href="#probe">Probe</a> that does not
 fall into the <a href="#steady-state-probe-tolerance">tolerance</a> zone MUST fail the experiment.</p>
+<p>Steady State Hypothesis element MAY declare:</p>
+<ul>
+<li>a <code>controls</code> property</li>
+</ul>
+<p><a href="#controls">Controls</a> describe out-of-band capabilities applied during the
+experiment&rsquo;s execution.</p>
 <h4 id="steady-state-probe-tolerance">Steady State Probe Tolerance<a class="headerlink" href="#steady-state-probe-tolerance" title="Permanent link">&para;</a></h4>
 <p><a href="#probe">Probes</a> of the Steady State Hypothesis MUST declare an additional property
 named <code>tolerance</code>.</p>
@@ -1775,6 +1834,7 @@ identifier within the experiment.</p>
 <li>a <code>secret</code> property</li>
 <li>a <code>configuration</code> property</li>
 <li>a <code>background</code> property</li>
+<li>a <code>controls</code> property</li>
 </ul>
 <p>The <code>secret</code> property MUST be a JSON string referencing an identifier declared
 in the top-level <code>secrets</code> <a href="#secrets">property</a>. It is assumed that when not
@@ -1790,6 +1850,8 @@ and the next Action or Probe should immediately be applied.</p>
 declare a single property called <code>ref</code>.</p>
 <p>The <code>ref</code> property MUST be a JSON string which MUST be the name of a declared
 Probe.</p>
+<p><a href="#controls">Controls</a> describe out-of-band capabilities applied during the
+experiment&rsquo;s execution.</p>
 <h3 id="action">Action<a class="headerlink" href="#action" title="Permanent link">&para;</a></h3>
 <p>An Action performs an operation against the system.</p>
 <p>An Action collects information from the system during the experiment.</p>
@@ -1800,6 +1862,7 @@ Action through the <code>ref</code> property.</p>
 <li>a <code>type</code> property</li>
 <li>a <code>name</code> property</li>
 <li>a <code>provider</code> property</li>
+<li>a <code>controls</code> property</li>
 </ul>
 <p>The <code>type</code> property MUST be the JSON string <code>"action"</code>. </p>
 <p>The <code>name</code> property is a free-form JSON string that MAY be considered as an
@@ -1834,6 +1897,8 @@ while the <code>after</code> MUST be performed afterwards.</p>
 declare a single property called <code>ref</code>.</p>
 <p>The <code>ref</code> property MUST be a JSON string which MUST be the name of a declared
 Action.</p>
+<p><a href="#controls">Controls</a> describe out-of-band capabilities applied during the
+experiment&rsquo;s execution.</p>
 <h3 id="action-or-probe-provider">Action or Probe Provider<a class="headerlink" href="#action-or-probe-provider" title="Permanent link">&para;</a></h3>
 <p>A provider MUST be a JSON object which MUST declare a <code>type</code> property that
 decides the other expected properties.</p>
@@ -2033,6 +2098,98 @@ declared in either the Configuration or Secrets sections. When <code>name</code>
 declared in both sections, the Configuration section MUST take precedence.</p>
 <p>Dynamic values MUST be substituted before being passed to Probes or Actions.</p>
 <p>Other values, such as the HTTP Probe url, MAY be substituted as well.</p>
+<h3 id="controls">Controls<a class="headerlink" href="#controls" title="Permanent link">&para;</a></h3>
+<p>Controls describe out-of-band capabilities applied when the experiment is
+executed. Controls are used to declare operations that should be carried by
+external tools.</p>
+<p>Controls MAY be declared at each of the following levels:</p>
+<ul>
+<li>experiment</li>
+<li>steady-state-hypothesis</li>
+<li>activity</li>
+</ul>
+<p>Controls MUST be applied before and after each of those levels. Schematically,
+this looks like this:</p>
+<div class="codehilite"><pre><span></span>apply experiment control before experiment starts
+start experiment
+    apply steady state control before steady-state probes are started
+        start steady-state processing
+            apply activity control before each probe is applied
+            run each probe
+            apply activity control after each probe is applied
+    apply steady state control after steady-state probes have completed
+    apply steady state control before method activities are started
+        start method processing
+            apply activity control before each activity is applied
+            run each activity
+            apply activity control after each activity is applied
+    apply steady state control after method activities have completed
+    apply steady state control before rollback activities are started
+        start rollback processing
+            apply activity control before each activity is applied
+            run each activity
+            apply activity control after each activity is applied
+    apply steady state control after rollback activities have completed
+apply experiment control after experiment completes
+</pre></div>
+
+<p>Controls MAY be omitted anywhere and MUST NOT be applied at a level they
+are not declared.</p>
+<p>Controls MUST NOT fail the experiment&rsquo;s execution due to unforeseen conditions.</p>
+<p>Controls are declared with the <code>controls</code> property which is set to a JSON
+array.</p>
+<p>An item of that array MUST be a control, which is a JSON object which MUST
+have the following properties:</p>
+<ul>
+<li>a <code>name</code> property which MUST be a JSON string</li>
+<li>a <code>provider</code> property MUST be a JSON object</li>
+</ul>
+<p>The <code>provider</code> object indicates which implementation of the control to use.
+It MUST declare the following properties:</p>
+<ul>
+<li>a <code>type</code> JSON string which MUST be <code>"python"</code></li>
+<li>a <code>module</code> JSON string when the <code>type</code> property is <code>"python"</code>. It MUST be a
+  a Python module dotted path implementing the control interface</li>
+</ul>
+<p>A control object MAY also declare the following property:</p>
+<ul>
+<li>a <code>scope</code> property MUST be a JSON array of JSON strings</li>
+<li><code>automatic</code>, a JSON boolean which MUST be <code>true</code> by default (when omitted)</li>
+</ul>
+<p>The <code>scope</code> value MUST be one of <code>"pre"</code> and <code>"post"</code>. When the <code>scope</code>
+property is omitted, the control MUST NOT be applied.</p>
+<p>When the <code>automatic</code> property is set to <code>false</code>, it MUST be understood that
+the control cannot be applied anywhere but where it is declared.</p>
+<p>Examples of Controls:</p>
+<p>Just a generic declaration of a control at the top-level of the experiment :
+<div class="codehilite"><pre><span></span><span class="s2">&quot;method&quot;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-activity&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;scope&quot;</span><span class="p">:</span>
+                <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;tracing&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;logging&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;activity&quot;</span><span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
 <h3 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h3>
 <p>An Experiment MAY declare an <code>extensions</code> property which MUST be an array
 of objects. Each object MUST declare a non-empty <code>name</code> property.</p>
@@ -2162,6 +2319,16 @@ to perform actions, probing and steady-state hypothesis validation.</p>
             <span class="nt">&quot;auth&quot;</span><span class="p">:</span> <span class="s2">&quot;Basic XYZ&quot;</span>
         <span class="p">}</span>
     <span class="p">},</span>
+    <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
     <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Function is available&quot;</span><span class="p">,</span>
         <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
@@ -2282,6 +2449,14 @@ to perform actions, probing and steady-state hypothesis validation.</p>
 <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">global</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">auth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic XYZ</span>
+<span class="l l-Scalar l-Scalar-Plain">controls</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tracing</span>
+  <span class="l l-Scalar l-Scalar-Plain">scope</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pre</span>
+  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">post</span>
+  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostracing.control</span>
 <span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
   <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Function is available</span>
   <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>

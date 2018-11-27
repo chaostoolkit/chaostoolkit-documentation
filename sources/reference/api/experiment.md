@@ -781,36 +781,50 @@ the control cannot be applied anywhere but where it is declared.
 
 Examples of Controls:
 
-Just a generic declaration of a control at the top-level of the experiment :
+Just a generic declaration of a control at the top-level of the experiment:
+
 ```json
-"method": [
+"controls": [
     {
-        "name": "my-activity",
-        "controls": [
-            {
-                "name": "tracing",
-                "scope":
-                "provider": {
-                    "type": "python",
-                    "module": "chaostracing.control"
-                }
-            }
-        ]
+        "name": "tracing",
+        "scope": ["pre", "post"],
+        "provider": {
+            "type": "python",
+            "module": "chaostracing.control"
+        }
     }
 ]
 ```
 
+Another control by applied only as post-control:
+
 ```json
-{
-    "controls": {
-        "tracing": {
-            "scope": "all"
-        },
-        "logging": {
-            "scope": ["activity"]
+"controls": [
+    {
+        "name": "tracing",
+        "scope": ["post"],
+        "provider": {
+            "type": "python",
+            "module": "chaostracing.control"
         }
     }
-}
+]
+```
+
+Finally, a top-level level control not applied anywhere else down the tree:
+
+```json
+"controls": [
+    {
+        "name": "tracing",
+        "scope": ["pre", "post"],
+        "automatic": false,
+        "provider": {
+            "type": "python",
+            "module": "chaostracing.control"
+        }
+    }
+]
 ```
 
 ### Extensions

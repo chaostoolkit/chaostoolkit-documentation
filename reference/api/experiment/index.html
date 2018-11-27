@@ -2161,33 +2161,44 @@ property is omitted, the control MUST NOT be applied.</p>
 <p>When the <code>automatic</code> property is set to <code>false</code>, it MUST be understood that
 the control cannot be applied anywhere but where it is declared.</p>
 <p>Examples of Controls:</p>
-<p>Just a generic declaration of a control at the top-level of the experiment :
-<div class="codehilite"><pre><span></span><span class="s2">&quot;method&quot;</span><span class="err">:</span> <span class="p">[</span>
+<p>Just a generic declaration of a control at the top-level of the experiment:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
-        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-activity&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;scope&quot;</span><span class="p">:</span>
-                <span class="s2">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">]</span>
-</pre></div></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;tracing&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;all&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;logging&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;activity&quot;</span><span class="p">]</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
         <span class="p">}</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>Another control by applied only as post-control:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+
+<p>Finally, a top-level level control not applied anywhere else down the tree:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;automatic&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+        <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">]</span>
 </pre></div>
 
 <h3 id="extensions">Extensions<a class="headerlink" href="#extensions" title="Permanent link">&para;</a></h3>

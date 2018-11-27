@@ -94,9 +94,11 @@ nav:
         - Technology Choices: reference/developing/technologies.md
 - Develop:
     - Guidelines: reference/developing/guidelines.md
-    - Create Extension:
+    - Driver Extension:
         - Extension Approaches: reference/extending/approaches.md
-        - Python: reference/extending/extending-with-python.md
+        - Extend with Python: reference/extending/extending-with-python.md
+    - Control Extension:
+        - Create Control: reference/extending/create-control-extension.md
 - Resources:
     - Logos: resources/logos.md
     - Slides: resources/slides.md

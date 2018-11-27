@@ -107,6 +107,7 @@ An experiment MAY finally declare:
 * a `secrets` property
 * an `extension` property
 * a `contributions` property
+* a `controls` property
 
 Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.
@@ -122,6 +123,11 @@ information can be aggregated together with other experiments' contributions to
 better appreciate where the focus is put and where it is not.
 
 [contrib]: #contributions
+
+[Controls][controls] describe out-of-band capabilities applied during the
+experiment's execution.
+
+[controls]: #controls
 
 ### Steady State Hypothesis
 
@@ -142,6 +148,13 @@ this hypothesis.
 Each [Probe][pb] MUST define a `tolerance` property that acting as a gate
 mechanism for the experiment to carry on or bail. Any [Probe][pb] that does not
 fall into the [tolerance][] zone MUST fail the experiment.
+
+Steady State Hypothesis element MAY declare:
+
+* a `controls` property
+
+[Controls][controls] describe out-of-band capabilities applied during the
+experiment's execution.
 
 [tolerance]: #steady-state-probe-tolerance
 
@@ -339,6 +352,7 @@ It MAY also declare:
 * a `secret` property
 * a `configuration` property
 * a `background` property
+* a `controls` property
 
 The `secret` property MUST be a JSON string referencing an identifier declared
 in the top-level `secrets` [property][secrets]. It is assumed that when not
@@ -359,6 +373,9 @@ declare a single property called `ref`.
 The `ref` property MUST be a JSON string which MUST be the name of a declared
 Probe.
 
+[Controls][controls] describe out-of-band capabilities applied during the
+experiment's execution.
+
 ### Action
 
 An Action performs an operation against the system.
@@ -373,6 +390,7 @@ When declared fully, a Action MUST declare:
 * a `type` property
 * a `name` property
 * a `provider` property
+* a `controls` property
 
 The `type` property MUST be the JSON string `"action"`. 
 
@@ -414,6 +432,9 @@ declare a single property called `ref`.
 
 The `ref` property MUST be a JSON string which MUST be the name of a declared
 Action.
+
+[Controls][controls] describe out-of-band capabilities applied during the
+experiment's execution.
 
 ### Action or Probe Provider
 
@@ -687,6 +708,111 @@ Dynamic values MUST be substituted before being passed to Probes or Actions.
 
 Other values, such as the HTTP Probe url, MAY be substituted as well.
 
+### Controls
+
+Controls describe out-of-band capabilities applied when the experiment is
+executed. Controls are used to declare operations that should be carried by
+external tools.
+
+Controls MAY be declared at each of the following levels:
+
+* experiment
+* steady-state-hypothesis
+* activity
+
+Controls MUST be applied before and after each of those levels. Schematically,
+this looks like this:
+
+```
+apply experiment control before experiment starts
+start experiment
+    apply steady state control before steady-state probes are started
+        start steady-state processing
+            apply activity control before each probe is applied
+            run each probe
+            apply activity control after each probe is applied
+    apply steady state control after steady-state probes have completed
+    apply steady state control before method activities are started
+        start method processing
+            apply activity control before each activity is applied
+            run each activity
+            apply activity control after each activity is applied
+    apply steady state control after method activities have completed
+    apply steady state control before rollback activities are started
+        start rollback processing
+            apply activity control before each activity is applied
+            run each activity
+            apply activity control after each activity is applied
+    apply steady state control after rollback activities have completed
+apply experiment control after experiment completes
+```
+
+Controls MAY be omitted anywhere and MUST NOT be applied at a level they
+are not declared.
+
+Controls MUST NOT fail the experiment's execution due to unforeseen conditions.
+
+Controls are declared with the `controls` property which is set to a JSON
+array.
+
+An item of that array MUST be a control, which is a JSON object which MUST
+have the following properties:
+
+* a `name` property which MUST be a JSON string
+* a `provider` property MUST be a JSON object
+
+The `provider` object indicates which implementation of the control to use.
+It MUST declare the following properties:
+
+* a `type` JSON string which MUST be `"python"`
+* a `module` JSON string when the `type` property is `"python"`. It MUST be a
+  a Python module dotted path implementing the control interface
+
+A control object MAY also declare the following property:
+
+* a `scope` property MUST be a JSON array of JSON strings
+* `automatic`, a JSON boolean which MUST be `true` by default (when omitted)
+
+The `scope` value MUST be one of `"pre"` and `"post"`. When the `scope`
+property is omitted, the control MUST NOT be applied.
+
+When the `automatic` property is set to `false`, it MUST be understood that
+the control cannot be applied anywhere but where it is declared.
+
+Examples of Controls:
+
+Just a generic declaration of a control at the top-level of the experiment :
+```json
+"method": [
+    {
+        "name": "my-activity",
+        "controls": [
+            {
+                "name": "tracing",
+                "scope":
+                "provider": {
+                    "type": "python",
+                    "module": "chaostracing.control"
+                }
+            }
+        ]
+    }
+]
+```
+
+```json
+{
+    "controls": {
+        "tracing": {
+            "scope": "all"
+        },
+        "logging": {
+            "scope": ["activity"]
+        }
+    }
+}
+```
+
 ### Extensions
 
 An Experiment MAY declare an `extensions` property which MUST be an array
@@ -831,6 +957,16 @@ to perform actions, probing and steady-state hypothesis validation.
             "auth": "Basic XYZ"
         }
     },
+    "controls": [
+        {
+            "name": "tracing",
+            "scope": ["pre", "post"],
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
+        }
+    ],
     "steady-state-hypothesis": {
         "title": "Function is available",
         "probes": [
@@ -953,6 +1089,14 @@ configuration:
 secrets:
   global:
     auth: Basic XYZ
+controls:
+- name: tracing
+  scope:
+  - pre
+  - post
+  provider:
+    type: python
+    module: chaostracing.control
 steady-state-hypothesis:
   title: Function is available
   probes:

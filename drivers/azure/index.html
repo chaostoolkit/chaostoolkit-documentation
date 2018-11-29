@@ -1370,13 +1370,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos_report&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaos-report&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1456,16 +1456,16 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_chaos&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;parameters&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_chaos&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-chaos&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1538,13 +1538,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_chaos&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.fabric.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-chaos&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1613,13 +1613,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;count_machines&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;count-machines&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;count-machines&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1688,13 +1688,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_machine&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-machine&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-machine&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1762,13 +1762,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;describe_machines&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;describe-machines&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;describe-machines&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1837,13 +1837,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;poweroff_machine&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;poweroff-machine&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;poweroff-machine&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1912,13 +1912,13 @@ on authenticating with the service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;restart_machine&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosazure.machine.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-machine&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;restart-machine&quot;</span>
 <span class="p">}</span>
 </pre></div>
 

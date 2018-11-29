@@ -770,11 +770,12 @@ It MUST declare the following properties:
 
 A control object MAY also declare the following property:
 
-* a `scope` property MUST be a JSON array of JSON strings
+* a `scope` property MUST be a JSON string
 * `automatic`, a JSON boolean which MUST be `true` by default (when omitted)
 
-The `scope` value MUST be one of `"pre"` and `"post"`. When the `scope`
-property is omitted, the control MUST NOT be applied.
+The `scope` value MUST be one of `"before"` or `"after"`. When the `scope`
+property is omitted, the control MUST be applied before and after. When the
+`scope` property is set, the control MUST be applied only on that scope.
 
 When the `automatic` property is set to `false`, it MUST be understood that
 the control cannot be applied anywhere but where it is declared.
@@ -787,7 +788,6 @@ Just a generic declaration of a control at the top-level of the experiment:
 "controls": [
     {
         "name": "tracing",
-        "scope": ["pre", "post"],
         "provider": {
             "type": "python",
             "module": "chaostracing.control"
@@ -802,7 +802,7 @@ Another control by applied only as post-control:
 "controls": [
     {
         "name": "tracing",
-        "scope": ["post"],
+        "scope": "post",
         "provider": {
             "type": "python",
             "module": "chaostracing.control"
@@ -817,7 +817,6 @@ Finally, a top-level level control not applied anywhere else down the tree:
 "controls": [
     {
         "name": "tracing",
-        "scope": ["pre", "post"],
         "automatic": false,
         "provider": {
             "type": "python",
@@ -974,7 +973,6 @@ to perform actions, probing and steady-state hypothesis validation.
     "controls": [
         {
             "name": "tracing",
-            "scope": ["pre", "post"],
             "provider": {
                 "type": "python",
                 "module": "chaostracing.control"
@@ -1105,9 +1103,6 @@ secrets:
     auth: Basic XYZ
 controls:
 - name: tracing
-  scope:
-  - pre
-  - post
   provider:
     type: python
     module: chaostracing.control

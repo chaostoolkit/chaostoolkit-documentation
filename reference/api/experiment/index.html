@@ -2153,11 +2153,12 @@ It MUST declare the following properties:</p>
 </ul>
 <p>A control object MAY also declare the following property:</p>
 <ul>
-<li>a <code>scope</code> property MUST be a JSON array of JSON strings</li>
+<li>a <code>scope</code> property MUST be a JSON string</li>
 <li><code>automatic</code>, a JSON boolean which MUST be <code>true</code> by default (when omitted)</li>
 </ul>
-<p>The <code>scope</code> value MUST be one of <code>"pre"</code> and <code>"post"</code>. When the <code>scope</code>
-property is omitted, the control MUST NOT be applied.</p>
+<p>The <code>scope</code> value MUST be one of <code>"before"</code> or <code>"after"</code>. When the <code>scope</code>
+property is omitted, the control MUST be applied before and after. When the
+<code>scope</code> property is set, the control MUST be applied only on that scope.</p>
 <p>When the <code>automatic</code> property is set to <code>false</code>, it MUST be understood that
 the control cannot be applied anywhere but where it is declared.</p>
 <p>Examples of Controls:</p>
@@ -2165,7 +2166,6 @@ the control cannot be applied anywhere but where it is declared.</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
         <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
             <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
@@ -2178,7 +2178,7 @@ the control cannot be applied anywhere but where it is declared.</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;post&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span>
         <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
             <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
@@ -2191,7 +2191,6 @@ the control cannot be applied anywhere but where it is declared.</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
         <span class="nt">&quot;automatic&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
         <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
@@ -2333,7 +2332,6 @@ to perform actions, probing and steady-state hypothesis validation.</p>
     <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;pre&quot;</span><span class="p">,</span> <span class="s2">&quot;post&quot;</span><span class="p">],</span>
             <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
@@ -2462,9 +2460,6 @@ to perform actions, probing and steady-state hypothesis validation.</p>
     <span class="l l-Scalar l-Scalar-Plain">auth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic XYZ</span>
 <span class="l l-Scalar l-Scalar-Plain">controls</span><span class="p p-Indicator">:</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tracing</span>
-  <span class="l l-Scalar l-Scalar-Plain">scope</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">pre</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">post</span>
   <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
     <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
     <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostracing.control</span>

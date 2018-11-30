@@ -14,13 +14,13 @@ that are called by the Chaos Toolkit when executing the experiment.
     All of these functions are optional, only implement the one you need.
 
 ```python
-from typing import Any, Dict, List, NoReturn
+from typing import Any, Dict, List
 
 from chaoslib.types import Activity, Configuration, \
     Experiment, Hypothesis, Journal, Run, Secrets
 
 
-def configure_control(config: Configuration, secrets: Secrets) -> NoReturn:
+def configure_control(config: Configuration, secrets: Secrets):
     """
     Configure the control's global state
 
@@ -30,7 +30,7 @@ def configure_control(config: Configuration, secrets: Secrets) -> NoReturn:
     pass
 
 
-def cleanup_control() -> NoReturn:
+def cleanup_control():
     """
     Cleanup the control's global state
 
@@ -41,7 +41,7 @@ def cleanup_control() -> NoReturn:
 
 def before_experiment_control(context: Experiment,
                               configuration: Configuration = None,
-                              secrets: Secrets = None, **kwargs) -> NoReturn:
+                              secrets: Secrets = None, **kwargs):
     """
     before-control of the experiment's execution
 
@@ -53,7 +53,7 @@ def before_experiment_control(context: Experiment,
 
 def after_experiment_control(context: Experiment, state: Journal, 
                              configuration: Configuration = None,
-                             secrets: Secrets = None, **kwargs) -> NoReturn:
+                             secrets: Secrets = None, **kwargs):
     """
     after-control of the experiment's execution
 
@@ -68,7 +68,7 @@ def after_experiment_control(context: Experiment, state: Journal,
 
 def before_hypothesis_control(context: Hypothesis,
                               configuration: Configuration = None,
-                              secrets: Secrets = None, **kwargs) -> NoReturn:
+                              secrets: Secrets = None, **kwargs):
     """
     before-control of the hypothesis's execution
 
@@ -80,7 +80,7 @@ def before_hypothesis_control(context: Hypothesis,
 
 def after_hypothesis_control(context: Hypothesis, state: Dict[str, Any],
                              configuration: Configuration = None,
-                             secrets: Secrets = None, **kwargs) -> NoReturn:
+                             secrets: Secrets = None, **kwargs):
     """
     after-control of the hypothesis's execution
 
@@ -94,7 +94,7 @@ def after_hypothesis_control(context: Hypothesis, state: Dict[str, Any],
 
 def before_method_control(context: Experiment, 
                           configuration: Configuration = None,
-                          secrets: Secrets = None, **kwargs) -> NoReturn:
+                          secrets: Secrets = None, **kwargs):
     """
     before-control of the method's execution
 
@@ -106,7 +106,7 @@ def before_method_control(context: Experiment,
 
 def after_method_control(context: Experiment, state: List[Run], 
                          configuration: Configuration = None,
-                         secrets: Secrets = None, **kwargs) -> NoReturn:
+                         secrets: Secrets = None, **kwargs):
     """
     after-control of the method's execution
 
@@ -120,7 +120,7 @@ def after_method_control(context: Experiment, state: List[Run],
 
 def before_rollback_control(context: Experiment, 
                             configuration: Configuration = None,
-                            secrets: Secrets = None, **kwargs) -> NoReturn:
+                            secrets: Secrets = None, **kwargs):
     """
     before-control of the rollback's execution
 
@@ -132,7 +132,7 @@ def before_rollback_control(context: Experiment,
 
 def after_rollback_control(context: Experiment, state: List[Run], 
                            configuration: Configuration = None,
-                           secrets: Secrets = None, **kwargs) -> NoReturn:
+                           secrets: Secrets = None, **kwargs):
     """
     after-control of the rollback's execution
 
@@ -146,7 +146,7 @@ def after_rollback_control(context: Experiment, state: List[Run],
 
 def before_activity_control(context: Activity, 
                             configuration: Configuration = None,
-                            secrets: Secrets = None, **kwargs) -> NoReturn:
+                            secrets: Secrets = None, **kwargs):
     """
     before-control of the activity's execution
 
@@ -157,7 +157,7 @@ def before_activity_control(context: Activity,
 
 def after_activity_control(context: Activity, state: Run,  
                            configuration: Configuration = None,
-                           secrets: Secrets = None, **kwargs) -> NoReturn:
+                           secrets: Secrets = None, **kwargs):
     """
     after-control of the activity's execution
 
@@ -217,7 +217,7 @@ from chaoslib.exceptions import InterruptExecution
 
 def after_activity_control(context: Activity, state: Run,  
                            configuration: Configuration = None,
-                           secrets: Secrets = None, **kwargs) -> NoReturn:
+                           secrets: Secrets = None, **kwargs):
     if check_stuff(state["output"]):
         raise InterruptExecution("Well things went really bad!")
 ```

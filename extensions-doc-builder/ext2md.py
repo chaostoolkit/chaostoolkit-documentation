@@ -240,7 +240,9 @@ def generate(extension: Dict[str, str], template: Template):
     with open(extension["doc_path"], "w") as f:
         meta = import_extension(extension)
         html = template.render(**meta)
-        print(html)
+        if "humio" in extension:
+            print(meta)
+            print(html)
         f.write(html)
 
 

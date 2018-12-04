@@ -37,8 +37,6 @@ function build-drivers-doc () {
     if python ext2md.py; then
         echo "Extension documentation built"
     fi
-    git status
-    git diff
     cd ..
 }
 

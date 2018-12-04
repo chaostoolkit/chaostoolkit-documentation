@@ -117,6 +117,7 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         for func_name in exported[:]:
             if func_name in ["configure_control", "cleanup_control"]:
                 is_control_module = True
+                controls["enabled"] = True
                 exported.remove(func_name)
                 continue
 

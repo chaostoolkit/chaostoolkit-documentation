@@ -25,7 +25,7 @@ function fetch-and-install-chaostoolkit-packages() {
         tar zxvf "$archive"
         dirname=$(basename $archive .tar.gz)
         cd $dirname
-        python setup.py develop
+        pip install -e .
         cd ..
     done
     cd ../..
@@ -37,7 +37,6 @@ function build-drivers-doc () {
     if python ext2md.py; then
         echo "Extension documentation built"
     fi
-    ls /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/chaostracing
     cd ..
 }
 

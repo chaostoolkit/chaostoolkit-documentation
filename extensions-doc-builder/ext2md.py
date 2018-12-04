@@ -238,7 +238,7 @@ def called_without_args_info(args, mod_name, func_name, activity_type):
 
 def generate(extension: Dict[str, str], template: Template):
     with open(extension["doc_path"], "w") as f:
-        meta = import_extension(extension)
+        meta = import_extension(extension["doc_path"])
         html = template.render(**meta)
         if "humio" in extension:
             print(meta)

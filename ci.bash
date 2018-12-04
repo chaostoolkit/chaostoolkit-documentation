@@ -5,11 +5,11 @@ function fetch-and-install-chaostoolkit-packages() {
     cd extensions-doc-builder
     mkdir deps
 
-    pip install --pre -U chaostoolkit-lib chaostoolkit
-    pip install httplib2 uritemplate pytzdata
+    pip --quiet install --pre -U chaostoolkit-lib chaostoolkit
+    pip --quiet install httplib2 uritemplate pytzdata
     
     # collect all the dependencies for our drivers
-    pip install -U -r requirements-toolkit.txt
+    pip --quiet install -U -r requirements-toolkit.txt
 
     # now let's get them as archives for building their docs
     pip download \

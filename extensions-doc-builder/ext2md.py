@@ -114,7 +114,6 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         }
         meta["controls"] = controls
         is_control_module = False
-        print(mod_name)
         for func_name in exported[:]:
             if func_name in ["configure_control", "cleanup_control"]:
                 is_control_module = True
@@ -122,7 +121,6 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 continue
 
             if func_name.startswith(("after_", "before_")):
-                print(func_name)
                 is_control_module = True
                 controls["enabled"] = True
                 exported.remove(func_name)

@@ -122,6 +122,7 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 continue
 
             if func_name.startswith(("after_", "before_")):
+                print(mod_name)
                 is_control_module = True
                 controls["enabled"] = True
                 exported.remove(func_name)
@@ -129,6 +130,8 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 controls[level][point] = True
 
         if is_control_module:
+            print(mod_name)
+            print(controls)
             continue
 
         activities = []

@@ -713,6 +713,67 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-from-other-extensions" title="Use from other extensions" class="md-nav__link">
+    Use from other extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-tracing-provider-support" title="Open Tracing Provider Support" class="md-nav__link">
+    Open Tracing Provider Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jaeger-tracer" title="Jaeger tracer" class="md-nav__link">
+    Jaeger tracer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-controls" title="Exported Controls" class="md-nav__link">
     Exported Controls
   </a>
@@ -1085,6 +1146,67 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#use-from-other-extensions" title="Use from other extensions" class="md-nav__link">
+    Use from other extensions
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#open-tracing-provider-support" title="Open Tracing Provider Support" class="md-nav__link">
+    Open Tracing Provider Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#jaeger-tracer" title="Jaeger tracer" class="md-nav__link">
+    Jaeger tracer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-controls" title="Exported Controls" class="md-nav__link">
     Exported Controls
   </a>
@@ -1129,7 +1251,108 @@
 </tr>
 </tbody>
 </table>
-<p>N/A</p>
+<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing.svg?branch=master" /></a>
+<a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-opentracing.svg" /></a></p>
+<p>This project is an extension for the Chaos Toolkit for <a href="https://opentracing.io/">OpenTracing</a>.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>This package requires Python 3.5+</p>
+<p>To be used from your experiment, this package must be installed in the Python
+environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaostoolkit</a> already lives.</p>
+<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-opentracing
+</pre></div>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>Currently, this extension only provides control support to send traces to
+your provider during the execution of the experiment. It does not yet expose
+any probes or actions per-se.</p>
+<p>To use this control, add the following section to your experiment, at the
+top-level:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;tracing_provider&quot;</span><span class="p">:</span> <span class="s2">&quot;jaeger&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tracing_host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;tracing_port&quot;</span><span class="p">:</span> <span class="mi">6831</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;opentracing&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This will automatically create a <a href="https://www.jaegertracing.io/">Jaeger</a> client to emit traces onto the
+address <code>127.0.0.1:6831</code>.</p>
+<h3 id="use-from-other-extensions">Use from other extensions<a class="headerlink" href="#use-from-other-extensions" title="Permanent link">&para;</a></h3>
+<p>You may also access the tracer from other extensions as follows:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">opentracing</span>
+
+<span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="n">opentracing</span><span class="o">.</span><span class="n">tracer</span>
+</pre></div>
+
+<p>As not all Open Tracing providers support yet to fetch the active span from
+the tracer (Open Tracing 2 specification), we attach the following attributes
+to the tracer instance:</p>
+<div class="codehilite"><pre><span></span><span class="n">tracer</span><span class="o">.</span><span class="n">experiment_span</span>  <span class="c1"># span during the lifetime of the experiment</span>
+<span class="n">tracer</span><span class="o">.</span><span class="n">hypothesis_span</span>  <span class="c1"># span during the lifetime of the hypothesis</span>
+<span class="n">tracer</span><span class="o">.</span><span class="n">method_span</span>  <span class="c1"># span during the lifetime of the method</span>
+<span class="n">tracer</span><span class="o">.</span><span class="n">rollback_span</span>  <span class="c1"># span during the lifetime of the rollback</span>
+<span class="n">tracer</span><span class="o">.</span><span class="n">activity_span</span>  <span class="c1"># span during the lifetime of an activity</span>
+</pre></div>
+
+<p>For instance, assuming you have an extension that makes a HTTP call you want
+to trace specifically, you could do this from your extension&rsquo;s code:</p>
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">opentracing</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">my_activity</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">tracer</span> <span class="o">=</span> <span class="n">opentracing</span><span class="o">.</span><span class="n">tracer</span>
+    <span class="n">parent_span</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">activity_span</span>
+    <span class="n">span</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_span</span><span class="p">(</span><span class="s2">&quot;my-inner-span&quot;</span><span class="p">,</span> <span class="n">child_of</span><span class="o">=</span><span class="n">parent_span</span><span class="p">)</span>
+    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.method&#39;</span><span class="p">,</span><span class="s1">&#39;GET&#39;</span><span class="p">)</span>
+    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.url&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;span.kind&#39;</span><span class="p">,</span> <span class="s1">&#39;client&#39;</span><span class="p">)</span>
+    <span class="n">span</span><span class="o">.</span><span class="n">tracer</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="n">span</span><span class="p">,</span> <span class="s1">&#39;http_headers&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.status_code&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+    <span class="n">span</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+</pre></div>
+
+<p>Because the opentracing exposes a noop tracer when non has been initialized,
+it should be safe to have that code in your extensions without having to
+determine if the extension has been enabled in the experiment.</p>
+<h2 id="open-tracing-provider-support">Open Tracing Provider Support<a class="headerlink" href="#open-tracing-provider-support" title="Permanent link">&para;</a></h2>
+<p>For now, only the Jaeger tracer is supported but <a href="https://opentracing.io/docs/supported-tracers/">other backends</a>
+will be added as need be in the future.</p>
+<h3 id="jaeger-tracer">Jaeger tracer<a class="headerlink" href="#jaeger-tracer" title="Permanent link">&para;</a></h3>
+<p>To install the necessary dependencies for the Jaeger tracer, please run:</p>
+<div class="codehilite"><pre><span></span>$ pip install chaostoolkit-opentracing[jaeger]
+</pre></div>
+
+<p>Unfortunately, the Jaeger client does not yet support Open Tracing 2.0.</p>
+<h2 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
+<p>To run the tests for the project execute the following:</p>
+<div class="codehilite"><pre><span></span>$ pytest
+</pre></div>
+
+<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
+<p>If you wish to contribute more functions to this package, you are more than
+welcome to do so. Please, fork this project, make your changes following the
+usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
+review.</p>
+<p>The Chaos Toolkit projects require all contributors must sign a
+<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
+into the master branch of the repository. Please, make sure you can abide by
+the rules of the DCO before submitting a PR.</p>
 <h2 id="exported-controls">Exported Controls<a class="headerlink" href="#exported-controls" title="Permanent link">&para;</a></h2>
 <p>This package exports <a href="https://docs.chaostoolkit.org/reference/api/experiment/#controls">controls</a> covering the following phases of the execution
 of an experiment:</p>
@@ -1173,8 +1396,8 @@ of an experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

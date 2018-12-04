@@ -5,7 +5,7 @@ function fetch-and-install-chaostoolkit-packages() {
     cd extensions-doc-builder
     mkdir deps
 
-    pip install --pre -U chaostoolkit chaostoolkit-lib
+    pip install --pre -U chaostoolkit-lib chaostoolkit
     pip install httplib2 uritemplate pytzdata
     
     # collect all the dependencies for our drivers
@@ -34,7 +34,9 @@ function fetch-and-install-chaostoolkit-packages() {
 function build-drivers-doc () {
     cd extensions-doc-builder
 
-    python ext2md.py
+    if python ext2md.py; then
+        echo "Extension documentation built"
+    fi
 
     cd ..
 }

@@ -122,7 +122,6 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 continue
 
             if func_name.startswith(("after_", "before_")):
-                print(mod_name)
                 is_control_module = True
                 controls["enabled"] = True
                 exported.remove(func_name)
@@ -130,8 +129,6 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 controls[level][point] = True
 
         if is_control_module:
-            print(mod_name)
-            print(controls)
             continue
 
         activities = []
@@ -242,7 +239,9 @@ def called_without_args_info(args, mod_name, func_name, activity_type):
 def generate(extension: Dict[str, str], template: Template):
     with open(extension["doc_path"], "w") as f:
         meta = import_extension(extension)
-        f.write(template.render(**meta))
+        html = template.render(**meta)
+        print(html)
+        f.write(html)
 
 
 def run():

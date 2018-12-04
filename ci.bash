@@ -37,7 +37,7 @@ function build-drivers-doc () {
     if python ext2md.py; then
         echo "Extension documentation built"
     fi
-
+    ls /home/travis/virtualenv/python3.5.6/lib/python3.5/site-packages/chaostracing
     cd ..
 }
 

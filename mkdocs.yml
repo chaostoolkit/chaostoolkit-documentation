@@ -82,6 +82,7 @@ nav:
     - Observability:
       - Humio: drivers/humio.md
       - Prometheus: drivers/prometheus.md
+      - Open Tracing: drivers/opentracing.md
 - Chaos Open API:
     - Concepts: reference/concepts.md
     - Experiment: reference/api/experiment.md

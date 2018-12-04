@@ -43,5 +43,10 @@
         "name": "chaostoxi",
         "doc_path": "../sources/drivers/toxiproxy.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-toxiproxy"
+    },
+    {
+        "name": "chaostracing",
+        "doc_path": "../sources/drivers/opentracing.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-opentracing"
     }
 ]

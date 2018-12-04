@@ -7,3 +7,4 @@ chaostoolkit-humio
 chaostoolkit-prometheus
 chaostoolkit-spring
 chaostoolkit-toxiproxy
+chaostoolkit-opentracing

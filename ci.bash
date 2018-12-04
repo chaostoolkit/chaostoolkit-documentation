@@ -15,7 +15,7 @@ function fetch-and-install-chaostoolkit-packages() {
         --no-deps \
         --no-cache-dir \
         --dest deps \
-        --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus,chaostoolkit-spring,chaostoolkit-toxiproxy \
+        --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus,chaostoolkit-spring,chaostoolkit-toxiproxy,chaostoolkit-opentracing \
         -r requirements-toolkit.txt
 
     cd deps
@@ -60,7 +60,7 @@ function publish-docs () {
 function main () {
     fetch-and-install-chaostoolkit-packages || return 1
     build-drivers-doc || return 1
-    build-docs || return 1
+    #build-docs || return 1
 
     if [[ "$TRAVIS_BRANCH" == "master" ]] && [[ "$TRAVIS_PULL_REQUEST" == false ]]; then
         # build docs on each commit but only from master

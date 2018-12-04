@@ -43,7 +43,6 @@ function build-drivers-doc () {
 
 function build-docs () {
     echo "Building the documentation"
-    echo `pwd`
     mkdir /tmp/site
     cd /tmp/site
     git clone https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git .
@@ -54,6 +53,7 @@ function build-docs () {
 
 function publish-docs () {
     echo "Publishing the documentation"
+    echo `pwd`
     cd /tmp/site
     echo "docs.chaostoolkit.org" > CNAME
     git add .

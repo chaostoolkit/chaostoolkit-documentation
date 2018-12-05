@@ -61,6 +61,31 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         "activities": {}
     }
 
+    controls = {
+        "enabled": False,
+        "experiment": {
+            "before": False,
+            "after": False
+        },
+        "hypothesis": {
+            "before": False,
+            "after": False
+        },
+        "method": {
+            "before": False,
+            "after": False
+        },
+        "rollback": {
+            "before": False,
+            "after": False
+        },
+        "activity": {
+            "before": False,
+            "after": False
+        }
+    }
+    meta["controls"] = controls
+
     walker = pkgutil.walk_packages(
         pkg.__path__, pkg.__name__ + ".")
     for (module_loader, mod_name, ispkg) in walker:
@@ -75,44 +100,6 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         if not exported:
             continue
 
-        controls = {
-            "enabled": False,
-            "experiment": {
-                "before": False,
-                "after": False
-            },
-            "hypothesis": {
-                "before": False,
-                "after": False
-            },
-            "method": {
-                "before": False,
-                "after": False
-            },
-            "rollback": {
-                "before": False,
-                "after": False
-            },
-            "activity": {
-                "before": False,
-                "after": False
-            },
-            "as_json": json.dumps({
-                    "name": pkg.__name__,
-                    "provider": {
-                        "type": "python",
-                        "module": mod_name
-                    }
-                }, indent=2),
-            "as_yaml": yaml.dump({
-                    "name": pkg.__name__,
-                    "provider": {
-                        "type": "python",
-                        "module": mod_name
-                    }
-                }, default_flow_style=False)
-        }
-        meta["controls"] = controls
         is_control_module = False
         for func_name in exported[:]:
             if func_name in ["configure_control", "cleanup_control"]:
@@ -129,6 +116,21 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 controls[level][point] = True
 
         if is_control_module:
+
+            controls["as_json"] = json.dumps({
+                "name": pkg.__name__,
+                "provider": {
+                    "type": "python",
+                    "module": mod_name
+                }
+            }, indent=2)
+            controls["as_yaml"] = yaml.dump({
+                "name": pkg.__name__,
+                "provider": {
+                    "type": "python",
+                    "module": mod_name
+                }
+            }, default_flow_style=False)
             continue
 
         activities = []
@@ -238,12 +240,8 @@ def called_without_args_info(args, mod_name, func_name, activity_type):
 
 def generate(extension: Dict[str, str], template: Template):
     with open(extension["doc_path"], "w") as f:
-        meta = import_extension(extension["doc_path"])
-        html = template.render(**meta)
-        if "humio" in extension:
-            print(meta)
-            print(html)
-        f.write(html)
+        meta = import_extension(extension)
+        f.write(template.render(**meta))
 
 
 def run():

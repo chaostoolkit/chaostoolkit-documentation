@@ -569,6 +569,81 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-and-cluster-information" title="Project and Cluster Information" class="md-nav__link">
+    Project and Cluster Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials" title="Credentials" class="md-nav__link">
+    Credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
+    Putting it all together
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#develop" title="Develop" class="md-nav__link">
+    Develop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1125,6 +1200,81 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-and-cluster-information" title="Project and Cluster Information" class="md-nav__link">
+    Project and Cluster Information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#credentials" title="Credentials" class="md-nav__link">
+    Credentials
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-all-together" title="Putting it all together" class="md-nav__link">
+    Putting it all together
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#develop" title="Develop" class="md-nav__link">
+    Develop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1209,7 +1359,187 @@
 </tr>
 </tbody>
 </table>
-<p>N/A</p>
+<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-google-cloud"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-google-cloud.svg?branch=master" /></a>
+<a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-google-cloud.svg" /></a></p>
+<p>This project is a collection of <a href="http://chaostoolkit.org/reference/api/experiment/#action">actions</a> and <a href="http://chaostoolkit.org/reference/api/experiment/#probe">probes</a>, gathered as an
+extension to the <a href="http://chaostoolkit.org">Chaos Toolkit</a>. It targets the
+<a href="https://cloud.google.com/compute/">Google Cloud Engine</a> platform.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>This package requires Python 3.5+</p>
+<p>To be used from your experiment, this package must be installed in the Python
+environment where <a href="http://chaostoolkit.org">chaostoolkit</a> already lives.</p>
+<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-google-cloud
+</pre></div>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>To use the probes and actions from this package, add the following to your
+experiment file:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool-for-a-new-one&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;swap_nodepool&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gce&quot;</span><span class="p">],</span>
+        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;nodePool&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> 
+                        <span class="nt">&quot;oauthScopes&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="s2">&quot;gke-version-default&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/devstorage.read_only&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/logging.write&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/monitoring&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/service.management.readonly&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/servicecontrol&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;https://www.googleapis.com/auth/trace.append&quot;</span>
+                        <span class="p">]</span>
+                    <span class="p">},</span>
+                    <span class="nt">&quot;initialNodeCount&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;new-default-pool&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>That&rsquo;s it!</p>
+<p>Please explore the code to see existing probes and actions.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="project-and-cluster-information">Project and Cluster Information<a class="headerlink" href="#project-and-cluster-information" title="Permanent link">&para;</a></h3>
+<p>You can pass the context via the <code>configuration</code> section of your experiment:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gce_project_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_cluster_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_region&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_zone&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Note that most functions exposed in this package also take those values
+directly when you want specific values for them.</p>
+<h3 id="credentials">Credentials<a class="headerlink" href="#credentials" title="Permanent link">&para;</a></h3>
+<p>This extension expects a <a href="https://developers.google.com/api-client-library/python/auth/service-accounts#creatinganaccount">service account</a> with enough permissions to
+perform its operations. Please create such a service account manually (do not
+use the default one for your cluster if you can, so you&rsquo;ll be able to delete
+that service account if need be).</p>
+<p>Once you have created your service account, either keep the file on the same
+machine where you will be running the experiment from. Or, pass its content
+as part of the <code>secrets</code> section, although this is not recommended because your
+sensitive data will be quite visible.</p>
+<p>Here is the first way:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gce&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;service_account_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/sa.json&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>While the embedded way looks like this:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gce&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;service_account_info&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;service_account&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;project_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;private_key_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;private_key&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;client_email&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;client_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;auth_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;https://accounts.google.com/o/oauth2/auth&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;token_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;https://accounts.google.com/o/oauth2/token&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;auth_provider_x509_cert_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.googleapis.com/oauth2/v1/certs&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;client_x509_cert_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.googleapis.com/robot/v1/metadata/x509/....&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<h3 id="putting-it-all-together">Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permanent link">&para;</a></h3>
+<p>Here is a full example:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gce_project_id&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_cluster_name&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_region&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gce_zone&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gce&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;service_account_file&quot;</span><span class="p">:</span> <span class="s2">&quot;/path/to/sa.json&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool-for-a-new-one&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;swap_nodepool&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gce&quot;</span><span class="p">],</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;nodePool&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;config&quot;</span><span class="p">:</span> <span class="p">{</span> 
+                                <span class="nt">&quot;oauthScopes&quot;</span><span class="p">:</span> <span class="p">[</span>
+                                    <span class="s2">&quot;gke-version-default&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/devstorage.read_only&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/logging.write&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/monitoring&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/service.management.readonly&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/servicecontrol&quot;</span><span class="p">,</span>
+                                    <span class="s2">&quot;https://www.googleapis.com/auth/trace.append&quot;</span>
+                                <span class="p">]</span>
+                            <span class="p">},</span>
+                            <span class="nt">&quot;initialNodeCount&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
+                            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;new-default-pool&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
+<p>If you wish to contribute more functions to this package, you are more than
+welcome to do so. Please, fork this project, make your changes following the
+usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
+review.</p>
+<p>The Chaos Toolkit projects require all contributors must sign a
+<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
+into the master branch of the repository. Please, make sure you can abide by
+the rules of the DCO before submitting a PR.</p>
+<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
+<p>If you wish to develop on this project, make sure to install the development
+dependencies. But first, <a href="http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment">create a virtual environment</a> and then install
+those dependencies.</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install -r requirements-dev.txt -r requirements.txt 
+</pre></div>
+
+<p>Then, point your environment to this directory:</p>
+<div class="codehilite"><pre><span></span><span class="gp">$</span> python setup.py develop
+</pre></div>
+
+<p>Now, you can edit the files and they will be automatically be seen by your
+environment, even when running from the <code>chaos</code> command locally.</p>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
+<p>To run the tests for the project execute the following:</p>
+<div class="codehilite"><pre><span></span>$ pytest
+</pre></div>
+
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="nodepool">nodepool<a class="headerlink" href="#nodepool" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1236,7 +1566,7 @@
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>mapping</td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
@@ -1244,7 +1574,7 @@
 <p>The node pool config must be passed a mapping to the <code>body</code> parameter and
 respect the REST API.</p>
 <p>If <code>wait_until_complete</code> is set to <code>True</code> (the default), the function
-will block until the node pool is ready. Otherwise, will return immediately
+will block until the node pool is ready. Otherwise, will return immediatly
 with the operation information.</p>
 <p>See: <a href="https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create">https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create</a></p>
 <p><strong>Signature:</strong></p>
@@ -1283,16 +1613,16 @@ with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_new_nodepool&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1330,14 +1660,14 @@ with the operation information.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>mapping</td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
 <p>Delete node pool from the given cluster/zone of the provided project.</p>
 <p>If <code>wait_until_complete</code> is set to <code>True</code> (the default), the function
 will block until the node pool is deleted. Otherwise, will return
-immediately with the operation information.</p>
+immediatly with the operation information.</p>
 <p>See: <a href="https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create">https://cloud.google.com/kubernetes-engine/docs/reference/rest/v1/projects.zones.clusters.nodePools/create</a></p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">delete_nodepool</span><span class="p">(</span>
@@ -1375,16 +1705,16 @@ immediately with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_nodepool&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1422,7 +1752,7 @@ immediately with the operation information.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>mapping</td>
+<td>None</td>
 </tr>
 </tbody>
 </table>
@@ -1486,17 +1816,17 @@ cordonned so it cannot be scheduled any longer.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;swap_nodepool&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgce.nodepool.actions&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span>
 <span class="p">}</span>
 </pre></div>
 

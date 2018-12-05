@@ -689,6 +689,68 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humio-dataspace-token" title="Humio Dataspace &amp; Token" class="md-nav__link">
+    Humio Dataspace &amp; Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notification" title="Notification" class="md-nav__link">
+    Notification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" title="Control" class="md-nav__link">
+    Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exported-controls" title="Exported Controls" class="md-nav__link">
+    Exported Controls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -697,7 +759,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#notification" title="notification" class="md-nav__link">
+  <a href="#notification_1" title="notification" class="md-nav__link">
     notification
   </a>
   
@@ -1111,6 +1173,68 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" title="Install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#humio-dataspace-token" title="Humio Dataspace &amp; Token" class="md-nav__link">
+    Humio Dataspace &amp; Token
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" title="Usage" class="md-nav__link">
+    Usage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notification" title="Notification" class="md-nav__link">
+    Notification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#control" title="Control" class="md-nav__link">
+    Control
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#test" title="Test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" title="Contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exported-controls" title="Exported Controls" class="md-nav__link">
+    Exported Controls
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1119,7 +1243,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#notification" title="notification" class="md-nav__link">
+  <a href="#notification_1" title="notification" class="md-nav__link">
     notification
   </a>
   
@@ -1173,7 +1297,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.1.1</td>
+<td>0.2.0</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1181,9 +1305,157 @@
 </tr>
 </tbody>
 </table>
-<p>N/A</p>
+<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-humio"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-humio.svg?branch=master" /></a></p>
+<p>This project is an extension for the Chaos Toolkit to target <a href="https://www.humio.com/">Humio</a>.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>This package requires Python 3.5+</p>
+<p>To be used from your experiment, this package must be installed in the Python
+environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaostoolkit</a> already lives.</p>
+<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-humio
+</pre></div>
+
+<h2 id="humio-dataspace-token">Humio Dataspace &amp; Token<a class="headerlink" href="#humio-dataspace-token" title="Permanent link">&para;</a></h2>
+<p>To use this extension, you will need two pieces of information from Humio.
+First, the dataspace which you want to send logs to. Second a <a href="https://cloud.humio.com/docs/http-api/index.html#api-token">API token</a>
+for an user with permissions to that space.</p>
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>This extension can be used a control on the experiment or a notification
+plugin of the Chaos Toolkit CLI itself. Usually, only one of these two methods
+is used at any given time as they serve similar purpose but feel free to
+combine them. The control approach is deeper because it logs down to the
+activity whereas notifications are much higher level.</p>
+<h3 id="notification">Notification<a class="headerlink" href="#notification" title="Permanent link">&para;</a></h3>
+<p>To use this extension to push notifications, edit your
+<a href="http://chaostoolkit.org/reference/usage/settings/">chaostoolkit settings</a> by adding the following payload:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio.notification</span>
+    <span class="l l-Scalar l-Scalar-Plain">dataspace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-space</span>
+    <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-token</span>
+</pre></div>
+
+<p>By default all events will be forwarded to that channel. You may filter only
+those events you care for:</p>
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+  <span class="p p-Indicator">-</span>
+    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio.notification</span>
+    <span class="l l-Scalar l-Scalar-Plain">dataspace</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-space</span>
+    <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">my-token</span>
+    <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-failed</span>
+      <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-started</span>
+</pre></div>
+
+<p>Only sends those two events.</p>
+<h3 id="control">Control<a class="headerlink" href="#control" title="Permanent link">&para;</a></h3>
+<p>To use this extension as a control over the experiment and send logs during
+the execution of the experiment, add the following payload to your experiment:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;humio&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;HUMIO_INGEST_TOKEN&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;dataspace&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;HUMIO_DATASPACE&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;humio-logger&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;humio&quot;</span><span class="p">]</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>This will ensure the results of the experiment, steady-state, method, rollbacks
+and each activity are sent to your space. The experiment itself will also be
+send initially.</p>
+<h2 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
+<p>To run the tests for the project execute the following:</p>
+<div class="codehilite"><pre><span></span>$ pytest
+</pre></div>
+
+<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
+<p>If you wish to contribute more functions to this package, you are more than
+welcome to do so. Please, fork this project, make your changes following the
+usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
+review.</p>
+<p>The Chaos Toolkit projects require all contributors must sign a
+<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
+into the master branch of the repository. Please, make sure you can abide by
+the rules of the DCO before submitting a PR.</p>
+<h2 id="exported-controls">Exported Controls<a class="headerlink" href="#exported-controls" title="Permanent link">&para;</a></h2>
+<p>This package exports <a href="https://docs.chaostoolkit.org/reference/api/experiment/#controls">controls</a> covering the following phases of the execution
+of an experiment:</p>
+<table>
+<thead>
+<tr>
+<th>Level</th>
+<th>Before</th>
+<th>After</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Experiment</strong></td>
+<td>True</td>
+<td>True</td>
+</tr>
+<tr>
+<td><strong>Steady-state Hypothesis</strong></td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr>
+<td><strong>Method</strong></td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr>
+<td><strong>Rollback</strong></td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr>
+<td><strong>Activities</strong></td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>To use this control module, please add the following section to your experiment:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio</span>
+<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
+  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoshumio.control</span>
+  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+</pre></div>
+
+<p>This block may also be enabled at any other level (steady-state hypothesis or
+activity) to focus only on that level.</p>
+<p>When enabled at the experiment level, by default, all sub-levels are also
+applied unless you set the <code>automatic</code> properties to <code>false</code>.</p>
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
-<h3 id="notification">notification<a class="headerlink" href="#notification" title="Permanent link">&para;</a></h3>
+<h3 id="notification_1">notification<a class="headerlink" href="#notification_1" title="Permanent link">&para;</a></h3>
 <hr />
 <h4 id="notify"><code>notify</code><a class="headerlink" href="#notify" title="Permanent link">&para;</a></h4>
 <table>
@@ -1251,17 +1523,17 @@
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{},</span>
       <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span>
 <span class="p">}</span>
 </pre></div>
 

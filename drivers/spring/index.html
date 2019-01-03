@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/application.572ca0f0.css">
       
         <link rel="stylesheet" href="../../assets/stylesheets/application-palette.22915126.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
       
@@ -617,47 +617,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" title="Develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1200,47 +1159,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#install" title="Install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" title="Contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" title="Develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" title="Test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#exported-activities" title="Exported Activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1351,7 +1269,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.2.0</td>
+<td>0.1.1</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1359,103 +1277,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-spring.svg" /></a> <a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-spring"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-spring.svg?branch=master" /></a></p>
-<p>This project is a collection of <a href="http://chaostoolkit.org/reference/api/experiment/#action">actions</a> and <a href="http://chaostoolkit.org/reference/api/experiment/#probe">probes</a>, gathered as an
-extension to the <a href="http://chaostoolkit.org">Chaos Toolkit</a>.</p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>This package requires Python 3.5+</p>
-<p>To be used from your experiment, this package must be installed in the Python
-environment where <a href="http://chaostoolkit.org">chaostoolkit</a> already lives.</p>
-<div class="codehilite"><pre><span></span>$ pip install -U chaostoolkit-spring
-</pre></div>
-
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>Currently this driver supports interactions with a <a href="https://spring.io/projects/spring-boot">Spring Boot-based</a> service that has included the <a href="https://codecentric.github.io/chaos-monkey-spring-boot/2.0.0-SNAPSHOT/">2.0.0.-SNAPSHOT</a> release of the <a href="https://github.com/codecentric/chaos-monkey-spring-boot">Chaos Monkey for Spring Boot</a>. This snapshot includes the necessary Spring Boot Actuator HTTP endpoints so that the Chaos Toolkit to interact with the chaos features at runtime.</p>
-<p>Once you have <a href="https://codecentric.github.io/chaos-monkey-spring-boot/2.0.0-SNAPSHOT/#getting-started">added the Chaos Monkey for Spring Boot</a> and <a href="https://codecentric.github.io/chaos-monkey-spring-boot/2.0.0-SNAPSHOT/#endpoints">enabled the Spring Boot Actuator HTTP endpoints</a> you can then use the probes and actions from this driver.</p>
-<p>To use the probes and actions from this package, add the following to your
-experiment file:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;enable_chaosmonkey&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/actuator&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;enable_chaosmonkey&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>This will interact with the specified service and enable the Chaos Monkey features. You can also turn off the Chaos Monkey if you wish by specifying the following action:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;disable_chaosmonkey&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/actuator&quot;</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;disable_chaosmonkey&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>You can then manipulate the <a href="https://codecentric.github.io/chaos-monkey-spring-boot/2.0.0-SNAPSHOT/#assaults">Chaos Monkey assaults</a> active on your service by specifing the following action:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;configure_assaults&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;http://localhost:8080/actuator&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;assaults_configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;level&quot;</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
-                <span class="nt">&quot;latencyRangeStart&quot;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
-                <span class="nt">&quot;latencyRangeEnd&quot;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
-                <span class="nt">&quot;latencyActive&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="nt">&quot;exceptionsActive&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-                <span class="nt">&quot;killApplicationActive&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-                <span class="nt">&quot;restartApplicationActive&quot;</span><span class="p">:</span> <span class="kc">false</span>
-            <span class="p">}</span>
-        <span class="p">},</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;change_assaults_configuration&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>That&rsquo;s it!</p>
-<p>Please explore the code to use further probes and actions.</p>
-<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
-<p>If you wish to contribute more functions to this package, you are more than
-welcome to do so. Please, fork this project, make your changes following the
-usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
-review.</p>
-<p>The Chaos Toolkit projects require all contributors must sign a
-<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
-into the master branch of the repository. Please, make sure you can abide by
-the rules of the DCO before submitting a PR.</p>
-<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
-<p>If you wish to develop on this project, make sure to install the development
-dependencies. But first, <a href="http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment">create a virtual environment</a> and then install
-those dependencies.</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> pip install -r requirements-dev.txt -r requirements.txt
-</pre></div>
-
-<p>Then, point your environment to this directory:</p>
-<div class="codehilite"><pre><span></span><span class="gp">$</span> python setup.py develop
-</pre></div>
-
-<p>Now, you can edit the files and they will be automatically be seen by your
-environment, even when running from the <code>chaos</code> command locally.</p>
-<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
-<p>To run the tests for the project execute the following:</p>
-<div class="codehilite"><pre><span></span>$ pytest
-</pre></div>
-
+<p>N/A</p>
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="actions">actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1482,7 +1304,7 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>string</td>
 </tr>
 </tbody>
 </table>
@@ -1491,7 +1313,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">change_assaults_configuration</span><span class="p">(</span>
         <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">assaults_configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-        <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -1522,12 +1343,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -1537,29 +1352,29 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;change-assaults-configuration&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;change_assaults_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;change_assaults_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;assaults_configuration&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;change-assaults-configuration&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">change-assaults-configuration</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">assaults_configuration</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">{}</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">change_assaults_configuration</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">change-assaults-configuration</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">assaults_configuration</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">change_assaults_configuration</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <hr />
@@ -1586,14 +1401,13 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>string</td>
 </tr>
 </tbody>
 </table>
 <p>Disable Chaos Monkey on a specific service.</p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">disable_chaosmonkey</span><span class="p">(</span><span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                        <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -1618,12 +1432,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -1633,27 +1441,27 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;disable-chaosmonkey&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;disable_chaosmonkey&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;disable_chaosmonkey&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;disable-chaosmonkey&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">disable-chaosmonkey</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">disable_chaosmonkey</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">disable-chaosmonkey</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">disable_chaosmonkey</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <hr />
@@ -1680,14 +1488,13 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>string</td>
 </tr>
 </tbody>
 </table>
 <p>Enable Chaos Monkey on a specific service.</p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">enable_chaosmonkey</span><span class="p">(</span><span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                       <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                        <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -1712,12 +1519,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -1727,27 +1528,27 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;enable-chaosmonkey&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;enable_chaosmonkey&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.actions&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;enable_chaosmonkey&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;enable-chaosmonkey&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">enable-chaosmonkey</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">enable_chaosmonkey</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enable-chaosmonkey</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">enable_chaosmonkey</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <h3 id="probes">probes<a class="headerlink" href="#probes" title="Permanent link">&para;</a></h3>
@@ -1775,15 +1576,14 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>mapping</td>
 </tr>
 </tbody>
 </table>
-<p>Get the current assaults configuraton from the specified service.</p>
+<p>Get the current assaults configuration from the specified service.</p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">assaults_configuration</span><span class="p">(</span>
         <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
@@ -1808,12 +1608,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -1823,27 +1617,27 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;assaults-configuration&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;assaults_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;assaults_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;assaults-configuration&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">assaults-configuration</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">assaults_configuration</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assaults-configuration</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">assaults_configuration</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
 </pre></div>
 
 <hr />
@@ -1870,7 +1664,7 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>boolean</td>
 </tr>
 </tbody>
 </table>
@@ -1878,7 +1672,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 specified service.</p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">chaosmonkey_enabled</span><span class="p">(</span><span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                        <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
                         <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -1903,12 +1696,6 @@ specified service.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -1918,27 +1705,27 @@ specified service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosmonkey-enabled&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosmonkey_enabled&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosmonkey_enabled&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosmonkey-enabled&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosmonkey-enabled</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosmonkey_enabled</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosmonkey-enabled</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosmonkey_enabled</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
 </pre></div>
 
 <hr />
@@ -1965,15 +1752,14 @@ specified service.</p>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
-<td>None</td>
+<td>mapping</td>
 </tr>
 </tbody>
 </table>
-<p>Get the current watcher configuraton from the specified service.</p>
+<p>Get the current watcher configuration from the specified service.</p>
 <p><strong>Signature:</strong></p>
 <div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">watcher_configuration</span><span class="p">(</span>
         <span class="n">base_url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">headers</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">timeout</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
         <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="bp">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
@@ -1998,12 +1784,6 @@ specified service.</p>
 <td>Yes</td>
 </tr>
 <tr>
-<td><strong>headers</strong></td>
-<td>mapping</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
 <td><strong>timeout</strong></td>
 <td>number</td>
 <td>null</td>
@@ -2013,27 +1793,27 @@ specified service.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;watcher-configuration&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;watcher_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosspring.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;watcher_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;base_url&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;watcher-configuration&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">watcher-configuration</span>
-<span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">base_url</span><span class="p p-Indicator">:</span> <span class="s">&#39;&#39;</span>
-  <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">watcher_configuration</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">watcher-configuration</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">base_url</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">watcher_configuration</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosspring.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
 </pre></div>
                 
                   
@@ -2123,14 +1903,15 @@ specified service.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../assets/javascripts/application.b41f3d20.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
   </body>

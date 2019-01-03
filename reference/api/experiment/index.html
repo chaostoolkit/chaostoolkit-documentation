@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
       
@@ -2285,34 +2285,34 @@ does not declare any meaning to an extension.</p>
 <p>For reference, here is the YAML equivalent (which is not official but respects
 the specification herein):</p>
 <div class="codehilite"><pre><span></span><span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
-<span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Moving a file from under our feet is forgivable</span>
-<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Our application should re-create a file that was removed</span>
-<span class="l l-Scalar l-Scalar-Plain">contributions</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">reliability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
-  <span class="l l-Scalar l-Scalar-Plain">availability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
-<span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">The file must be around first</span>
-  <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
-    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
-      <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">exists</span>
-      <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
-<span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-be-gone</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
-    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">remove</span>
-    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
-  <span class="l l-Scalar l-Scalar-Plain">pauses</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">after</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">ref</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Moving a file from under our feet is forgivable</span>
+<span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Our application should re-create a file that was removed</span>
+<span class="nt">contributions</span><span class="p">:</span>
+  <span class="nt">reliability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="nt">availability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+<span class="nt">steady-state-hypothesis</span><span class="p">:</span>
+  <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The file must be around first</span>
+  <span class="nt">probes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
+    <span class="nt">tolerance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">provider</span><span class="p">:</span>
+      <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
+      <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">exists</span>
+      <span class="nt">arguments</span><span class="p">:</span>
+        <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
+<span class="nt">method</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-be-gone</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
+    <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove</span>
+    <span class="nt">arguments</span><span class="p">:</span>
+      <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
+  <span class="nt">pauses</span><span class="p">:</span>
+    <span class="nt">after</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="p p-Indicator">-</span> <span class="nt">ref</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
 </pre></div>
 
 <h3 id="more-complex-experiment">More Complex Experiment<a class="headerlink" href="#more-complex-experiment" title="Permanent link">&para;</a></h3>
@@ -2452,104 +2452,104 @@ to perform actions, probing and steady-state hypothesis validation.</p>
 
 <p>The equivalent YAML serialization:</p>
 <div class="codehilite"><pre><span></span><span class="nn">---</span>
-<span class="l l-Scalar l-Scalar-Plain">version</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
-<span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Are our users impacted by the loss of a function?</span>
-<span class="l l-Scalar l-Scalar-Plain">description</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">While users query the Astre function, they should not be impacted if</span>
+<span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
+<span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Are our users impacted by the loss of a function?</span>
+<span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">While users query the Astre function, they should not be impacted if</span>
   <span class="l l-Scalar l-Scalar-Plain">one instance goes down.</span>
-<span class="l l-Scalar l-Scalar-Plain">contributions</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">reliability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
-  <span class="l l-Scalar l-Scalar-Plain">availability</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
-  <span class="l l-Scalar l-Scalar-Plain">performance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">medium</span>
-  <span class="l l-Scalar l-Scalar-Plain">security</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">none</span>
-<span class="l l-Scalar l-Scalar-Plain">tags</span><span class="p p-Indicator">:</span>
+<span class="nt">contributions</span><span class="p">:</span>
+  <span class="nt">reliability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="nt">availability</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">high</span>
+  <span class="nt">performance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">medium</span>
+  <span class="nt">security</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">none</span>
+<span class="nt">tags</span><span class="p">:</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">kubernetes</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>
 <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">cloudnative</span>
-<span class="l l-Scalar l-Scalar-Plain">configuration</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">prometheus_base_url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar</span>
-<span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">global</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">auth</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic XYZ</span>
-<span class="l l-Scalar l-Scalar-Plain">controls</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">tracing</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostracing.control</span>
-<span class="l l-Scalar l-Scalar-Plain">steady-state-hypothesis</span><span class="p p-Indicator">:</span>
-  <span class="l l-Scalar l-Scalar-Plain">title</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Function is available</span>
-  <span class="l l-Scalar l-Scalar-Plain">probes</span><span class="p p-Indicator">:</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-exist</span>
-    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
-    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
-      <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+<span class="nt">configuration</span><span class="p">:</span>
+  <span class="nt">prometheus_base_url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar</span>
+<span class="nt">secrets</span><span class="p">:</span>
+  <span class="nt">global</span><span class="p">:</span>
+    <span class="nt">auth</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Basic XYZ</span>
+<span class="nt">controls</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">tracing</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostracing.control</span>
+<span class="nt">steady-state-hypothesis</span><span class="p">:</span>
+  <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Function is available</span>
+  <span class="nt">probes</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-exist</span>
+    <span class="nt">tolerance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+    <span class="nt">provider</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+      <span class="nt">secrets</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">faas</span>
-      <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/system/function/astre</span>
-      <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;${auth}&quot;</span>
-  <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-    <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-respond</span>
-    <span class="l l-Scalar l-Scalar-Plain">tolerance</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
-    <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
-      <span class="l l-Scalar l-Scalar-Plain">timeout</span><span class="p p-Indicator">:</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/system/function/astre</span>
+      <span class="nt">headers</span><span class="p">:</span>
+        <span class="nt">Authorization</span><span class="p">:</span> <span class="s">&quot;${auth}&quot;</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">function-must-respond</span>
+    <span class="nt">tolerance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">200</span>
+    <span class="nt">provider</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+      <span class="nt">timeout</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">3</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-      <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+      <span class="nt">secrets</span><span class="p">:</span>
       <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global</span>
-      <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/function/astre</span>
-      <span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
-      <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">Content-Type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
-        <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;${auth}&quot;</span>
-      <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-        <span class="l l-Scalar l-Scalar-Plain">city</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">Paris</span>
-<span class="l l-Scalar l-Scalar-Plain">method</span><span class="p p-Indicator">:</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">simulate-user-traffic</span>
-  <span class="l l-Scalar l-Scalar-Plain">background</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">process</span>
-    <span class="l l-Scalar l-Scalar-Plain">path</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">vegeta</span>
-    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span> <span class="s">&quot;-cpus</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">attack</span><span class="nv"> </span><span class="s">-targets=data/scenario.txt</span><span class="nv"> </span><span class="s">-workers=2</span><span class="nv"> </span><span class="s">-connections=1</span>
+      <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http://demo.foo.bar/function/astre</span>
+      <span class="nt">method</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">POST</span>
+      <span class="nt">headers</span><span class="p">:</span>
+        <span class="nt">Content-Type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">application/json</span>
+        <span class="nt">Authorization</span><span class="p">:</span> <span class="s">&quot;${auth}&quot;</span>
+      <span class="nt">arguments</span><span class="p">:</span>
+        <span class="nt">city</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Paris</span>
+<span class="nt">method</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">simulate-user-traffic</span>
+  <span class="nt">background</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">process</span>
+    <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">vegeta</span>
+    <span class="nt">arguments</span><span class="p">:</span> <span class="s">&quot;-cpus</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">attack</span><span class="nv"> </span><span class="s">-targets=data/scenario.txt</span><span class="nv"> </span><span class="s">-workers=2</span><span class="nv"> </span><span class="s">-connections=1</span>
       <span class="s">-rate=3</span><span class="nv"> </span><span class="s">-timeout=3s</span><span class="nv"> </span><span class="s">-duration=30s</span><span class="nv"> </span><span class="s">-output=result.bin&quot;</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate-one-function</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.actions</span>
-    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate_pods</span>
-    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">ns</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas-fn</span>
-      <span class="l l-Scalar l-Scalar-Plain">label_selector</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">faas_function=astre</span>
-      <span class="l l-Scalar l-Scalar-Plain">rand</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
-  <span class="l l-Scalar l-Scalar-Plain">pauses</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">before</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">fetch-openfaas-gateway-logs</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.probes</span>
-    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">read_pod_logs</span>
-    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">label_selector</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">app=gateway</span>
-      <span class="l l-Scalar l-Scalar-Plain">last</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">35s</span>
-      <span class="l l-Scalar l-Scalar-Plain">ns</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>
-<span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-  <span class="l l-Scalar l-Scalar-Plain">name</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">query-total-function-invocation</span>
-  <span class="l l-Scalar l-Scalar-Plain">provider</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-    <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosprometheus.probes</span>
-    <span class="l l-Scalar l-Scalar-Plain">func</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">query_interval</span>
-    <span class="l l-Scalar l-Scalar-Plain">secrets</span><span class="p p-Indicator">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate-one-function</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.actions</span>
+    <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">terminate_pods</span>
+    <span class="nt">arguments</span><span class="p">:</span>
+      <span class="nt">ns</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas-fn</span>
+      <span class="nt">label_selector</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">faas_function=astre</span>
+      <span class="nt">rand</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+  <span class="nt">pauses</span><span class="p">:</span>
+    <span class="nt">before</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">5</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fetch-openfaas-gateway-logs</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.probes</span>
+    <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read_pod_logs</span>
+    <span class="nt">arguments</span><span class="p">:</span>
+      <span class="nt">label_selector</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">app=gateway</span>
+      <span class="nt">last</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">35s</span>
+      <span class="nt">ns</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">openfaas</span>
+<span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">query-total-function-invocation</span>
+  <span class="nt">provider</span><span class="p">:</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosprometheus.probes</span>
+    <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">query_interval</span>
+    <span class="nt">secrets</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">global</span>
-    <span class="l l-Scalar l-Scalar-Plain">arguments</span><span class="p p-Indicator">:</span>
-      <span class="l l-Scalar l-Scalar-Plain">query</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">gateway_function_invocation_total{function_name=&#39;astre&#39;}</span>
-      <span class="l l-Scalar l-Scalar-Plain">start</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1 minute ago</span>
-      <span class="l l-Scalar l-Scalar-Plain">end</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">now</span>
-      <span class="l l-Scalar l-Scalar-Plain">step</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
-<span class="l l-Scalar l-Scalar-Plain">rollbacks</span><span class="p p-Indicator">:</span> <span class="p p-Indicator">[]</span>
+    <span class="nt">arguments</span><span class="p">:</span>
+      <span class="nt">query</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">gateway_function_invocation_total{function_name=&#39;astre&#39;}</span>
+      <span class="nt">start</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1 minute ago</span>
+      <span class="nt">end</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">now</span>
+      <span class="nt">step</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="nt">rollbacks</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
 </pre></div>
                 
                   
@@ -2639,14 +2639,15 @@ to perform actions, probing and steady-state hypothesis validation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
   </body>

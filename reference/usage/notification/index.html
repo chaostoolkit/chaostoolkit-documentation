@@ -2,7 +2,7 @@
 
 
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" class="no-js">
   <head>
     
@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.1.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-3.2.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.11e41852.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.572ca0f0.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.22915126.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.20ef595d.js"></script>
+      <script src="../../../assets/javascripts/modernizr.8c900955.js"></script>
     
     
       
@@ -1213,45 +1213,79 @@ those events to get notified via your chosen notification channels.</p>
 <p>The Chaos Toolkit defines the following events:</p>
 <p>Discovery flow</p>
 <ul>
-<li><code>"discover-started"</code>: when the discovery flow has begun</li>
-<li><code>"discover-completed"</code>: when the discovery flow has completed</li>
-<li><code>"discover-failed"</code>: when the discovery flow has failed</li>
+<li><code>"discover-started"</code>: when the discovery flow has begun<ul>
+<li>Payload: the name of the Chaos Toolkit extension used to discover the system</li>
+</ul>
+</li>
+<li><code>"discover-completed"</code>: when the discovery flow has completed<ul>
+<li>Payload: the result of the discovery</li>
+</ul>
+</li>
+<li><code>"discover-failed"</code>: when the discovery flow has failed<ul>
+<li>Payload: the name of the Chaos Toolkit extension usd to discover the system</li>
+<li>Additional Payload: The error</li>
+</ul>
+</li>
 </ul>
 <p>Init flow</p>
 <ul>
-<li><code>"init-started"</code>: when the init flow has begun</li>
-<li><code>"init-completed"</code>: when the init flow has completed</li>
-<li><code>"init-failed"</code>: when the init flow has failed</li>
+<li><code>"init-started"</code>: when the init flow has begun<ul>
+<li>Payload: None</li>
+</ul>
+</li>
+<li><code>"init-completed"</code>: when the init flow has completed<ul>
+<li>Payload: the generated <a href="../../api/experiment/">experiment</a></li>
+</ul>
+</li>
 </ul>
 <p>Run flow</p>
 <ul>
-<li><code>"run-started"</code>: when the run flow has begun</li>
-<li><code>"run-completed"</code>: when the run flow has completed</li>
-<li><code>"run-failed"</code>: when the run flow has failed</li>
+<li><code>"run-started"</code>: when the run flow has begun<ul>
+<li>Payload: The <a href="../../api/experiment/">experiment</a> that get executed</li>
+</ul>
+</li>
+<li><code>"run-completed"</code>: when the run flow has completed<ul>
+<li>Payload: The <a href="../../api/journal/">journal</a> of the experiment&rsquo;s execution</li>
+</ul>
+</li>
+<li><code>"run-failed"</code>: when the run flow has failed<ul>
+<li>Payload: The <a href="../../api/journal/">journal</a> of the experiment&rsquo;s execution</li>
+</ul>
+</li>
 </ul>
 <p>Validate flow</p>
 <ul>
-<li><code>"validate-started"</code>: when the validate flow has begun</li>
-<li><code>"validate-completed"</code>: when the validate flow has completed</li>
-<li><code>"validate-failed"</code>: when the validate flow has failed</li>
+<li><code>"validate-started"</code>: when the validate flow has begun<ul>
+<li>Payload: The <a href="../../api/experiment/">experiment</a> to validate</li>
+</ul>
+</li>
+<li><code>"validate-completed"</code>: when the validate flow has completed<ul>
+<li>Payload: The <a href="../../api/experiment/">experiment</a> to validate</li>
+</ul>
+</li>
+<li><code>"validate-failed"</code>: when the validate flow has failed<ul>
+<li>Payload: The <a href="../../api/experiment/">experiment</a> to validate</li>
+<li>Additional Payload: The error</li>
+</ul>
+</li>
 </ul>
 <h2 id="declare-notification-channels">Declare Notification Channels<a class="headerlink" href="#declare-notification-channels" title="Permanent link">&para;</a></h2>
 <p>Notification channels are declared in the Chaos Toolkit
 <a href="../cli/#configure-the-chaos-toolkit">settings file</a> under the <code>notifications:</code>
 section.</p>
 <p>Here is an example:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+<div class="codehilite"><pre><span></span><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
-  <span class="l l-Scalar l-Scalar-Plain">url</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">https://mystuff.com/api</span>
-  <span class="l l-Scalar l-Scalar-Plain">verify_tls</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
-  <span class="l l-Scalar l-Scalar-Plain">headers</span><span class="p p-Indicator">:</span>
-    <span class="l l-Scalar l-Scalar-Plain">Authorization</span><span class="p p-Indicator">:</span> <span class="s">&quot;Bearer</span><span class="nv"> </span><span class="s">1234&quot;</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
+  <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://mystuff.com/api</span>
+  <span class="nt">verify_tls</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+  <span class="nt">headers</span><span class="p">:</span>
+    <span class="nt">Authorization</span><span class="p">:</span> <span class="s">&quot;Bearer</span><span class="nv"> </span><span class="s">1234&quot;</span>
  <span class="p p-Indicator">-</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
-  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
-  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="nt">channel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
 </pre></div>
 
 <p>As you can see, channels are items in a list. Each channel is a mapping
@@ -1269,13 +1303,13 @@ of the experiment results.</p>
 <p>By default, all <a href="#chaos-toolkit-flow-events">events</a> are sent to the channels.
 However, you may decide, on a per channel basis, which events you want to be
 sent. This is done by adding the <code>events</code> field to a channel:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+<div class="codehilite"><pre><span></span><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
-  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
-  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
-  <span class="l l-Scalar l-Scalar-Plain">events</span><span class="p p-Indicator">:</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="nt">channel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+  <span class="nt">events</span><span class="p">:</span>
     <span class="p p-Indicator">-</span> <span class="l l-Scalar l-Scalar-Plain">run-failed</span>
 </pre></div>
 
@@ -1319,12 +1353,12 @@ certain experiments when timing is critical.</p>
 </ul>
 <p>Any other fields will be passed on as-is to the function for its internal usage.
 For instance:</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+<div class="codehilite"><pre><span></span><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
-  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
-  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="nt">channel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
 </pre></div>
 
 <p>The <code>token</code> and <code>channel</code> fields will be provided directly to the <code>notify</code>
@@ -1338,12 +1372,12 @@ describe this integration here.</p>
 
 <p>Then, you should declare your notification channels as follows in the Chaos
 Toolkit settings file.</p>
-<div class="codehilite"><pre><span></span><span class="l l-Scalar l-Scalar-Plain">notifications</span><span class="p p-Indicator">:</span>
+<div class="codehilite"><pre><span></span><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
-  <span class="l l-Scalar l-Scalar-Plain">type</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
-  <span class="l l-Scalar l-Scalar-Plain">module</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
-  <span class="l l-Scalar l-Scalar-Plain">token</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
-  <span class="l l-Scalar l-Scalar-Plain">channel</span><span class="p p-Indicator">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
+  <span class="nt">token</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">xop-1235</span>
+  <span class="nt">channel</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">general</span>
 </pre></div>
 
 <p>You may define as many channels as you need, for instance for different kind
@@ -1452,14 +1486,15 @@ plugin.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.9e1f3b71.js"></script>
+      <script src="../../../assets/javascripts/application.b41f3d20.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       
     
     
       
-        <script>!function(e,a,t,n,o,c,i){e.GoogleAnalyticsObject=o,e.ga=e.ga||function(){(e.ga.q=e.ga.q||[]).push(arguments)},e.ga.l=1*new Date,c=a.createElement(t),i=a.getElementsByTagName(t)[0],c.async=1,c.src="https://www.google-analytics.com/analytics.js",i.parentNode.insertBefore(c,i)}(window,document,"script",0,"ga"),ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+        <script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-107338053-1","auto"),ga("set","anonymizeIp",!0),ga("send","pageview");var links=document.getElementsByTagName("a");if(Array.prototype.map.call(links,function(a){a.host!=document.location.host&&a.addEventListener("click",function(){var e=a.getAttribute("data-md-action")||"follow";ga("send","event","outbound",e,a.href)})}),document.forms.search){var query=document.forms.search.query;query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
       
     
   </body>

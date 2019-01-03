@@ -10,26 +10,41 @@ The Chaos Toolkit defines the following events:
 Discovery flow
 
 * `"discover-started"`: when the discovery flow has begun
+    * Payload: the name of the Chaos Toolkit extension used to discover the system
 * `"discover-completed"`: when the discovery flow has completed
+    * Payload: the result of the discovery
 * `"discover-failed"`: when the discovery flow has failed
+    * Payload: the name of the Chaos Toolkit extension usd to discover the system
+    * Additional Payload: The error
 
 Init flow
 
 * `"init-started"`: when the init flow has begun
+    * Payload: None
 * `"init-completed"`: when the init flow has completed
-* `"init-failed"`: when the init flow has failed
+    * Payload: the generated [experiment][]
 
 Run flow
 
 * `"run-started"`: when the run flow has begun
+    * Payload: The [experiment][] that get executed
 * `"run-completed"`: when the run flow has completed
+    * Payload: The [journal][] of the experiment's execution
 * `"run-failed"`: when the run flow has failed
+    * Payload: The [journal][] of the experiment's execution
 
 Validate flow
 
 * `"validate-started"`: when the validate flow has begun
+    * Payload: The [experiment][] to validate
 * `"validate-completed"`: when the validate flow has completed
+    * Payload: The [experiment][] to validate
 * `"validate-failed"`: when the validate flow has failed
+    * Payload: The [experiment][] to validate
+    * Additional Payload: The error
+
+[experiment]: ../api/experiment.md
+[journal]: ../api/journal.md
 
 ## Declare Notification Channels
 

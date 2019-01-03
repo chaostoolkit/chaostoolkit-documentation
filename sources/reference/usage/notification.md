@@ -55,6 +55,7 @@ The events structure is as follows:
     "name": "run-started|...",
     "payload": "the payload for the given event",
     "phase": "run|discovery|init|validate",
+    "error": "only set when an error was triggered. Set to the actual raw error",
     "ts": "<now>"
 }
 ```

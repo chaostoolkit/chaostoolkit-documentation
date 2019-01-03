@@ -60,6 +60,10 @@ The events structure is as follows:
 }
 ```
 
+Note, the error is not a failure of the experiment's steady-state but an error
+during the processing of the flow (for instance, the experiment's file has
+a mistake somewhere in its syntax, or an exception is raised somehow).
+
 ## Declare Notification Channels
 
 Notification channels are declared in the Chaos Toolkit

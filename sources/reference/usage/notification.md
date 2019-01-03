@@ -27,7 +27,7 @@ Init flow
 Run flow
 
 * `"run-started"`: when the run flow has begun
-    * Payload: The [experiment][] that get executed
+    * Payload: The [experiment][] that gets executed
 * `"run-completed"`: when the run flow has completed
     * Payload: The [journal][] of the experiment's execution
 * `"run-failed"`: when the run flow has failed
@@ -45,6 +45,19 @@ Validate flow
 
 [experiment]: ../api/experiment.md
 [journal]: ../api/journal.md
+
+### Notification Event Structure
+
+The events structure is as follows:
+
+```json
+{
+    "name": "run-started|...",
+    "payload": "the payload for the given event",
+    "phase": "run|discovery|init|validate",
+    "ts": "<now>"
+}
+```
 
 ## Declare Notification Channels
 

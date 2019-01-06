@@ -1243,7 +1243,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.1.1</td>
+<td>0.1.2</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1254,6 +1254,8 @@
 <p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing.svg?branch=master" /></a>
 <a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-opentracing.svg" /></a></p>
 <p>This project is an extension for the Chaos Toolkit for <a href="https://opentracing.io/">OpenTracing</a>.</p>
+<p>Here is an example of what it could look like with the Jaeger backend.</p>
+<p><img alt="OpenTracing" src="https://github.com/chaostoolkit-incubator/chaostoolkit-opentracing/raw/master/example.png" title="Open Tracing with Jaeger" /></p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>This package requires Python 3.5+</p>
 <p>To be used from your experiment, this package must be installed in the Python
@@ -1394,11 +1396,11 @@ of an experiment:</p>
 </table>
 <p>To use this control module, please add the following section to your experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing&quot;</span>
 <span class="p">}</span>
 </pre></div>
 

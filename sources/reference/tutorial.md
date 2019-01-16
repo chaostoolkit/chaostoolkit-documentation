@@ -1,4 +1,4 @@
-# A simple Walkthrough
+# Getting Started with the Chaos Toolkit
 
 When you practice chaos engineering, you are discovering how your system
 reacts following certain conditions you inject. By doing this in a controlled

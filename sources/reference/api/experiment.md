@@ -630,7 +630,7 @@ environment variable MUST be declared in the `key` property as a JSON string.
 
 Secrets MAY be retrieved from a [HashiCorp vault instance][vault]. In that case,
 they must be declared as a JSON object with a `type` property set to `"vault"`.
-The path to the key MUST be declared in the `key` property as a JSON
+The path to the key MUST be declared in the `path` property as a JSON
 string.
 
 [vault]: https://www.vaultproject.io/
@@ -641,11 +641,91 @@ string.
         "myapp": {
             "token": {
                 "type": "vault",
-                "key": "secrets/something"
+                "path": "secrets/something"
             }
         }
     }
 }
+```
+
+When only the `path` property is set, the whole secrets payload at the given
+path MUST be set to the Chaos Toolkit secret key.
+
+A `key` property MAY be set to select a specific value from the Vault secret
+payload.
+
+Vault authentication MUST at least support:
+
+* [token][vaulttoken] based authentication
+  The token MUST be provided in the Configuration section via the
+  `"vault_token"` property
+* [AppRole][approle] authentication
+  The role-id and secret-id MUST be provided in the Configuration section vi
+  the `"vault_role_id"` and `"vault_role_secret"` properties
+
+The Vault [KV secrets version][kvversion] MAY be provided via the
+`"vault_kv_version"` Configuration key. If not provided, it MUST default to
+`"2"`.
+
+[vaulttoken]: https://www.vaultproject.io/api/auth/token/index.html
+[approle]: https://www.vaultproject.io/api/auth/approle/index.html
+[kvversion]: https://www.vaultproject.io/api/secret/kv/index.html
+
+Examples:
+
+Vault secret at path `secret/something`:
+
+```json
+{
+    "foo": "bar",
+    "baz": "hello"
+}
+```
+
+Then in your Chaos Toolkit experiment:
+
+```json
+{
+    "secrets": {
+        "myapp": {
+            "token": {
+                "type": "vault",
+                "path": "secrets/something"
+            }
+        }
+    }
+}
+```
+
+means the secrets will become:
+
+```
+"myapp": {
+    "foo": "bar",
+    "baz": "hello"
+}
+```
+
+However:
+
+```json
+{
+    "secrets": {
+        "myapp": {
+            "token": {
+                "type": "vault",
+                "path": "secrets/something",
+                "key": "foo"
+            }
+        }
+    }
+}
+```
+
+means the secrets will become:
+
+```
+"myapp": "bar"
 ```
 
 ### Configuration

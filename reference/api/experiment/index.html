@@ -2052,18 +2052,80 @@ environment variable MUST be declared in the <code>key</code> property as a JSON
 <h4 id="vault-secrets">Vault Secrets<a class="headerlink" href="#vault-secrets" title="Permanent link">&para;</a></h4>
 <p>Secrets MAY be retrieved from a <a href="https://www.vaultproject.io/">HashiCorp vault instance</a>. In that case,
 they must be declared as a JSON object with a <code>type</code> property set to <code>"vault"</code>.
-The path to the key MUST be declared in the <code>key</code> property as a JSON
+The path to the key MUST be declared in the <code>path</code> property as a JSON
 string.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
                 <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vault&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;secrets/something&quot;</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;secrets/something&quot;</span>
             <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
+</pre></div>
+
+<p>When only the <code>path</code> property is set, the whole secrets payload at the given
+path MUST be set to the Chaos Toolkit secret key.</p>
+<p>A <code>key</code> property MAY be set to select a specific value from the Vault secret
+payload.</p>
+<p>Vault authentication MUST at least support:</p>
+<ul>
+<li><a href="https://www.vaultproject.io/api/auth/token/index.html">token</a> based authentication
+  The token MUST be provided in the Configuration section via the
+  <code>"vault_token"</code> property</li>
+<li><a href="https://www.vaultproject.io/api/auth/approle/index.html">AppRole</a> authentication
+  The role-id and secret-id MUST be provided in the Configuration section vi
+  the <code>"vault_role_id"</code> and <code>"vault_role_secret"</code> properties</li>
+</ul>
+<p>The Vault <a href="https://www.vaultproject.io/api/secret/kv/index.html">KV secrets version</a> MAY be provided via the
+<code>"vault_kv_version"</code> Configuration key. If not provided, it MUST default to
+<code>"2"</code>.</p>
+<p>Examples:</p>
+<p>Vault secret at path <code>secret/something</code>:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Then in your Chaos Toolkit experiment:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vault&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;secrets/something&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>means the secrets will become:</p>
+<div class="codehilite"><pre><span></span>&quot;myapp&quot;: {
+    &quot;foo&quot;: &quot;bar&quot;,
+    &quot;baz&quot;: &quot;hello&quot;
+}
+</pre></div>
+
+<p>However:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;vault&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;secrets/something&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;foo&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>means the secrets will become:</p>
+<div class="codehilite"><pre><span></span>&quot;myapp&quot;: &quot;bar&quot;
 </pre></div>
 
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>

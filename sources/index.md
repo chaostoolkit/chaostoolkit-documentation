@@ -14,7 +14,7 @@ for your own experiments, have a look at the various [driver extensions][drivers
 we support, which ranges from platforms to cloud providers while giving you
 tools to observe your system as you run your experiments.
 
-Finally, if you cant to [contribute](reference/contributing), you are more than welcome. Start with
+Finally, if you came to [contribute](reference/contributing), you are more than welcome. Start with
 [joining the community][slack] and read our references like the Open API
 which specifies the Chaos Toolkit experiment format.
 

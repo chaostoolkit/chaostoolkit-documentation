@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.0.2">
     
     
       
@@ -1739,7 +1739,7 @@ must fall (inclusive).</p>
 <p>When the sequence has more than two elements, the <a href="#probe">Probe</a> returned value
 must be contained in that sequence.</p>
 <p>When the <code>tolerance</code> is an object, it MUST have a <code>type</code> property which MUST
-be one of the followings: <code>"probe"</code>, <code>"regex"</code> or <code>"jsonpath"</code>.</p>
+be one of the followings: <code>"probe"</code>, <code>"regex"</code>, <code>"jsonpath"</code> or <code>"range"</code>.</p>
 <p>When the <code>type</code> property is <code>"probe"</code>, the object MUST be a <a href="#probe">Probe</a> that is
 applied. The probe should take two arguments, <code>value</code> and <code>secrets</code> where
 the value is the <a href="#probe">Probe</a> returned value and secrets a <a href="#secrets">Secret</a>
@@ -1754,6 +1754,10 @@ have a <code>expect</code> property which is used to compare each value matched 
 Path to that value. The <code>expect</code> property value MUST be a scalar. When the
 <code>expect</code> property is not present, the <code>tolerance</code> succeeds if the JSON Path
 matched at least one item.</p>
+<p>When the <code>type</code> property is <code>"range"</code>, the object MUST have a <code>range</code> 
+property whuch MUST be a sequence of length two. The first entry of the
+sequence MUST be the lower bound and the second entry MUST be the upper bound.
+Both entries MUST be JSON numbers.</p>
 <p>In addition, when the <a href="#probe">Probe</a> returned value is an object with a ̀<code>status</code>
 property, the tested value is the value of that property.</p>
 <p>Some examples of <code>tolerance</code> properties.</p>
@@ -1805,6 +1809,19 @@ property, the tested value is the value of that property.</p>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;foo[*].baz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;expect&quot;</span><span class="p">:</span> <span class="mi">4</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>Two range tolerances:</p>
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.6</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -2719,7 +2736,7 @@ to perform actions, probing and steady-state hypothesis validation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.b806dc00.js"></script>
+      <script src="../../../assets/javascripts/application.d9aa80ab.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

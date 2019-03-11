@@ -181,7 +181,7 @@ When the sequence has more than two elements, the [Probe][pb] returned value
 must be contained in that sequence.
 
 When the `tolerance` is an object, it MUST have a `type` property which MUST
-be one of the followings: `"probe"`, `"regex"` or `"jsonpath"`.
+be one of the followings: `"probe"`, `"regex"`, `"jsonpath"` or `"range"`.
 
 When the `type` property is `"probe"`, the object MUST be a [Probe][pb] that is
 applied. The probe should take two arguments, `value` and `secrets` where
@@ -199,6 +199,11 @@ have a `expect` property which is used to compare each value matched by the JSON
 Path to that value. The `expect` property value MUST be a scalar. When the
 `expect` property is not present, the `tolerance` succeeds if the JSON Path
 matched at least one item.
+
+When the `type` property is `"range"`, the object MUST have a `range` 
+property whuch MUST be a sequence of length two. The first entry of the
+sequence MUST be the lower bound and the second entry MUST be the upper bound.
+Both entries MUST be JSON numbers.
 
 [jp]: http://goessner.net/articles/JsonPath/
 
@@ -275,6 +280,23 @@ A jsonpath tolerance with an expected value to match:
     "expect": 4
 }
 ```
+
+Two range tolerances:
+
+```json
+"tolerance": {
+    "type": "range",
+    "range": [4, 8]
+}
+```
+
+```json
+"tolerance": {
+    "type": "range",
+    "range": [4.6, 8.9]
+}
+```
+
 
 ### Contributions
 

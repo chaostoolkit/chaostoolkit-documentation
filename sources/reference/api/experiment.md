@@ -87,7 +87,6 @@ An experiment MUST declare:
 * a `version` property
 * a `title` property
 * a `description` property
-* a `steady-state-hypothesis` property
 * a `method` property
 
 The `version` property MUST be `"0.1.0"`.
@@ -99,6 +98,7 @@ Title and description are JSON strings with no maximum length.
 
 An experiment SHOULD also declare:
 
+* a `steady-state-hypothesis` property
 * a `rollbacks` property
 
 An experiment MAY finally declare:

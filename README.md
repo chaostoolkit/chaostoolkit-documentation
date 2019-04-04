@@ -5,7 +5,7 @@
 
 Get to the [documentation][live] of the Chaos Toolkit.
 
-[live]: http://chaostoolkit.org/
+[live]: http://docs.chaostoolkit.org/
 
 ## Contribute to the documentation
 

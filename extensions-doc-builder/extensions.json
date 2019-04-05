@@ -48,5 +48,10 @@
         "name": "chaostracing",
         "doc_path": "../sources/drivers/opentracing.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-opentracing"
+    },
+    {
+        "name": "chaosservicefabric",
+        "doc_path": "../sources/drivers/service-fabric.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-service-fabric"
     }
 ]

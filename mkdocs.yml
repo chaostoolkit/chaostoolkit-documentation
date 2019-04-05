@@ -75,6 +75,7 @@ nav:
       - Cloud Foundry: drivers/cloudfoundry.md
       - GCE: drivers/gce.md
       - Kubernetes: drivers/kubernetes.md
+      - Service Fabric: drivers/service-fabric.md
     - Application:
       - Spring: drivers/spring.md
     - Network:

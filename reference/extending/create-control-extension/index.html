@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.1.2">
     
     
       
@@ -1032,6 +1032,26 @@
     Use your control
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declare-it-in-the-experiment" title="Declare it in the experiment" class="md-nav__link">
+    Declare it in the experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-it-in-your-settings" title="Declare it in your settings" class="md-nav__link">
+    Declare it in your settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1162,6 +1182,26 @@
     Use your control
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#declare-it-in-the-experiment" title="Declare it in the experiment" class="md-nav__link">
+    Declare it in the experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-it-in-your-settings" title="Declare it in your settings" class="md-nav__link">
+    Declare it in your settings
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1223,15 +1263,19 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 <div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">chaoslib.types</span> <span class="kn">import</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">Configuration</span><span class="p">,</span> \
-    <span class="n">Experiment</span><span class="p">,</span> <span class="n">Hypothesis</span><span class="p">,</span> <span class="n">Journal</span><span class="p">,</span> <span class="n">Run</span><span class="p">,</span> <span class="n">Secrets</span>
+    <span class="n">Experiment</span><span class="p">,</span> <span class="n">Hypothesis</span><span class="p">,</span> <span class="n">Journal</span><span class="p">,</span> <span class="n">Run</span><span class="p">,</span> <span class="n">Secrets</span><span class="p">,</span> <span class="n">Settings</span>
 
 
-<span class="k">def</span> <span class="nf">configure_control</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">configure_control</span><span class="p">(</span><span class="n">config</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
+                      <span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Configure the control&#39;s global state</span>
 
 <span class="sd">    This is called once only per Chaos Toolkit&#39;s run and should be used to</span>
 <span class="sd">    initialize any state your control may require.</span>
+
+<span class="sd">    The `settings` are only passed when the control is declared in the</span>
+<span class="sd">    settings file of the Chaos Toolkit.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">pass</span>
 
@@ -1378,8 +1422,11 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 <h2 id="use-your-control">Use your control<a class="headerlink" href="#use-your-control" title="Permanent link">&para;</a></h2>
 <p>Define those functions into a module that is used as a provider. For instance,
 assume the above definition is stored into a module <code>chaosstuff.control</code>, in
-other words a <code>control.py</code> module of the <code>chaosstuff</code> package. Then, your
-control can be used as follows:</p>
+other words a <code>control.py</code> module of the <code>chaosstuff</code> package.</p>
+<p>The package must obviously be available to the <code>PYTHONPATH</code> in which the
+<code>chaos</code> runs.</p>
+<h3 id="declare-it-in-the-experiment">Declare it in the experiment<a class="headerlink" href="#declare-it-in-the-experiment" title="Permanent link">&para;</a></h3>
+<p>Controls can be applied per-experiment only:</p>
 <div class="codehilite"><pre><span></span><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-stuff&quot;</span><span class="p">,</span>
@@ -1391,8 +1438,16 @@ control can be used as follows:</p>
 <span class="p">]</span>
 </pre></div>
 
-<p>The package must obviously be available to the <code>PYTHONPATH</code> in which the
-<code>chaos</code> runs.</p>
+<h3 id="declare-it-in-your-settings">Declare it in your settings<a class="headerlink" href="#declare-it-in-your-settings" title="Permanent link">&para;</a></h3>
+<p>Controls can be also applied globally to all runs by declaring them in the
+Chaos Toolkit settings file:</p>
+<div class="codehilite"><pre><span></span><span class="nt">controls</span><span class="p">:</span>
+    <span class="nt">my-stuff</span><span class="p">:</span>
+        <span class="nt">provider</span><span class="p">:</span>
+            <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+            <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosstuff.control</span>
+</pre></div>
+
 <h2 id="things-to-note">Things to note<a class="headerlink" href="#things-to-note" title="Permanent link">&para;</a></h2>
 <h3 id="unforeseen-errors">Unforeseen errors<a class="headerlink" href="#unforeseen-errors" title="Permanent link">&para;</a></h3>
 <p>The Chaos Toolkit will not let a control abort the execution of the experiment.
@@ -1503,7 +1558,7 @@ the rollbacks will be applied.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.dc02f8ce.js"></script>
+      <script src="../../../assets/javascripts/application.267712eb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

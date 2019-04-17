@@ -17,15 +17,19 @@ that are called by the Chaos Toolkit when executing the experiment.
 from typing import Any, Dict, List
 
 from chaoslib.types import Activity, Configuration, \
-    Experiment, Hypothesis, Journal, Run, Secrets
+    Experiment, Hypothesis, Journal, Run, Secrets, Settings
 
 
-def configure_control(config: Configuration, secrets: Secrets):
+def configure_control(config: Configuration = None, secrets: Secrets = None,
+                      settings: Settings = None):
     """
     Configure the control's global state
 
     This is called once only per Chaos Toolkit's run and should be used to
     initialize any state your control may require.
+
+    The `settings` are only passed when the control is declared in the
+    settings file of the Chaos Toolkit.
     """
     pass
 
@@ -174,8 +178,14 @@ def after_activity_control(context: Activity, state: Run,
 
 Define those functions into a module that is used as a provider. For instance,
 assume the above definition is stored into a module `chaosstuff.control`, in
-other words a `control.py` module of the `chaosstuff` package. Then, your
-control can be used as follows:
+other words a `control.py` module of the `chaosstuff` package.
+
+The package must obviously be available to the `PYTHONPATH` in which the
+`chaos` runs.
+
+### Declare it in the experiment
+
+Controls can be applied per-experiment only:
 
 ```json
 "controls": [
@@ -189,8 +199,18 @@ control can be used as follows:
 ]
 ```
 
-The package must obviously be available to the `PYTHONPATH` in which the
-`chaos` runs.
+### Declare it in your settings
+
+Controls can be also applied globally to all runs by declaring them in the
+Chaos Toolkit settings file:
+
+```yaml
+controls:
+    my-stuff:
+        provider:
+            type: python
+            module: chaosstuff.control
+```
 
 ## Things to note
 

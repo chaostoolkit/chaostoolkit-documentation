@@ -20,8 +20,9 @@ from chaoslib.types import Activity, Configuration, \
     Experiment, Hypothesis, Journal, Run, Secrets, Settings
 
 
-def configure_control(config: Configuration = None, secrets: Secrets = None,
-                      settings: Settings = None):
+def configure_control(configuration: Configuration = None,
+                      secrets: Secrets = None, settings: Settings = None,
+                      experiment: Experiment = None):
     """
     Configure the control's global state
 

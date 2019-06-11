@@ -211,6 +211,7 @@ def build_return_type_info(sig) -> str:
             return_type = repr(sig.return_annotation).replace(
                 "<class '", "").replace("'>", "").replace(
                     "typing.", "")
+    return return_type
 
 
 def called_without_args_info(args, mod_name, func_name, activity_type):

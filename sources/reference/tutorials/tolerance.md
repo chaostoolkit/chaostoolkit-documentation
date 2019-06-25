@@ -441,7 +441,7 @@ could be written as follows:
 ```
 
 In that case, implement the
-`search_text(path: str, search_for: str, value: str) -> bool` function in the
+`search_text(path: str, search_for: str, value: dict) -> bool` function in the
 `my.package` Python module.
 
 

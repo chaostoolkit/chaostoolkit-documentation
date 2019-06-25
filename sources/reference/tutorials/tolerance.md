@@ -452,7 +452,7 @@ import re
 def search_text(path: str, search_for: str, value: dict) -> bool:
     with open(path) as f:
         content = f.read()
-        return re.compile(search_for).match(dict["stdout"]) is not None
+        return re.compile(search_for).match(value["stdout"]) is not None
 ```
 
 As you can see, the `value` argument is not declared but must exist in the

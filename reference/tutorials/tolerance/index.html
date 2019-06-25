@@ -1559,8 +1559,8 @@ properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</cod
 <p>In this case, use a <code>jsonpath</code> tolerance. </p>
 <p>For instance, let&rsquo;s assume you receive the following JSON payload:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="err">&#39;foo&#39;:</span> <span class="err">[{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">}</span><span class="err">,</span> <span class="p">{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">}</span><span class="err">]</span>
-<span class="err">}</span>
+    <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">}]</span>
+<span class="p">}</span>
 </pre></div>
 
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1686,7 +1686,7 @@ power but this isn&rsquo;t compulsory.</p>
 </pre></div>
 
 <p>In that case, implement the
-<code>search_text(path: str, search_for: str, value: str) -&gt; bool</code> function in the
+<code>search_text(path: str, search_for: str, value: dict) -&gt; bool</code> function in the
 <code>my.package</code> Python module.</p>
 <div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
 

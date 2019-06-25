@@ -67,6 +67,7 @@ nav:
         - Schedule: reference/usage/scheduling.md
 - Tutorials:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
+    - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
 - Drivers Reference:
     - Overview: drivers/overview.md
     - Infrastructure/Platform:

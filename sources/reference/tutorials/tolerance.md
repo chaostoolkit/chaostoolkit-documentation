@@ -294,7 +294,7 @@ For instance, let's assume you receive the following JSON payload:
 
 ```json
 {
-    'foo': [{"baz": "hello"}, {"baz": "bonjour"}]
+    "foo": [{"baz": "hello"}, {"baz": "bonjour"}]
 }
 ```
 

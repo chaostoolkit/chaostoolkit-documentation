@@ -119,7 +119,7 @@ command succeeds. Again, this is the value that the tolerance validates.
 Now that we know the basics, let's move on to see what are the supported
 tolerances.
 
-### Built-in supported tolerances
+## Built-in supported tolerances
 
 The [experiment specification][spec] describes the supported tolerances but
 let's review them more pragmatically here.
@@ -189,11 +189,11 @@ On top of this native types, we support also more advance cases such as:
    output of another probe. This is advanced stuff only used when the builtin
    probes won't cut it.
 
-### Common scenarios
+## Common scenarios
 
 Let's now review how to apply these tolerances to most common scenarios.
 
-#### Validate the return code of a boolean Python probe
+### Validate the return code of a boolean Python probe
 
 In this case, the simple `boolean` tolerance will do.
 
@@ -215,7 +215,7 @@ For instance:
 }
 ```
 
-#### Validate the exit code of a process
+### Validate the exit code of a process
 
 In this case, the simple `integer` tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the exit code of the process for validation.
@@ -238,7 +238,7 @@ In the above example:
 Assuming, we would be expecting an error, which commonly translates to an
 exit code `1`, we would switch to `"tolerance": 1`.
 
-#### Validate the status code of a HTTP probe
+### Validate the status code of a HTTP probe
 
 In this case, the simple `integer` tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the status code of the HTTP response for validation.
@@ -257,9 +257,9 @@ For instance:
 }
 ```
 
-### Specific scenarios
+## Specific scenarios
 
-#### Validate the stdout/stderr of a process
+### Validate the stdout/stderr of a process
 
 Assuming you want to validate the actual standard output of a process, you
 need to got a regular expression approach, as follows:
@@ -286,7 +286,7 @@ Toolkit where to locate the value to apply the pattern against. The reason we
 set `stdout` here is because a process probe returns an object made of three
 properties: `"status"`, `"stdout"` and `"stderr"`.
 
-#### Validate the JSON body of a HTTP probe
+### Validate the JSON body of a HTTP probe
 
 In this case, use a `jsonpath` tolerance. 
 
@@ -340,7 +340,7 @@ You mays also validate against a number of extracted values instead:
 ```
 
 
-#### Validate the output of a Python probe returning a mapping
+### Validate the output of a Python probe returning a mapping
 
 In this case, use a `jsonpath` tolerance.
 
@@ -391,7 +391,7 @@ You mays also validate against a number of extracted values instead:
 }
 ```
 
-### Advanced Scenarios
+## Advanced Scenarios
 
 The last case you may be reviewing now is when the default tolerances cannot
 support your use case. Then, you want to create your own tolerance by writing

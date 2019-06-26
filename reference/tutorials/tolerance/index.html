@@ -485,17 +485,16 @@
     Let's get started with a basic example
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-supported-tolerances" title="Built-in supported tolerances" class="md-nav__link">
     Built-in supported tolerances
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#common-scenarios" title="Common scenarios" class="md-nav__link">
     Common scenarios
   </a>
@@ -528,8 +527,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#specific-scenarios" title="Specific scenarios" class="md-nav__link">
     Specific scenarios
   </a>
@@ -562,16 +561,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#advanced-scenarios" title="Advanced Scenarios" class="md-nav__link">
     Advanced Scenarios
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1204,17 +1198,16 @@
     Let's get started with a basic example
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
+</li>
+      
+        <li class="md-nav__item">
   <a href="#built-in-supported-tolerances" title="Built-in supported tolerances" class="md-nav__link">
     Built-in supported tolerances
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#common-scenarios" title="Common scenarios" class="md-nav__link">
     Common scenarios
   </a>
@@ -1247,8 +1240,8 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#specific-scenarios" title="Specific scenarios" class="md-nav__link">
     Specific scenarios
   </a>
@@ -1281,16 +1274,11 @@
     </nav>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#advanced-scenarios" title="Advanced Scenarios" class="md-nav__link">
     Advanced Scenarios
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1416,7 +1404,7 @@ tolerance checks for.</p>
 command succeeds. Again, this is the value that the tolerance validates.</p>
 <p>Now that we know the basics, let&rsquo;s move on to see what are the supported
 tolerances.</p>
-<h3 id="built-in-supported-tolerances">Built-in supported tolerances<a class="headerlink" href="#built-in-supported-tolerances" title="Permanent link">&para;</a></h3>
+<h2 id="built-in-supported-tolerances">Built-in supported tolerances<a class="headerlink" href="#built-in-supported-tolerances" title="Permanent link">&para;</a></h2>
 <p>The <a href="https://docs.chaostoolkit.org/reference/api/experiment/#steady-state-probe-tolerance">experiment specification</a> describes the supported tolerances but
 let&rsquo;s review them more pragmatically here.</p>
 <p>Chaos Toolkit aims at being easy for simple tasks whenever it can. In this case,
@@ -1478,9 +1466,9 @@ for the general use-cases, we support the following tolerances:</p>
    probes won&rsquo;t cut it.</p>
 </li>
 </ul>
-<h3 id="common-scenarios">Common scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h3>
+<h2 id="common-scenarios">Common scenarios<a class="headerlink" href="#common-scenarios" title="Permanent link">&para;</a></h2>
 <p>Let&rsquo;s now review how to apply these tolerances to most common scenarios.</p>
-<h4 id="validate-the-return-code-of-a-boolean-python-probe">Validate the return code of a boolean Python probe<a class="headerlink" href="#validate-the-return-code-of-a-boolean-python-probe" title="Permanent link">&para;</a></h4>
+<h3 id="validate-the-return-code-of-a-boolean-python-probe">Validate the return code of a boolean Python probe<a class="headerlink" href="#validate-the-return-code-of-a-boolean-python-probe" title="Permanent link">&para;</a></h3>
 <p>In this case, the simple <code>boolean</code> tolerance will do.</p>
 <p>For instance:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1498,7 +1486,7 @@ for the general use-cases, we support the following tolerances:</p>
 <span class="p">}</span>
 </pre></div>
 
-<h4 id="validate-the-exit-code-of-a-process">Validate the exit code of a process<a class="headerlink" href="#validate-the-exit-code-of-a-process" title="Permanent link">&para;</a></h4>
+<h3 id="validate-the-exit-code-of-a-process">Validate the exit code of a process<a class="headerlink" href="#validate-the-exit-code-of-a-process" title="Permanent link">&para;</a></h3>
 <p>In this case, the simple <code>integer</code> tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the exit code of the process for validation.</p>
 <p>In the above example:</p>
@@ -1516,7 +1504,7 @@ will look by default to the exit code of the process for validation.</p>
 
 <p>Assuming, we would be expecting an error, which commonly translates to an
 exit code <code>1</code>, we would switch to <code>"tolerance": 1</code>.</p>
-<h4 id="validate-the-status-code-of-a-http-probe">Validate the status code of a HTTP probe<a class="headerlink" href="#validate-the-status-code-of-a-http-probe" title="Permanent link">&para;</a></h4>
+<h3 id="validate-the-status-code-of-a-http-probe">Validate the status code of a HTTP probe<a class="headerlink" href="#validate-the-status-code-of-a-http-probe" title="Permanent link">&para;</a></h3>
 <p>In this case, the simple <code>integer</code> tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the status code of the HTTP response for validation.</p>
 <p>For instance:</p>
@@ -1531,8 +1519,8 @@ will look by default to the status code of the HTTP response for validation.</p>
 <span class="p">}</span>
 </pre></div>
 
-<h3 id="specific-scenarios">Specific scenarios<a class="headerlink" href="#specific-scenarios" title="Permanent link">&para;</a></h3>
-<h4 id="validate-the-stdoutstderr-of-a-process">Validate the stdout/stderr of a process<a class="headerlink" href="#validate-the-stdoutstderr-of-a-process" title="Permanent link">&para;</a></h4>
+<h2 id="specific-scenarios">Specific scenarios<a class="headerlink" href="#specific-scenarios" title="Permanent link">&para;</a></h2>
+<h3 id="validate-the-stdoutstderr-of-a-process">Validate the stdout/stderr of a process<a class="headerlink" href="#validate-the-stdoutstderr-of-a-process" title="Permanent link">&para;</a></h3>
 <p>Assuming you want to validate the actual standard output of a process, you
 need to got a regular expression approach, as follows:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1555,7 +1543,7 @@ need to got a regular expression approach, as follows:</p>
 Toolkit where to locate the value to apply the pattern against. The reason we
 set <code>stdout</code> here is because a process probe returns an object made of three
 properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</code>.</p>
-<h4 id="validate-the-json-body-of-a-http-probe">Validate the JSON body of a HTTP probe<a class="headerlink" href="#validate-the-json-body-of-a-http-probe" title="Permanent link">&para;</a></h4>
+<h3 id="validate-the-json-body-of-a-http-probe">Validate the JSON body of a HTTP probe<a class="headerlink" href="#validate-the-json-body-of-a-http-probe" title="Permanent link">&para;</a></h3>
 <p>In this case, use a <code>jsonpath</code> tolerance. </p>
 <p>For instance, let&rsquo;s assume you receive the following JSON payload:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1599,7 +1587,7 @@ of the HTTP probe&rsquo;s output.</p>
 <span class="p">}</span>
 </pre></div>
 
-<h4 id="validate-the-output-of-a-python-probe-returning-a-mapping">Validate the output of a Python probe returning a mapping<a class="headerlink" href="#validate-the-output-of-a-python-probe-returning-a-mapping" title="Permanent link">&para;</a></h4>
+<h3 id="validate-the-output-of-a-python-probe-returning-a-mapping">Validate the output of a Python probe returning a mapping<a class="headerlink" href="#validate-the-output-of-a-python-probe-returning-a-mapping" title="Permanent link">&para;</a></h3>
 <p>In this case, use a <code>jsonpath</code> tolerance.</p>
 <p>For instance, let&rsquo;s assume you receive the following payload:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
@@ -1642,7 +1630,7 @@ against once the JSON Path has been applied against the probe&rsquo;s output.</p
 <span class="p">}</span>
 </pre></div>
 
-<h3 id="advanced-scenarios">Advanced Scenarios<a class="headerlink" href="#advanced-scenarios" title="Permanent link">&para;</a></h3>
+<h2 id="advanced-scenarios">Advanced Scenarios<a class="headerlink" href="#advanced-scenarios" title="Permanent link">&para;</a></h2>
 <p>The last case you may be reviewing now is when the default tolerances cannot
 support your use case. Then, you want to create your own tolerance by writing
 a new probe that takes the output, of the tolerance under validation, as an

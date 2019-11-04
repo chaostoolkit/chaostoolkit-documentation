@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
     
     
       
@@ -2355,10 +2355,11 @@ does not declare any meaning to an extension.</p>
         <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;The file must be around first&quot;</span><span class="p">,</span>
         <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;file-must-exist&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
                 <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exists&quot;</span><span class="p">,</span>
                     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2373,7 +2374,8 @@ does not declare any meaning to an extension.</p>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
             <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;file-be-gone&quot;</span><span class="p">,</span>
             <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os.path&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;os&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove&quot;</span><span class="p">,</span>
                 <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
                     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;some/file&quot;</span>
@@ -2402,10 +2404,11 @@ the specification herein):</p>
 <span class="nt">steady-state-hypothesis</span><span class="p">:</span>
   <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">The file must be around first</span>
   <span class="nt">probes</span><span class="p">:</span>
-  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+  <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
     <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-must-exist</span>
     <span class="nt">tolerance</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
     <span class="nt">provider</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
       <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
       <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">exists</span>
       <span class="nt">arguments</span><span class="p">:</span>
@@ -2414,7 +2417,8 @@ the specification herein):</p>
 <span class="p p-Indicator">-</span> <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">file-be-gone</span>
   <span class="nt">provider</span><span class="p">:</span>
-    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">os.path</span>
+    <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+    <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">os</span>
     <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove</span>
     <span class="nt">arguments</span><span class="p">:</span>
       <span class="nt">path</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">some/file</span>
@@ -2745,7 +2749,7 @@ to perform actions, probing and steady-state hypothesis validation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.c648116f.js"></script>
+      <script src="../../../assets/javascripts/application.ac79c3b0.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

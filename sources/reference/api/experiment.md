@@ -973,10 +973,11 @@ Here is an example of the most minimal experiment:
         "title": "The file must be around first",
         "probes": [
             {
-                "type": "python",
+                "type": "probe",
                 "name": "file-must-exist",
                 "tolerance": true,
                 "provider": {
+                    "type": "python",
                     "module": "os.path",
                     "func": "exists",
                     "arguments": {
@@ -991,7 +992,8 @@ Here is an example of the most minimal experiment:
             "type": "action",
             "name": "file-be-gone",
             "provider": {
-                "module": "os.path",
+                "type": "python",
+                "module": "os",
                 "func": "remove",
                 "arguments": {
                     "path": "some/file"
@@ -1022,10 +1024,11 @@ contributions:
 steady-state-hypothesis:
   title: The file must be around first
   probes:
-  - type: python
+  - type: probe
     name: file-must-exist
     tolerance: true
     provider:
+      type: python
       module: os.path
       func: exists
       arguments:
@@ -1034,7 +1037,8 @@ method:
 - type: action
   name: file-be-gone
   provider:
-    module: os.path
+    type: python
+    module: os
     func: remove
     arguments:
       path: some/file

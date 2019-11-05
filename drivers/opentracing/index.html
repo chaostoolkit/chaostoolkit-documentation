@@ -757,14 +757,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-from-other-extensions" class="md-nav__link">
-    Use from other extensions
+  <a href="#declare-within-the-experiment" class="md-nav__link">
+    Declare within the experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-within-the-settings" class="md-nav__link">
+    Declare within the settings
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-traces-from-other-extensions" class="md-nav__link">
+    Send traces from other extensions
+  </a>
   
 </li>
       
@@ -1190,14 +1204,28 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#use-from-other-extensions" class="md-nav__link">
-    Use from other extensions
+  <a href="#declare-within-the-experiment" class="md-nav__link">
+    Declare within the experiment
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-within-the-settings" class="md-nav__link">
+    Declare within the settings
   </a>
   
 </li>
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#send-traces-from-other-extensions" class="md-nav__link">
+    Send traces from other extensions
+  </a>
   
 </li>
       
@@ -1272,7 +1300,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.1.2</td>
+<td>0.2.1</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1282,7 +1310,7 @@
 </table>
 <p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-opentracing.svg?branch=master" /></a>
 <a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-opentracing.svg" /></a></p>
-<p>This project is an extension for the Chaos Toolkit for <a href="https://opentracing.io/">OpenTracing</a>.</p>
+<p>This project is an extension for the Chaos Toolkit for [OpenTracing 2][].</p>
 <p>Here is an example of what it could look like with the Jaeger backend.</p>
 <p><img alt="OpenTracing" src="https://github.com/chaostoolkit-incubator/chaostoolkit-opentracing/raw/master/example.png" title="Open Tracing with Jaeger" /></p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
@@ -1296,13 +1324,14 @@ environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaosto
 <p>Currently, this extension only provides control support to send traces to
 your provider during the execution of the experiment. It does not yet expose
 any probes or actions per-se.</p>
-<p>To use this control, add the following section to your experiment, at the
-top-level:</p>
+<h3 id="declare-within-the-experiment">Declare within the experiment<a class="headerlink" href="#declare-within-the-experiment" title="Permanent link">&para;</a></h3>
+<p>To use this control, you can declare it on a per experiment basis like this:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;tracing_provider&quot;</span><span class="p">:</span> <span class="s2">&quot;jaeger&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tracing_host&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;tracing_port&quot;</span><span class="p">:</span> <span class="mi">6831</span>
+        <span class="nt">&quot;tracing_port&quot;</span><span class="p">:</span> <span class="mi">6831</span><span class="p">,</span>
+        <span class="nt">&quot;tracing_propagation&quot;</span><span class="p">:</span> <span class="s2">&quot;b3&quot;</span>
     <span class="p">},</span>
     <span class="nt">&quot;controls&quot;</span><span class="p">:</span> <span class="p">[</span>
         <span class="p">{</span>
@@ -1317,59 +1346,61 @@ top-level:</p>
 </pre></div>
 
 <p>This will automatically create a <a href="https://www.jaegertracing.io/">Jaeger</a> client to emit traces onto the
-address <code>127.0.0.1:6831</code>.</p>
-<h3 id="use-from-other-extensions">Use from other extensions<a class="headerlink" href="#use-from-other-extensions" title="Permanent link">&para;</a></h3>
-<p>You may also access the tracer from other extensions as follows:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">opentracing</span>
-
-<span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="n">opentracing</span><span class="o">.</span><span class="n">tracer</span>
+address <code>127.0.0.1:6831</code> (over UDP).</p>
+<h3 id="declare-within-the-settings">Declare within the settings<a class="headerlink" href="#declare-within-the-settings" title="Permanent link">&para;</a></h3>
+<p>You may also declare the control to be applied to all experiments by declaring
+the control from within the <a href="https://docs.chaostoolkit.org/reference/usage/cli/#configure-the-chaos-toolkit">Chaos Toolkit settings file</a>. In that
+case, you do not need to set the configuration or the controls at the
+experiment level and the control will be applied to every experiments you run.</p>
+<div class="codehilite"><pre><span></span><span class="nt">controls</span><span class="p">:</span>
+  <span class="nt">opentracing</span><span class="p">:</span>
+    <span class="nt">provider</span><span class="p">:</span>
+      <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+      <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostracing.control</span>
+      <span class="nt">arguments</span><span class="p">:</span>
+        <span class="nt">provider</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">jaeger</span>
+        <span class="nt">host</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">127.0.0.1</span>
+        <span class="nt">port</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">6831</span>
+        <span class="nt">propagation</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">b3</span>
 </pre></div>
 
-<p>As not all Open Tracing providers support yet to fetch the active span from
-the tracer (Open Tracing 2 specification), we attach the following attributes
-to the tracer instance:</p>
-<div class="codehilite"><pre><span></span><span class="n">tracer</span><span class="o">.</span><span class="n">experiment_span</span>  <span class="c1"># span during the lifetime of the experiment</span>
-<span class="n">tracer</span><span class="o">.</span><span class="n">hypothesis_span</span>  <span class="c1"># span during the lifetime of the hypothesis</span>
-<span class="n">tracer</span><span class="o">.</span><span class="n">method_span</span>  <span class="c1"># span during the lifetime of the method</span>
-<span class="n">tracer</span><span class="o">.</span><span class="n">rollback_span</span>  <span class="c1"># span during the lifetime of the rollback</span>
-<span class="n">tracer</span><span class="o">.</span><span class="n">activity_span</span>  <span class="c1"># span during the lifetime of an activity</span>
-</pre></div>
-
+<h2 id="send-traces-from-other-extensions">Send traces from other extensions<a class="headerlink" href="#send-traces-from-other-extensions" title="Permanent link">&para;</a></h2>
+<p>You may also access the tracer from other extensions as follows.</p>
 <p>For instance, assuming you have an extension that makes a HTTP call you want
 to trace specifically, you could do this from your extension&rsquo;s code:</p>
-<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">opentracing</span>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">chaoslib</span> <span class="kn">import</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">Secrets</span>
 <span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">opentracing</span>
 
-<span class="k">def</span> <span class="nf">my_activity</span><span class="p">(</span><span class="o">...</span><span class="p">):</span>
-    <span class="n">headers</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="k">def</span> <span class="nf">some_function</span><span class="p">(</span><span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span><span class="p">):</span>
+    <span class="n">tracer</span> <span class="o">=</span> <span class="n">opentracing</span><span class="o">.</span><span class="n">global_tracer</span><span class="p">()</span>
+    <span class="n">scope</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">scope_manager</span><span class="o">.</span><span class="n">active</span>
+    <span class="n">parent</span> <span class="o">=</span> <span class="n">scope</span><span class="o">.</span><span class="n">span</span>
 
-    <span class="n">tracer</span> <span class="o">=</span> <span class="n">opentracing</span><span class="o">.</span><span class="n">tracer</span>
-    <span class="n">parent_span</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">activity_span</span>
-    <span class="n">span</span> <span class="o">=</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_span</span><span class="p">(</span><span class="s2">&quot;my-inner-span&quot;</span><span class="p">,</span> <span class="n">child_of</span><span class="o">=</span><span class="n">parent_span</span><span class="p">)</span>
-    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.method&#39;</span><span class="p">,</span><span class="s1">&#39;GET&#39;</span><span class="p">)</span>
-    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.url&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
-    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;span.kind&#39;</span><span class="p">,</span> <span class="s1">&#39;client&#39;</span><span class="p">)</span>
-    <span class="n">span</span><span class="o">.</span><span class="n">tracer</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="n">span</span><span class="p">,</span> <span class="s1">&#39;http_headers&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">tracer</span><span class="o">.</span><span class="n">start_span</span><span class="p">(</span><span class="s2">&quot;call-service1&quot;</span><span class="p">,</span> <span class="n">child_of</span><span class="o">=</span><span class="n">parent</span><span class="p">)</span> <span class="k">as</span> <span class="n">span</span><span class="p">:</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.method&#39;</span><span class="p">,</span><span class="s1">&#39;GET&#39;</span><span class="p">)</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.url&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;span.kind&#39;</span><span class="p">,</span> <span class="s1">&#39;client&#39;</span><span class="p">)</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">tracer</span><span class="o">.</span><span class="n">inject</span><span class="p">(</span><span class="n">span</span><span class="p">,</span> <span class="s1">&#39;http_headers&#39;</span><span class="p">,</span> <span class="n">headers</span><span class="p">)</span>
 
-    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
-
-    <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.status_code&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
-    <span class="n">span</span><span class="o">.</span><span class="n">finish</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+        <span class="n">span</span><span class="o">.</span><span class="n">set_tag</span><span class="p">(</span><span class="s1">&#39;http.status_code&#39;</span><span class="p">,</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
 </pre></div>
 
 <p>Because the opentracing exposes a noop tracer when non has been initialized,
 it should be safe to have that code in your extensions without having to
 determine if the extension has been enabled in the experiment.</p>
+<p>Please note that, Open Tracing scope cannot be shared across threads
+(while spans can). So, when running this in a background activity, the tracer
+will not actually be set to the one that was initialized.</p>
 <h2 id="open-tracing-provider-support">Open Tracing Provider Support<a class="headerlink" href="#open-tracing-provider-support" title="Permanent link">&para;</a></h2>
 <p>For now, only the Jaeger tracer is supported but <a href="https://opentracing.io/docs/supported-tracers/">other backends</a>
 will be added as need be in the future.</p>
 <h3 id="jaeger-tracer">Jaeger tracer<a class="headerlink" href="#jaeger-tracer" title="Permanent link">&para;</a></h3>
 <p>To install the necessary dependencies for the Jaeger tracer, please run:</p>
-<div class="codehilite"><pre><span></span>$ pip install chaostoolkit-opentracing[jaeger]
+<div class="codehilite"><pre><span></span>$ pip install -U jaeger-client~=4.1
 </pre></div>
 
-<p>Unfortunately, the Jaeger client does not yet support Open Tracing 2.0.</p>
 <h2 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h2>
 <p>To run the tests for the project execute the following:</p>
 <div class="codehilite"><pre><span></span>$ pytest
@@ -1427,8 +1458,8 @@ of an experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaostracing.control&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>

@@ -58,5 +58,10 @@
         "name": "chaosistio",
         "doc_path": "../sources/drivers/istio.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-istio"
+    },
+    {
+        "name": "chaoswm",
+        "doc_path": "../sources/drivers/wiremock.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-wiremock"
     }
 ]

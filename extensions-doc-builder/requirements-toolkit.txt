@@ -10,3 +10,4 @@ chaostoolkit-toxiproxy
 chaostoolkit-opentracing
 chaostoolkit-service-fabric
 chaostoolkit-istio
+chaostoolkit-wiremock

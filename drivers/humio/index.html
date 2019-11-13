@@ -659,6 +659,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../istio/" title="Istio" class="md-nav__link">
+      Istio
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1467,8 +1479,8 @@ of an experiment:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
@@ -1552,17 +1564,17 @@ applied unless you set the <code>automatic</code> properties to <code>false</cod
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{},</span>
-      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{}</span>
+      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
@@ -1596,7 +1608,7 @@ applied unless you set the <code>automatic</code> properties to <code>false</cod
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../toxiproxy/" title="ToxiProxy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../istio/" title="Istio" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1605,7 +1617,7 @@ applied unless you set the <code>automatic</code> properties to <code>false</cod
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                ToxiProxy
+                Istio
               </span>
             </div>
           </a>

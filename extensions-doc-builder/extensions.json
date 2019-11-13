@@ -53,5 +53,10 @@
         "name": "chaosservicefabric",
         "doc_path": "../sources/drivers/service-fabric.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-service-fabric"
+    },
+    {
+        "name": "chaosistio",
+        "doc_path": "../sources/drivers/istio.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-istio"
     }
 ]

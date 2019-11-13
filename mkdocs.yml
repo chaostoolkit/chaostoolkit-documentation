@@ -81,6 +81,7 @@ nav:
       - Spring: drivers/spring.md
     - Network:
       - ToxiProxy: drivers/toxiproxy.md
+      - Istio: drivers/istio.md
     - Observability:
       - Humio: drivers/humio.md
       - Prometheus: drivers/prometheus.md

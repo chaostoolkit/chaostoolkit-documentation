@@ -11,8 +11,10 @@ You can create your own drivers privately or publicly to customize the toolkit f
 | [`chaoscf`](./cloudfoundry.md) | Probes and Actions for Pivotal Cloud Foundry |
 | [`chaosgce`](./gce.md) | Probes and Actions for Google Cloud Engine |
 | [`chaoshumio`](./humio.md) | Notification and controls for logging to Humio |
+| [`chaosistio`](./istio.md) | Probes and Actions for the Istio service mesh |
 | [`chaosk8s`](./kubernetes.md) | Probes and Actions for Kubernetes |
+| [`chaosopentracing`](./opentracing.md) | Controls tracing experiment's executions |
 | [`chaosprometheus`](./prometheus.md) | Probes for Prometheus |
 | [`chaosspring`](./spring.md) | Probes and Actions for Spring Boot |
 | [`chaostoxi`](./toxiproxy.md) | Probes and Actions for Toxi Proxy |
-| [`chaosopentracing`](./opentracing.md) | Controls tracing experiment's executions |
+| [`chaoswm`](./wiremock.md) | Probes and Actions for the WireMock service |

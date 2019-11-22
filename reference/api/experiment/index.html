@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
     
     
       
@@ -44,7 +44,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.1b62728e.css">
       
         <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
       
@@ -55,7 +55,7 @@
       
     
     
-      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+      <script src="../../../assets/javascripts/modernizr.268332fc.js"></script>
     
     
       
@@ -2225,11 +2225,14 @@ actions.</p>
 <p>Configurations MAY be retrieved from the environment. In that case, they must be
 declared as a JSON object with a <code>type</code> property set to <code>"env"</code>. The
 environment variable MUST be declared in the <code>key</code> property as a JSON string.</p>
+<p>The <code>default</code> key is OPTIONAL and MAY be used when the environment variable
+can be undefined and fallback to a default value for the experiment.</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;vault_address&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;VAULT_ADDR&quot;</span>
+            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;VAULT_ADDR&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;https://127.0.0.1:8200&quot;</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
@@ -2773,7 +2776,7 @@ to perform actions, probing and steady-state hypothesis validation.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.ac79c3b0.js"></script>
+      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

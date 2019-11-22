@@ -787,12 +787,16 @@ Configurations MAY be retrieved from the environment. In that case, they must be
 declared as a JSON object with a `type` property set to `"env"`. The
 environment variable MUST be declared in the `key` property as a JSON string.
 
+The `default` key is OPTIONAL and MAY be used when the environment variable
+can be undefined and fallback to a default value for the experiment.
+
 ```json
 {
     "configuration": {
         "vault_address": {
             "type": "env",
-            "key": "VAULT_ADDR"
+            "key": "VAULT_ADDR",
+            "default": "https://127.0.0.1:8200"
         }
     }
 }

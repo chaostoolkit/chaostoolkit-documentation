@@ -1098,7 +1098,7 @@ to perform actions, probing and steady-state hypothesis validation.
                 "tolerance": 200,
                 "provider": {
                     "type": "http",
-                    "secrets": ["faas"],
+                    "secrets": ["global"],
                     "url": "http://demo.foo.bar/system/function/astre",
                     "headers": {
                         "Authorization": "${auth}"
@@ -1225,7 +1225,7 @@ steady-state-hypothesis:
     provider:
       type: http
       secrets:
-      - faas
+      - global
       url: http://demo.foo.bar/system/function/astre
       headers:
         Authorization: "${auth}"

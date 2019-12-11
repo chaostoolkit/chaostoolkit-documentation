@@ -10,9 +10,9 @@
         "repo": "https://github.com/chaostoolkit/chaostoolkit-kubernetes"
     },
     {
-        "name": "chaosgce",
-        "doc_path": "../sources/drivers/gce.md",
-        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-google-cloud"
+        "name": "chaosgcp",
+        "doc_path": "../sources/drivers/gcp.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-google-cloud-platform"
     },
     {
         "name": "chaoscf",

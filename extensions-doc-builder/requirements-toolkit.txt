@@ -2,7 +2,7 @@ chaostoolkit-aws
 chaostoolkit-azure
 chaostoolkit-cloud-foundry
 chaostoolkit-kubernetes
-chaostoolkit-google-cloud
+chaostoolkit-google-cloud-platform
 chaostoolkit-humio
 chaostoolkit-prometheus
 chaostoolkit-spring

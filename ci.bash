@@ -16,7 +16,7 @@ function fetch-and-install-chaostoolkit-packages() {
         --no-deps \
         --no-cache-dir \
         --dest deps \
-        --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus,chaostoolkit-spring,chaostoolkit-toxiproxy,chaostoolkit-opentracing,chaostoolkit-service-fabric,chaostoolkit-istio,chaostoolkit-wiremock \
+        --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud-platform,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus,chaostoolkit-spring,chaostoolkit-toxiproxy,chaostoolkit-opentracing,chaostoolkit-service-fabric,chaostoolkit-istio,chaostoolkit-wiremock \
         -r requirements-toolkit.txt
 
     cd deps

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -555,8 +555,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../drivers/gce/" title="GCE" class="md-nav__link">
-      GCE
+    <a href="../../../drivers/gcp/" title="Google Cloud Platform" class="md-nav__link">
+      Google Cloud Platform
     </a>
   </li>
 
@@ -1292,18 +1292,18 @@ such <a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide 
 <p>Whenever you code on one of the projects, you should run the following command
 so that the project you are hacking on is part of your virtual environment
 without being installed:</p>
-<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> <span class="nb">cd</span> &lt;project-name&gt;
-<span class="gp">(chaostk) $</span> python setup.py develop
+<div class="codehilite"><pre><span></span><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> <span class="nb">cd</span> &lt;project-name&gt;
+<span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> python setup.py develop
 </pre></div>
 
 <p>Sometimes, your virtual env may be borked and not point to your development
 directory. In that case, make sure to remove any previously installed version
 of the project:</p>
-<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip uninstall &lt;project-name&gt;
+<div class="codehilite"><pre><span></span><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip uninstall &lt;project-name&gt;
 </pre></div>
 
 <p>Then make sure your virtual environment point at your local directory with:</p>
-<div class="codehilite"><pre><span></span><span class="gp">(chaostk) $</span> pip freeze
+<div class="codehilite"><pre><span></span><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip freeze
 </pre></div>
 
 <h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
@@ -1459,7 +1459,7 @@ it runs.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

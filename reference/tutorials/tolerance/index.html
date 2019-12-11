@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -677,8 +677,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../drivers/gce/" title="GCE" class="md-nav__link">
-      GCE
+    <a href="../../../drivers/gcp/" title="Google Cloud Platform" class="md-nav__link">
+      Google Cloud Platform
     </a>
   </li>
 
@@ -1706,7 +1706,7 @@ power but this isn&rsquo;t compulsory.</p>
 <span class="k">def</span> <span class="nf">search_text</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">search_for</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
         <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">search_for</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;stdout&quot;</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span>
+        <span class="k">return</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="n">search_for</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">value</span><span class="p">[</span><span class="s2">&quot;stdout&quot;</span><span class="p">])</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 </pre></div>
 
 <p>As you can see, the <code>value</code> argument is not declared but must exist in the
@@ -1798,7 +1798,7 @@ the probe&rsquo;s output.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.0">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
     
     
       
@@ -555,8 +555,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../drivers/gce/" title="GCE" class="md-nav__link">
-      GCE
+    <a href="../../../drivers/gcp/" title="Google Cloud Platform" class="md-nav__link">
+      Google Cloud Platform
     </a>
   </li>
 
@@ -1287,9 +1287,9 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
     <span class="n">Experiment</span><span class="p">,</span> <span class="n">Hypothesis</span><span class="p">,</span> <span class="n">Journal</span><span class="p">,</span> <span class="n">Run</span><span class="p">,</span> <span class="n">Secrets</span><span class="p">,</span> <span class="n">Settings</span>
 
 
-<span class="k">def</span> <span class="nf">configure_control</span><span class="p">(</span><span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                      <span class="n">experiment</span><span class="p">:</span> <span class="n">Experiment</span> <span class="o">=</span> <span class="bp">None</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">configure_control</span><span class="p">(</span><span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Settings</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">experiment</span><span class="p">:</span> <span class="n">Experiment</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Configure the control&#39;s global state</span>
 
@@ -1312,8 +1312,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">before_experiment_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span>
-                              <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                              <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                              <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    before-control of the experiment&#39;s execution</span>
 
@@ -1324,8 +1324,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">after_experiment_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">Journal</span><span class="p">,</span> 
-                             <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                             <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                             <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    after-control of the experiment&#39;s execution</span>
 
@@ -1339,8 +1339,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">before_hypothesis_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Hypothesis</span><span class="p">,</span>
-                              <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                              <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                              <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                              <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    before-control of the hypothesis&#39;s execution</span>
 
@@ -1351,8 +1351,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">after_hypothesis_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Hypothesis</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-                             <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                             <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                             <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                             <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    after-control of the hypothesis&#39;s execution</span>
 
@@ -1365,8 +1365,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">before_method_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span> 
-                          <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                          <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                          <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                          <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    before-control of the method&#39;s execution</span>
 
@@ -1377,8 +1377,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">after_method_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Run</span><span class="p">],</span> 
-                         <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                         <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                         <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                         <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    after-control of the method&#39;s execution</span>
 
@@ -1391,8 +1391,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">before_rollback_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span> 
-                            <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                            <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    before-control of the rollback&#39;s execution</span>
 
@@ -1403,8 +1403,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">after_rollback_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Experiment</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Run</span><span class="p">],</span> 
-                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    after-control of the rollback&#39;s execution</span>
 
@@ -1417,8 +1417,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">before_activity_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Activity</span><span class="p">,</span> 
-                            <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                            <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    before-control of the activity&#39;s execution</span>
 
@@ -1428,8 +1428,8 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 
 
 <span class="k">def</span> <span class="nf">after_activity_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">Run</span><span class="p">,</span>  
-                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    after-control of the activity&#39;s execution</span>
 
@@ -1486,8 +1486,8 @@ the rollbacks will be applied.</p>
 
 
 <span class="k">def</span> <span class="nf">after_activity_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">Run</span><span class="p">,</span>  
-                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span>
-                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="bp">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                           <span class="n">configuration</span><span class="p">:</span> <span class="n">Configuration</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                           <span class="n">secrets</span><span class="p">:</span> <span class="n">Secrets</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">check_stuff</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;output&quot;</span><span class="p">]):</span>
         <span class="k">raise</span> <span class="n">InterruptExecution</span><span class="p">(</span><span class="s2">&quot;Well things went really bad!&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1580,7 +1580,7 @@ the rollbacks will be applied.</p>
       
     </div>
     
-      <script src="../../../assets/javascripts/application.a8b5e56f.js"></script>
+      <script src="../../../assets/javascripts/application.8e03edeb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
       

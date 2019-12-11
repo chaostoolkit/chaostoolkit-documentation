@@ -9,7 +9,7 @@ You can create your own drivers privately or publicly to customize the toolkit f
 | [`chaosaws`](./aws.md) | Probes and Actions for Amazon Web Services |
 | [`chaosazure`](./azure.md) | Probes and Actions for Microsoft Azure |
 | [`chaoscf`](./cloudfoundry.md) | Probes and Actions for Pivotal Cloud Foundry |
-| [`chaosgce`](./gce.md) | Probes and Actions for Google Cloud Engine |
+| [`chaosgcp`](./gcp.md) | Probes and Actions for the Google Cloud Platform |
 | [`chaoshumio`](./humio.md) | Notification and controls for logging to Humio |
 | [`chaosistio`](./istio.md) | Probes and Actions for the Istio service mesh |
 | [`chaosk8s`](./kubernetes.md) | Probes and Actions for Kubernetes |

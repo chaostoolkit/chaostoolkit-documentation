@@ -36,7 +36,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.5.1">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.0">
     
     
       
@@ -60,7 +60,7 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
       
     
@@ -609,12 +609,39 @@
     Usage
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#discovery" class="md-nav__link">
-    Discovery
+  <a href="#use-kubeconfig" class="md-nav__link">
+    Use ~/.kube/config
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specify-the-kubernetes-context" class="md-nav__link">
+    Specify the Kubernetes context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-a-pods-service-account" class="md-nav__link">
+    Use a Pod's service account
   </a>
   
 </li>
@@ -625,9 +652,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#pass-all-credentials-in-the-experiment" class="md-nav__link">
+    Pass all credentials in the experiment
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-api-key" class="md-nav__link">
+    Using an API key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-usernamepassword" class="md-nav__link">
+    Using a username/password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-tls-keycertificate" class="md-nav__link">
+    Using a TLS key/certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-kubernetes-clusters-authentication" class="md-nav__link">
+    Managed Kubernetes Clusters Authentication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-platform" class="md-nav__link">
+    Google Cloud Platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -646,6 +720,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -660,58 +741,37 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#probes" class="md-nav__link">
-    probes
+  <a href="#actions" class="md-nav__link">
+    actions
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#all_microservices_healthy" class="md-nav__link">
-    all_microservices_healthy
+  <a href="#kill_microservice" class="md-nav__link">
+    kill_microservice
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment_is_fully_available" class="md-nav__link">
-    deployment_is_fully_available
+  <a href="#remove_service_endpoint" class="md-nav__link">
+    remove_service_endpoint
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment_is_not_fully_available" class="md-nav__link">
-    deployment_is_not_fully_available
+  <a href="#scale_microservice" class="md-nav__link">
+    scale_microservice
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice_available_and_healthy" class="md-nav__link">
-    microservice_available_and_healthy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice_is_not_available" class="md-nav__link">
-    microservice_is_not_available
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read_microservices_logs" class="md-nav__link">
-    read_microservices_logs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service_endpoint_is_initialized" class="md-nav__link">
-    service_endpoint_is_initialized
+  <a href="#start_microservice" class="md-nav__link">
+    start_microservice
   </a>
   
 </li>
@@ -777,6 +837,68 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#probes" class="md-nav__link">
+    probes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all_microservices_healthy" class="md-nav__link">
+    all_microservices_healthy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment_is_fully_available" class="md-nav__link">
+    deployment_is_fully_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment_is_not_fully_available" class="md-nav__link">
+    deployment_is_not_fully_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microservice_available_and_healthy" class="md-nav__link">
+    microservice_available_and_healthy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microservice_is_not_available" class="md-nav__link">
+    microservice_is_not_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read_microservices_logs" class="md-nav__link">
+    read_microservices_logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_endpoint_is_initialized" class="md-nav__link">
+    service_endpoint_is_initialized
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -787,6 +909,13 @@
           <li class="md-nav__item">
   <a href="#count_pods" class="md-nav__link">
     count_pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exec_in_pods" class="md-nav__link">
+    exec_in_pods
   </a>
   
 </li>
@@ -832,37 +961,50 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    actions
+  <a href="#statefulset" class="md-nav__link">
+    statefulset
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kill_microservice" class="md-nav__link">
-    kill_microservice
+  <a href="#create_statefulset" class="md-nav__link">
+    create_statefulset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove_service_endpoint" class="md-nav__link">
-    remove_service_endpoint
+  <a href="#remove_statefulset" class="md-nav__link">
+    remove_statefulset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scale_microservice" class="md-nav__link">
-    scale_microservice
+  <a href="#scale_statefulset" class="md-nav__link">
+    scale_statefulset
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#start_microservice" class="md-nav__link">
-    start_microservice
+  <a href="#service" class="md-nav__link">
+    service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_service_endpoint" class="md-nav__link">
+    create_service_endpoint
   </a>
   
 </li>
@@ -1422,12 +1564,39 @@
     Usage
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#discovery" class="md-nav__link">
-    Discovery
+  <a href="#use-kubeconfig" class="md-nav__link">
+    Use ~/.kube/config
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#specify-the-kubernetes-context" class="md-nav__link">
+    Specify the Kubernetes context
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-a-pods-service-account" class="md-nav__link">
+    Use a Pod's service account
   </a>
   
 </li>
@@ -1438,9 +1607,56 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#pass-all-credentials-in-the-experiment" class="md-nav__link">
+    Pass all credentials in the experiment
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#using-an-api-key" class="md-nav__link">
+    Using an API key
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-usernamepassword" class="md-nav__link">
+    Using a username/password
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-a-tls-keycertificate" class="md-nav__link">
+    Using a TLS key/certificate
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#managed-kubernetes-clusters-authentication" class="md-nav__link">
+    Managed Kubernetes Clusters Authentication
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#google-cloud-platform" class="md-nav__link">
+    Google Cloud Platform
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1459,6 +1675,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1473,58 +1696,37 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#probes" class="md-nav__link">
-    probes
+  <a href="#actions" class="md-nav__link">
+    actions
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#all_microservices_healthy" class="md-nav__link">
-    all_microservices_healthy
+  <a href="#kill_microservice" class="md-nav__link">
+    kill_microservice
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment_is_fully_available" class="md-nav__link">
-    deployment_is_fully_available
+  <a href="#remove_service_endpoint" class="md-nav__link">
+    remove_service_endpoint
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#deployment_is_not_fully_available" class="md-nav__link">
-    deployment_is_not_fully_available
+  <a href="#scale_microservice" class="md-nav__link">
+    scale_microservice
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#microservice_available_and_healthy" class="md-nav__link">
-    microservice_available_and_healthy
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#microservice_is_not_available" class="md-nav__link">
-    microservice_is_not_available
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#read_microservices_logs" class="md-nav__link">
-    read_microservices_logs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service_endpoint_is_initialized" class="md-nav__link">
-    service_endpoint_is_initialized
+  <a href="#start_microservice" class="md-nav__link">
+    start_microservice
   </a>
   
 </li>
@@ -1590,6 +1792,68 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#probes" class="md-nav__link">
+    probes
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#all_microservices_healthy" class="md-nav__link">
+    all_microservices_healthy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment_is_fully_available" class="md-nav__link">
+    deployment_is_fully_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deployment_is_not_fully_available" class="md-nav__link">
+    deployment_is_not_fully_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microservice_available_and_healthy" class="md-nav__link">
+    microservice_available_and_healthy
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#microservice_is_not_available" class="md-nav__link">
+    microservice_is_not_available
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#read_microservices_logs" class="md-nav__link">
+    read_microservices_logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_endpoint_is_initialized" class="md-nav__link">
+    service_endpoint_is_initialized
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pod" class="md-nav__link">
     pod
   </a>
@@ -1600,6 +1864,13 @@
           <li class="md-nav__item">
   <a href="#count_pods" class="md-nav__link">
     count_pods
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exec_in_pods" class="md-nav__link">
+    exec_in_pods
   </a>
   
 </li>
@@ -1645,37 +1916,50 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    actions
+  <a href="#statefulset" class="md-nav__link">
+    statefulset
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#kill_microservice" class="md-nav__link">
-    kill_microservice
+  <a href="#create_statefulset" class="md-nav__link">
+    create_statefulset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#remove_service_endpoint" class="md-nav__link">
-    remove_service_endpoint
+  <a href="#remove_statefulset" class="md-nav__link">
+    remove_statefulset
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#scale_microservice" class="md-nav__link">
-    scale_microservice
+  <a href="#scale_statefulset" class="md-nav__link">
+    scale_statefulset
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#start_microservice" class="md-nav__link">
-    start_microservice
+  <a href="#service" class="md-nav__link">
+    service
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create_service_endpoint" class="md-nav__link">
+    create_service_endpoint
   </a>
   
 </li>
@@ -1720,7 +2004,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.21.0</td>
+<td>0.22.0</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1733,7 +2017,8 @@
 <a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-kubernetes.svg" /></a>
 <a href="https://pepy.tech/project/chaostoolkit-kubernetes"><img alt="Downloads" src="https://pepy.tech/badge/chaostoolkit-kubernetes" /></a></p>
 <p>This project contains activities, such as probes and actions, you can call from
-your experiment through the Chaos Toolkit.</p>
+your experiment through the Chaos Toolkit to perform Chaos Engineering against
+the Kubernetes API: killing a pod, removing a statefulset or node&hellip;</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>To be used from your experiment, this package must be installed in the Python
 environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaostoolkit</a> already lives.</p>
@@ -1744,53 +2029,136 @@ environment where <a href="https://github.com/chaostoolkit/chaostoolkit">chaosto
 <p>To use the probes and actions from this package, add the following to your
 experiment file:</p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-our-microservices-should-be-healthy&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;myns&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span><span class="err">,</span>
-<span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-db-pod&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.actions&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_pods&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;app=my-app&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name_pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;my-app-[0-9]$&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;rand&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
-            <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;default&quot;</span>
-        <span class="p">}</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Do we remain available in face of pod going down?&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;We expect Kubernetes to handle the situation gracefully when a pod goes down&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kubernetes&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Verifying service remains healthy&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-our-microservices-should-be-healthy&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myapp&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">5</span>
-    <span class="p">}</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-db-pod&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.actions&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_pods&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;app=my-app&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name_pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;my-app-[0-9]$&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;rand&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 
 <p>That&rsquo;s it! Notice how the action gives you the way to kill one pod randomly.</p>
-<p>Please explore the code to see existing probes and actions.</p>
-<h3 id="discovery">Discovery<a class="headerlink" href="#discovery" title="Permanent link">&para;</a></h3>
-<p>You may use the Chaos Toolkit to discover the capabilities of this extension:</p>
-<div class="codehilite"><pre><span></span>$ chaos discover chaostoolkit-kubernetes --no-install
+<p>Please explore the <a href="https://docs.chaostoolkit.org/drivers/kubernetes/#exported-activities">documentation</a> to see existing probes and actions.</p>
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<h3 id="use-kubeconfig">Use ~/.kube/config<a class="headerlink" href="#use-kubeconfig" title="Permanent link">&para;</a></h3>
+<p>If you have a valid entry in your <code>~/.kube/config</code> file for the cluster you
+want to target, then there is nothing to be done.</p>
+<p>You may specify <code>KUBECONFIG</code> to specify a different location.</p>
+<div class="codehilite"><pre><span></span>$ export KUBECONFIG=/tmp/my-config
 </pre></div>
 
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>This extension to the Chaos Toolkit can use the Kubernetes configuration 
-found at the usual place in your HOME directory under <code>~/.kube/</code>, or, when
-run from a Pod in a Kubernetes cluster, it will use the local service account.
-In that case, make sure to set the <code>CHAOSTOOLKIT_IN_POD</code> environment variable
-to <code>"true"</code>.</p>
-<p>You can also pass the credentials via secrets as follows:</p>
+<h4 id="specify-the-kubernetes-context">Specify the Kubernetes context<a class="headerlink" href="#specify-the-kubernetes-context" title="Permanent link">&para;</a></h4>
+<p>Quite often, your Kubernetes configuration contains several entries and you
+need to define the one to use as a default context when not it isn&rsquo;t
+explicitely provided.</p>
+<p>You may of course change your default using
+<code>kubectl config use-context KUBERNETES_CONTEXT</code> but you can also be explicit
+in your experiment as follows:</p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Do we remain available in face of pod going down?&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;We expect Kubernetes to handle the situation gracefully when a pod goes down&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;tags&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kubernetes&quot;</span><span class="p">],</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;k8s&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;KUBERNETES_CONTEXT&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Verifying service remains healthy&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-our-microservices-should-be-healthy&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;k8s&quot;</span><span class="p">],</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myapp&quot;</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-db-pod&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;k8s&quot;</span><span class="p">],</span>
+            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.actions&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_pods&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;app=my-app&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name_pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;my-app-[0-9]$&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;rand&quot;</span><span class="p">:</span> <span class="kc">true</span>
+                <span class="p">}</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">5</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+</pre></div>
+
+<p>You need to specify the <code>KUBERNETES_CONTEXT</code> secret key to the name of the
+context you want the experiment to use. Make sure to also inform the
+actions and probes about the secret entries they should be
+passed <code>"secrets": ["k8s"]</code>.</p>
+<h3 id="use-a-pods-service-account">Use a Pod&rsquo;s service account<a class="headerlink" href="#use-a-pods-service-account" title="Permanent link">&para;</a></h3>
+<p>When running from a pod (not your local machine or a CI for instance), the
+ <code>./.kube/config</code> file does not exist. Instead, the credentials can be found
+ at <a href="https://kubernetes.io/docs/tasks/access-application-cluster/access-cluster/#accessing-the-api-from-a-pod">/var/run/secrets/kubernetes.io/serviceaccount/token</a>.</p>
+<p>To let the extension know about this, simply set <code>CHAOSTOOLKIT_IN_POD</code> from the
+ environment variable of the pod specification:</p>
+<div class="codehilite"><pre><span></span><span class="nt">env</span><span class="p">:</span>
+<span class="p p-Indicator">-</span> <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">CHAOSTOOLKIT_IN_POD</span>
+  <span class="nt">value</span><span class="p">:</span> <span class="s">&quot;true&quot;</span>
+</pre></div>
+
+<h2 id="pass-all-credentials-in-the-experiment">Pass all credentials in the experiment<a class="headerlink" href="#pass-all-credentials-in-the-experiment" title="Permanent link">&para;</a></h2>
+<p>Finally, you may pass explicitely all required credentials information to the
+experiment as follows:</p>
+<h3 id="using-an-api-key">Using an API key<a class="headerlink" href="#using-an-api-key" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;kubernetes&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1804,41 +2172,54 @@ to <code>"true"</code>.</p>
 <span class="p">}</span>
 </pre></div>
 
-<p>Then in your probe or action:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-our-microservices-should-be-healthy&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;kubernetes&quot;</span><span class="p">],</span>
-        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;myapp&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;ns&quot;</span><span class="p">:</span> <span class="s2">&quot;myns&quot;</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<p>You may specify the Kubernetes context you want to use as follows:</p>
+<h3 id="using-a-usernamepassword">Using a username/password<a class="headerlink" href="#using-a-usernamepassword" title="Permanent link">&para;</a></h3>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;kubernetes&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;KUBERNETES_CONTEXT&quot;</span><span class="p">:</span> <span class="s2">&quot;minikube&quot;</span>
+            <span class="nt">&quot;KUBERNETES_HOST&quot;</span><span class="p">:</span> <span class="s2">&quot;http://somehost&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;KUBERNETES_USERNAME&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;SOME_ENV_VAR&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;KUBERNETES_PASSWORD&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;SOME_ENV_VAR&quot;</span>
+            <span class="p">}</span>
         <span class="p">}</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<p>Or via the environment:</p>
-<div class="codehilite"><pre><span></span>$ export KUBERNETES_CONTEXT=minikube
+<h3 id="using-a-tls-keycertificate">Using a TLS key/certificate<a class="headerlink" href="#using-a-tls-keycertificate" title="Permanent link">&para;</a></h3>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;kubernetes&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;KUBERNETES_HOST&quot;</span><span class="p">:</span> <span class="s2">&quot;http://somehost&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;KUBERNETES_CERT_FILE&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;SOME_ENV_VAR&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;KUBERNETES_KEY_FILE&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;SOME_ENV_VAR&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
 </pre></div>
 
-<p>In the same spirit, you can specify where to find your Kubernetes configuration
-with:</p>
-<div class="codehilite"><pre><span></span>$ export KUBECONFIG=some/path/config
+<h2 id="managed-kubernetes-clusters-authentication">Managed Kubernetes Clusters Authentication<a class="headerlink" href="#managed-kubernetes-clusters-authentication" title="Permanent link">&para;</a></h2>
+<p>On some managed Kubernetes clusters, you also need to authenticate against the
+platform itself because the Kubernetes authentication is delegated to it.</p>
+<h3 id="google-cloud-platform">Google Cloud Platform<a class="headerlink" href="#google-cloud-platform" title="Permanent link">&para;</a></h3>
+<p>In addition to your Kubernetes credentials (via the <code>~/.kube/config</code> file), you
+need to authenticate against the Google Cloud Platform itself. Usually this
+is done <a href="https://cloud.google.com/sdk/gcloud/reference/auth/login">via</a>:</p>
+<div class="codehilite"><pre><span></span>$ gcloud auth login
 </pre></div>
 
+<p>But can also be achieved by defining the <code>GOOGLE_APPLICATION_CREDENTIALS</code>
+environment variable.</p>
 <h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
 <p>If you wish to contribute more functions to this package, you are more than
 welcome to do so. Please fork this project, make your changes following the
@@ -1861,10 +2242,15 @@ those dependencies.</p>
 
 <p>Now, you can edit the files and they will be automatically be seen by your
 environment, even when running from the <code>chaos</code> command locally.</p>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
+<p>To run the tests for the project execute the following:</p>
+<div class="codehilite"><pre><span></span>$ pytest
+</pre></div>
+
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
-<h3 id="probes">probes<a class="headerlink" href="#probes" title="Permanent link">&para;</a></h3>
+<h3 id="actions">actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
 <hr />
-<h4 id="all_microservices_healthy"><code>all_microservices_healthy</code><a class="headerlink" href="#all_microservices_healthy" title="Permanent link">&para;</a></h4>
+<h4 id="kill_microservice"><code>kill_microservice</code><a class="headerlink" href="#kill_microservice" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -1875,93 +2261,15 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <tbody>
 <tr>
 <td><strong>Type</strong></td>
-<td>probe</td>
+<td>action</td>
 </tr>
 <tr>
 <td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
+<td>chaosk8s.actions</td>
 </tr>
 <tr>
 <td><strong>Name</strong></td>
-<td>all_microservices_healthy</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>Tuple[Dict[str, Any], Dict[str, Any]]</td>
-</tr>
-</tbody>
-</table>
-<p>Check all microservices in the system are running and available.</p>
-<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when the state is not
-as expected.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">all_microservices_healthy</span><span class="p">(</span>
-    <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-    <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-microservices-healthy&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;all_microservices_healthy&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all-microservices-healthy</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all_microservices_healthy</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</pre></div>
-
-<hr />
-<h4 id="deployment_is_fully_available"><code>deployment_is_fully_available</code><a class="headerlink" href="#deployment_is_fully_available" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>deployment_is_fully_available</td>
+<td>kill_microservice</td>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
@@ -1969,223 +2277,15 @@ as expected.</p>
 </tr>
 </tbody>
 </table>
-<p>Wait until all the deployment expected replicas are available.
-Once this state is reached, return <code>True</code>.
-If the state is not reached after <code>timeout</code> seconds, a
-:exc:<code>chaoslib.exceptions.ActivityFailed</code> exception is raised.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">deployment_is_fully_available</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                                  <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                                  <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-                                  <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
-                                  <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>label_selector</strong></td>
-<td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>timeout</strong></td>
-<td>integer</td>
-<td>30</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment-is-fully-available&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment_is_fully_available&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment-is-fully-available</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment_is_fully_available</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</pre></div>
-
-<hr />
-<h4 id="deployment_is_not_fully_available"><code>deployment_is_not_fully_available</code><a class="headerlink" href="#deployment_is_not_fully_available" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>deployment_is_not_fully_available</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-<p>Wait until the deployment gets into an intermediate state where not all
-expected replicas are available. Once this state is reached, return <code>True</code>.
-If the state is not reached after <code>timeout</code> seconds, a
-:exc:<code>chaoslib.exceptions.ActivityFailed</code> exception is raised.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">deployment_is_not_fully_available</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                                      <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                                      <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-                                      <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
-                                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
-                                                              <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>label_selector</strong></td>
-<td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>timeout</strong></td>
-<td>integer</td>
-<td>30</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment-is-not-fully-available&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment_is_not_fully_available&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment-is-not-fully-available</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment_is_not_fully_available</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</pre></div>
-
-<hr />
-<h4 id="microservice_available_and_healthy"><code>microservice_available_and_healthy</code><a class="headerlink" href="#microservice_available_and_healthy" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>microservice_available_and_healthy</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>Union[bool, NoneType]</td>
-</tr>
-</tbody>
-</table>
-<p>Lookup a deployment by <code>name</code> in the namespace <code>ns</code>.</p>
+<p>Kill a microservice by <code>name</code> in the namespace <code>ns</code>.</p>
+<p>The microservice is killed by deleting the deployment for it without
+a graceful period to trigger an abrupt termination.</p>
 <p>The selected resources are matched by the given <code>label_selector</code>.</p>
-<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when the state is not
-as expected.</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">microservice_available_and_healthy</span><span class="p">(</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]:</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">kill_microservice</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                      <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -2222,31 +2322,31 @@ as expected.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-available-and-healthy&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;kill-microservice&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;kill_microservice&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice-available-and-healthy</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kill-microservice</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice_available_and_healthy</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kill_microservice</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <hr />
-<h4 id="microservice_is_not_available"><code>microservice_is_not_available</code><a class="headerlink" href="#microservice_is_not_available" title="Permanent link">&para;</a></h4>
+<h4 id="remove_service_endpoint"><code>remove_service_endpoint</code><a class="headerlink" href="#remove_service_endpoint" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -2257,231 +2357,15 @@ as expected.</p>
 <tbody>
 <tr>
 <td><strong>Type</strong></td>
-<td>probe</td>
+<td>action</td>
 </tr>
 <tr>
 <td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
+<td>chaosk8s.actions</td>
 </tr>
 <tr>
 <td><strong>Name</strong></td>
-<td>microservice_is_not_available</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>boolean</td>
-</tr>
-</tbody>
-</table>
-<p>Lookup pods with a <code>name</code> label set to the given <code>name</code> in the specified
-<code>ns</code>.</p>
-<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when one of the pods
-with the specified <code>name</code> is in the <code>"Running"</code> phase.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">microservice_is_not_available</span><span class="p">(</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>label_selector</strong></td>
-<td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-is-not-available&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_is_not_available&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice-is-not-available</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice_is_not_available</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</pre></div>
-
-<hr />
-<h4 id="read_microservices_logs"><code>read_microservices_logs</code><a class="headerlink" href="#read_microservices_logs" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>read_microservices_logs</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Fetch logs for all the pods with the label <code>"name"</code> set to <code>name</code> and
-return a dictionary with the keys being the pod&rsquo;s name and the values
-the logs of said pod. If <code>name</code> is not provided, use only the
-<code>label_selector</code> instead.</p>
-<p>When your pod has several containers, you should also set <code>container_name</code>
-to clarify which container you want to read logs from.</p>
-<p>If you provide <code>last</code>, this returns the logs of the last N seconds
-until now. This can set to a fluent delta such as <code>10 minutes</code>.</p>
-<p>You may also set <code>from_previous</code> to <code>True</code> to capture the logs of a
-previous pod&rsquo;s incarnation, if any.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">read_microservices_logs</span><span class="p">(</span>
-        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">last</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-        <span class="n">from_previous</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-        <span class="n">container_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>last</strong></td>
-<td>object</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>from_previous</strong></td>
-<td>boolean</td>
-<td>false</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>label_selector</strong></td>
-<td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>container_name</strong></td>
-<td>string</td>
-<td>null</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read-microservices-logs&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;read_microservices_logs&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read-microservices-logs</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read_microservices_logs</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</pre></div>
-
-<hr />
-<h4 id="service_endpoint_is_initialized"><code>service_endpoint_is_initialized</code><a class="headerlink" href="#service_endpoint_is_initialized" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>service_endpoint_is_initialized</td>
+<td>remove_service_endpoint</td>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
@@ -2489,13 +2373,11 @@ previous pod&rsquo;s incarnation, if any.</p>
 </tr>
 </tbody>
 </table>
-<p>Lookup a service endpoint by its name and raises :exc:<code>FailedProbe</code> when
-the service was not found or not initialized.</p>
+<p>Remove the service endpoint that sits in front of microservices (pods).</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">service_endpoint_is_initialized</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                                    <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                                    <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-                                    <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">remove_service_endpoint</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -2522,37 +2404,213 @@ the service was not found or not initialized.</p>
 <td>&ldquo;default&rdquo;</td>
 <td>No</td>
 </tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-service-endpoint&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_service_endpoint&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-service-endpoint</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove_service_endpoint</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</pre></div>
+
+<hr />
+<h4 id="scale_microservice"><code>scale_microservice</code><a class="headerlink" href="#scale_microservice" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
 <tr>
-<td><strong>label_selector</strong></td>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>action</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.actions</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>scale_microservice</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Scale a deployment up or down. The <code>name</code> is the name of the deployment.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">scale_microservice</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">replicas</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
 <td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>replicas</strong></td>
+<td>integer</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;service-endpoint-is-initialized&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scale-microservice&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;service_endpoint_is_initialized&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;replicas&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;scale_microservice&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service-endpoint-is-initialized</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale-microservice</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service_endpoint_is_initialized</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+    <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale_microservice</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</pre></div>
+
+<hr />
+<h4 id="start_microservice"><code>start_microservice</code><a class="headerlink" href="#start_microservice" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>action</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.actions</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>start_microservice</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Start a microservice described by the deployment config, which must be the
+path to the JSON or YAML representation of the deployment.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">start_microservice</span><span class="p">(</span><span class="n">spec_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>spec_path</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-microservice&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;spec_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_microservice&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start-microservice</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">spec_path</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start_microservice</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <h3 id="node">node<a class="headerlink" href="#node" title="Permanent link">&para;</a></h3>
@@ -2620,8 +2678,8 @@ are scheduled on them any longer.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cordon-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;cordon-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;cordon_node&quot;</span><span class="p">,</span>
@@ -2707,8 +2765,8 @@ fail.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_node&quot;</span><span class="p">,</span>
@@ -2833,8 +2891,8 @@ will be terminated.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_nodes&quot;</span><span class="p">,</span>
@@ -2955,8 +3013,8 @@ equivalent to the <code>kubectl drain --force</code> flag.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;drain-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;drain-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;drain_nodes&quot;</span><span class="p">,</span>
@@ -3031,8 +3089,8 @@ by specifying a label selector.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-nodes&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_nodes&quot;</span><span class="p">,</span>
@@ -3113,8 +3171,8 @@ scheduled on them again.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;uncordon-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;uncordon-node&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;uncordon_node&quot;</span><span class="p">,</span>
@@ -3129,6 +3187,699 @@ scheduled on them again.</p>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.node.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</pre></div>
+
+<h3 id="probes">probes<a class="headerlink" href="#probes" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="all_microservices_healthy"><code>all_microservices_healthy</code><a class="headerlink" href="#all_microservices_healthy" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>all_microservices_healthy</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>Tuple[Dict[str, Any], Dict[str, Any]]</td>
+</tr>
+</tbody>
+</table>
+<p>Check all microservices in the system are running and available.</p>
+<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when the state is not
+as expected.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">all_microservices_healthy</span><span class="p">(</span>
+    <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+    <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;all-microservices-healthy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;all_microservices_healthy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all-microservices-healthy</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">all_microservices_healthy</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="deployment_is_fully_available"><code>deployment_is_fully_available</code><a class="headerlink" href="#deployment_is_fully_available" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>deployment_is_fully_available</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Wait until all the deployment expected replicas are available.
+Once this state is reached, return <code>True</code>.
+If the state is not reached after <code>timeout</code> seconds, a
+:exc:<code>chaoslib.exceptions.ActivityFailed</code> exception is raised.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">deployment_is_fully_available</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                  <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                                  <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                                  <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+                                  <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>&ldquo;name in ({name})&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>timeout</strong></td>
+<td>integer</td>
+<td>30</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment-is-fully-available&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment_is_fully_available&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment-is-fully-available</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment_is_fully_available</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="deployment_is_not_fully_available"><code>deployment_is_not_fully_available</code><a class="headerlink" href="#deployment_is_not_fully_available" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>deployment_is_not_fully_available</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Wait until the deployment gets into an intermediate state where not all
+expected replicas are available. Once this state is reached, return <code>True</code>.
+If the state is not reached after <code>timeout</code> seconds, a
+:exc:<code>chaoslib.exceptions.ActivityFailed</code> exception is raised.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">deployment_is_not_fully_available</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                      <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                                      <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                                      <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+                                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span>
+                                                              <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>&ldquo;name in ({name})&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>timeout</strong></td>
+<td>integer</td>
+<td>30</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment-is-not-fully-available&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;deployment_is_not_fully_available&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment-is-not-fully-available</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">deployment_is_not_fully_available</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="microservice_available_and_healthy"><code>microservice_available_and_healthy</code><a class="headerlink" href="#microservice_available_and_healthy" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>microservice_available_and_healthy</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>Union[bool, NoneType]</td>
+</tr>
+</tbody>
+</table>
+<p>Lookup a deployment by <code>name</code> in the namespace <code>ns</code>.</p>
+<p>The selected resources are matched by the given <code>label_selector</code>.</p>
+<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when the state is not
+as expected.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">microservice_available_and_healthy</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-available-and-healthy&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_available_and_healthy&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice-available-and-healthy</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice_available_and_healthy</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="microservice_is_not_available"><code>microservice_is_not_available</code><a class="headerlink" href="#microservice_is_not_available" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>microservice_is_not_available</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Lookup pods with a <code>name</code> label set to the given <code>name</code> in the specified
+<code>ns</code>.</p>
+<p>Raises :exc:<code>chaoslib.exceptions.ActivityFailed</code> when one of the pods
+with the specified <code>name</code> is in the <code>"Running"</code> phase.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">microservice_is_not_available</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>&ldquo;name in ({name})&rdquo;</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice-is-not-available&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;microservice_is_not_available&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice-is-not-available</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">microservice_is_not_available</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="read_microservices_logs"><code>read_microservices_logs</code><a class="headerlink" href="#read_microservices_logs" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>read_microservices_logs</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>mapping</td>
+</tr>
+</tbody>
+</table>
+<p>Fetch logs for all the pods with the label <code>"name"</code> set to <code>name</code> and
+return a dictionary with the keys being the pod&rsquo;s name and the values
+the logs of said pod. If <code>name</code> is not provided, use only the
+<code>label_selector</code> instead.</p>
+<p>When your pod has several containers, you should also set <code>container_name</code>
+to clarify which container you want to read logs from.</p>
+<p>If you provide <code>last</code>, this returns the logs of the last N seconds
+until now. This can set to a fluent delta such as <code>10 minutes</code>.</p>
+<p>You may also set <code>from_previous</code> to <code>True</code> to capture the logs of a
+previous pod&rsquo;s incarnation, if any.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">read_microservices_logs</span><span class="p">(</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">last</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">NoneType</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+        <span class="n">from_previous</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+        <span class="n">container_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>last</strong></td>
+<td>object</td>
+<td>null</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>from_previous</strong></td>
+<td>boolean</td>
+<td>false</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>&ldquo;name in ({name})&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>container_name</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read-microservices-logs&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;read_microservices_logs&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read-microservices-logs</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">read_microservices_logs</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="service_endpoint_is_initialized"><code>service_endpoint_is_initialized</code><a class="headerlink" href="#service_endpoint_is_initialized" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>service_endpoint_is_initialized</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Lookup a service endpoint by its name and raises :exc:<code>FailedProbe</code> when
+the service was not found or not initialized.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">service_endpoint_is_initialized</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                                    <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                                    <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
+                                    <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>&ldquo;name in ({name})&rdquo;</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;service-endpoint-is-initialized&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;service_endpoint_is_initialized&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.probes&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service-endpoint-is-initialized</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">service_endpoint_is_initialized</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
 </pre></div>
 
 <h3 id="pod">pod<a class="headerlink" href="#pod" title="Permanent link">&para;</a></h3>
@@ -3203,14 +3954,14 @@ one is given.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;count-pods&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;count-pods&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;count_pods&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;count_pods&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -3224,6 +3975,171 @@ one is given.</p>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.probes</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</pre></div>
+
+<hr />
+<h4 id="exec_in_pods"><code>exec_in_pods</code><a class="headerlink" href="#exec_in_pods" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>action</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.pod.actions</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>exec_in_pods</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>list</td>
+</tr>
+</tbody>
+</table>
+<p>Execute the command <code>cmd</code> in the specified pod&rsquo;s container.
+Select the appropriate pods by label and/or name patterns.
+Whenever a pattern is provided for the name, all pods retrieved will be
+filtered out if their name do not match the given pattern.</p>
+<p>If neither <code>label_selector</code> nor <code>name_pattern</code> are provided, all pods
+in the namespace will be selected for termination.</p>
+<p>If <code>all</code> is set to <code>True</code>, all matching pods will be affected.</p>
+<p>Value of <code>qty</code> varies based on <code>mode</code>.
+If <code>mode</code> is set to <code>fixed</code>, then <code>qty</code> refers to number of pods affected.
+If <code>mode</code> is set to <code>percentage</code>, then <code>qty</code> refers to
+percentage of pods, from 1 to 100, to be affected.
+Default <code>mode</code> is <code>fixed</code> and default <code>qty</code> is <code>1</code>.</p>
+<p>If <code>order</code> is set to <code>oldest</code>, the retrieved pods will be ordered
+by the pods creation_timestamp, with the oldest pod first in list.</p>
+<p>If <code>rand</code> is set to <code>True</code>, n random pods will be affected
+Otherwise, the first retrieved n pods will be used</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">exec_in_pods</span><span class="p">(</span>
+        <span class="n">cmd</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">name_pattern</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="nb">all</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">rand</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;fixed&#39;</span><span class="p">,</span>
+        <span class="n">qty</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+        <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+        <span class="n">order</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;alphabetic&#39;</span><span class="p">,</span>
+        <span class="n">container_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">request_timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">60</span><span class="p">,</span>
+        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>cmd</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>label_selector</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>name_pattern</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>all</strong></td>
+<td>boolean</td>
+<td>false</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>rand</strong></td>
+<td>boolean</td>
+<td>false</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>mode</strong></td>
+<td>string</td>
+<td>&ldquo;fixed&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>qty</strong></td>
+<td>integer</td>
+<td>1</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>order</strong></td>
+<td>string</td>
+<td>&ldquo;alphabetic&rdquo;</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>container_name</strong></td>
+<td>string</td>
+<td>null</td>
+<td>No</td>
+</tr>
+<tr>
+<td><strong>request_timeout</strong></td>
+<td>integer</td>
+<td>60</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;exec-in-pods&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;cmd&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;exec_in_pods&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.actions&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">exec-in-pods</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">cmd</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">exec_in_pods</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.pod.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <hr />
@@ -3298,15 +4214,15 @@ conditions type/status is not as expected</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-in-conditions&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-in-conditions&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_in_conditions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;conditions&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_in_conditions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -3395,14 +4311,14 @@ as expected.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-in-phase&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-in-phase&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_in_phase&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_in_phase&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -3490,14 +4406,14 @@ given phase and should not have.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-not-in-phase&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;pods-not-in-phase&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_not_in_phase&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;label_selector&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;pods_not_in_phase&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.pod.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
@@ -3613,8 +4529,8 @@ previous pod&rsquo;s incarnation, if any.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read-pod-logs&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;read-pod-logs&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;read_pod_logs&quot;</span><span class="p">,</span>
@@ -3761,8 +4677,8 @@ Otherwise, the default pod&rsquo;s grace period will be used.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-pods&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-pods&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_pods&quot;</span><span class="p">,</span>
@@ -3779,9 +4695,9 @@ Otherwise, the default pod&rsquo;s grace period will be used.</p>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
-<h3 id="actions">actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
+<h3 id="statefulset">statefulset<a class="headerlink" href="#statefulset" title="Permanent link">&para;</a></h3>
 <hr />
-<h4 id="kill_microservice"><code>kill_microservice</code><a class="headerlink" href="#kill_microservice" title="Permanent link">&para;</a></h4>
+<h4 id="create_statefulset"><code>create_statefulset</code><a class="headerlink" href="#create_statefulset" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -3796,11 +4712,11 @@ Otherwise, the default pod&rsquo;s grace period will be used.</p>
 </tr>
 <tr>
 <td><strong>Module</strong></td>
-<td>chaosk8s.actions</td>
+<td>chaosk8s.statefulset.actions</td>
 </tr>
 <tr>
 <td><strong>Name</strong></td>
-<td>kill_microservice</td>
+<td>create_statefulset</td>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
@@ -3808,15 +4724,102 @@ Otherwise, the default pod&rsquo;s grace period will be used.</p>
 </tr>
 </tbody>
 </table>
-<p>Kill a microservice by <code>name</code> in the namespace <code>ns</code>.</p>
-<p>The microservice is killed by deleting the deployment for it without
-a graceful period to trigger an abrupt termination.</p>
+<p>Create a statefulset described by the service config, which must be
+the path to the JSON or YAML representation of the statefulset.</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">create_statefulset</span><span class="p">(</span><span class="n">spec_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>spec_path</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>ns</strong></td>
+<td>string</td>
+<td>&ldquo;default&rdquo;</td>
+<td>No</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-statefulset&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;spec_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_statefulset&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.statefulset.actions&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-statefulset</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">spec_path</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_statefulset</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.statefulset.actions</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</pre></div>
+
+<hr />
+<h4 id="remove_statefulset"><code>remove_statefulset</code><a class="headerlink" href="#remove_statefulset" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>action</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosk8s.statefulset.actions</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>remove_statefulset</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>None</td>
+</tr>
+</tbody>
+</table>
+<p>Remove a statefulset by <code>name</code> in the namespace <code>ns</code>.</p>
+<p>The statefulset is removed by deleting it without
+    a graceful period to trigger an abrupt termination.</p>
 <p>The selected resources are matched by the given <code>label_selector</code>.</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">kill_microservice</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                      <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                      <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;name in (</span><span class="si">{name}</span><span class="s1">)&#39;</span><span class="p">,</span>
-                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">remove_statefulset</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                       <span class="n">label_selector</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -3834,8 +4837,8 @@ a graceful period to trigger an abrupt termination.</p>
 <tr>
 <td><strong>name</strong></td>
 <td>string</td>
-<td></td>
-<td>Yes</td>
+<td>null</td>
+<td>No</td>
 </tr>
 <tr>
 <td><strong>ns</strong></td>
@@ -3846,38 +4849,33 @@ a graceful period to trigger an abrupt termination.</p>
 <tr>
 <td><strong>label_selector</strong></td>
 <td>string</td>
-<td>&ldquo;name in ({name})&rdquo;</td>
+<td>null</td>
 <td>No</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;kill-microservice&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-statefulset&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;kill_microservice&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_statefulset&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.statefulset.actions&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kill-microservice</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-statefulset</span>
 <span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">kill_microservice</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove_statefulset</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.statefulset.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
 <hr />
-<h4 id="remove_service_endpoint"><code>remove_service_endpoint</code><a class="headerlink" href="#remove_service_endpoint" title="Permanent link">&para;</a></h4>
+<h4 id="scale_statefulset"><code>scale_statefulset</code><a class="headerlink" href="#scale_statefulset" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -3892,11 +4890,11 @@ a graceful period to trigger an abrupt termination.</p>
 </tr>
 <tr>
 <td><strong>Module</strong></td>
-<td>chaosk8s.actions</td>
+<td>chaosk8s.statefulset.actions</td>
 </tr>
 <tr>
 <td><strong>Name</strong></td>
-<td>remove_service_endpoint</td>
+<td>scale_statefulset</td>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
@@ -3904,98 +4902,13 @@ a graceful period to trigger an abrupt termination.</p>
 </tr>
 </tbody>
 </table>
-<p>Remove the service endpoint that sits in front of microservices (pods).</p>
+<p>Scale a stateful set up or down. The <code>name</code> is the name of the stateful
+set.</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">remove_service_endpoint</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                            <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
-    <span class="k">pass</span>
-</pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-service-endpoint&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_service_endpoint&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre></div>
-
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-service-endpoint</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove_service_endpoint</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</pre></div>
-
-<hr />
-<h4 id="scale_microservice"><code>scale_microservice</code><a class="headerlink" href="#scale_microservice" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosk8s.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>scale_microservice</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>None</td>
-</tr>
-</tbody>
-</table>
-<p>Scale a deployment up or down. The <code>name</code> is the name of the deployment.</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">scale_microservice</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                       <span class="n">replicas</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">scale_statefulset</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                      <span class="n">replicas</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+                      <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                      <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -4032,33 +4945,34 @@ a graceful period to trigger an abrupt termination.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scale-microservice&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;scale-statefulset&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;scale_microservice&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;replicas&quot;</span><span class="p">:</span> <span class="mi">0</span>
+      <span class="nt">&quot;replicas&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;scale_statefulset&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.statefulset.actions&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale-microservice</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale-statefulset</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
     <span class="nt">replicas</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale_microservice</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">scale_statefulset</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.statefulset.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
 
+<h3 id="service">service<a class="headerlink" href="#service" title="Permanent link">&para;</a></h3>
 <hr />
-<h4 id="start_microservice"><code>start_microservice</code><a class="headerlink" href="#start_microservice" title="Permanent link">&para;</a></h4>
+<h4 id="create_service_endpoint"><code>create_service_endpoint</code><a class="headerlink" href="#create_service_endpoint" title="Permanent link">&para;</a></h4>
 <table>
 <thead>
 <tr>
@@ -4073,11 +4987,11 @@ a graceful period to trigger an abrupt termination.</p>
 </tr>
 <tr>
 <td><strong>Module</strong></td>
-<td>chaosk8s.actions</td>
+<td>chaosk8s.service.actions</td>
 </tr>
 <tr>
 <td><strong>Name</strong></td>
-<td>start_microservice</td>
+<td>create_service_endpoint</td>
 </tr>
 <tr>
 <td><strong>Return</strong></td>
@@ -4085,12 +4999,12 @@ a graceful period to trigger an abrupt termination.</p>
 </tr>
 </tbody>
 </table>
-<p>Start a microservice described by the deployment config, which must be the
-path to the JSON or YAML representation of the deployment.</p>
+<p>Create a service endpoint described by the service config, which must be
+the path to the JSON or YAML representation of the service.</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">start_microservice</span><span class="p">(</span><span class="n">spec_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                       <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
-                       <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="codehilite"><pre><span></span><span class="k">def</span> <span class="nf">create_service_endpoint</span><span class="p">(</span><span class="n">spec_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                            <span class="n">ns</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;default&#39;</span><span class="p">,</span>
+                            <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
     <span class="k">pass</span>
 </pre></div>
 
@@ -4121,30 +5035,31 @@ path to the JSON or YAML representation of the deployment.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-microservice&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-service-endpoint&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_microservice&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;spec_path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.actions&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_service_endpoint&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosk8s.service.actions&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 
-<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start-microservice</span>
+<div class="codehilite"><pre><span></span><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create-service-endpoint</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">spec_path</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">start_microservice</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.actions</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">create_service_endpoint</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosk8s.service.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
 </pre></div>
                 
                   
+                
                 
               
               
@@ -4229,7 +5144,7 @@ path to the JSON or YAML representation of the deployment.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/application.8e03edeb.js"></script>
+      <script src="../../assets/javascripts/application.808e90bb.js"></script>
       
       <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       

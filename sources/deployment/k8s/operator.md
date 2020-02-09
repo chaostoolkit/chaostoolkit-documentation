@@ -55,7 +55,7 @@ apiVersion: chaostoolkit.org/v1
 kind: ChaosToolkitExperiment
 ```
 
-Below is a basic example, assuming a file named `experiment.yaml`:
+Below is a basic example, assuming a file named `basic.yaml`:
 
 ```yaml
 ---
@@ -63,46 +63,50 @@ apiVersion: v1
 kind: Namespace
 metadata:
   name: chaostoolkit-run
-
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: chaostoolkit-env
+  name: chaostoolkit-experiment
   namespace: chaostoolkit-run
 data:
-  EXPERIMENT_URL: "https://example.com/experiment.json"
-
+  experiment.json: |
+    {
+      "version": "1.0.0",
+      "title": "Hello world!",
+      "description": "Say hello world.",
+      "method": [
+        {
+          "type": "action",
+          "name": "say-hello",
+          "provider": {
+            "type": "process",
+            "path": "echo",
+            "arguments": "hello"
+          }
+        }
+      ]
+    }
 ---
 apiVersion: chaostoolkit.org/v1
 kind: ChaosToolkitExperiment
 metadata:
   name: my-chaos-exp
   namespace: chaostoolkit-crd
-spec:
-  namespace: chaostoolkit-run
+
 ```
 
-We first create the namespace in which the Chaos Toolkit will run. This is
-not mandatory as the `chaostoolkit-run` will be created if you don't
-specify anything.
+We first create the namespace in which the Chaos Toolkit will run.
 
-Then, we need a config-map to provide the necessary environment used by the
-Chaos Toolkit to run. You must specify at least the `EXPERIMENT_URL` which
-points to the experiment location. Here we are using a URL but we will
-see later how to load from local files too.
+Then, we need a config-map to pass the experiment to execute.
 
 Finally, we simply create a `ChaosToolkitExperiment` object that the
 controller picks up and understand as a new experiment to run in its own pod.
 
-Notice how the specification of that object only declare which namespace
-will be used to run the experiment from, here `chaostoolkit-run` that
-we created.
-
 Apply it as follows:
 
 ```console
-$ kubectl apply -f experiment.yaml
+$ kubectl apply -f basic.yaml
 ```
 
 Look at the Chaos Toolkit running:
@@ -113,17 +117,17 @@ $ kubectl -n chaostoolkit-run get po
 
 The status of the experiment's run, if it deviated, defines the status
 if the pod. So, when the experiment does deviate, the pod should have a
-status set to `Error`.
+status set to `Error`. Otherwise, the status will be `Completed`.
 
 ### Delete the experiment run's resources
 
 To delete the run's resources, simply delete the object as follows:
 
 ```
-$ kubectl delete -f experiment.yaml
+$ kubectl delete -f basic.yaml
 ```
 
-## Configure the experiment
+### Configure the experiment
 
 Chaos Toolkit experiments often expect data to be passed as environment
 variables of the `chaos`'s command shell.
@@ -139,12 +143,40 @@ metadata:
   name: chaostoolkit-env
   namespace: chaostoolkit-run
 data:
-  EXPERIMENT_URL: "https://example.com/experiment.json"
   NAME: "Jane Doe"
 ```
 
 They will be injected into the Chaos Toolkit's pod as environment variables.
 
+### Load the experiment from a URL
+
+By default, the experiment is read from a file you might want to load it
+from a remote URL instead.
+
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chaostoolkit-env
+  namespace: chaostoolkit-run
+data:
+  EXPERIMENT_URL: "https://example.com/experiment.json"
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  pod:
+    experiment:
+      asFile: false
+
+```
+
+You need to pass the `EXPERIMENT_URL` environment variable and tell the
+operator it should not try to mount the default experiment volume.
 
 ## Configure the `chaos run` command
 
@@ -208,7 +240,7 @@ Then create the image with docker:
 $ docker build --tag my/chaostoolkit -f ./Dockerfile
 ```
 
-or used something like [Podman][]:
+or, something such as [Podman][]:
 
 [podman]: https://podman.io/
 

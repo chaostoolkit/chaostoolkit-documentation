@@ -511,15 +511,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#configure-the-experiment" class="md-nav__link">
     Configure the experiment
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-the-experiment-from-a-url" class="md-nav__link">
+    Load the experiment from a URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1260,15 +1267,22 @@
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
+          <li class="md-nav__item">
   <a href="#configure-the-experiment" class="md-nav__link">
     Configure the experiment
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-the-experiment-from-a-url" class="md-nav__link">
+    Load the experiment from a URL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1339,46 +1353,50 @@ Toolkit experiment by applying a resource with the following API:</p>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 </code></pre></div>
 
-<p>Below is a basic example, assuming a file named <code>experiment.yaml</code>:</p>
+<p>Below is a basic example, assuming a file named <code>basic.yaml</code>:</p>
 <div class="codehilite"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Namespace</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-run</span>
-
 <span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
-  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-env</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-experiment</span>
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-run</span>
 <span class="nt">data</span><span class="p">:</span>
-  <span class="nt">EXPERIMENT_URL</span><span class="p">:</span> <span class="s">&quot;https://example.com/experiment.json&quot;</span>
-
+  <span class="nt">experiment.json</span><span class="p">:</span> <span class="p p-Indicator">|</span>
+    <span class="no">{</span>
+      <span class="no">&quot;version&quot;: &quot;1.0.0&quot;,</span>
+      <span class="no">&quot;title&quot;: &quot;Hello world!&quot;,</span>
+      <span class="no">&quot;description&quot;: &quot;Say hello world.&quot;,</span>
+      <span class="no">&quot;method&quot;: [</span>
+        <span class="no">{</span>
+          <span class="no">&quot;type&quot;: &quot;action&quot;,</span>
+          <span class="no">&quot;name&quot;: &quot;say-hello&quot;,</span>
+          <span class="no">&quot;provider&quot;: {</span>
+            <span class="no">&quot;type&quot;: &quot;process&quot;,</span>
+            <span class="no">&quot;path&quot;: &quot;echo&quot;,</span>
+            <span class="no">&quot;arguments&quot;: &quot;hello&quot;</span>
+          <span class="no">}</span>
+        <span class="no">}</span>
+      <span class="no">]</span>
+    <span class="no">}</span>
 <span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-chaos-exp</span>
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-crd</span>
-<span class="nt">spec</span><span class="p">:</span>
-  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-run</span>
 </code></pre></div>
 
-<p>We first create the namespace in which the Chaos Toolkit will run. This is
-not mandatory as the <code>chaostoolkit-run</code> will be created if you don&rsquo;t
-specify anything.</p>
-<p>Then, we need a config-map to provide the necessary environment used by the
-Chaos Toolkit to run. You must specify at least the <code>EXPERIMENT_URL</code> which
-points to the experiment location. Here we are using a URL but we will
-see later how to load from local files too.</p>
+<p>We first create the namespace in which the Chaos Toolkit will run.</p>
+<p>Then, we need a config-map to pass the experiment to execute.</p>
 <p>Finally, we simply create a <code>ChaosToolkitExperiment</code> object that the
 controller picks up and understand as a new experiment to run in its own pod.</p>
-<p>Notice how the specification of that object only declare which namespace
-will be used to run the experiment from, here <code>chaostoolkit-run</code> that
-we created.</p>
 <p>Apply it as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl apply -f experiment.yaml
+<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl apply -f basic.yaml
 </code></pre></div>
 
 <p>Look at the Chaos Toolkit running:</p>
@@ -1387,13 +1405,13 @@ we created.</p>
 
 <p>The status of the experiment&rsquo;s run, if it deviated, defines the status
 if the pod. So, when the experiment does deviate, the pod should have a
-status set to <code>Error</code>.</p>
+status set to <code>Error</code>. Otherwise, the status will be <code>Completed</code>.</p>
 <h3 id="delete-the-experiment-runs-resources">Delete the experiment run&rsquo;s resources<a class="headerlink" href="#delete-the-experiment-runs-resources" title="Permanent link">&para;</a></h3>
 <p>To delete the run&rsquo;s resources, simply delete the object as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ kubectl delete -f experiment.yaml
+<div class="codehilite"><pre><span></span><code>$ kubectl delete -f basic.yaml
 </code></pre></div>
 
-<h2 id="configure-the-experiment">Configure the experiment<a class="headerlink" href="#configure-the-experiment" title="Permanent link">&para;</a></h2>
+<h3 id="configure-the-experiment">Configure the experiment<a class="headerlink" href="#configure-the-experiment" title="Permanent link">&para;</a></h3>
 <p>Chaos Toolkit experiments often expect data to be passed as environment
 variables of the <code>chaos</code>&lsquo;s command shell.</p>
 <p>The operator allows you to specify those values through the the config-map
@@ -1405,11 +1423,35 @@ as we saw above:</p>
   <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-env</span>
   <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-run</span>
 <span class="nt">data</span><span class="p">:</span>
-  <span class="nt">EXPERIMENT_URL</span><span class="p">:</span> <span class="s">&quot;https://example.com/experiment.json&quot;</span>
   <span class="nt">NAME</span><span class="p">:</span> <span class="s">&quot;Jane</span><span class="nv"> </span><span class="s">Doe&quot;</span>
 </code></pre></div>
 
 <p>They will be injected into the Chaos Toolkit&rsquo;s pod as environment variables.</p>
+<h3 id="load-the-experiment-from-a-url">Load the experiment from a URL<a class="headerlink" href="#load-the-experiment-from-a-url" title="Permanent link">&para;</a></h3>
+<p>By default, the experiment is read from a file you might want to load it
+from a remote URL instead.</p>
+<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-env</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-run</span>
+<span class="nt">data</span><span class="p">:</span>
+  <span class="nt">EXPERIMENT_URL</span><span class="p">:</span> <span class="s">&quot;https://example.com/experiment.json&quot;</span>
+<span class="nn">---</span>
+<span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
+<span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
+<span class="nt">metadata</span><span class="p">:</span>
+  <span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">my-chaos-exp</span>
+  <span class="nt">namespace</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit-crd</span>
+<span class="nt">spec</span><span class="p">:</span>
+  <span class="nt">pod</span><span class="p">:</span>
+    <span class="nt">experiment</span><span class="p">:</span>
+      <span class="nt">asFile</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+</code></pre></div>
+
+<p>You need to pass the <code>EXPERIMENT_URL</code> environment variable and tell the
+operator it should not try to mount the default experiment volume.</p>
 <h2 id="configure-the-chaos-run-command">Configure the <code>chaos run</code> command<a class="headerlink" href="#configure-the-chaos-run-command" title="Permanent link">&para;</a></h2>
 <p>Chaos Toolkit reads its settings from a file and you can pass yours
 by creating a Kubernetes secret named, by default, <code>chaostoolkit-settings</code>.</p>
@@ -1455,7 +1497,7 @@ a Dockerfile like this:</p>
 <div class="codehilite"><pre><span></span><code>$ docker build --tag my/chaostoolkit -f ./Dockerfile
 </code></pre></div>
 
-<p>or used something like <a href="https://podman.io/">Podman</a>:</p>
+<p>or, something such as <a href="https://podman.io/">Podman</a>:</p>
 <div class="codehilite"><pre><span></span><code>$ podman build --tag my/chaostoolkit -f ./Dockerfile
 </code></pre></div>
 

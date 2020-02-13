@@ -28,18 +28,6 @@ $ git clone https://github.com/chaostoolkit/chaostoolkit-documentation-code
 
 This particular tutorial is under `tutorials/a-simple-walkthrough`.
 
-### Install the Chaos Toolkit
-
-You must install the Chaos Toolkit and its dependencies for the purpose of this
-tutorial. While we suggest you go through the [install][] section, it boils
-down to:
-
-[install]: usage/install.md
-
-```console
-$ pip install -U chaostoolkit
-```
-
 ### Third-party binaries
 
 The experiment will use the following binaries, make sure you have them in your
@@ -53,11 +41,28 @@ PATH:
 Our application is made of a simple set of two microservices that converse
 with each other over HTTPS.
 
+!!! tip
+    It's recommended that you use a 
+    [Python virtual environment](/reference/usage/install/#create-a-virtual-environment)
+    to keep your project dependencies isolated from any other projects.
+
 As you should already run Python 3 for the toolkit itself, we assume you are set
 accordingly, please install only the application dependencies:
 
 ```console
 $ pip install -U -r requirements.txt
+```
+
+### Install the Chaos Toolkit
+
+You must install the Chaos Toolkit and its dependencies for the purpose of this
+tutorial. While we suggest you go through the [install][] section, it boils
+down to:
+
+[install]: usage/install.md
+
+```console
+$ pip install -U chaostoolkit
 ```
 
 ## Your First Experiment

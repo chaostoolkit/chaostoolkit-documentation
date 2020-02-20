@@ -736,26 +736,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    storage
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#object_exists" class="md-nav__link">
-    object_exists
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
     sql
   </a>
@@ -828,6 +808,26 @@
           <li class="md-nav__item">
   <a href="#swap_nodepool" class="md-nav__link">
     swap_nodepool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    storage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object_exists" class="md-nav__link">
+    object_exists
   </a>
   
 </li>
@@ -1478,26 +1478,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#storage" class="md-nav__link">
-    storage
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#object_exists" class="md-nav__link">
-    object_exists
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#sql" class="md-nav__link">
     sql
   </a>
@@ -1570,6 +1550,26 @@
           <li class="md-nav__item">
   <a href="#swap_nodepool" class="md-nav__link">
     swap_nodepool
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage" class="md-nav__link">
+    storage
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#object_exists" class="md-nav__link">
+    object_exists
   </a>
   
 </li>
@@ -1825,100 +1825,6 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 </code></pre></div>
 
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
-<h3 id="storage">storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
-<hr />
-<h4 id="object_exists"><code>object_exists</code><a class="headerlink" href="#object_exists" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosgcp.storage.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>object_exists</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>boolean</td>
-</tr>
-</tbody>
-</table>
-<p>Indicates whether a file in Cloud Storage bucket exists.</p>
-<p>:param bucket_name: name of the bucket
-:param object_name: name of the object within the bucket as path
-:param configuration:
-:param secrets:</p>
-<p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">object_exists</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                  <span class="n">object_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                  <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                  <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">pass</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>bucket_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>object_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;object-exists&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;object_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;bucket_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;object_exists&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.storage.probes&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object-exists</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">bucket_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-    <span class="nt">object_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object_exists</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosgcp.storage.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</code></pre></div>
-
 <h3 id="sql">sql<a class="headerlink" href="#sql" title="Permanent link">&para;</a></h3>
 <hr />
 <h4 id="describe_instance"><code>describe_instance</code><a class="headerlink" href="#describe_instance" title="Permanent link">&para;</a></h4>
@@ -1982,16 +1888,16 @@ and configuration settings will be displayed.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;describe-instance&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;describe_instance&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.probes&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;describe-instance&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2115,17 +2021,17 @@ project ID defined at the configuration level.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;export-data&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;storage_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;storage_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;export_data&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;export-data&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2257,18 +2163,18 @@ project ID defined at the configuration level.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;import-data&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;storage_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;storage_uri&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+      <span class="nt">&quot;database&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;import_data&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;import-data&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2343,13 +2249,13 @@ the instance name.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-instances&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_instances&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.probes&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-instances&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2438,16 +2344,16 @@ the instance name.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trigger-failover&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;instance_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;trigger_failover&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.sql.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;trigger-failover&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2533,16 +2439,16 @@ with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;body&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;create_new_nodepool&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;create-new-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2625,16 +2531,16 @@ immediatly with the operation information.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_nodepool&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2736,17 +2642,17 @@ cordonned so it cannot be scheduled any longer.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{}</span>
+      <span class="nt">&quot;new_nodepool_body&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;old_node_pool_id&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;swap_nodepool&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.gke.nodepool.actions&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;swap-nodepool&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -2759,6 +2665,100 @@ cordonned so it cannot be scheduled any longer.</p>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosgcp.gke.nodepool.actions</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
 <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div>
+
+<h3 id="storage">storage<a class="headerlink" href="#storage" title="Permanent link">&para;</a></h3>
+<hr />
+<h4 id="object_exists"><code>object_exists</code><a class="headerlink" href="#object_exists" title="Permanent link">&para;</a></h4>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Type</strong></td>
+<td>probe</td>
+</tr>
+<tr>
+<td><strong>Module</strong></td>
+<td>chaosgcp.storage.probes</td>
+</tr>
+<tr>
+<td><strong>Name</strong></td>
+<td>object_exists</td>
+</tr>
+<tr>
+<td><strong>Return</strong></td>
+<td>boolean</td>
+</tr>
+</tbody>
+</table>
+<p>Indicates whether a file in Cloud Storage bucket exists.</p>
+<p>:param bucket_name: name of the bucket
+:param object_name: name of the object within the bucket as path
+:param configuration:
+:param secrets:</p>
+<p><strong>Signature:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">object_exists</span><span class="p">(</span><span class="n">bucket_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                  <span class="n">object_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+                  <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                  <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">pass</span>
+</code></pre></div>
+
+<p><strong>Arguments:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>bucket_name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><strong>object_name</strong></td>
+<td>string</td>
+<td></td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Usage:</strong></p>
+<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;object_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;bucket_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgcp.storage.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;object_exists&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;object-exists&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object-exists</span>
+<span class="nt">provider</span><span class="p">:</span>
+  <span class="nt">arguments</span><span class="p">:</span>
+    <span class="nt">bucket_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+    <span class="nt">object_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">object_exists</span>
+  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosgcp.storage.probes</span>
+  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
 </code></pre></div>
                 
                   

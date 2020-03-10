@@ -9,6 +9,7 @@ working Python installation to run. It officially supports Python 3.5+. It has
 only been tested against [CPython][python].
 
 [cli]: https://github.com/chaostoolkit/chaostoolkit
+[python]: https://www.python.org/
 
 ### Install Python
 

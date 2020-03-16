@@ -617,6 +617,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../gandi/" title="Gandi" class="md-nav__link">
+      Gandi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../gcp/" title="Google Cloud Platform" class="md-nav__link">
       Google Cloud Platform
     </a>
@@ -1615,9 +1627,9 @@
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
@@ -1688,9 +1700,9 @@
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;server_running&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;server_running&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;server-running&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
@@ -1764,12 +1776,12 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_mappings&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_mappings&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-mappings&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -1851,13 +1863,13 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;chunkedDribbleDelay&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked_dribble_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;chunkedDribbleDelay&quot;</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked_dribble_delay&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked-dribble-delay&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -1934,12 +1946,12 @@ returns the list of ids of the mappings deleted</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_mappings&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_mappings&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-mappings&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2016,12 +2028,12 @@ Returns the list of delayed mappings</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2102,13 +2114,13 @@ Returns the list of delayed mappings</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;fixedDelayMilliseconds&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;fixedDelayMilliseconds&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed_delay&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed-delay&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2183,9 +2195,9 @@ Returns the list of delayed mappings</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_fixed_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_fixed_delay&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-fixed-delay&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2258,12 +2270,12 @@ Returns the list of delayed mappings</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_random_delay&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_random_delay&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-random-delay&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2339,9 +2351,9 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_from_dir&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_from_dir&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;populate-from-dir&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2420,13 +2432,13 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
-      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;random_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;random_delay&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;random-delay&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2500,9 +2512,9 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2574,12 +2586,12 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2659,13 +2671,13 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;can_connect_to&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;can_connect_to&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;can-connect-to&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -2739,9 +2751,9 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;check_configuration&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;check_configuration&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;check-configuration&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -2812,12 +2824,12 @@ returns the list of ids of the mappings added</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;c&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_wm_params&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_wm_params&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-wm-params&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>

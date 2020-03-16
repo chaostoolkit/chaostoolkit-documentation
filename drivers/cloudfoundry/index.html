@@ -924,6 +924,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../gandi/" title="Gandi" class="md-nav__link">
+      Gandi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../gcp/" title="Google Cloud Platform" class="md-nav__link">
       Google Cloud Platform
     </a>
@@ -1983,12 +1995,12 @@ for more information.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_stats&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_stats&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-app-stats&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
@@ -2064,9 +2076,9 @@ understand the content of the response.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_apps&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_apps&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-apps&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
@@ -2155,12 +2167,12 @@ understand the content of the response.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2264,13 +2276,13 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;map_route_to_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;map_route_to_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;map-route-to-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2369,13 +2381,13 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;route_host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_routes_from_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_routes_from_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-routes-from-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2451,12 +2463,12 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;org_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_all_apps&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_all_apps&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-all-apps&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2546,12 +2558,12 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;start_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;start-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2626,12 +2638,12 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;org_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_all_apps&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_all_apps&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-all-apps&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2721,12 +2733,12 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;stop_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;stop-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2824,13 +2836,13 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;instance_index&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_app_instance&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;instance_index&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+      <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_app_instance&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-app-instance&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2922,12 +2934,12 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_some_random_instance&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate_some_random_instance&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;terminate-some-random-instance&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -3025,13 +3037,13 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;bind_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unbind_service_from_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unbind_service_from_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unbind-service-from-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -3136,13 +3148,13 @@ See
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;host_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unmap_route_from_app&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unmap_route_from_app&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unmap-route-from-app&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -3248,12 +3260,12 @@ caller.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;call_api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;call_api&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;call-api&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3360,12 +3372,12 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_by_name&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_by_name&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-app-by-name&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3469,12 +3481,12 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_instances&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_instances&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-app-instances&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3585,13 +3597,13 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;app_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
       <span class="nt">&quot;route_host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_routes_by_host&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_app_routes_by_host&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-app-routes-by-host&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3668,12 +3680,12 @@ understand the content of the response.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;org_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_apps_for_org&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_apps_for_org&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-apps-for-org&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3787,12 +3799,12 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;bind_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_bind_by_name&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_bind_by_name&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-bind-by-name&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3866,12 +3878,12 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;org_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_org_by_name&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_org_by_name&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-org-by-name&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -3961,12 +3973,12 @@ a lookup for each of them to fetch their GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;route_host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_routes_by_host&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_routes_by_host&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-routes-by-host&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -4058,12 +4070,12 @@ a lookup for the org to fetch its GUID.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;space_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_space_by_name&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoscf.api&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_space_by_name&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-space-by-name&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
@@ -4115,13 +4127,13 @@ a lookup for the org to fetch its GUID.</p>
           </a>
         
         
-          <a href="../gcp/" title="Google Cloud Platform" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../gandi/" title="Gandi" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Google Cloud Platform
+                Gandi
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

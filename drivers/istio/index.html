@@ -617,6 +617,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../gandi/" title="Gandi" class="md-nav__link">
+      Gandi
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../gcp/" title="Google Cloud Platform" class="md-nav__link">
       Google Cloud Platform
     </a>
@@ -1722,14 +1734,14 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;http_status&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_abort_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;http_status&quot;</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_abort_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-abort-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -1843,14 +1855,14 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;fixed_delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_delay_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
+      <span class="nt">&quot;fixed_delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_delay_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-delay-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -1943,12 +1955,12 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_virtual_service&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_virtual_service&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-virtual-service&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
@@ -2046,13 +2058,13 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_abort_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_abort_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-abort-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2151,13 +2163,13 @@ environment, even when running from the <code>chaos</code> command locally.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_delay_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_delay_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-delay-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2265,14 +2277,14 @@ of a virtual service resource.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;fault&quot;</span><span class="p">:</span> <span class="p">{},</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;set_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;fault&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;set_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;set-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>
@@ -2373,13 +2385,13 @@ of a virtual service resource.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unset_fault&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unset_fault&quot;</span>
   <span class="p">},</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unset-fault&quot;</span><span class="p">,</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span>

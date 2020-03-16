@@ -190,7 +190,7 @@ you can create a secret from it as follows:
 
 ```console
 $ kubectl -n chaostoolkit-run \
-    create secrets chaostoolkit-settings \
+    create secret generic chaostoolkit-settings \
     --from-file=settings.yaml
 ```
 

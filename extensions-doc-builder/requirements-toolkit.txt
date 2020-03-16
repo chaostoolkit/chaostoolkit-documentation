@@ -11,3 +11,4 @@ chaostoolkit-opentracing
 chaostoolkit-service-fabric
 chaostoolkit-istio
 chaostoolkit-wiremock
+chaostoolkit-gandi

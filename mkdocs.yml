@@ -77,6 +77,7 @@ nav:
       - AWS: drivers/aws.md
       - Azure: drivers/azure.md
       - Cloud Foundry: drivers/cloudfoundry.md
+      - Gandi: drivers/gandi.md
       - Google Cloud Platform: drivers/gcp.md
       - Kubernetes: drivers/kubernetes.md
       - Service Fabric: drivers/service-fabric.md

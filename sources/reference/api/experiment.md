@@ -346,10 +346,13 @@ The Method describes the sequence of [Probe][pb] and [Action][action] elements
 to apply. The Method is declared under `method` property at the top-level of the
 experiment.
 
-The `method` MUST have at least one element but this can be either a [Probe][pb]
+The `method` MAY have at least one element which can be either a [Probe][pb]
 or an [Action][action].
 
 The elements MUST be applied in the order they are declared.
+
+An empty `method` is allowed for running experiments with
+Steady States Hypothesis only.
 
 ### Probe
 

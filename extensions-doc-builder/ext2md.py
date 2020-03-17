@@ -158,6 +158,8 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
         activity_type = "action"
     elif mod_lastname == "probes":
         activity_type = "probe"
+    elif mod_lastname == "tolerances":
+        activity_type = "tolerance"
 
     args = build_signature_info(sig)
     return_type = build_return_type_info(sig)
@@ -236,6 +238,19 @@ def called_without_args_info(args, mod_name, func_name, activity_type):
 
                 arg_type = get_activity_default_value(arg["type"])
                 as_json["provider"]["arguments"][arg["name"]] = arg_type
+    if activity_type == "tolerance":
+        as_json = {
+            "steady-state-hypothesis": {
+                "title": "...",
+                "probes": [
+                    {
+                        "type": "probe",
+                        "tolerance": as_json.copy()
+                        "...": "..."
+                    }
+                ]
+            }
+        }
     return as_json
 
 

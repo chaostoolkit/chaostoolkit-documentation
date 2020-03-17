@@ -76,6 +76,12 @@ applied unless you set the `automatic` properties to `false`.
 {% for arg in activity.arguments %}| **{{arg.name}}**      | {{arg.type}} | {{arg.default}} | {{arg.required}} |
 {% endfor %}
 
+{% if activity.type == "tolerance" %}
+!!! info ""
+    Tolerances declare the `value` argument which is automatically injected by
+    Chaos Toolkit as the output of the probe they are evaluating.
+{% endif %}
+
 **Usage:**
 
 ```json

@@ -1967,9 +1967,11 @@ anything about security.</p>
 <p>The Method describes the sequence of <a href="#probe">Probe</a> and <a href="#action">Action</a> elements
 to apply. The Method is declared under <code>method</code> property at the top-level of the
 experiment.</p>
-<p>The <code>method</code> MUST have at least one element but this can be either a <a href="#probe">Probe</a>
+<p>The <code>method</code> MAY have at least one element which can be either a <a href="#probe">Probe</a>
 or an <a href="#action">Action</a>.</p>
 <p>The elements MUST be applied in the order they are declared.</p>
+<p>An empty <code>method</code> is allowed for running experiments with
+Steady States Hypothesis only.</p>
 <h3 id="probe">Probe<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
 <p>A Probe collects information from the system during the experiment.</p>
 <p>A Probe is a JSON object. A Probe is declared fully or reference another Probe

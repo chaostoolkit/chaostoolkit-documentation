@@ -245,7 +245,7 @@ def called_without_args_info(args, mod_name, func_name, activity_type):
                 "probes": [
                     {
                         "type": "probe",
-                        "tolerance": as_json.copy()
+                        "tolerance": as_json.copy(),
                         "...": "..."
                     }
                 ]

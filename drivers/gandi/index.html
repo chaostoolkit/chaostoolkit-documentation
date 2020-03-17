@@ -1398,25 +1398,29 @@ the given date treshold as a relative time to now.</p>
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p>Tolerances declare the <code>value</code> argument which is automatically injected by
+Chaos Toolkit as the output of the probe they are evaluating.</p>
+</div>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domains-should-not-expire-in&quot;</span><span class="p">,</span>
           <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.tolerances&quot;</span><span class="p">,</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;domains_should_not_expire_in&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.tolerances&quot;</span>
-          <span class="p">},</span>
-          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span>
+            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;domains_should_not_expire_in&quot;</span>
+          <span class="p">}</span>
         <span class="p">},</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
       <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
+    <span class="p">]</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1502,13 +1506,13 @@ return the list as-is.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-domains&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_domains&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_domains&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 
@@ -1578,16 +1582,16 @@ return the list as-is.</p>
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-nameservers&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_nameservers&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">}</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_nameservers&quot;</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
 

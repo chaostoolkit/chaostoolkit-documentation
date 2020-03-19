@@ -261,6 +261,5 @@ metadata:
 spec:
   namespace: chaostoolkit-run
   pod:
-    image:
-      name: my/chaostoolkit
+    image: my/chaostoolkit
 ```

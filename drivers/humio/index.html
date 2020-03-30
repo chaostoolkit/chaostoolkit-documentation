@@ -1814,8 +1814,8 @@ of an experiment:</p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.control&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1900,16 +1900,16 @@ specified then the default, <a href="https://cloud.humio.com">https://cloud.humi
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{},</span>
-      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{}</span>
+      <span class="nt">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{},</span>
+      <span class="nt">&quot;event&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;notify&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.notification&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2024,15 +2024,15 @@ the repository name as part of its configuration section using the
 </table>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;search-query&quot;</span><span class="p">,</span>
+  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.probes&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;search_query&quot;</span><span class="p">,</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;qs&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;search_query&quot;</span>
+    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.probes&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2122,22 +2122,22 @@ Chaos Toolkit as the output of the probe they are evaluating.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;field-value-above&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_above&quot;</span><span class="p">,</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_above&quot;</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
       <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2237,22 +2237,22 @@ Chaos Toolkit as the output of the probe they are evaluating.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;field-value-between&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_between&quot;</span><span class="p">,</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_between&quot;</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
       <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -2345,22 +2345,22 @@ Chaos Toolkit as the output of the probe they are evaluating.</p>
 <p><strong>Usage:</strong></p>
 <div class="codehilite"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;field-value-under&quot;</span><span class="p">,</span>
+          <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_under&quot;</span><span class="p">,</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;field_value_under&quot;</span>
+            <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoshumio.tolerances&quot;</span>
           <span class="p">}</span>
         <span class="p">},</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
       <span class="p">}</span>
-    <span class="p">]</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></div>

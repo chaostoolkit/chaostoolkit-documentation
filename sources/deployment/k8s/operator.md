@@ -331,8 +331,10 @@ you can create a secret from it as follows:
 ```console
 $ kubectl -n chaostoolkit-run \
     create secret generic chaostoolkit-settings \
-    --from-file=settings.yaml
+    --from-file=settings.yaml=./settings.yaml
 ```
+
+Note, the settings file must be named as `settings.yaml` within the secret.
 
 Reading settings is disabled by default, so you need to let the operator
 know it should allow it for that run:

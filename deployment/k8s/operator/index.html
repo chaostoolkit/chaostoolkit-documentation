@@ -1742,9 +1742,10 @@ by creating a Kubernetes secret named, by default, <code>chaostoolkit-settings</
 you can create a secret from it as follows:</p>
 <div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-run <span class="se">\</span>
     create secret generic chaostoolkit-settings <span class="se">\</span>
-    --from-file<span class="o">=</span>settings.yaml
+    --from-file<span class="o">=</span>settings.yaml<span class="o">=</span>./settings.yaml
 </code></pre></div>
 
+<p>Note, the settings file must be named as <code>settings.yaml</code> within the secret.</p>
 <p>Reading settings is disabled by default, so you need to let the operator
 know it should allow it for that run:</p>
 <div class="codehilite"><pre><span></span><code><span class="nn">---</span>

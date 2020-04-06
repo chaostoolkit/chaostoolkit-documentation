@@ -58,7 +58,7 @@ Let's take the simple experimant below:
       "provider": {
         "type": "process",
         "path": "sed",
-        "arguments": "-i s/hello/bonjour/ default..locale.txt"
+        "arguments": "-i s/hello/bonjour/ default.locale.txt"
       }
     }
   ],

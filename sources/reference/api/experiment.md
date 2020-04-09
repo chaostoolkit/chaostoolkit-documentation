@@ -192,6 +192,7 @@ be considered valid.
 When the `type` property is `"regex"`, the object MUST have a `pattern`
 property which MUST be a valid regular expression. The `tolerance` succeeds if
 the [Probe][pb] returned value is matched against the pattern.
+Object MAY have a `target` property which MUST be a valid value returned for a given provider.
 
 When the `type` property is `"jsonpath"`, the object MUST have a `path`
 property which MUST be a valid [JSON Path][jp]. In addition, the object MAY
@@ -207,7 +208,7 @@ Both entries MUST be JSON numbers.
 
 [jp]: http://goessner.net/articles/JsonPath/
 
-In addition, when the [Probe][pb] returned value is an object with a ̀`status`
+In addition, when the [Probe][pb] returned value is an object with a `status`
 property, the tested value is the value of that property.
 
 Some examples of `tolerance` properties.
@@ -259,6 +260,16 @@ A regex tolerance:
 "tolerance": {
     "type": "regex",
     "pattern": "[0-9]{3}"
+}
+```
+
+A regex tolerance with a non default target:
+
+```json
+"tolerance": {
+    "type": "regex",
+    "target": "stdout",
+    "pattern": "[0-9]{2}"
 }
 ```
 

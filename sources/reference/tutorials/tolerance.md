@@ -153,11 +153,22 @@ On top of this native types, we support also more advance cases such as:
    ```json
    {
        "type": "regex",
+       "target": "stdout",
        "pattern": "^welcome=hello$"
    }
    ```
-    The `pattern` must be a valid regular expression, for now supported by the
-    [Python engine][re]. This is useful when looking for a value in a rawstring.
+    * `pattern` must be a valid regular expression, for now supported by the
+    [Python engine][re]. This is useful when looking for a value in a raw string.
+    * `target` is optional, and allows changing the default target for a given provider.
+    
+    Currently supported targets per provider are as follows:
+    
+    | Provider | Default | Values |
+    | -------- | ------- | ------ |
+    | process  | `"status"` | `"stdout"`, `"stderr"` |
+    | http | `"status"` | `"headers"`, `"body"` |
+    | python | Undefined | Undefined | 
+    
 
 [re]: https://docs.python.org/3/library/re.html#module-re
 

@@ -1422,7 +1422,7 @@ those events to get notified via your chosen notification channels.</p>
 </ul>
 <h3 id="notification-event-structure">Notification Event Structure<a class="headerlink" href="#notification-event-structure" title="Permanent link">&para;</a></h3>
 <p>The events structure is as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;run-started|...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;payload&quot;</span><span class="p">:</span> <span class="s2">&quot;the payload for the given event&quot;</span><span class="p">,</span>
     <span class="nt">&quot;phase&quot;</span><span class="p">:</span> <span class="s2">&quot;run|discovery|init|validate&quot;</span><span class="p">,</span>
@@ -1439,7 +1439,7 @@ a mistake somewhere in its syntax, or an exception is raised somehow).</p>
 <a href="../cli/#configure-the-chaos-toolkit">settings file</a> under the <code>notifications:</code>
 section.</p>
 <p>Here is an example:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">http</span>
   <span class="nt">url</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">https://mystuff.com/api</span>
@@ -1468,7 +1468,7 @@ of the experiment results.</p>
 <p>By default, all <a href="#chaos-toolkit-flow-events">events</a> are sent to the channels.
 However, you may decide, on a per channel basis, which events you want to be
 sent. This is done by adding the <code>events</code> field to a channel:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
@@ -1518,7 +1518,7 @@ certain experiments when timing is critical.</p>
 </ul>
 <p>Any other fields will be passed on as-is to the function for its internal usage.
 For instance:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
@@ -1532,12 +1532,12 @@ function of the <code>chaosslack.notification</code> module.</p>
 <p>Notifying about Chaos Experiment in a slack channel is so common that we will
 describe this integration here.</p>
 <p>First, you must install the <a href="https://github.com/chaostoolkit-incubator/chaostoolkit-slack">Chaos Toolkit Integration for Slack</a> as usual:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip install -U chaostoolkit-slack
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip install -U chaostoolkit-slack
 </code></pre></div>
 
 <p>Then, you should declare your notification channels as follows in the Chaos
 Toolkit settings file.</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">notifications</span><span class="p">:</span>
  <span class="p p-Indicator">-</span>
   <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">plugin</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosslack.notification</span>
@@ -1634,13 +1634,13 @@ plugin.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

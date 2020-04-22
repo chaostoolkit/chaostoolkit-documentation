@@ -1603,7 +1603,7 @@ well.</p>
 it setup.</p>
 <h3 id="get-the-code">Get the Code<a class="headerlink" href="#get-the-code" title="Permanent link">&para;</a></h3>
 <p>You can fetch the code as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> git clone https://github.com/chaostoolkit/chaostoolkit-documentation-code
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> git clone https://github.com/chaostoolkit/chaostoolkit-documentation-code
 </code></pre></div>
 
 <p>This particular tutorial is under <code>tutorials/a-simple-walkthrough</code>.</p>
@@ -1625,14 +1625,14 @@ to keep your project dependencies isolated from any other projects.</p>
 </div>
 <p>As you should already run Python 3 for the toolkit itself, we assume you are set
 accordingly, please install only the application dependencies:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> pip install -U -r requirements.txt
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -U -r requirements.txt
 </code></pre></div>
 
 <h3 id="install-the-chaos-toolkit">Install the Chaos Toolkit<a class="headerlink" href="#install-the-chaos-toolkit" title="Permanent link">&para;</a></h3>
 <p>You must install the Chaos Toolkit and its dependencies for the purpose of this
 tutorial. While we suggest you go through the <a href="../usage/install/">install</a> section, it boils
 down to:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> pip install -U chaostoolkit
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -U chaostoolkit
 </code></pre></div>
 
 <h2 id="your-first-experiment">Your First Experiment<a class="headerlink" href="#your-first-experiment" title="Permanent link">&para;</a></h2>
@@ -1668,7 +1668,7 @@ services. We will then call our application and see how it responds.</p>
 <h3 id="declare-an-experiment-to-observe-the-weakness">Declare an Experiment to Observe the Weakness<a class="headerlink" href="#declare-an-experiment-to-observe-the-weakness" title="Permanent link">&para;</a></h3>
 <p>At this stage, we can create an experiment that tells how the system behaves
 when a certificate expires.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;What is the impact of an expired certificate on our application chain?&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;If a certificate expires, we should gracefully deal with the issue.&quot;</span><span class="p">,</span>
@@ -1810,7 +1810,7 @@ code of <code>200</code>. Richer tolerances can be created by using regex or jso
 <h2 id="run-the-experiment">Run the Experiment<a class="headerlink" href="#run-the-experiment" title="Permanent link">&para;</a></h2>
 <h3 id="start-the-experiment-without-the-application">Start the Experiment without the Application<a class="headerlink" href="#start-the-experiment-without-the-application" title="Permanent link">&para;</a></h3>
 <p>To run the experiment, simply execute the following command:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> chaos run experiment.json
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> chaos run experiment.json
 <span class="go">[2018-05-14 18:38:04 INFO] Validating the experiment&#39;s syntax</span>
 <span class="go">[2018-05-14 18:38:04 INFO] Experiment looks valid</span>
 <span class="go">[2018-05-14 18:38:04 INFO] Running experiment: What is the impact of an expired certificate on our application chain?</span>
@@ -1836,11 +1836,11 @@ assumes you may want to review your system.</p>
 <h3 id="start-the-application">Start the Application<a class="headerlink" href="#start-the-application" title="Permanent link">&para;</a></h3>
 <p>You may now run the application.</p>
 <p>First, copy the valid certificate as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> cp valid-cert.pem cert.pem
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> cp valid-cert.pem cert.pem
 </code></pre></div>
 
 <p>Next, start the services, in one terminal:</p>
-<p><div class="codehilite"><pre><span></span><code><span class="gp">$</span> python3 astre.py
+<p><div class="highlight"><pre><span></span><code><span class="gp">$</span> python3 astre.py
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGTERM.</span>
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGHUP.</span>
 <span class="go">[14/May/2018:16:11:09] ENGINE Listening for SIGUSR1.</span>
@@ -1849,7 +1849,7 @@ assumes you may want to review your system.</p>
 <span class="go">[14/May/2018:16:11:09] ENGINE Bus STARTE</span>
 </code></pre></div>
 Then, in another terminal:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> python3 sunset.py
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> python3 sunset.py
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGTERM.</span>
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGHUP.</span>
 <span class="go">[14/May/2018:16:13:58] ENGINE Listening for SIGUSR1.</span>
@@ -1859,7 +1859,7 @@ Then, in another terminal:</p>
 </code></pre></div>
 
 <p>Now you may perform a simple call:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> curl -k https://localhost:8443/city/Paris
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> curl -k https://localhost:8443/city/Paris
 <span class="go">The sunset will occur at 2018-05-14T21:23:09+02:00 in Paris</span>
 </code></pre></div>
 
@@ -1868,7 +1868,7 @@ for the data and simply render them to you, as plain text. Both services are
 chained together over HTTPS.</p>
 <h3 id="run-the-experiment_1">Run the Experiment<a class="headerlink" href="#run-the-experiment_1" title="Permanent link">&para;</a></h3>
 <p>Now your application is running, execute the experiment once again:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> chaos run experiment.json
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> chaos run experiment.json
 <span class="go">[2018-05-14 18:41:09 INFO] Validating the experiment&#39;s syntax</span>
 <span class="go">[2018-05-14 18:41:09 INFO] Experiment looks valid</span>
 <span class="go">[2018-05-14 18:41:09 INFO] Running experiment: What is the impact of an expired certificate on our application chain?</span>
@@ -1905,14 +1905,14 @@ prevent our services to even start.</p>
 <h2 id="report-on-your-findings">Report on your Findings<a class="headerlink" href="#report-on-your-findings" title="Permanent link">&para;</a></h2>
 <h3 id="review-the-journal-of-the-run">Review the Journal of the Run<a class="headerlink" href="#review-the-journal-of-the-run" title="Permanent link">&para;</a></h3>
 <p>You may now review the journal generated by the run:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> cat journal.json
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> cat journal.json
 </code></pre></div>
 
 <p>It contains the activities runs and the output of each of them.</p>
 <h3 id="generate-a-report">Generate a Report<a class="headerlink" href="#generate-a-report" title="Permanent link">&para;</a></h3>
 <p>You can generate a PDF (or HTML, markdown&hellip;) report from the journal if you
 install the <a href="https://github.com/chaostoolkit/chaostoolkit-reporting">chaostoolkit-reporting</a> plugin first:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> chaos report --export-format<span class="o">=</span>pdf journal.json report.pdf
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> chaos report --export-format<span class="o">=</span>pdf journal.json report.pdf
 </code></pre></div>
 
 <h3 id="learnings-and-responses">Learnings and Responses<a class="headerlink" href="#learnings-and-responses" title="Permanent link">&para;</a></h3>
@@ -2003,13 +2003,13 @@ should create and run experiments regularly.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

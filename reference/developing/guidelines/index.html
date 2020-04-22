@@ -1364,18 +1364,18 @@ such <a href="http://docs.python-guide.org/en/latest/">The Hitchhiker’s Guide 
 <p>Whenever you code on one of the projects, you should run the following command
 so that the project you are hacking on is part of your virtual environment
 without being installed:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> <span class="nb">cd</span> &lt;project-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> <span class="nb">cd</span> &lt;project-name&gt;
 <span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> python setup.py develop
 </code></pre></div>
 
 <p>Sometimes, your virtual env may be borked and not point to your development
 directory. In that case, make sure to remove any previously installed version
 of the project:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip uninstall &lt;project-name&gt;
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip uninstall &lt;project-name&gt;
 </code></pre></div>
 
 <p>Then make sure your virtual environment point at your local directory with:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip freeze
+<div class="highlight"><pre><span></span><code><span class="gp gp-VirtualEnv">(chaostk)</span> <span class="gp">$</span> pip freeze
 </code></pre></div>
 
 <h3 id="github">GitHub<a class="headerlink" href="#github" title="Permanent link">&para;</a></h3>
@@ -1429,7 +1429,7 @@ can be one of:</p>
 each phase of the flow. Those events are defined
 <a href="https://github.com/chaostoolkit/chaostoolkit-lib/blob/master/chaoslib/notification.py#L21">here</a>.</p>
 <p>A typical notification callback function will look like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
 
 <span class="kn">from</span> <span class="nn">chaoslib.notification</span> <span class="kn">import</span> <span class="n">RunFlowEvent</span>
 <span class="kn">from</span> <span class="nn">chaoslib.types</span> <span class="kn">import</span> <span class="n">EventPayload</span>
@@ -1516,13 +1516,13 @@ it runs.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

@@ -1507,15 +1507,15 @@ a new Kubernetes pod, running the Chaos Toolkit with the specified experiment.</
 <p>It is deployed via typical Kubernetes <a href="https://github.com/chaostoolkit-incubator/kubernetes-crd/tree/master/manifests">manifests</a> which need to be applied
 via <a href="https://kustomize.io/">Kustomize</a>, the native configuration manager.</p>
 <p>First, download the <a href="https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md">Kustomize binary</a>:</p>
-<div class="codehilite"><pre><span></span><code>$ curl -s &quot;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot; | bash
+<div class="highlight"><pre><span></span><code>$ curl -s &quot;https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh&quot; | bash
 </code></pre></div>
 
 <p>For macOS, you can also install it via the Homebrew package manager: </p>
-<div class="codehilite"><pre><span></span><code>$ brew install kustomize
+<div class="highlight"><pre><span></span><code>$ brew install kustomize
 </code></pre></div>
 
 <p>Next, simply run the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic-rbac <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic-rbac <span class="p">|</span> kubectl apply -f -
 </code></pre></div>
 
 <p>This will build the manifests and apply them on your current default cluster.
@@ -1523,11 +1523,11 @@ Notice how we use the RBAC variant of the deployment. If you have other
 requirements (no-RBAC, pod security or network policies), then check the
 <a href="https://github.com/chaostoolkit-incubator/kubernetes-crd">operator&rsquo;s documentation</a> to deploy the appropriate variant.</p>
 <p>You can install another variant as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic<span class="o">[</span>-rbac<span class="o">[</span>-podsec<span class="o">[</span>-netsec<span class="o">]]]</span> <span class="p">|</span> kubectl apply -f -
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic<span class="o">[</span>-rbac<span class="o">[</span>-podsec<span class="o">[</span>-netsec<span class="o">]]]</span> <span class="p">|</span> kubectl apply -f -
 </code></pre></div>
 
 <p>By now, you should have the operator running in the <code>chaostoolkit-crd</code>.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-crd get pods
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-crd get pods
 <span class="go">NAME                                READY   STATUS    RESTARTS   AGE</span>
 <span class="go">chaostoolkit-crd-7ddb9b78d9-dgxx7   1/1     Running   0          35s</span>
 </code></pre></div>
@@ -1540,12 +1540,12 @@ requirements (no-RBAC, pod security or network policies), then check the
 <h2 id="run-an-experiment">Run an experiment<a class="headerlink" href="#run-an-experiment" title="Permanent link">&para;</a></h2>
 <p>Now that your controller is listening, you can ask it to schedule a Chaos
 Toolkit experiment by applying a resource with the following API:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 </code></pre></div>
 
 <p>Below is a basic example, assuming a file named <code>basic.yaml</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1582,16 +1582,16 @@ Toolkit experiment by applying a resource with the following API:</p>
 <p>Finally, we simply create a <code>ChaosToolkitExperiment</code> object that the
 controller picks up and understand as a new experiment to run in its own pod.</p>
 <p>Apply it as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl apply -f basic.yaml
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kubectl apply -f basic.yaml
 </code></pre></div>
 
 <p>Then, you can check the Chaos Toolkit experiment has been registered, and will
 be scheduled to run as soon as possible:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-crd get ctks
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-crd get ctks
 </code></pre></div>
 
 <p>Look at the Chaos Toolkit running:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-run get pods
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-run get pods
 </code></pre></div>
 
 <p>The status of the experiment&rsquo;s run, if it deviated, defines the status
@@ -1600,24 +1600,24 @@ status set to <code>Error</code>. Otherwise, the status will be <code>Completed<
 <h2 id="manage-the-chaos-toolkit-experiments">Manage the Chaos Toolkit Experiments<a class="headerlink" href="#manage-the-chaos-toolkit-experiments" title="Permanent link">&para;</a></h2>
 <h3 id="list-and-inspect-experiments">List and inspect experiments<a class="headerlink" href="#list-and-inspect-experiments" title="Permanent link">&para;</a></h3>
 <p>You can list your experiments as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ kubectl -n chaostoolkit-crd get chaosexperiments 
+<div class="highlight"><pre><span></span><code>$ kubectl -n chaostoolkit-crd get chaosexperiments 
 </code></pre></div>
 
 <p>You can describe one experiment as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ kubectl -n chaostoolkit-crd describe chaosexperiment my-chaos-exp 
+<div class="highlight"><pre><span></span><code>$ kubectl -n chaostoolkit-crd describe chaosexperiment my-chaos-exp 
 </code></pre></div>
 
 <p>You can also use the short names for the custom resource <code>ctks</code> and <code>ctk</code>.</p>
 <h3 id="delete-the-experiment-runs-resources">Delete the experiment run&rsquo;s resources<a class="headerlink" href="#delete-the-experiment-runs-resources" title="Permanent link">&para;</a></h3>
 <p>You can delete an experiment and its related resources as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ kubectl -n chaostoolkit-crd delete ctk my-chaos-exp 
+<div class="highlight"><pre><span></span><code>$ kubectl -n chaostoolkit-crd delete ctk my-chaos-exp 
 </code></pre></div>
 
 <p>However, the custom resources (ConfigMap, Secrets, etc.) won&rsquo;t be deleted. 
 This command only deletes the resources that the operator creates for the 
 experiment to be able to run.</p>
 <p>To delete all the run&rsquo;s resources, simply delete the objects as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ kubectl delete -f basic.yaml
+<div class="highlight"><pre><span></span><code>$ kubectl delete -f basic.yaml
 </code></pre></div>
 
 <h2 id="various-configurations">Various configurations<a class="headerlink" href="#various-configurations" title="Permanent link">&para;</a></h2>
@@ -1629,7 +1629,7 @@ the entire pod template).</p>
 variables of the <code>chaos</code>&lsquo;s command shell.</p>
 <p>The operator allows you to specify those values through the config map
 as we saw above:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1645,7 +1645,7 @@ tell the operator where to find the config map to be loaded as environment
 variables.</p>
 <p>We&rsquo;ll assume you defined another config map named <code>my-chaos-env-vars</code>. You
 can use it by setting the <code>configMapName</code> in the <code>env</code> block of the pod spec: </p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1663,7 +1663,7 @@ is the default value <code>chaostoolkit-experiment</code>. Usually, you&rsquo;ll
 unique name since you&rsquo;ll probably run multiple experiments from the
 <code>chaostoolkit-run</code> namespace.</p>
 <p>In that case, do it as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1694,7 +1694,7 @@ e.g. GitHub and have it available over HTTP. You might want to load it from
 its remote URL instead.</p>
 <p>You can tell the Chaos Toolkit to load it from a remote URL rather than from
 a local file, as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ConfigMap</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1719,7 +1719,7 @@ a local file, as follows:</p>
 you need to set <code>asFile</code> to <code>false</code> in the <code>experiment</code> block of the pod spec.</p>
 <h3 id="run-experiments-in-another-namespace">Run experiments in another namespace<a class="headerlink" href="#run-experiments-in-another-namespace" title="Permanent link">&para;</a></h3>
 <p>You may create the namespace in which the resources will be deployed:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1740,7 +1740,7 @@ installed with those variants. You&rsquo;ll need to manage them yourself.  </p>
 by creating a Kubernetes secret named, by default, <code>chaostoolkit-settings</code>.</p>
 <p>For instance, assuming you have a <a href="../../../reference/usage/settings/">Chaos Toolkit settings file</a>,
 you can create a secret from it as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-run <span class="se">\</span>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kubectl -n chaostoolkit-run <span class="se">\</span>
     create secret generic chaostoolkit-settings <span class="se">\</span>
     --from-file<span class="o">=</span>settings.yaml<span class="o">=</span>./settings.yaml
 </code></pre></div>
@@ -1748,7 +1748,7 @@ you can create a secret from it as follows:</p>
 <p>Note, the settings file must be named as <code>settings.yaml</code> within the secret.</p>
 <p>Reading settings is disabled by default, so you need to let the operator
 know it should allow it for that run:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1765,7 +1765,7 @@ know it should allow it for that run:</p>
 pod spec.</p>
 <p>The default name for that secret is <code>chaostoolkit-settings</code> but you can change
 it with the <code>secretName</code> variable, as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1783,7 +1783,7 @@ it with the <code>secretName</code> variable, as follows:</p>
 <p>When you delete the <code>ChaosToolkitExperiment</code> resource, all the allocated
 resources are deleted too (pod, service account, &hellip;). To prevent this, you may
 set the <code>keep_resources_on_delete</code> property to <code>true</code> at the spec level. </p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1801,7 +1801,7 @@ role to the service account associated with the chaostoolkit pod. That role
 allows your experiment to create/get/list/delete other pods in the same
 namespace.</p>
 <p>You probably have more specific requirements, here is how to do it:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1820,7 +1820,7 @@ associated with the pod will be bound to that role.</p>
 <p>The pod template executes the <code>chaos run</code> command by default. You may want to
 extends or change the sub-command to execute when running the pod. You can
 define the <code>chaos</code> arguments as follow:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1843,7 +1843,7 @@ spec level.</p>
 All labels will be forwarded, if not already defined, in the pod running the
 experiment.</p>
 <p>You can define labels as follow:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1864,7 +1864,7 @@ HTTPS for external traffic.</p>
 <p>To allow the pod for other access, you may create another network policy
 within the <code>chaostoolkit-run</code> namespace for pods matching the 
 <code>app: chaostoolkit</code> label:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">NetworkPolicy</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">networking.k8s.io/v1</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1883,7 +1883,7 @@ within the <code>chaostoolkit-run</code> namespace for pods matching the
 <p>This means that you will likely need to create your bespoke container image.
 For instance, to install the Chaos Toolkit Kubernetes extension, create
 a Dockerfile like this:</p>
-<div class="codehilite"><pre><span></span><code><span class="k">FROM</span> <span class="s">chaostoolkit/chaostoolkit</span>
+<div class="highlight"><pre><span></span><code><span class="k">FROM</span> <span class="s">chaostoolkit/chaostoolkit</span>
 
 <span class="k">RUN</span> apk update <span class="o">&amp;&amp;</span> <span class="se">\</span>
     apk add --virtual build-deps libffi-dev openssl-dev gcc python3-dev musl-dev <span class="o">&amp;&amp;</span> <span class="se">\</span>
@@ -1892,20 +1892,20 @@ a Dockerfile like this:</p>
 </code></pre></div>
 
 <p>Then create the image with docker:</p>
-<div class="codehilite"><pre><span></span><code>$ docker build --tag my/chaostoolkit -f ./Dockerfile .
+<div class="highlight"><pre><span></span><code>$ docker build --tag my/chaostoolkit -f ./Dockerfile .
 </code></pre></div>
 
 <p>or, something such as <a href="https://podman.io/">Podman</a>:</p>
-<div class="codehilite"><pre><span></span><code>$ podman build --tag my/chaostoolkit -f ./Dockerfile
+<div class="highlight"><pre><span></span><code>$ podman build --tag my/chaostoolkit -f ./Dockerfile
 </code></pre></div>
 
 <p>You can check your image contains the installed extensions as follows:</p>
-<div class="codehilite"><pre><span></span><code>$ docker run --rm -it my/chaostoolkit info extensions
+<div class="highlight"><pre><span></span><code>$ docker run --rm -it my/chaostoolkit info extensions
 </code></pre></div>
 
 <p>Once this image is pushed to any registry you can access, you need to
 let the operator know it must use it.</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">apiVersion</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaostoolkit.org/v1</span>
 <span class="nt">kind</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">ChaosToolkitExperiment</span>
 <span class="nt">metadata</span><span class="p">:</span>
@@ -1920,7 +1920,7 @@ let the operator know it must use it.</p>
 <h2 id="uninstall-the-operator">Uninstall the operator<a class="headerlink" href="#uninstall-the-operator" title="Permanent link">&para;</a></h2>
 <p>To uninstall the operator and its own resources, simply run the following
 command for the overlay that is deployed.</p>
-<div class="codehilite"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic<span class="o">[</span>-rbac<span class="o">[</span>-podsec<span class="o">[</span>-netsec<span class="o">]]]</span> <span class="p">|</span> kubectl delete -f -
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> kustomize build manifests/overlays/generic<span class="o">[</span>-rbac<span class="o">[</span>-podsec<span class="o">[</span>-netsec<span class="o">]]]</span> <span class="p">|</span> kubectl delete -f -
 </code></pre></div>
                 
                   
@@ -1993,13 +1993,13 @@ command for the overlay that is deployed.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

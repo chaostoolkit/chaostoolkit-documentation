@@ -646,6 +646,47 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#develop" class="md-nav__link">
+    Develop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1250,6 +1291,47 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    Install
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contribute" class="md-nav__link">
+    Contribute
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#develop" class="md-nav__link">
+    Develop
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#test" class="md-nav__link">
+    Test
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1326,7 +1408,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.1.0</td>
+<td>0.1.1</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1334,7 +1416,94 @@
 </tr>
 </tbody>
 </table>
-<p>N/A</p>
+<p><a href="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-gandi"><img alt="Build Status" src="https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-gandi.svg?branch=master" /></a>
+<a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-gandi.svg" /></a></p>
+<p>This project is a collection of <a href="http://chaostoolkit.org/reference/api/experiment/#action">actions</a> and <a href="http://chaostoolkit.org/reference/api/experiment/#probe">probes</a>, gathered as an
+extension to the <a href="http://chaostoolkit.org">Chaos Toolkit</a>.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>This package requires Python 3.5+</p>
+<p>To be used from your experiment, this package must be installed in the Python
+environment where <a href="http://chaostoolkit.org">chaostoolkit</a> already lives.</p>
+<div class="highlight"><pre><span></span><code>$ pip install -U chaostoolkit-gandi
+</code></pre></div>
+
+<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
+<p>To use the probes and actions from this package, add the following to your
+experiment file:</p>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+    <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our domains are not going expiring within a month&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;We need time to renew.&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;gandi&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;apikey&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;GANDI_API_KEY&quot;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Check domains are all more than 1 month away from expiring&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-my-domains&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;validate-domain-expire-date&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gandi&quot;</span><span class="p">],</span>
+                        <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.tolerances&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;domains_should_not_expire_in&quot;</span><span class="p">,</span>
+                        <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
+                            <span class="nt">&quot;when&quot;</span><span class="p">:</span> <span class="s2">&quot;1 month&quot;</span>
+                        <span class="p">}</span>
+                    <span class="p">}</span>
+                <span class="p">},</span>
+                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;gandi&quot;</span><span class="p">],</span>
+                    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_domains&quot;</span>
+                <span class="p">}</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>That&rsquo;s it!</p>
+<p>Set the <code>GANDI_API_KEY</code> environment variable to your Gandi API Key.</p>
+<p>Please explore the code to see existing probes and actions.</p>
+<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
+<p>If you wish to contribute more functions to this package, you are more than
+welcome to do so. Please, fork this project, make your changes following the
+usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
+review.</p>
+<p>The Chaos Toolkit projects require all contributors must sign a
+<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
+into the master branch of the repository. Please, make sure you can abide by
+the rules of the DCO before submitting a PR.</p>
+<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
+<p>If you wish to develop on this project, make sure to install the development
+dependencies. But first, <a href="http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment">create a virtual environment</a> and then install
+those dependencies.</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -r requirements-dev.txt -r requirements.txt
+</code></pre></div>
+
+<p>Then, point your environment to this directory:</p>
+<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -e .
+</code></pre></div>
+
+<p>Now, you can edit the files and they will be automatically be seen by your
+environment, even when running from the <code>chaos</code> command locally.</p>
+<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
+<p>To run the tests for the project execute the following:</p>
+<div class="highlight"><pre><span></span><code>$ pytest
+</code></pre></div>
+
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="domains">domains<a class="headerlink" href="#domains" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1368,9 +1537,7 @@
 <p>Go through the list of Gandi domains and fails if any expires before
 the given date treshold as a relative time to now.</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">domains_should_not_expire_in</span><span class="p">(</span><span class="n">value</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                                 <span class="n">when</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;1 month&#39;</span><span class="p">):</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def domains_should_not_expire_in(value: List[Dict[str, Any]] = None,</span><span class="se">\n</span><span class="s2">                                 when: str = &#39;1 month&#39;):</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1403,21 +1570,21 @@ the given date treshold as a relative time to now.</p>
 Chaos Toolkit as the output of the probe they are evaluating.</p>
 </div>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span><span class="p">,</span>
     <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
       <span class="p">{</span>
+        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
-          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domains-should-not-expire-in&quot;</span><span class="p">,</span>
           <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;tolerance&quot;</span><span class="p">,</span>
           <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
             <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.tolerances&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;domains_should_not_expire_in&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-          <span class="p">}</span>
+            <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;domains_should_not_expire_in&quot;</span>
+          <span class="p">},</span>
+          <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;domains-should-not-expire-in&quot;</span>
         <span class="p">},</span>
-        <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
         <span class="nt">&quot;...&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
       <span class="p">}</span>
     <span class="p">]</span>
@@ -1425,7 +1592,7 @@ Chaos Toolkit as the output of the probe they are evaluating.</p>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">steady-state-hypothesis</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">steady-state-hypothesis</span><span class="p">:</span>
   <span class="nt">probes</span><span class="p">:</span>
   <span class="p p-Indicator">-</span> <span class="s">&#39;...&#39;</span><span class="p p-Indicator">:</span> <span class="s">&#39;...&#39;</span>
     <span class="nt">tolerance</span><span class="p">:</span>
@@ -1471,12 +1638,7 @@ Chaos Toolkit as the output of the probe they are evaluating.</p>
 return the list as-is.</p>
 <p>See <a href="https://api.gandi.net/docs/domains/#v5-domain-domains">https://api.gandi.net/docs/domains/#v5-domain-domains</a></p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">list_domains</span><span class="p">(</span>
-        <span class="n">fqdn_filter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">tld_filter</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def list_domains(</span><span class="se">\n</span><span class="s1">        fqdn_filter: str = None,</span><span class="se">\n</span><span class="s1">        tld_filter: str = None,</span><span class="se">\n</span><span class="s1">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s1">        secrets: Dict[str, Dict[str, str]] = None) -&gt; List[Dict[str, Any]]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1505,18 +1667,18 @@ return the list as-is.</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-domains&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_domains&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_domains&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-domains&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list-domains</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list-domains</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list_domains</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosgandi.domains.probes</span>
@@ -1555,10 +1717,7 @@ return the list as-is.</p>
 <p>List nameservers set for this domain and return them as a list of strings.</p>
 <p>See <a href="https://api.gandi.net/docs/domains/#v5-domain-domains-domain-nameservers">https://api.gandi.net/docs/domains/#v5-domain-domains-domain-nameservers</a></p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">list_nameservers</span><span class="p">(</span><span class="n">domain</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-                     <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-                     <span class="n">secrets</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def list_nameservers(domain: str,</span><span class="se">\n</span><span class="s1">                     configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s1">                     secrets: Dict[str, Dict[str, str]] = None) -&gt; List[str]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1581,21 +1740,21 @@ return the list as-is.</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-nameservers&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosgandi.domains.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_nameservers&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;domain&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;list_nameservers&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;list-nameservers&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list-nameservers</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">list-nameservers</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">domain</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
@@ -1675,13 +1834,13 @@ return the list as-is.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

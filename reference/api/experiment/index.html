@@ -1852,7 +1852,8 @@ object or <code>null</code>. Its returned status MUST be successful for the <cod
 be considered valid.</p>
 <p>When the <code>type</code> property is <code>"regex"</code>, the object MUST have a <code>pattern</code>
 property which MUST be a valid regular expression. The <code>tolerance</code> succeeds if
-the <a href="#probe">Probe</a> returned value is matched against the pattern.</p>
+the <a href="#probe">Probe</a> returned value is matched against the pattern.
+Object MAY have a <code>target</code> property which MUST be a valid value returned for a given provider.</p>
 <p>When the <code>type</code> property is <code>"jsonpath"</code>, the object MUST have a <code>path</code>
 property which MUST be a valid <a href="http://goessner.net/articles/JsonPath/">JSON Path</a>. In addition, the object MAY
 have a <code>expect</code> property which is used to compare each value matched by the JSON
@@ -1863,26 +1864,26 @@ matched at least one item.</p>
 property whuch MUST be a sequence of length two. The first entry of the
 sequence MUST be the lower bound and the second entry MUST be the upper bound.
 Both entries MUST be JSON numbers.</p>
-<p>In addition, when the <a href="#probe">Probe</a> returned value is an object with a ̀<code>status</code>
+<p>In addition, when the <a href="#probe">Probe</a> returned value is an object with a <code>status</code>
 property, the tested value is the value of that property.</p>
 <p>Some examples of <code>tolerance</code> properties.</p>
 <p>A boolean tolerance:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="kc">true</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="kc">true</span>
 </code></pre></div></p>
 <p>A integer tolerance:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="mi">8</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="mi">8</span>
 </code></pre></div></p>
 <p>A string tolerance:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="s2">&quot;OK&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="s2">&quot;OK&quot;</span>
 </code></pre></div></p>
 <p>A sequence tolerance with lower and upper bounds:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 </code></pre></div></p>
 <p>A sequence tolerance, the value must be contained in that sequence:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">78</span><span class="p">]</span>
 </code></pre></div></p>
 <p>A <a href="#probe">Probe</a> tolerance:
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;should-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1896,21 +1897,29 @@ property, the tested value is the value of that property.</p>
 <span class="p">}</span>
 </code></pre></div></p>
 <p>A regex tolerance:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;regex&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;[0-9]{3}&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
+<p>A regex tolerance with a non default target:</p>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;regex&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;stdout&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;[0-9]{2}&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
 <p>A jsonpath tolerance:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;foo[*].baz&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>A jsonpath tolerance with an expected value to match:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;foo[*].baz&quot;</span><span class="p">,</span>
     <span class="nt">&quot;expect&quot;</span><span class="p">:</span> <span class="mi">4</span>
@@ -1918,13 +1927,13 @@ property, the tested value is the value of that property.</p>
 </code></pre></div>
 
 <p>Two range tolerances:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
     <span class="nt">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;tolerance&quot;</span><span class="err">:</span> <span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
     <span class="nt">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">4.6</span><span class="p">,</span> <span class="mf">8.9</span><span class="p">]</span>
 <span class="p">}</span>
@@ -1944,7 +1953,7 @@ That value marks explicitly that a given contribution is not addressed by an
 experiment. A missing contribution means impact via this experiment is unknown
 for this contribution.</p>
 <p>Here is a contribution example:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
     <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
     <span class="nt">&quot;security&quot;</span><span class="p">:</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
     <span class="nt">&quot;scalability&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span>
@@ -1955,7 +1964,7 @@ for this contribution.</p>
 reliability of the system and moderately to its scability. However, it is
 explicit here this experiment does not address security.</p>
 <p>On the other hand:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;contributions&quot;</span><span class="err">:</span> <span class="p">{</span>  
     <span class="nt">&quot;reliability&quot;</span><span class="p">:</span> <span class="s2">&quot;high&quot;</span><span class="p">,</span>
     <span class="nt">&quot;scalability&quot;</span><span class="p">:</span> <span class="s2">&quot;medium&quot;</span>
 <span class="p">}</span>
@@ -2159,7 +2168,7 @@ keys and the properties values are the secrets values.</p>
 applied. Probes and actions MUST NOT modify the secrets.</p>
 <p>Secrets MUST be passed a mapping of keys and values to probes and actions.</p>
 <p>An example of a <code>secrets</code> element at the top-level:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;kubernetes&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;XYZ&quot;</span>
@@ -2169,7 +2178,7 @@ applied. Probes and actions MUST NOT modify the secrets.</p>
 </code></pre></div>
 
 <p>This can then referenced from probes or actions:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="s2">&quot;kubernetes&quot;</span>
 <span class="p">}</span>
@@ -2181,7 +2190,7 @@ applied. Probes and actions MUST NOT modify the secrets.</p>
 <p>Secrets MAY be retrieved from the environment. In that case, they must be
 declared as a JSON object with a <code>type</code> property set to <code>"env"</code>. The
 environment variable MUST be declared in the <code>key</code> property as a JSON string.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;kubernetes&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2198,7 +2207,7 @@ environment variable MUST be declared in the <code>key</code> property as a JSON
 they must be declared as a JSON object with a <code>type</code> property set to <code>"vault"</code>.
 The path to the key MUST be declared in the <code>path</code> property as a JSON
 string.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2228,14 +2237,14 @@ payload.</p>
 <code>"2"</code>.</p>
 <p>Examples:</p>
 <p>Vault secret at path <code>secret/something</code>:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="s2">&quot;bar&quot;</span><span class="p">,</span>
     <span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
 <p>Then in your Chaos Toolkit experiment:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2248,14 +2257,14 @@ payload.</p>
 </code></pre></div>
 
 <p>means the secrets will become:</p>
-<div class="codehilite"><pre><span></span><code>&quot;myapp&quot;: {
+<div class="highlight"><pre><span></span><code>&quot;myapp&quot;: {
     &quot;foo&quot;: &quot;bar&quot;,
     &quot;baz&quot;: &quot;hello&quot;
 }
 </code></pre></div>
 
 <p>However:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;myapp&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2269,7 +2278,7 @@ payload.</p>
 </code></pre></div>
 
 <p>means the secrets will become:</p>
-<div class="codehilite"><pre><span></span><code>&quot;myapp&quot;: &quot;bar&quot;
+<div class="highlight"><pre><span></span><code>&quot;myapp&quot;: &quot;bar&quot;
 </code></pre></div>
 
 <h3 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h3>
@@ -2282,7 +2291,7 @@ requiring it. Probes and actions MUST NOT modify the configuration.</p>
 <p>Configurations MUST be passed a mapping of keys and values to probes and
 actions.</p>
 <p>An example of a <code>configuration</code> element at the top-level:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;some_service&quot;</span><span class="p">:</span> <span class="s2">&quot;http://127.0.0.1:8080&quot;</span><span class="p">,</span>
         <span class="nt">&quot;vault_addr&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2301,7 +2310,7 @@ declared as a JSON object with a <code>type</code> property set to <code>"env"</
 environment variable MUST be declared in the <code>key</code> property as a JSON string.</p>
 <p>The <code>default</code> key is OPTIONAL and MAY be used when the environment variable
 can be undefined and fallback to a default value for the experiment.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;vault_address&quot;</span><span class="p">:</span> <span class="p">{</span>
             <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
@@ -2331,7 +2340,7 @@ external tools.</p>
 </ul>
 <p>Controls MUST be applied before and after each of those levels. Schematically,
 this looks like this:</p>
-<div class="codehilite"><pre><span></span><code>apply experiment control before experiment starts
+<div class="highlight"><pre><span></span><code>apply experiment control before experiment starts
 start experiment
     apply steady state control before steady-state probes are started
         start steady-state processing
@@ -2384,7 +2393,7 @@ property is omitted, the control MUST be applied before and after. When the
 the control cannot be applied anywhere but where it is declared.</p>
 <p>Examples of Controls:</p>
 <p>Just a generic declaration of a control at the top-level of the experiment:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
         <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -2396,7 +2405,7 @@ the control cannot be applied anywhere but where it is declared.</p>
 </code></pre></div>
 
 <p>Another control by applied only as post-control:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
         <span class="nt">&quot;scope&quot;</span><span class="p">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span>
@@ -2409,7 +2418,7 @@ the control cannot be applied anywhere but where it is declared.</p>
 </code></pre></div>
 
 <p>Finally, a top-level level control not applied anywhere else down the tree:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;tracing&quot;</span><span class="p">,</span>
         <span class="nt">&quot;automatic&quot;</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
@@ -2432,7 +2441,7 @@ of objects. Each object MUST declare a non-empty <code>name</code> property.</p>
 <p>In both cases, their actual usage is runtime dependent, this specification
 does not declare any meaning to an extension.</p>
 <p>Below is an example of an Extension:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;extensions&quot;</span><span class="p">:</span> <span class="p">[{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;vendorX&quot;</span><span class="p">,</span>
         <span class="nt">&quot;data&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
@@ -2444,7 +2453,7 @@ does not declare any meaning to an extension.</p>
 <p>The following examples MUST NOT be considered normative.</p>
 <h3 id="minimal-experiment">Minimal Experiment<a class="headerlink" href="#minimal-experiment" title="Permanent link">&para;</a></h3>
 <p>Here is an example of the most minimal experiment:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Moving a file from under our feet is forgivable&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Our application should re-create a file that was removed&quot;</span><span class="p">,</span>
@@ -2495,7 +2504,7 @@ does not declare any meaning to an extension.</p>
 
 <p>For reference, here is the YAML equivalent (which is not official but respects
 the specification herein):</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
 <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Moving a file from under our feet is forgivable</span>
 <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Our application should re-create a file that was removed</span>
@@ -2531,7 +2540,7 @@ the specification herein):</p>
 <h3 id="more-complex-experiment">More Complex Experiment<a class="headerlink" href="#more-complex-experiment" title="Permanent link">&para;</a></h3>
 <p>Below is an example of a fully featured experiment that uses various extensions
 to perform actions, probing and steady-state hypothesis validation.</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Are our users impacted by the loss of a function?&quot;</span><span class="p">,</span>
     <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;While users query the Astre function, they should not be impacted if one instance goes down.&quot;</span><span class="p">,</span>
@@ -2664,7 +2673,7 @@ to perform actions, probing and steady-state hypothesis validation.</p>
 </code></pre></div>
 
 <p>The equivalent YAML serialization:</p>
-<div class="codehilite"><pre><span></span><code><span class="nn">---</span>
+<div class="highlight"><pre><span></span><code><span class="nn">---</span>
 <span class="nt">version</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1.0.0</span>
 <span class="nt">title</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Are our users impacted by the loss of a function?</span>
 <span class="nt">description</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">While users query the Astre function, they should not be impacted if</span>
@@ -2835,13 +2844,13 @@ to perform actions, probing and steady-state hypothesis validation.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

@@ -1410,7 +1410,7 @@ your system&rsquo;s state during the steady-state hypothesis. The validation of 
 probes&rsquo; output is performed by what we call tolerances.</p>
 <h2 id="lets-get-started-with-a-basic-example">Let&rsquo;s get started with a basic example<a class="headerlink" href="#lets-get-started-with-a-basic-example" title="Permanent link">&para;</a></h2>
 <p>Let&rsquo;s take the simple experimant below:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;version&quot;</span><span class="p">:</span> <span class="s2">&quot;1.0.0&quot;</span><span class="p">,</span>
   <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our default language is English&quot;</span><span class="p">,</span>
   <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;We find the expected English language in the file&quot;</span><span class="p">,</span>
@@ -1470,7 +1470,7 @@ probes&rsquo; output is performed by what we call tolerances.</p>
 <p>This experiment looks for the welcome message in the default locale file and
 expected <code>"hello"</code>.</p>
 <p>Here is an example of it running:</p>
-<div class="codehilite"><pre><span></span><code>$  chaos run experiment.json 
+<div class="highlight"><pre><span></span><code>$  chaos run experiment.json 
 [2019-06-25 21:37:59 INFO] Validating the experiment&#39;s syntax
 [2019-06-25 21:37:59 INFO] Experiment looks valid
 [2019-06-25 21:37:59 INFO] Running experiment: Our default language is English
@@ -1517,7 +1517,7 @@ for the general use-cases, we support the following tolerances:</p>
 <ul>
 <li>
 <p><code>range</code>: set the tolerance property to:
-   <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;range&quot;</span><span class="p">,</span>
     <span class="nt">&quot;range&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">6.4</span><span class="p">,</span> <span class="mf">7.5</span><span class="p">]</span>
 <span class="p">}</span>
@@ -1527,17 +1527,48 @@ for the general use-cases, we support the following tolerances:</p>
 </li>
 <li>
 <p><code>regex</code>: set the tolerance property to:
-   <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;regex&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;stdout&quot;</span><span class="p">,</span>
     <span class="nt">&quot;pattern&quot;</span><span class="p">:</span> <span class="s2">&quot;^welcome=hello$&quot;</span>
 <span class="p">}</span>
-</code></pre></div>
-    The <code>pattern</code> must be a valid regular expression, for now supported by the
-    <a href="https://docs.python.org/3/library/re.html#module-re">Python engine</a>. This is useful when looking for a value in a rawstring.</p>
+</code></pre></div></p>
+<ul>
+<li><code>pattern</code> must be a valid regular expression, for now supported by the
+<a href="https://docs.python.org/3/library/re.html#module-re">Python engine</a>. This is useful when looking for a value in a raw string.</li>
+<li><code>target</code> is optional, and allows changing the default target for a given provider.</li>
+</ul>
+<p>Currently supported targets per provider are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Default</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>process</td>
+<td><code>"status"</code></td>
+<td><code>"stdout"</code>, <code>"stderr"</code></td>
+</tr>
+<tr>
+<td>http</td>
+<td><code>"status"</code></td>
+<td><code>"headers"</code>, <code>"body"</code></td>
+</tr>
+<tr>
+<td>python</td>
+<td>Undefined</td>
+<td>Undefined</td>
+</tr>
+</tbody>
+</table>
 </li>
 <li>
 <p><code>jsonpath</code>: set the tolerance property to:
-   <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;jsonpath&quot;</span><span class="p">,</span>
     <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;...&quot;</span>
 <span class="p">}</span>
@@ -1547,7 +1578,7 @@ for the general use-cases, we support the following tolerances:</p>
 </li>
 <li>
 <p><code>probe</code>: set the tolerance property to:
-   <div class="codehilite"><pre><span></span><code><span class="p">{</span>
+   <div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
@@ -1567,7 +1598,7 @@ for the general use-cases, we support the following tolerances:</p>
 <h3 id="validate-the-return-code-of-a-boolean-python-probe">Validate the return code of a boolean Python probe<a class="headerlink" href="#validate-the-return-code-of-a-boolean-python-probe" title="Permanent link">&para;</a></h3>
 <p>In this case, the simple <code>boolean</code> tolerance will do.</p>
 <p>For instance:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lookup-lang-file&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
@@ -1586,7 +1617,7 @@ for the general use-cases, we support the following tolerances:</p>
 <p>In this case, the simple <code>integer</code> tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the exit code of the process for validation.</p>
 <p>In the above example:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lookup-text-in-lang-file&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1604,7 +1635,7 @@ exit code <code>1</code>, we would switch to <code>"tolerance": 1</code>.</p>
 <p>In this case, the simple <code>integer</code> tolerance will do. Indeed, the Chaos Toolkit
 will look by default to the status code of the HTTP response for validation.</p>
 <p>For instance:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;resource-must-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">200</span><span class="p">,</span>
@@ -1619,7 +1650,7 @@ will look by default to the status code of the HTTP response for validation.</p>
 <h3 id="validate-the-stdoutstderr-of-a-process">Validate the stdout/stderr of a process<a class="headerlink" href="#validate-the-stdoutstderr-of-a-process" title="Permanent link">&para;</a></h3>
 <p>Assuming you want to validate the actual standard output of a process, you
 need to got a regular expression approach, as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lookup-text-in-lang-file&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1642,12 +1673,12 @@ properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</cod
 <h3 id="validate-the-json-body-of-a-http-probe">Validate the JSON body of a HTTP probe<a class="headerlink" href="#validate-the-json-body-of-a-http-probe" title="Permanent link">&para;</a></h3>
 <p>In this case, use a <code>jsonpath</code> tolerance. </p>
 <p>For instance, let&rsquo;s assume you receive the following JSON payload:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">}]</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;resource-must-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1667,7 +1698,7 @@ properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</cod
 against once the JSON Path has been applied against the <code>body</code> of the response
 of the HTTP probe&rsquo;s output.</p>
 <p>You mays also validate against a number of extracted values instead:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;resource-must-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1686,12 +1717,12 @@ of the HTTP probe&rsquo;s output.</p>
 <h3 id="validate-the-output-of-a-python-probe-returning-a-mapping">Validate the output of a Python probe returning a mapping<a class="headerlink" href="#validate-the-output-of-a-python-probe-returning-a-mapping" title="Permanent link">&para;</a></h3>
 <p>In this case, use a <code>jsonpath</code> tolerance.</p>
 <p>For instance, let&rsquo;s assume you receive the following payload:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;foo&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;hello&quot;</span><span class="p">},</span> <span class="p">{</span><span class="nt">&quot;baz&quot;</span><span class="p">:</span> <span class="s2">&quot;bonjour&quot;</span><span class="p">}]</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;resource-must-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1710,7 +1741,7 @@ of the HTTP probe&rsquo;s output.</p>
 <p>The <code>expect</code> property tells the Chaos Toolkit what are the values to match
 against once the JSON Path has been applied against the probe&rsquo;s output.</p>
 <p>You mays also validate against a number of extracted values instead:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;resource-must-exist&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1733,7 +1764,7 @@ a new probe that takes the output, of the tolerance under validation, as an
 argument. Usually, this tolerance probe is implemented in Python to have more
 power but this isn&rsquo;t compulsory.</p>
 <p>For instance, the following:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lookup-text-in-lang-file&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
@@ -1746,7 +1777,7 @@ power but this isn&rsquo;t compulsory.</p>
 </code></pre></div>
 
 <p>could be written as follows:</p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
     <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
     <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;lookup-text-in-lang-file&quot;</span><span class="p">,</span>
     <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1772,7 +1803,7 @@ power but this isn&rsquo;t compulsory.</p>
 <p>In that case, implement the
 <code>search_text(path: str, search_for: str, value: dict) -&gt; bool</code> function in the
 <code>my.package</code> Python module.</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">re</span>
 
 
 <span class="k">def</span> <span class="nf">search_text</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">search_for</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
@@ -1855,13 +1886,13 @@ the probe&rsquo;s output.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

@@ -778,6 +778,61 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#package-installation" class="md-nav__link">
+    Package installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-from-source" class="md-nav__link">
+    Installation from source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exported-actions" class="md-nav__link">
+    Exported Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discovery" class="md-nav__link">
+    Discovery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    Credits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1367,6 +1422,61 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#package-installation" class="md-nav__link">
+    Package installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#installation-from-source" class="md-nav__link">
+    Installation from source
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exported-actions" class="md-nav__link">
+    Exported Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#experiments" class="md-nav__link">
+    Experiments
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#discovery" class="md-nav__link">
+    Discovery
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#credits" class="md-nav__link">
+    Credits
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#exported-activities" class="md-nav__link">
     Exported Activities
   </a>
@@ -1560,7 +1670,7 @@
 <tbody>
 <tr>
 <td><strong>Version</strong></td>
-<td>0.1.1</td>
+<td>0.1.2</td>
 </tr>
 <tr>
 <td><strong>Repository</strong></td>
@@ -1568,7 +1678,312 @@
 </tr>
 </tbody>
 </table>
-<p>N/A</p>
+<p>=====================</p>
+<p><a href="https://travis-ci.com/chaostoolkit-incubator/chaostoolkit-wiremock"><img alt="Build Status" src="https://travis-ci.com/chaostoolkit-incubator/chaostoolkit-wiremock.svg?branch=master" /></a>
+<a href="https://pypi.python.org/pypi/chaostoolkit-wiremock"><img alt="image" src="https://img.shields.io/pypi/v/chaostoolkit-wiremock.svg" /></a></p>
+<p><a href="http://chaostoolkit.org">Chaos Toolkit</a> driver for <a href="http://wiremock.org/">WireMock</a>. </p>
+<h2 id="package-installation">Package installation<a class="headerlink" href="#package-installation" title="Permanent link">&para;</a></h2>
+<p>To install the package from pypi.org:</p>
+<div class="codehilite"><pre><span></span><code>pip install -U chaostoolkit-wiremock
+</code></pre></div>
+
+
+<h2 id="installation-from-source">Installation from source<a class="headerlink" href="#installation-from-source" title="Permanent link">&para;</a></h2>
+<p>In order to use it, you need python 3.5+ in your environment.
+Once downloaded the project, cd into it and run:</p>
+<div class="codehilite"><pre><span></span><code>pip install -r requirements.txt -r requirements-dev.txt
+make clean &amp;&amp; make test &amp;&amp; make install
+</code></pre></div>
+
+
+<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
+<p>The following keys can be configured in the experiment global
+configuration section, under the "wiremock" key:</p>
+<ul>
+<li><strong>host</strong>: the wiremock server host</li>
+<li><strong>port</strong>: the wiremock server port</li>
+<li><strong>contextPath</strong>: the contextPath for your wiremock server (optional)</li>
+<li><strong>timeout</strong>: accepted timeout (defaults to 1 sec)</li>
+<li><strong>down</strong>: the delayDistribution section used by the <code>down</code> action</li>
+</ul>
+<p>Configuration example:</p>
+<div class="codehilite"><pre><span></span><code>{
+    &quot;configuration&quot;: {
+        &quot;wiremock&quot;: {
+            &quot;host&quot;: &quot;localhost&quot;,
+            &quot;port&quot;: 8080,
+            &quot;contextPath&quot;: &quot;/wiremock&quot;,
+            &quot;timeout&quot;: 10,
+            &quot;down&quot;: {
+                &quot;type&quot;: &quot;lognormal&quot;,
+                &quot;median&quot;: 3000,
+                &quot;sigma&quot;: 0.2
+            }
+        }
+    }
+}
+</code></pre></div>
+
+
+<h2 id="exported-actions">Exported Actions<a class="headerlink" href="#exported-actions" title="Permanent link">&para;</a></h2>
+<p>Adding a list of mappings:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;adding a mapping&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;add_mappings&quot;,
+        &quot;arguments&quot;: {
+          &quot;mappings&quot;: [{
+            &quot;request&quot;: {
+               &quot;method&quot;: &quot;GET&quot;,
+               &quot;url&quot;: &quot;/hello&quot;
+            },
+            &quot;response&quot;: {
+               &quot;status&quot;: 200,
+               &quot;body&quot;: &quot;Hello world!&quot;,
+               &quot;headers&quot;: {
+                   &quot;Content-Type&quot;: &quot;text/plain&quot;
+               }
+            } 
+          }]
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Deleting a list of mappings:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;deleting a mapping&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;delete_mappings&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+             &quot;method&quot;: &quot;GET&quot;,
+             &quot;url&quot;: &quot;/hello&quot;
+          }]
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Adding a global fixed delay:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Adding a global fixed delay&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;global_fixed_delay&quot;,
+        &quot;arguments&quot;: {
+          &quot;fixedDelay&quot;: 10
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Adding a global random delay:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Adding a global random delay&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;global_random_delay&quot;,
+        &quot;arguments&quot;: {
+          &quot;delayDistribution&quot;: {
+            &quot;type&quot;: &quot;lognormal&quot;,
+            &quot;median&quot;: 20,
+            &quot;sigma&quot;: 0.1
+          }
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Adding a fixed delay to a list of mappings:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Adding a fixed delay to a mapping&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;fixed_delay&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;url&quot;: &quot;/hello1&quot;
+          }],
+          &quot;fixedDelayMilliseconds&quot;: 1000
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Adding a random delay to a list of mappings:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Adding a random delay to a mapping&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;random_delay&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;url&quot;: &quot;/hello2&quot;
+          }],
+          &quot;delayDistribution&quot;: {
+            &quot;type&quot;: &quot;lognormal&quot;,
+            &quot;median&quot;: 2000,
+            &quot;sigma&quot;: 0.5
+          }
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Adding a ChunkedDribbleDelay to a list of mappings:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Adding a ChunkedDribbleDelay to a mapping&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;chunked_dribble_delay&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;url&quot;: &quot;/hello&quot;
+          }],
+          &quot;chunkedDribbleDelay&quot;: {
+            &quot;numberOfChunks&quot;: 5,
+            &quot;totalDuration&quot;: 1000
+          }
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Taking a list of mappings down (heavy distribution delay). This action
+will use the parameters specified in the "down" key of the
+configuration section:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Taking a mapping down&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;down&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;url&quot;: &quot;/hello&quot;
+          }]
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Taking a list of mappings up back again:</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Taking a mapping down&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;up&quot;,
+        &quot;arguments&quot;: {
+          &quot;filter&quot;: [{
+            &quot;method&quot;: &quot;GET&quot;,
+            &quot;url&quot;: &quot;/hello&quot;
+          }]
+        }
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<p>Resetting the wiremock server (deleting all mappings):</p>
+<div class="codehilite"><pre><span></span><code>{
+  &quot;method&quot;: [
+    {
+      &quot;type&quot;: &quot;action&quot;,
+      &quot;name&quot;: &quot;Taking a mapping down&quot;,
+      &quot;provider&quot;: {
+        &quot;type&quot;: &quot;python&quot;,
+        &quot;module&quot;: &quot;chaoswm.actions&quot;,
+        &quot;func&quot;: &quot;reset&quot;
+      }
+    }
+  ]
+}
+</code></pre></div>
+
+
+<h3 id="experiments">Experiments<a class="headerlink" href="#experiments" title="Permanent link">&para;</a></h3>
+<p>The driver comes with an experiments directory where you can find snippets to test all APIs 
+against a WireMock server listening on localhost:8080.</p>
+<h3 id="discovery">Discovery<a class="headerlink" href="#discovery" title="Permanent link">&para;</a></h3>
+<p>You may use the Chaos Toolkit to discover the capabilities of this
+extension:</p>
+<div class="codehilite"><pre><span></span><code>$ chaos discover chaostoolkit-wiremock  --no-install
+</code></pre></div>
+
+
+<h2 id="credits">Credits<a class="headerlink" href="#credits" title="Permanent link">&para;</a></h2>
+<p>This package was created with
+<a href="https://github.com/audreyr/cookiecutter">Cookiecutter</a> and the
+<a href="https://github.com/audreyr/cookiecutter-pypackage">audreyr/cookiecutter-pypackage</a>
+project template.</p>
 <h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
 <h3 id="actions">actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h3>
 <hr />
@@ -1602,9 +2017,7 @@
 <p>adds more mappings to wiremock
 returns the list of ids of the mappings added</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">add_mappings</span><span class="p">(</span><span class="n">mappings</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-                 <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def add_mappings(mappings: List[Any],</span><span class="se">\n</span><span class="s1">                 configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1627,21 +2040,21 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-mappings&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_mappings&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;mappings&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_mappings&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-mappings&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add-mappings</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add-mappings</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">mappings</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
@@ -1681,11 +2094,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>adds a chunked dribble delay to a list of mappings</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">chunked_dribble_delay</span><span class="p">(</span>
-        <span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-        <span class="n">chunkedDribbleDelay</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def chunked_dribble_delay(</span><span class="se">\n</span><span class="s1">        filter: List[Any],</span><span class="se">\n</span><span class="s1">        chunkedDribbleDelay: Mapping[str, Any],</span><span class="se">\n</span><span class="s1">        configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1714,22 +2123,22 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked-dribble-delay&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked_dribble_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
       <span class="nt">&quot;chunkedDribbleDelay&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked_dribble_delay&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;chunked-dribble-delay&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chunked-dribble-delay</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chunked-dribble-delay</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">chunkedDribbleDelay</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -1771,10 +2180,7 @@ returns the list of ids of the mappings added</p>
 <p>deletes a list of mappings
 returns the list of ids of the mappings deleted</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">delete_mappings</span><span class="p">(</span>
-        <span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def delete_mappings(</span><span class="se">\n</span><span class="s1">        filter: List[Any],</span><span class="se">\n</span><span class="s1">        configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1797,21 +2203,21 @@ returns the list of ids of the mappings deleted</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-mappings&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_mappings&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;delete_mappings&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;delete-mappings&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-mappings</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">delete-mappings</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">filter</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
@@ -1854,9 +2260,7 @@ more correctly it adds a chunked dribble delay to the mapping
 as defined in the configuration section (or action attributes)
 Returns the list of delayed mappings</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">down</span><span class="p">(</span><span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-         <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def down(filter: List[Any],</span><span class="se">\n</span><span class="s1">         configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1879,21 +2283,21 @@ Returns the list of delayed mappings</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;down&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">down</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">down</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">filter</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
@@ -1933,10 +2337,7 @@ Returns the list of delayed mappings</p>
 </table>
 <p>adds a fixed delay to a list of mappings </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">fixed_delay</span><span class="p">(</span><span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-                <span class="n">fixedDelayMilliseconds</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-                <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def fixed_delay(filter: List[Any],</span><span class="se">\n</span><span class="s1">                fixedDelayMilliseconds: int,</span><span class="se">\n</span><span class="s1">                configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -1965,22 +2366,22 @@ Returns the list of delayed mappings</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed-delay&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
       <span class="nt">&quot;fixedDelayMilliseconds&quot;</span><span class="p">:</span> <span class="mi">0</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed_delay&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fixed-delay&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fixed-delay</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">fixed-delay</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">filter</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
@@ -2021,9 +2422,7 @@ Returns the list of delayed mappings</p>
 </table>
 <p>add a fixed delay to all mappings </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">global_fixed_delay</span><span class="p">(</span><span class="n">fixedDelay</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-                       <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def global_fixed_delay(fixedDelay: int = 0,</span><span class="se">\n</span><span class="s1">                       configuration: Dict[str, Dict[str, str]] = None) -&gt; int:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2046,18 +2445,18 @@ Returns the list of delayed mappings</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-fixed-delay&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_fixed_delay&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_fixed_delay&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-fixed-delay&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global-fixed-delay</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global-fixed-delay</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global_fixed_delay</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.actions</span>
@@ -2095,10 +2494,7 @@ Returns the list of delayed mappings</p>
 </table>
 <p>adds a random delay to all mappings </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">global_random_delay</span><span class="p">(</span>
-        <span class="n">delayDistribution</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def global_random_delay(</span><span class="se">\n</span><span class="s1">        delayDistribution: Mapping[str, Any],</span><span class="se">\n</span><span class="s1">        configuration: Dict[str, Dict[str, str]] = None) -&gt; int:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2121,21 +2517,21 @@ Returns the list of delayed mappings</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-random-delay&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_random_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;global_random_delay&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;global-random-delay&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global-random-delay</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">global-random-delay</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">delayDistribution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -2176,10 +2572,7 @@ Returns the list of delayed mappings</p>
 <p>adds all mappings found in the passed folder
 returns the list of ids of the mappings added</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">populate_from_dir</span><span class="p">(</span>
-        <span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span><span class="p">,</span>
-        <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def populate_from_dir(</span><span class="se">\n</span><span class="s2">        dir: str = &#39;.&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2202,18 +2595,18 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;populate-from-dir&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_from_dir&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;populate_from_dir&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;populate-from-dir&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">populate-from-dir</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">populate-from-dir</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">populate_from_dir</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.actions</span>
@@ -2251,10 +2644,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>adds a random delay to a list of mapppings</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">random_delay</span><span class="p">(</span><span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-                 <span class="n">delayDistribution</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
-                 <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def random_delay(filter: List[Any],</span><span class="se">\n</span><span class="s1">                 delayDistribution: Mapping[str, Any],</span><span class="se">\n</span><span class="s1">                 configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2283,22 +2673,22 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;random-delay&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;random_delay&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span>
+      <span class="nt">&quot;delayDistribution&quot;</span><span class="p">:</span> <span class="kc">null</span><span class="p">,</span>
+      <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;random_delay&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;random-delay&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">random-delay</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">random-delay</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">delayDistribution</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">null</span>
@@ -2339,8 +2729,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>resets the wiremock server: deletes all mappings! </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">reset</span><span class="p">(</span><span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def reset(configuration: Dict[str, Dict[str, str]] = None) -&gt; int:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2363,18 +2752,18 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;reset&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reset</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reset</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">reset</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.actions</span>
@@ -2412,9 +2801,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>deletes all delays connected with a list of mappings </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">up</span><span class="p">(</span><span class="nb">filter</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span>
-       <span class="n">configuration</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def up(filter: List[Any],</span><span class="se">\n</span><span class="s1">       configuration: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2437,21 +2824,21 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;filter&quot;</span><span class="p">:</span> <span class="p">[]</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;up&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">up</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">up</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">filter</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
@@ -2492,8 +2879,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>Test a connection to a host/port </p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">can_connect_to</span><span class="p">(</span><span class="n">host</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">port</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def can_connect_to(host: str, port: int) -&gt; bool:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2522,22 +2908,22 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;can-connect-to&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;can_connect_to&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;port&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
       <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;can_connect_to&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;can-connect-to&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">can-connect-to</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">can-connect-to</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">host</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
@@ -2578,8 +2964,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>None</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">check_configuration</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def check_configuration(c: Dict[str, Any] = None) -&gt; bool:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2602,18 +2987,18 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;check-configuration&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;check_configuration&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;check_configuration&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;check-configuration&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-configuration</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check-configuration</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">check_configuration</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.utils</span>
@@ -2651,8 +3036,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>None</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">get_wm_params</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">NoneType</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def get_wm_params(c: Dict[str, Any]) -&gt; Union[Dict[str, Any], NoneType]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2675,21 +3059,21 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-wm-params&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.utils&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_wm_params&quot;</span><span class="p">,</span>
     <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
       <span class="nt">&quot;c&quot;</span><span class="p">:</span> <span class="p">{}</span>
     <span class="p">},</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_wm_params&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-wm-params&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get-wm-params</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get-wm-params</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">arguments</span><span class="p">:</span>
     <span class="nt">c</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
@@ -2730,8 +3114,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>None</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">mappings</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def mappings(c: Dict[str, Dict[str, str]] = None) -&gt; List[Any]:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2754,18 +3137,18 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;mappings&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mappings</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mappings</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">mappings</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.probes</span>
@@ -2803,8 +3186,7 @@ returns the list of ids of the mappings added</p>
 </table>
 <p>None</p>
 <p><strong>Signature:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">server_running</span><span class="p">(</span><span class="n">c</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s1">&#39;def server_running(c: Dict[str, Dict[str, str]] = None) -&gt; int:</span><span class="se">\n</span><span class="s1">    pass</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,)</span>
 </code></pre></div>
 
 <p><strong>Arguments:</strong></p>
@@ -2827,18 +3209,18 @@ returns the list of ids of the mappings added</p>
 </tbody>
 </table>
 <p><strong>Usage:</strong></p>
-<div class="codehilite"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;server-running&quot;</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
   <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
   <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
     <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaoswm.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;server_running&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span>
-  <span class="p">}</span>
+    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;server_running&quot;</span>
+  <span class="p">},</span>
+  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;server-running&quot;</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<div class="codehilite"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">server-running</span>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">server-running</span>
 <span class="nt">provider</span><span class="p">:</span>
   <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">server_running</span>
   <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaoswm.probes</span>
@@ -2916,13 +3298,13 @@ returns the list of ids of the mappings added</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

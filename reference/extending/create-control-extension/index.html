@@ -1353,7 +1353,7 @@ that are called by the Chaos Toolkit when executing the experiment.</p>
 <p class="admonition-title">Tip</p>
 <p>All of these functions are optional, only implement the one you need.</p>
 </div>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">List</span>
 
 <span class="kn">from</span> <span class="nn">chaoslib.types</span> <span class="kn">import</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">Configuration</span><span class="p">,</span> \
     <span class="n">Experiment</span><span class="p">,</span> <span class="n">Hypothesis</span><span class="p">,</span> <span class="n">Journal</span><span class="p">,</span> <span class="n">Run</span><span class="p">,</span> <span class="n">Secrets</span><span class="p">,</span> <span class="n">Settings</span>
@@ -1521,7 +1521,7 @@ other words a <code>control.py</code> module of the <code>chaosstuff</code> pack
 <code>chaos</code> runs.</p>
 <h3 id="declare-it-in-the-experiment">Declare it in the experiment<a class="headerlink" href="#declare-it-in-the-experiment" title="Permanent link">&para;</a></h3>
 <p>Controls can be applied per-experiment only:</p>
-<div class="codehilite"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
+<div class="highlight"><pre><span></span><code><span class="s2">&quot;controls&quot;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;my-stuff&quot;</span><span class="p">,</span>
         <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
@@ -1535,7 +1535,7 @@ other words a <code>control.py</code> module of the <code>chaosstuff</code> pack
 <h3 id="declare-it-in-your-settings">Declare it in your settings<a class="headerlink" href="#declare-it-in-your-settings" title="Permanent link">&para;</a></h3>
 <p>Controls can be also applied globally to all runs by declaring them in the
 Chaos Toolkit settings file:</p>
-<div class="codehilite"><pre><span></span><code><span class="nt">controls</span><span class="p">:</span>
+<div class="highlight"><pre><span></span><code><span class="nt">controls</span><span class="p">:</span>
     <span class="nt">my-stuff</span><span class="p">:</span>
         <span class="nt">provider</span><span class="p">:</span>
             <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
@@ -1554,7 +1554,7 @@ from any of your control functions.</p>
 <p>Note however, this is a harsh way to terminate the execution since, none of
 the rollbacks will be applied.</p>
 <p>Here is an example:</p>
-<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">chaoslib.exceptions</span> <span class="kn">import</span> <span class="n">InterruptExecution</span>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">chaoslib.exceptions</span> <span class="kn">import</span> <span class="n">InterruptExecution</span>
 
 
 <span class="k">def</span> <span class="nf">after_activity_control</span><span class="p">(</span><span class="n">context</span><span class="p">:</span> <span class="n">Activity</span><span class="p">,</span> <span class="n">state</span><span class="p">:</span> <span class="n">Run</span><span class="p">,</span>  
@@ -1637,13 +1637,13 @@ the rollbacks will be applied.</p>
   <div class="md-footer-social">
     <link rel="stylesheet" href="../../../assets/fonts/font-awesome.css">
     
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="github" class="md-footer-social__link fa fa-github"></a>
+      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="twitter" class="md-footer-social__link fa fa-twitter"></a>
+      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="slack" class="md-footer-social__link fa fa-slack"></a>
+      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="medium" class="md-footer-social__link fa fa-medium"></a>
+      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
     
   </div>
 

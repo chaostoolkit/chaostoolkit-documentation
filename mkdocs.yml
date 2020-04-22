@@ -44,13 +44,13 @@ markdown_extensions:
   - pymdownx.tilde
 extra:
   social:
-    - type: github
+    - icon: fontawesome/brands/github
       link: https://github.com/chaostoolkit
-    - type: twitter
+    - icon: fontawesome/brands/twitter
       link: https://twitter.com/chaostoolkit
-    - type: slack
+    - icon: fontawesome/brands/slack
       link: https://join.chaostoolkit.org/
-    - type: medium
+    - icon: fontawesome/brands/medium
       link: https://medium.com/chaos-toolkit
 nav:
 - Home: index.md

@@ -166,14 +166,19 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     as_json = called_without_args_info(
         args, mod_name, func_name, activity_type)
 
+    s = ''
+    try:
+        s = FormatCode("def {}{}:pass".format(func_name, str(sig)))[0],
+    except Exception:
+        print('Failed to format {} in {}'.format(func_name, mod_name))
+
     return {
         "type": activity_type,
         "module": mod_name,
         "name": func_name,
         "doc": inspect.getdoc(func),
         "return": return_type,
-        "signature": FormatCode("def {}{}:pass".format(
-            func_name, str(sig)))[0],
+        "signature": s,
         "arguments": args,
         "as_json": json.dumps(as_json, indent=2),
         "as_yaml": yaml.dump(as_json, default_flow_style=False)

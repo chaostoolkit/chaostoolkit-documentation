@@ -1,78 +1,4 @@
-
-
-
-
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      
-        <meta name="description" content="Chaos Toolkit">
-      
-      
-      
-        <meta name="author" content="The Chaos Toolkit Team">
-      
-      
-        <meta name="lang:clipboard.copy" content="Copy to clipboard">
-      
-        <meta name="lang:clipboard.copied" content="Copied to clipboard">
-      
-        <meta name="lang:search.language" content="en">
-      
-        <meta name="lang:search.pipeline.stopwords" content="True">
-      
-        <meta name="lang:search.pipeline.trimmer" content="True">
-      
-        <meta name="lang:search.result.none" content="No matching documents">
-      
-        <meta name="lang:search.result.one" content="1 matching document">
-      
-        <meta name="lang:search.result.other" content="# matching documents">
-      
-        <meta name="lang:search.tokenizer" content="[\s\-]+">
-      
-      <link rel="shortcut icon" href="../../static/images/favicon.ico">
-      <meta name="generator" content="mkdocs-1.1, mkdocs-material-4.6.3">
-    
-    
-      
-        <title>Istio - Chaos Toolkit</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/application.adb8469c.css">
-      
-        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
-      
-      
-        
-        
-        <meta name="theme-color" content="">
-      
-    
-    
-      <script src="../../assets/javascripts/modernizr.86422ebf.js"></script>
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
-      
-    
-    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-    
-    
-      <link rel="stylesheet" href="../../static/css/extra.css">
-    
-    
-      
-        
-<script>
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="ie=edge"><meta name=description content="Chaos Toolkit"><meta name=author content="The Chaos Toolkit Team"><meta name=lang:clipboard.copy content="Copy to clipboard"><meta name=lang:clipboard.copied content="Copied to clipboard"><meta name=lang:search.language content=en><meta name=lang:search.pipeline.stopwords content=True><meta name=lang:search.pipeline.trimmer content=True><meta name=lang:search.result.none content="No matching documents"><meta name=lang:search.result.one content="1 matching document"><meta name=lang:search.result.other content="# matching documents"><meta name=lang:search.tokenizer content=[\s\-]+><link rel="shortcut icon" href=../../static/images/favicon.ico><meta name=generator content="mkdocs-1.1, mkdocs-material-4.6.3"><title>Istio - Chaos Toolkit</title><link rel=stylesheet href=../../assets/stylesheets/application.adb8469c.css><link rel=stylesheet href=../../assets/stylesheets/application-palette.a8b3c06d.css><meta name=theme-color content><script src=../../assets/javascripts/modernizr.86422ebf.js></script><link href=https://fonts.gstatic.com rel=preconnect crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback"><style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style><link rel=stylesheet href=../../assets/fonts/material-icons.css><link rel=manifest type=application/manifest+json href=../../manifest.webmanifest crossorigin=use-credentials><link rel=stylesheet href=../../static/css/extra.css><script>
   window.ga = window.ga || function() {
     (ga.q = ga.q || []).push(arguments)
   }
@@ -93,2363 +19,270 @@
       })
     }
   })
-</script>
-<script async src="https://www.google-analytics.com/analytics.js"></script>
-      
-    
-    
-  </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="white" data-md-color-accent="yellow">
-  
-    <svg class="md-svg">
-      <defs>
-        
-        
-          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
-        
-      </defs>
-    </svg>
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
-    
-      <a href="#extension-chaosistio" tabindex="0" class="md-skip">
-        Skip to content
-      </a>
-    
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="../.." title="Chaos Toolkit" aria-label="Chaos Toolkit" class="md-header-nav__button md-logo">
-          
-            <img alt="logo" src="../../static/images/logo.png" width="24" height="24">
-          
-        </a>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-      </div>
-      <div class="md-flex__cell md-flex__cell--stretch">
-        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
-          
-            <span class="md-header-nav__topic">
-              Chaos Toolkit
-            </span>
-            <span class="md-header-nav__topic">
-              
-                Istio
-              
-            </span>
-          
-        </div>
-      </div>
-      <div class="md-flex__cell md-flex__cell--shrink">
-        
-          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
-          
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" aria-label="search" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
-      <label class="md-icon md-search__icon" for="__search"></label>
-      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
-        &#xE5CD;
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="result">
-          <div class="md-search-result__meta">
-            Type to start searching
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-        
-      </div>
-      
-        <div class="md-flex__cell md-flex__cell--shrink">
-          <div class="md-header-nav__source">
-            
-
-
-  
-
-<a href="https://github.com/chaostoolkit/chaostoolkit/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    chaostoolkit
-  </div>
-</a>
-          </div>
-        </div>
-      
-    </div>
-  </nav>
-</header>
-    
-    <div class="md-container">
-      
-        
-      
-      
-      <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
-          
-            
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" data-md-level="0">
-  <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="../.." title="Chaos Toolkit" class="md-nav__button md-logo">
-      
-        <img alt="logo" src="../../static/images/logo.png" width="48" height="48">
-      
-    </a>
-    Chaos Toolkit
-  </label>
-  
-    <div class="md-nav__source">
-      
-
-
-  
-
-<a href="https://github.com/chaostoolkit/chaostoolkit/" title="Go to repository" class="md-source" data-md-source="github">
-  
-    <div class="md-source__icon">
-      <svg viewBox="0 0 24 24" width="24" height="24">
-        <use xlink:href="#__github" width="24" height="24"></use>
-      </svg>
-    </div>
-  
-  <div class="md-source__repository">
-    chaostoolkit
-  </div>
-</a>
-    </div>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-
-  <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
-      Home
-    </a>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
-    
-    <label class="md-nav__link" for="nav-2">
-      Usage
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        Usage
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/install/" title="Install" class="md-nav__link">
-      Install
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/upgrade/" title="Upgrade" class="md-nav__link">
-      Upgrade
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
-    
-    <label class="md-nav__link" for="nav-2-3">
-      CLI
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-2-3">
-        CLI
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/cli/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/discover/" title="Discover" class="md-nav__link">
-      Discover
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/init/" title="Init" class="md-nav__link">
-      Init
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/run/" title="Run" class="md-nav__link">
-      Run
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/report/" title="Report" class="md-nav__link">
-      Report
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/notification/" title="Notify" class="md-nav__link">
-      Notify
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/usage/scheduling/" title="Schedule" class="md-nav__link">
-      Schedule
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
-    
-    <label class="md-nav__link" for="nav-3">
-      Deployment
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
-        Deployment
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-1" type="checkbox" id="nav-3-1">
-    
-    <label class="md-nav__link" for="nav-3-1">
-      Kubernetes
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-3-1">
-        Kubernetes
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../deployment/k8s/operator/" title="Operator" class="md-nav__link">
-      Operator
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
-    
-    <label class="md-nav__link" for="nav-4">
-      Tutorials
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
-        Tutorials
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/tutorial/" title="Get Started with the Chaos Toolkit" class="md-nav__link">
-      Get Started with the Chaos Toolkit
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/tutorials/tolerance/" title="Learn all about Steady-State Tolerances" class="md-nav__link">
-      Learn all about Steady-State Tolerances
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
-    
-    <label class="md-nav__link" for="nav-5">
-      Drivers Reference
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
-        Drivers Reference
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../overview/" title="Overview" class="md-nav__link">
-      Overview
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-2" type="checkbox" id="nav-5-2">
-    
-    <label class="md-nav__link" for="nav-5-2">
-      Infrastructure/Platform
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-2">
-        Infrastructure/Platform
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../aws/" title="AWS" class="md-nav__link">
-      AWS
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../azure/" title="Azure" class="md-nav__link">
-      Azure
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../cloudfoundry/" title="Cloud Foundry" class="md-nav__link">
-      Cloud Foundry
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../gandi/" title="Gandi" class="md-nav__link">
-      Gandi
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../gcp/" title="Google Cloud Platform" class="md-nav__link">
-      Google Cloud Platform
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../kubernetes/" title="Kubernetes" class="md-nav__link">
-      Kubernetes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../service-fabric/" title="Service Fabric" class="md-nav__link">
-      Service Fabric
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-3" type="checkbox" id="nav-5-3">
-    
-    <label class="md-nav__link" for="nav-5-3">
-      Application
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-3">
-        Application
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../spring/" title="Spring" class="md-nav__link">
-      Spring
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-4" type="checkbox" id="nav-5-4" checked>
-    
-    <label class="md-nav__link" for="nav-5-4">
-      Network
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-4">
-        Network
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../toxiproxy/" title="ToxiProxy" class="md-nav__link">
-      ToxiProxy
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Istio
-      </label>
-    
-    <a href="./" title="Istio" class="md-nav__link md-nav__link--active">
-      Istio
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-activities" class="md-nav__link">
-    Exported Activities
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fault" class="md-nav__link">
-    fault
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add_abort_fault" class="md-nav__link">
-    add_abort_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add_delay_fault" class="md-nav__link">
-    add_delay_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_virtual_service" class="md-nav__link">
-    get_virtual_service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove_abort_fault" class="md-nav__link">
-    remove_abort_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove_delay_fault" class="md-nav__link">
-    remove_delay_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set_fault" class="md-nav__link">
-    set_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unset_fault" class="md-nav__link">
-    unset_fault
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../wiremock/" title="WireMock" class="md-nav__link">
-      WireMock
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5-5" type="checkbox" id="nav-5-5">
-    
-    <label class="md-nav__link" for="nav-5-5">
-      Observability
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-5-5">
-        Observability
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../humio/" title="Humio" class="md-nav__link">
-      Humio
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../prometheus/" title="Prometheus" class="md-nav__link">
-      Prometheus
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../opentracing/" title="Open Tracing" class="md-nav__link">
-      Open Tracing
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
-    
-    <label class="md-nav__link" for="nav-6">
-      Chaos Open API
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
-        Chaos Open API
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/concepts/" title="Concepts" class="md-nav__link">
-      Concepts
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/api/experiment/" title="Experiment" class="md-nav__link">
-      Experiment
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/api/journal/" title="Journal" class="md-nav__link">
-      Journal
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
-    
-    <label class="md-nav__link" for="nav-7">
-      Contribute
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-7">
-        Contribute
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/contributing/" title="Contributing to the Chaos Toolkit" class="md-nav__link">
-      Contributing to the Chaos Toolkit
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7-2" type="checkbox" id="nav-7-2">
-    
-    <label class="md-nav__link" for="nav-7-2">
-      Project Management
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-7-2">
-        Project Management
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/developing/values/" title="Key Project Values" class="md-nav__link">
-      Key Project Values
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/developing/core/" title="Core Projects" class="md-nav__link">
-      Core Projects
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/developing/technologies/" title="Technology Choices" class="md-nav__link">
-      Technology Choices
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
-    
-    <label class="md-nav__link" for="nav-8">
-      Develop
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-8">
-        Develop
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/developing/guidelines/" title="Guidelines" class="md-nav__link">
-      Guidelines
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-2" type="checkbox" id="nav-8-2">
-    
-    <label class="md-nav__link" for="nav-8-2">
-      Driver Extension
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-8-2">
-        Driver Extension
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/extending/approaches/" title="Extension Approaches" class="md-nav__link">
-      Extension Approaches
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/extending/extending-with-python/" title="Extend with Python" class="md-nav__link">
-      Extend with Python
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8-3" type="checkbox" id="nav-8-3">
-    
-    <label class="md-nav__link" for="nav-8-3">
-      Control Extension
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
-      <label class="md-nav__title" for="nav-8-3">
-        Control Extension
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../reference/extending/create-control-extension/" title="Create Control" class="md-nav__link">
-      Create Control
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
-
-
-  <li class="md-nav__item md-nav__item--nested">
-    
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
-    
-    <label class="md-nav__link" for="nav-9">
-      Resources
-    </label>
-    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-9">
-        Resources
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../resources/logos/" title="Logos" class="md-nav__link">
-      Logos
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../resources/slides/" title="Slides" class="md-nav__link">
-      Slides
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
-
-    
-  </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#install" class="md-nav__link">
-    Install
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#usage" class="md-nav__link">
-    Usage
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribute" class="md-nav__link">
-    Contribute
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#develop" class="md-nav__link">
-    Develop
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#test" class="md-nav__link">
-    Test
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#exported-activities" class="md-nav__link">
-    Exported Activities
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#fault" class="md-nav__link">
-    fault
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#add_abort_fault" class="md-nav__link">
-    add_abort_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#add_delay_fault" class="md-nav__link">
-    add_delay_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#get_virtual_service" class="md-nav__link">
-    get_virtual_service
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove_abort_fault" class="md-nav__link">
-    remove_abort_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#remove_delay_fault" class="md-nav__link">
-    remove_delay_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#set_fault" class="md-nav__link">
-    set_fault
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#unset_fault" class="md-nav__link">
-    unset_fault
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/drivers/istio.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
-                
-                
-                <h1 id="extension-chaosistio">Extension <code>chaosistio</code><a class="headerlink" href="#extension-chaosistio" title="Permanent link">&para;</a></h1>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Version</strong></td>
-<td>0.1.4</td>
-</tr>
-<tr>
-<td><strong>Repository</strong></td>
-<td><a href="https://github.com/chaostoolkit-incubator/chaostoolkit-istio">https://github.com/chaostoolkit-incubator/chaostoolkit-istio</a></td>
-</tr>
-</tbody>
-</table>
-<p><a href="https://www.python.org/"><img alt="Python versions" src="https://img.shields.io/pypi/pyversions/chaostoolkit-istio.svg" /></a></p>
-<p>This project is a collection of <a href="http://chaostoolkit.org/reference/api/experiment/#action">actions</a> and <a href="http://chaostoolkit.org/reference/api/experiment/#probe">probes</a>, gathered as an
-extension to the <a href="http://chaostoolkit.org">Chaos Toolkit</a>.</p>
-<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
-<p>This package requires Python 3.5+</p>
-<p>To be used from your experiment, this package must be installed in the Python
-environment where <a href="http://chaostoolkit.org">chaostoolkit</a> already lives.</p>
-<div class="highlight"><pre><span></span><code>$ pip install -U chaostoolkit-istio
-</code></pre></div>
-
-<h2 id="usage">Usage<a class="headerlink" href="#usage" title="Permanent link">&para;</a></h2>
-<p>Below is an example of using this extension to inject a delay of 5 seconds to
-a specific user.</p>
-<p>Note this example can be applied against the
-<a href="https://istio.io/docs/examples/bookinfo/">bookinfo Istio sample application</a>.</p>
-<p>To run it, simple set the <code>KUBERNETES_CONTEXT</code> environment variable to the
-target cluster and ensure your local kubeconfig is properly populated for that
-context. Set also the <code>PRODUCT_PAGE_SERVICE_BASE_URL</code> to the address of the
-Istio gateway.</p>
-<p>For instance:</p>
-<div class="highlight"><pre><span></span><code>$ export PRODUCT_PAGE_SERVICE_BASE_URL=$(kubectl get po -l istio=ingressgateway -n istio-system -o &#39;jsonpath={.items[0].status.hostIP}&#39;):$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath=&#39;{.spec.ports[?(@.name==&quot;http2&quot;)].nodePort}&#39;)
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Network latency does not impact our users&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;Using Istio fault injection capability, let&#39;s explore how latency impacts a single user&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;configuration&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;product_page_url&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;PRODUCT_PAGE_SERVICE_BASE_URL&quot;</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;istio&quot;</span><span class="p">:</span> <span class="p">{</span>
-            <span class="nt">&quot;KUBERNETES_CONTEXT&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;env&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;key&quot;</span><span class="p">:</span> <span class="s2">&quot;KUBERNETES_CONTEXT&quot;</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;steady-state-hypothesis&quot;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Our service should respond under 1 second&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;probes&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;sign-in-as-jason&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;curl&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;-v -X POST -d &#39;username=jason&amp;passwd=&#39; -c /tmp/cookie.txt --silent ${product_page_url}/login&quot;</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;fetch-productpage-for-jason-in-due-time&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;tolerance&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-                <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;process&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;path&quot;</span><span class="p">:</span> <span class="s2">&quot;curl&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="s2">&quot;-v --connect-timeout 1 --max-time 1 -b /tmp/cookie.txt --silent ${product_page_url}/productpage&quot;</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;method&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;inject-fault-for-jason-only&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_delay_fault&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;istio&quot;</span><span class="p">],</span>
-                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;reviews&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;fixed_delay&quot;</span><span class="p">:</span> <span class="s2">&quot;5s&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;percentage&quot;</span><span class="p">:</span> <span class="p">{</span>
-                        <span class="nt">&quot;value&quot;</span><span class="p">:</span>  <span class="mf">100.0</span>
-                    <span class="p">},</span>
-                    <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="nt">&quot;destination&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;reviews&quot;</span><span class="p">,</span>
-                                <span class="nt">&quot;subset&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span>
-                            <span class="p">}</span>
-                        <span class="p">}</span>
-                    <span class="p">]</span>
-                <span class="p">}</span>
-            <span class="p">},</span>
-            <span class="nt">&quot;pauses&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;after&quot;</span><span class="p">:</span> <span class="mi">2</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">],</span>
-    <span class="nt">&quot;rollbacks&quot;</span><span class="p">:</span> <span class="p">[</span>
-        <span class="p">{</span>
-            <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-fault-for-jason-only&quot;</span><span class="p">,</span>
-            <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-                <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_delay_fault&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;secrets&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;istio&quot;</span><span class="p">],</span>
-                <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-                    <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;reviews&quot;</span><span class="p">,</span>
-                    <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[</span>
-                        <span class="p">{</span>
-                            <span class="nt">&quot;destination&quot;</span><span class="p">:</span> <span class="p">{</span>
-                                <span class="nt">&quot;host&quot;</span><span class="p">:</span> <span class="s2">&quot;reviews&quot;</span><span class="p">,</span>
-                                <span class="nt">&quot;subset&quot;</span><span class="p">:</span> <span class="s2">&quot;v2&quot;</span>
-                            <span class="p">}</span>
-                        <span class="p">}</span>
-                    <span class="p">]</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-    <span class="p">]</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<p>That&rsquo;s it!</p>
-<p>Please explore the code to see existing probes and actions.</p>
-<h2 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">&para;</a></h2>
-<p>This extension needs you specify how to connect to the Kubernetes cluster. This
-can be done by setting the <code>KUBERNETES_CONTEXT</code> in the <code>secrets</code> payload.</p>
-<h2 id="contribute">Contribute<a class="headerlink" href="#contribute" title="Permanent link">&para;</a></h2>
-<p>If you wish to contribute more functions to this package, you are more than
-welcome to do so. Please, fork this project, make your changes following the
-usual <a href="https://pycodestyle.readthedocs.io/en/latest/">PEP 8</a> code style, sprinkling with tests and submit a PR for
-review.</p>
-<p>The Chaos Toolkit projects require all contributors must sign a
-<a href="https://github.com/probot/dco#how-it-works">Developer Certificate of Origin</a> on each commit they would like to merge
-into the master branch of the repository. Please, make sure you can abide by
-the rules of the DCO before submitting a PR.</p>
-<h3 id="develop">Develop<a class="headerlink" href="#develop" title="Permanent link">&para;</a></h3>
-<p>If you wish to develop on this project, make sure to install the development
-dependencies. But first, <a href="http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment">create a virtual environment</a> and then install
-those dependencies.</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> pip install -r requirements-dev.txt -r requirements.txt
-</code></pre></div>
-
-<p>Then, point your environment to this directory:</p>
-<div class="highlight"><pre><span></span><code><span class="gp">$</span> python setup.py develop
-</code></pre></div>
-
-<p>Now, you can edit the files and they will be automatically be seen by your
-environment, even when running from the <code>chaos</code> command locally.</p>
-<h3 id="test">Test<a class="headerlink" href="#test" title="Permanent link">&para;</a></h3>
-<p>To run the tests for the project execute the following:</p>
-<div class="highlight"><pre><span></span><code>$ pytest
-</code></pre></div>
-
-<h2 id="exported-activities">Exported Activities<a class="headerlink" href="#exported-activities" title="Permanent link">&para;</a></h2>
-<h3 id="fault">fault<a class="headerlink" href="#fault" title="Permanent link">&para;</a></h3>
-<hr />
-<h4 id="add_abort_fault"><code>add_abort_fault</code><a class="headerlink" href="#add_abort_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>add_abort_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Abort requests early by the virtual service identified by <code>name</code></p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def add_abort_fault(</span><span class="se">\n</span><span class="s2">        virtual_service_name: str,</span><span class="se">\n</span><span class="s2">        http_status: int,</span><span class="se">\n</span><span class="s2">        routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">        percentage: float = None,</span><span class="se">\n</span><span class="s2">        ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>http_status</strong></td>
-<td>integer</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>percentage</strong></td>
-<td>number</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;http_status&quot;</span><span class="p">:</span> <span class="mi">0</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_abort_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-abort-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add-abort-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">http_status</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add_abort_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-
-<hr />
-<h4 id="add_delay_fault"><code>add_delay_fault</code><a class="headerlink" href="#add_delay_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>add_delay_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Add delay to the virtual service identified by <code>name</code></p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def add_delay_fault(</span><span class="se">\n</span><span class="s2">        virtual_service_name: str,</span><span class="se">\n</span><span class="s2">        fixed_delay: str,</span><span class="se">\n</span><span class="s2">        routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">        percentage: float = None,</span><span class="se">\n</span><span class="s2">        ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>fixed_delay</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>percentage</strong></td>
-<td>number</td>
-<td>null</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;fixed_delay&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;add_delay_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;add-delay-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add-delay-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">fixed_delay</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">add_delay_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-
-<hr />
-<h4 id="get_virtual_service"><code>get_virtual_service</code><a class="headerlink" href="#get_virtual_service" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>probe</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.probes</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>get_virtual_service</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Get a virtual service identified by <code>name</code></p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def get_virtual_service(</span><span class="se">\n</span><span class="s2">        virtual_service_name: str,</span><span class="se">\n</span><span class="s2">        ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;probe&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.probes&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;get_virtual_service&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;get-virtual-service&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get-virtual-service</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">get_virtual_service</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.probes</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
-</code></pre></div>
-
-<hr />
-<h4 id="remove_abort_fault"><code>remove_abort_fault</code><a class="headerlink" href="#remove_abort_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>remove_abort_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Remove abort request faults from the virtual service identified by <code>name</code></p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def remove_abort_fault(</span><span class="se">\n</span><span class="s2">        virtual_service_name: str,</span><span class="se">\n</span><span class="s2">        routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">        ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_abort_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-abort-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-abort-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove_abort_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-
-<hr />
-<h4 id="remove_delay_fault"><code>remove_delay_fault</code><a class="headerlink" href="#remove_delay_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>remove_delay_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Remove delay from the virtual service identified by <code>name</code></p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def remove_delay_fault(</span><span class="se">\n</span><span class="s2">        virtual_service_name: str,</span><span class="se">\n</span><span class="s2">        routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">        ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">        configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;remove_delay_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;remove-delay-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove-delay-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">remove_delay_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-
-<hr />
-<h4 id="set_fault"><code>set_fault</code><a class="headerlink" href="#set_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>set_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Setfault injection on the virtual service identified by <code>name</code></p>
-<p>The <code>fault</code> argument must be the object passed as the <code>spec</code> property
-of a virtual service resource.</p>
-<p>If a fault already exists, it is updated with the new specification.</p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def set_fault(virtual_service_name: str,</span><span class="se">\n</span><span class="s2">              routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">              fault: Dict[str, Any],</span><span class="se">\n</span><span class="s2">              ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">              version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">              configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">              secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>fault</strong></td>
-<td>mapping</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-      <span class="nt">&quot;fault&quot;</span><span class="p">:</span> <span class="p">{}</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;set_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;set-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">fault</span><span class="p">:</span> <span class="p p-Indicator">{}</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">set_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-
-<hr />
-<h4 id="unset_fault"><code>unset_fault</code><a class="headerlink" href="#unset_fault" title="Permanent link">&para;</a></h4>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Type</strong></td>
-<td>action</td>
-</tr>
-<tr>
-<td><strong>Module</strong></td>
-<td>chaosistio.fault.actions</td>
-</tr>
-<tr>
-<td><strong>Name</strong></td>
-<td>unset_fault</td>
-</tr>
-<tr>
-<td><strong>Return</strong></td>
-<td>mapping</td>
-</tr>
-</tbody>
-</table>
-<p>Unset fault injection from the virtual service identified by <code>name</code></p>
-<p>The <code>fault</code> argument must be the object passed as the <code>spec</code> property
-of a virtual service resource.</p>
-<p>See <a href="https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection">https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection</a></p>
-<p><strong>Signature:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="s2">&quot;def unset_fault(virtual_service_name: str,</span><span class="se">\n</span><span class="s2">                routes: List[Dict[str, str]],</span><span class="se">\n</span><span class="s2">                ns: str = &#39;default&#39;,</span><span class="se">\n</span><span class="s2">                version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class="se">\n</span><span class="s2">                configuration: Dict[str, Dict[str, str]] = None,</span><span class="se">\n</span><span class="s2">                secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class="se">\n</span><span class="s2">    pass</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,)</span>
-</code></pre></div>
-
-<p><strong>Arguments:</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>virtual_service_name</strong></td>
-<td>string</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>routes</strong></td>
-<td>list</td>
-<td></td>
-<td>Yes</td>
-</tr>
-<tr>
-<td><strong>ns</strong></td>
-<td>string</td>
-<td>&ldquo;default&rdquo;</td>
-<td>No</td>
-</tr>
-<tr>
-<td><strong>version</strong></td>
-<td>string</td>
-<td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td>
-<td>No</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Usage:</strong></p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span>
-  <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;action&quot;</span><span class="p">,</span>
-  <span class="nt">&quot;provider&quot;</span><span class="p">:</span> <span class="p">{</span>
-    <span class="nt">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;python&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;module&quot;</span><span class="p">:</span> <span class="s2">&quot;chaosistio.fault.actions&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;arguments&quot;</span><span class="p">:</span> <span class="p">{</span>
-      <span class="nt">&quot;routes&quot;</span><span class="p">:</span> <span class="p">[],</span>
-      <span class="nt">&quot;virtual_service_name&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-    <span class="p">},</span>
-    <span class="nt">&quot;func&quot;</span><span class="p">:</span> <span class="s2">&quot;unset_fault&quot;</span>
-  <span class="p">},</span>
-  <span class="nt">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;unset-fault&quot;</span>
-<span class="p">}</span>
-</code></pre></div>
-
-<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">unset-fault</span>
-<span class="nt">provider</span><span class="p">:</span>
-  <span class="nt">arguments</span><span class="p">:</span>
-    <span class="nt">routes</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
-    <span class="nt">virtual_service_name</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
-  <span class="nt">func</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">unset_fault</span>
-  <span class="nt">module</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
-  <span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
-<span class="nt">type</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
-</code></pre></div>
-                
-                  
-                
-                
-              
-              
-                
-
-
-              
-            </article>
-          </div>
-        </div>
-      </main>
-      
-        
-<footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../toxiproxy/" title="ToxiProxy" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                ToxiProxy
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../wiremock/" title="WireMock" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                WireMock
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            &copy; 2017-2018 chaostoolkit team
-          </div>
-        
-        powered by
-        <a href="https://www.mkdocs.org" target="_blank" rel="noopener">MkDocs</a>
-        and
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs</a>
-      </div>
-      
-  <div class="md-footer-social">
-    <link rel="stylesheet" href="../../assets/fonts/font-awesome.css">
-    
-      <a href="https://github.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
-    
-      <a href="https://twitter.com/chaostoolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
-    
-      <a href="https://join.chaostoolkit.org/" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
-    
-      <a href="https://medium.com/chaos-toolkit" target="_blank" rel="noopener" title="" class="md-footer-social__link fa fa-"></a>
-    
-  </div>
-
-    </div>
-  </div>
-</footer>
-      
-    </div>
-    
-      <script src="../../assets/javascripts/application.c33a9706.js"></script>
-      
-      <script>app.initialize({version:"1.1",url:{base:"../.."}})</script>
-      
-    
-  </body>
-</html>
+</script><script async src=https://www.google-analytics.com/analytics.js></script></head> <body dir=ltr data-md-color-primary=white data-md-color-accent=yellow> <svg class=md-svg> <defs> <svg xmlns=http://www.w3.org/2000/svg width=416 height=448 viewbox="0 0 416 448" id=__github><path fill=currentColor d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg> </defs> </svg> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay data-md-component=overlay for=__drawer></label> <a href=#extension-chaosistio tabindex=0 class=md-skip> Skip to content </a> <header class=md-header data-md-component=header> <nav class="md-header-nav md-grid"> <div class=md-flex> <div class="md-flex__cell md-flex__cell--shrink"> <a href=../.. title="Chaos Toolkit" aria-label="Chaos Toolkit" class="md-header-nav__button md-logo"> <img alt=logo src=../../static/images/logo.png width=24 height=24> </a> </div> <div class="md-flex__cell md-flex__cell--shrink"> <label class="md-icon md-icon--menu md-header-nav__button" for=__drawer></label> </div> <div class="md-flex__cell md-flex__cell--stretch"> <div class="md-flex__ellipsis md-header-nav__title" data-md-component=title> <span class=md-header-nav__topic> Chaos Toolkit </span> <span class=md-header-nav__topic> Istio </span> </div> </div> <div class="md-flex__cell md-flex__cell--shrink"> <label class="md-icon md-icon--search md-header-nav__button" for=__search></label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input aria-label=search name=query placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=query data-md-state=active> <label class="md-icon md-search__icon" for=__search></label> <button type=reset class="md-icon md-search__icon" data-md-component=reset tabindex=-1> &#xE5CD; </button> </form> <div class=md-search__output> <div class=md-search__scrollwrap data-md-scrollfix> <div class=md-search-result data-md-component=result> <div class=md-search-result__meta> Type to start searching </div> <ol class=md-search-result__list></ol> </div> </div> </div> </div> </div> </div> <div class="md-flex__cell md-flex__cell--shrink"> <div class=md-header-nav__source> <a href=https://github.com/chaostoolkit/chaostoolkit/ title="Go to repository" class=md-source data-md-source=github> <div class=md-source__icon> <svg viewbox="0 0 24 24" width=24 height=24> <use xlink:href=#__github width=24 height=24></use> </svg> </div> <div class=md-source__repository> chaostoolkit </div> </a> </div> </div> </div> </nav> </header> <div class=md-container> <main class=md-main role=main> <div class="md-main__inner md-grid" data-md-component=container> <div class="md-sidebar md-sidebar--primary" data-md-component=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary" data-md-level=0> <label class="md-nav__title md-nav__title--site" for=__drawer> <a href=../.. title="Chaos Toolkit" class="md-nav__button md-logo"> <img alt=logo src=../../static/images/logo.png width=48 height=48> </a> Chaos Toolkit </label> <div class=md-nav__source> <a href=https://github.com/chaostoolkit/chaostoolkit/ title="Go to repository" class=md-source data-md-source=github> <div class=md-source__icon> <svg viewbox="0 0 24 24" width=24 height=24> <use xlink:href=#__github width=24 height=24></use> </svg> </div> <div class=md-source__repository> chaostoolkit </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../.. title=Home class=md-nav__link> Home </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-2 type=checkbox id=nav-2> <label class=md-nav__link for=nav-2> Usage </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-2> Usage </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/usage/install/ title=Install class=md-nav__link> Install </a> </li> <li class=md-nav__item> <a href=../../reference/usage/upgrade/ title=Upgrade class=md-nav__link> Upgrade </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-2-3 type=checkbox id=nav-2-3> <label class=md-nav__link for=nav-2-3> CLI </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-2-3> CLI </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/usage/cli/ title=Overview class=md-nav__link> Overview </a> </li> <li class=md-nav__item> <a href=../../reference/usage/discover/ title=Discover class=md-nav__link> Discover </a> </li> <li class=md-nav__item> <a href=../../reference/usage/init/ title=Init class=md-nav__link> Init </a> </li> <li class=md-nav__item> <a href=../../reference/usage/run/ title=Run class=md-nav__link> Run </a> </li> <li class=md-nav__item> <a href=../../reference/usage/report/ title=Report class=md-nav__link> Report </a> </li> <li class=md-nav__item> <a href=../../reference/usage/notification/ title=Notify class=md-nav__link> Notify </a> </li> <li class=md-nav__item> <a href=../../reference/usage/scheduling/ title=Schedule class=md-nav__link> Schedule </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-3 type=checkbox id=nav-3> <label class=md-nav__link for=nav-3> Deployment </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-3> Deployment </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-3-1 type=checkbox id=nav-3-1> <label class=md-nav__link for=nav-3-1> Kubernetes </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-3-1> Kubernetes </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../deployment/k8s/operator/ title=Operator class=md-nav__link> Operator </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-4 type=checkbox id=nav-4> <label class=md-nav__link for=nav-4> Tutorials </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-4> Tutorials </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/tutorial/ title="Get Started with the Chaos Toolkit" class=md-nav__link> Get Started with the Chaos Toolkit </a> </li> <li class=md-nav__item> <a href=../../reference/tutorials/tolerance/ title="Learn all about Steady-State Tolerances" class=md-nav__link> Learn all about Steady-State Tolerances </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-5 type=checkbox id=nav-5 checked> <label class=md-nav__link for=nav-5> Drivers Reference </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-5> Drivers Reference </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../overview/ title=Overview class=md-nav__link> Overview </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-5-2 type=checkbox id=nav-5-2> <label class=md-nav__link for=nav-5-2> Infrastructure/Platform </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-5-2> Infrastructure/Platform </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../aws/ title=AWS class=md-nav__link> AWS </a> </li> <li class=md-nav__item> <a href=../azure/ title=Azure class=md-nav__link> Azure </a> </li> <li class=md-nav__item> <a href=../cloudfoundry/ title="Cloud Foundry" class=md-nav__link> Cloud Foundry </a> </li> <li class=md-nav__item> <a href=../gandi/ title=Gandi class=md-nav__link> Gandi </a> </li> <li class=md-nav__item> <a href=../gcp/ title="Google Cloud Platform" class=md-nav__link> Google Cloud Platform </a> </li> <li class=md-nav__item> <a href=../kubernetes/ title=Kubernetes class=md-nav__link> Kubernetes </a> </li> <li class=md-nav__item> <a href=../service-fabric/ title="Service Fabric" class=md-nav__link> Service Fabric </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-5-3 type=checkbox id=nav-5-3> <label class=md-nav__link for=nav-5-3> Application </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-5-3> Application </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../spring/ title=Spring class=md-nav__link> Spring </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--active md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-5-4 type=checkbox id=nav-5-4 checked> <label class=md-nav__link for=nav-5-4> Network </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-5-4> Network </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../toxiproxy/ title=ToxiProxy class=md-nav__link> ToxiProxy </a> </li> <li class="md-nav__item md-nav__item--active"> <input class="md-toggle md-nav__toggle" data-md-toggle=toc type=checkbox id=__toc> <label class="md-nav__link md-nav__link--active" for=__toc> Istio </label> <a href=./ title=Istio class="md-nav__link md-nav__link--active"> Istio </a> <nav class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc>Table of contents</label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#install class=md-nav__link> Install </a> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> </li> <li class=md-nav__item> <a href=#configuration class=md-nav__link> Configuration </a> </li> <li class=md-nav__item> <a href=#contribute class=md-nav__link> Contribute </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#develop class=md-nav__link> Develop </a> </li> <li class=md-nav__item> <a href=#test class=md-nav__link> Test </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exported-activities class=md-nav__link> Exported Activities </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#fault class=md-nav__link> fault </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#add_abort_fault class=md-nav__link> add_abort_fault </a> </li> <li class=md-nav__item> <a href=#add_delay_fault class=md-nav__link> add_delay_fault </a> </li> <li class=md-nav__item> <a href=#get_virtual_service class=md-nav__link> get_virtual_service </a> </li> <li class=md-nav__item> <a href=#remove_abort_fault class=md-nav__link> remove_abort_fault </a> </li> <li class=md-nav__item> <a href=#remove_delay_fault class=md-nav__link> remove_delay_fault </a> </li> <li class=md-nav__item> <a href=#set_fault class=md-nav__link> set_fault </a> </li> <li class=md-nav__item> <a href=#unset_fault class=md-nav__link> unset_fault </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../wiremock/ title=WireMock class=md-nav__link> WireMock </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-5-5 type=checkbox id=nav-5-5> <label class=md-nav__link for=nav-5-5> Observability </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-5-5> Observability </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../humio/ title=Humio class=md-nav__link> Humio </a> </li> <li class=md-nav__item> <a href=../prometheus/ title=Prometheus class=md-nav__link> Prometheus </a> </li> <li class=md-nav__item> <a href=../opentracing/ title="Open Tracing" class=md-nav__link> Open Tracing </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-6 type=checkbox id=nav-6> <label class=md-nav__link for=nav-6> Chaos Open API </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-6> Chaos Open API </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/concepts/ title=Concepts class=md-nav__link> Concepts </a> </li> <li class=md-nav__item> <a href=../../reference/api/experiment/ title=Experiment class=md-nav__link> Experiment </a> </li> <li class=md-nav__item> <a href=../../reference/api/journal/ title=Journal class=md-nav__link> Journal </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-7 type=checkbox id=nav-7> <label class=md-nav__link for=nav-7> Contribute </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-7> Contribute </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/contributing/ title="Contributing to the Chaos Toolkit" class=md-nav__link> Contributing to the Chaos Toolkit </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-7-2 type=checkbox id=nav-7-2> <label class=md-nav__link for=nav-7-2> Project Management </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-7-2> Project Management </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/developing/values/ title="Key Project Values" class=md-nav__link> Key Project Values </a> </li> <li class=md-nav__item> <a href=../../reference/developing/core/ title="Core Projects" class=md-nav__link> Core Projects </a> </li> <li class=md-nav__item> <a href=../../reference/developing/technologies/ title="Technology Choices" class=md-nav__link> Technology Choices </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-8 type=checkbox id=nav-8> <label class=md-nav__link for=nav-8> Develop </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-8> Develop </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/developing/guidelines/ title=Guidelines class=md-nav__link> Guidelines </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-8-2 type=checkbox id=nav-8-2> <label class=md-nav__link for=nav-8-2> Driver Extension </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-8-2> Driver Extension </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/extending/approaches/ title="Extension Approaches" class=md-nav__link> Extension Approaches </a> </li> <li class=md-nav__item> <a href=../../reference/extending/extending-with-python/ title="Extend with Python" class=md-nav__link> Extend with Python </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-8-3 type=checkbox id=nav-8-3> <label class=md-nav__link for=nav-8-3> Control Extension </label> <nav class=md-nav data-md-component=collapsible data-md-level=2> <label class=md-nav__title for=nav-8-3> Control Extension </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../reference/extending/create-control-extension/ title="Create Control" class=md-nav__link> Create Control </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-toggle md-nav__toggle" data-md-toggle=nav-9 type=checkbox id=nav-9> <label class=md-nav__link for=nav-9> Resources </label> <nav class=md-nav data-md-component=collapsible data-md-level=1> <label class=md-nav__title for=nav-9> Resources </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../resources/logos/ title=Logos class=md-nav__link> Logos </a> </li> <li class=md-nav__item> <a href=../../resources/slides/ title=Slides class=md-nav__link> Slides </a> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary"> <label class=md-nav__title for=__toc>Table of contents</label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=#install class=md-nav__link> Install </a> </li> <li class=md-nav__item> <a href=#usage class=md-nav__link> Usage </a> </li> <li class=md-nav__item> <a href=#configuration class=md-nav__link> Configuration </a> </li> <li class=md-nav__item> <a href=#contribute class=md-nav__link> Contribute </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#develop class=md-nav__link> Develop </a> </li> <li class=md-nav__item> <a href=#test class=md-nav__link> Test </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=#exported-activities class=md-nav__link> Exported Activities </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#fault class=md-nav__link> fault </a> <nav class=md-nav> <ul class=md-nav__list> <li class=md-nav__item> <a href=#add_abort_fault class=md-nav__link> add_abort_fault </a> </li> <li class=md-nav__item> <a href=#add_delay_fault class=md-nav__link> add_delay_fault </a> </li> <li class=md-nav__item> <a href=#get_virtual_service class=md-nav__link> get_virtual_service </a> </li> <li class=md-nav__item> <a href=#remove_abort_fault class=md-nav__link> remove_abort_fault </a> </li> <li class=md-nav__item> <a href=#remove_delay_fault class=md-nav__link> remove_delay_fault </a> </li> <li class=md-nav__item> <a href=#set_fault class=md-nav__link> set_fault </a> </li> <li class=md-nav__item> <a href=#unset_fault class=md-nav__link> unset_fault </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class=md-content> <article class="md-content__inner md-typeset"> <a href=https://github.com/chaostoolkit/chaostoolkit/edit/master/docs/drivers/istio.md title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a> <h1 id=extension-chaosistio>Extension <code>chaosistio</code><a class=headerlink href=#extension-chaosistio title="Permanent link">&para;</a></h1> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Version</strong></td> <td>0.1.4</td> </tr> <tr> <td><strong>Repository</strong></td> <td><a href=https://github.com/chaostoolkit-incubator/chaostoolkit-istio>https://github.com/chaostoolkit-incubator/chaostoolkit-istio</a></td> </tr> </tbody> </table> <p><a href=https://www.python.org/ ><img alt="Python versions" src=https://img.shields.io/pypi/pyversions/chaostoolkit-istio.svg></a></p> <p>This project is a collection of <a href=http://chaostoolkit.org/reference/api/experiment/#action>actions</a> and <a href=http://chaostoolkit.org/reference/api/experiment/#probe>probes</a>, gathered as an extension to the <a href=http://chaostoolkit.org>Chaos Toolkit</a>.</p> <h2 id=install>Install<a class=headerlink href=#install title="Permanent link">&para;</a></h2> <p>This package requires Python 3.5+</p> <p>To be used from your experiment, this package must be installed in the Python environment where <a href=http://chaostoolkit.org>chaostoolkit</a> already lives.</p> <div class=highlight><pre><span></span><code>$ pip install -U chaostoolkit-istio
+</code></pre></div> <h2 id=usage>Usage<a class=headerlink href=#usage title="Permanent link">&para;</a></h2> <p>Below is an example of using this extension to inject a delay of 5 seconds to a specific user.</p> <p>Note this example can be applied against the <a href=https://istio.io/docs/examples/bookinfo/ >bookinfo Istio sample application</a>.</p> <p>To run it, simple set the <code>KUBERNETES_CONTEXT</code> environment variable to the target cluster and ensure your local kubeconfig is properly populated for that context. Set also the <code>PRODUCT_PAGE_SERVICE_BASE_URL</code> to the address of the Istio gateway.</p> <p>For instance:</p> <div class=highlight><pre><span></span><code>$ export PRODUCT_PAGE_SERVICE_BASE_URL=$(kubectl get po -l istio=ingressgateway -n istio-system -o &#39;jsonpath={.items[0].status.hostIP}&#39;):$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath=&#39;{.spec.ports[?(@.name==&quot;http2&quot;)].nodePort}&#39;)
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=p>{</span>
+    <span class=nt>&quot;title&quot;</span><span class=p>:</span> <span class=s2>&quot;Network latency does not impact our users&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;description&quot;</span><span class=p>:</span> <span class=s2>&quot;Using Istio fault injection capability, let&#39;s explore how latency impacts a single user&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;configuration&quot;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&quot;product_page_url&quot;</span><span class=p>:</span> <span class=p>{</span>
+            <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;env&quot;</span><span class=p>,</span>
+            <span class=nt>&quot;key&quot;</span><span class=p>:</span> <span class=s2>&quot;PRODUCT_PAGE_SERVICE_BASE_URL&quot;</span>
+        <span class=p>}</span>
+    <span class=p>},</span>
+    <span class=nt>&quot;secrets&quot;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&quot;istio&quot;</span><span class=p>:</span> <span class=p>{</span>
+            <span class=nt>&quot;KUBERNETES_CONTEXT&quot;</span><span class=p>:</span> <span class=p>{</span>
+                <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;env&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;key&quot;</span><span class=p>:</span> <span class=s2>&quot;KUBERNETES_CONTEXT&quot;</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>},</span>
+    <span class=nt>&quot;steady-state-hypothesis&quot;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&quot;title&quot;</span><span class=p>:</span> <span class=s2>&quot;Our service should respond under 1 second&quot;</span><span class=p>,</span>
+        <span class=nt>&quot;probes&quot;</span><span class=p>:</span> <span class=p>[</span>
+            <span class=p>{</span>
+                <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;probe&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;sign-in-as-jason&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;tolerance&quot;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+                <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+                    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;process&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;path&quot;</span><span class=p>:</span> <span class=s2>&quot;curl&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=s2>&quot;-v -X POST -d &#39;username=jason&amp;passwd=&#39; -c /tmp/cookie.txt --silent ${product_page_url}/login&quot;</span>
+                <span class=p>}</span>
+            <span class=p>},</span>
+            <span class=p>{</span>
+                <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;probe&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;fetch-productpage-for-jason-in-due-time&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;tolerance&quot;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+                <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+                    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;process&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;path&quot;</span><span class=p>:</span> <span class=s2>&quot;curl&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=s2>&quot;-v --connect-timeout 1 --max-time 1 -b /tmp/cookie.txt --silent ${product_page_url}/productpage&quot;</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+        <span class=p>]</span>
+    <span class=p>},</span>
+    <span class=nt>&quot;method&quot;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span><span class=p>,</span>
+            <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;inject-fault-for-jason-only&quot;</span><span class=p>,</span>
+            <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+                <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;add_delay_fault&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;secrets&quot;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&quot;istio&quot;</span><span class=p>],</span>
+                <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+                    <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;reviews&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;fixed_delay&quot;</span><span class=p>:</span> <span class=s2>&quot;5s&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;percentage&quot;</span><span class=p>:</span> <span class=p>{</span>
+                        <span class=nt>&quot;value&quot;</span><span class=p>:</span>  <span class=mf>100.0</span>
+                    <span class=p>},</span>
+                    <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span>
+                            <span class=nt>&quot;destination&quot;</span><span class=p>:</span> <span class=p>{</span>
+                                <span class=nt>&quot;host&quot;</span><span class=p>:</span> <span class=s2>&quot;reviews&quot;</span><span class=p>,</span>
+                                <span class=nt>&quot;subset&quot;</span><span class=p>:</span> <span class=s2>&quot;v2&quot;</span>
+                            <span class=p>}</span>
+                        <span class=p>}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>},</span>
+            <span class=nt>&quot;pauses&quot;</span><span class=p>:</span> <span class=p>{</span>
+                <span class=nt>&quot;after&quot;</span><span class=p>:</span> <span class=mi>2</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>],</span>
+    <span class=nt>&quot;rollbacks&quot;</span><span class=p>:</span> <span class=p>[</span>
+        <span class=p>{</span>
+            <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span><span class=p>,</span>
+            <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;remove-fault-for-jason-only&quot;</span><span class=p>,</span>
+            <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+                <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;remove_delay_fault&quot;</span><span class=p>,</span>
+                <span class=nt>&quot;secrets&quot;</span><span class=p>:</span> <span class=p>[</span><span class=s2>&quot;istio&quot;</span><span class=p>],</span>
+                <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+                    <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;reviews&quot;</span><span class=p>,</span>
+                    <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[</span>
+                        <span class=p>{</span>
+                            <span class=nt>&quot;destination&quot;</span><span class=p>:</span> <span class=p>{</span>
+                                <span class=nt>&quot;host&quot;</span><span class=p>:</span> <span class=s2>&quot;reviews&quot;</span><span class=p>,</span>
+                                <span class=nt>&quot;subset&quot;</span><span class=p>:</span> <span class=s2>&quot;v2&quot;</span>
+                            <span class=p>}</span>
+                        <span class=p>}</span>
+                    <span class=p>]</span>
+                <span class=p>}</span>
+            <span class=p>}</span>
+        <span class=p>}</span>
+    <span class=p>]</span>
+<span class=p>}</span>
+</code></pre></div> <p>That&rsquo;s it!</p> <p>Please explore the code to see existing probes and actions.</p> <h2 id=configuration>Configuration<a class=headerlink href=#configuration title="Permanent link">&para;</a></h2> <p>This extension needs you specify how to connect to the Kubernetes cluster. This can be done by setting the <code>KUBERNETES_CONTEXT</code> in the <code>secrets</code> payload.</p> <h2 id=contribute>Contribute<a class=headerlink href=#contribute title="Permanent link">&para;</a></h2> <p>If you wish to contribute more functions to this package, you are more than welcome to do so. Please, fork this project, make your changes following the usual <a href=https://pycodestyle.readthedocs.io/en/latest/ >PEP 8</a> code style, sprinkling with tests and submit a PR for review.</p> <p>The Chaos Toolkit projects require all contributors must sign a <a href=https://github.com/probot/dco#how-it-works>Developer Certificate of Origin</a> on each commit they would like to merge into the master branch of the repository. Please, make sure you can abide by the rules of the DCO before submitting a PR.</p> <h3 id=develop>Develop<a class=headerlink href=#develop title="Permanent link">&para;</a></h3> <p>If you wish to develop on this project, make sure to install the development dependencies. But first, <a href=http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment>create a virtual environment</a> and then install those dependencies.</p> <div class=highlight><pre><span></span><code><span class=gp>$</span> pip install -r requirements-dev.txt -r requirements.txt
+</code></pre></div> <p>Then, point your environment to this directory:</p> <div class=highlight><pre><span></span><code><span class=gp>$</span> python setup.py develop
+</code></pre></div> <p>Now, you can edit the files and they will be automatically be seen by your environment, even when running from the <code>chaos</code> command locally.</p> <h3 id=test>Test<a class=headerlink href=#test title="Permanent link">&para;</a></h3> <p>To run the tests for the project execute the following:</p> <div class=highlight><pre><span></span><code>$ pytest
+</code></pre></div> <h2 id=exported-activities>Exported Activities<a class=headerlink href=#exported-activities title="Permanent link">&para;</a></h2> <h3 id=fault>fault<a class=headerlink href=#fault title="Permanent link">&para;</a></h3> <hr> <h4 id=add_abort_fault><code>add_abort_fault</code><a class=headerlink href=#add_abort_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>add_abort_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Abort requests early by the virtual service identified by <code>name</code></p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def add_abort_fault(</span><span class=se>\n</span><span class=s2>        virtual_service_name: str,</span><span class=se>\n</span><span class=s2>        http_status: int,</span><span class=se>\n</span><span class=s2>        routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>        percentage: float = None,</span><span class=se>\n</span><span class=s2>        ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>        configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>http_status</strong></td> <td>integer</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>percentage</strong></td> <td>number</td> <td>null</td> <td>No</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;add_abort_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;http_status&quot;</span><span class=p>:</span> <span class=mi>0</span><span class=p>,</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span><span class=p>,</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[]</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;add-abort-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">add-abort-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>http_status</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">0</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">add_abort_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> <hr> <h4 id=add_delay_fault><code>add_delay_fault</code><a class=headerlink href=#add_delay_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>add_delay_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Add delay to the virtual service identified by <code>name</code></p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def add_delay_fault(</span><span class=se>\n</span><span class=s2>        virtual_service_name: str,</span><span class=se>\n</span><span class=s2>        fixed_delay: str,</span><span class=se>\n</span><span class=s2>        routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>        percentage: float = None,</span><span class=se>\n</span><span class=s2>        ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>        configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>fixed_delay</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>percentage</strong></td> <td>number</td> <td>null</td> <td>No</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;add_delay_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[],</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span><span class=p>,</span>
+      <span class=nt>&quot;fixed_delay&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;add-delay-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">add-delay-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>fixed_delay</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">add_delay_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> <hr> <h4 id=get_virtual_service><code>get_virtual_service</code><a class=headerlink href=#get_virtual_service title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>probe</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.probes</td> </tr> <tr> <td><strong>Name</strong></td> <td>get_virtual_service</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Get a virtual service identified by <code>name</code></p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#VirtualService</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def get_virtual_service(</span><span class=se>\n</span><span class=s2>        virtual_service_name: str,</span><span class=se>\n</span><span class=s2>        ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>        configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;get_virtual_service&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.probes&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;get-virtual-service&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;probe&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">get-virtual-service</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">get_virtual_service</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.probes</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">probe</span>
+</code></pre></div> <hr> <h4 id=remove_abort_fault><code>remove_abort_fault</code><a class=headerlink href=#remove_abort_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>remove_abort_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Remove abort request faults from the virtual service identified by <code>name</code></p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Abort</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def remove_abort_fault(</span><span class=se>\n</span><span class=s2>        virtual_service_name: str,</span><span class=se>\n</span><span class=s2>        routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>        ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>        configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;remove_abort_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[],</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;remove-abort-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">remove-abort-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">remove_abort_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> <hr> <h4 id=remove_delay_fault><code>remove_delay_fault</code><a class=headerlink href=#remove_delay_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>remove_delay_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Remove delay from the virtual service identified by <code>name</code></p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection-Delay</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def remove_delay_fault(</span><span class=se>\n</span><span class=s2>        virtual_service_name: str,</span><span class=se>\n</span><span class=s2>        routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>        ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>        version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>        configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>        secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;remove_delay_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[],</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;remove-delay-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">remove-delay-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">remove_delay_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> <hr> <h4 id=set_fault><code>set_fault</code><a class=headerlink href=#set_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>set_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Setfault injection on the virtual service identified by <code>name</code></p> <p>The <code>fault</code> argument must be the object passed as the <code>spec</code> property of a virtual service resource.</p> <p>If a fault already exists, it is updated with the new specification.</p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def set_fault(virtual_service_name: str,</span><span class=se>\n</span><span class=s2>              routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>              fault: Dict[str, Any],</span><span class=se>\n</span><span class=s2>              ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>              version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>              configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>              secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>fault</strong></td> <td>mapping</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;set_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[],</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span><span class=p>,</span>
+      <span class=nt>&quot;fault&quot;</span><span class=p>:</span> <span class=p>{}</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;set-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">set-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>fault</span><span class=p>:</span> <span class="p p-Indicator">{}</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">set_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> <hr> <h4 id=unset_fault><code>unset_fault</code><a class=headerlink href=#unset_fault title="Permanent link">&para;</a></h4> <table> <thead> <tr> <th></th> <th></th> </tr> </thead> <tbody> <tr> <td><strong>Type</strong></td> <td>action</td> </tr> <tr> <td><strong>Module</strong></td> <td>chaosistio.fault.actions</td> </tr> <tr> <td><strong>Name</strong></td> <td>unset_fault</td> </tr> <tr> <td><strong>Return</strong></td> <td>mapping</td> </tr> </tbody> </table> <p>Unset fault injection from the virtual service identified by <code>name</code></p> <p>The <code>fault</code> argument must be the object passed as the <code>spec</code> property of a virtual service resource.</p> <p>See <a href=https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection>https://istio.io/docs/reference/config/istio.networking.v1alpha3/#HTTPFaultInjection</a></p> <p><strong>Signature:</strong></p> <div class=highlight><pre><span></span><code><span class=p>(</span><span class=s2>&quot;def unset_fault(virtual_service_name: str,</span><span class=se>\n</span><span class=s2>                routes: List[Dict[str, str]],</span><span class=se>\n</span><span class=s2>                ns: str = &#39;default&#39;,</span><span class=se>\n</span><span class=s2>                version: str = &#39;networking.istio.io/v1alpha3&#39;,</span><span class=se>\n</span><span class=s2>                configuration: Dict[str, Dict[str, str]] = None,</span><span class=se>\n</span><span class=s2>                secrets: Dict[str, Dict[str, str]] = None) -&gt; Dict[str, Any]:</span><span class=se>\n</span><span class=s2>    pass</span><span class=se>\n</span><span class=s2>&quot;</span><span class=p>,)</span>
+</code></pre></div> <p><strong>Arguments:</strong></p> <table> <thead> <tr> <th>Name</th> <th>Type</th> <th>Default</th> <th>Required</th> </tr> </thead> <tbody> <tr> <td><strong>virtual_service_name</strong></td> <td>string</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>routes</strong></td> <td>list</td> <td></td> <td>Yes</td> </tr> <tr> <td><strong>ns</strong></td> <td>string</td> <td>&ldquo;default&rdquo;</td> <td>No</td> </tr> <tr> <td><strong>version</strong></td> <td>string</td> <td>&ldquo;networking.istio.io/v1alpha3&rdquo;</td> <td>No</td> </tr> </tbody> </table> <p><strong>Usage:</strong></p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+  <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
+    <span class=nt>&quot;func&quot;</span><span class=p>:</span> <span class=s2>&quot;unset_fault&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;module&quot;</span><span class=p>:</span> <span class=s2>&quot;chaosistio.fault.actions&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
+    <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=p>{</span>
+      <span class=nt>&quot;routes&quot;</span><span class=p>:</span> <span class=p>[],</span>
+      <span class=nt>&quot;virtual_service_name&quot;</span><span class=p>:</span> <span class=s2>&quot;&quot;</span>
+    <span class=p>}</span>
+  <span class=p>},</span>
+  <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;unset-fault&quot;</span><span class=p>,</span>
+  <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;action&quot;</span>
+<span class=p>}</span>
+</code></pre></div> <div class=highlight><pre><span></span><code><span class=nt>name</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">unset-fault</span>
+<span class=nt>provider</span><span class=p>:</span>
+  <span class=nt>arguments</span><span class=p>:</span>
+    <span class=nt>routes</span><span class=p>:</span> <span class="p p-Indicator">[]</span>
+    <span class=nt>virtual_service_name</span><span class=p>:</span> <span class=s>&#39;&#39;</span>
+  <span class=nt>func</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">unset_fault</span>
+  <span class=nt>module</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">chaosistio.fault.actions</span>
+  <span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">python</span>
+<span class=nt>type</span><span class=p>:</span> <span class="l l-Scalar l-Scalar-Plain">action</span>
+</code></pre></div> </article> </div> </div> </main> <footer class=md-footer> <div class=md-footer-nav> <nav class="md-footer-nav__inner md-grid"> <a href=../toxiproxy/ title=ToxiProxy class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel=prev> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i> </div> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Previous </span> ToxiProxy </span> </div> </a> <a href=../wiremock/ title=WireMock class="md-flex md-footer-nav__link md-footer-nav__link--next" rel=next> <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title"> <span class=md-flex__ellipsis> <span class=md-footer-nav__direction> Next </span> WireMock </span> </div> <div class="md-flex__cell md-flex__cell--shrink"> <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i> </div> </a> </nav> </div> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-footer-copyright> <div class=md-footer-copyright__highlight> &copy; 2017-2018 chaostoolkit team </div> powered by <a href=https://www.mkdocs.org target=_blank rel=noopener>MkDocs</a> and <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs</a> </div> <div class=md-footer-social> <link rel=stylesheet href=../../assets/fonts/font-awesome.css> <a href=https://github.com/chaostoolkit target=_blank rel=noopener title class="md-footer-social__link fa fa-"></a> <a href=https://twitter.com/chaostoolkit target=_blank rel=noopener title class="md-footer-social__link fa fa-"></a> <a href=https://join.chaostoolkit.org/ target=_blank rel=noopener title class="md-footer-social__link fa fa-"></a> <a href=https://medium.com/chaos-toolkit target=_blank rel=noopener title class="md-footer-social__link fa fa-"></a> </div> </div> </div> </footer> </div> <script src=../../assets/javascripts/application.c33a9706.js></script> <script>app.initialize({version:"1.1",url:{base:"../.."}})</script> </body> </html>

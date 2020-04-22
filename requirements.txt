@@ -3,6 +3,7 @@ pygments
 markdown>=3.0.1
 pymdown-extensions
 mkdocs-material~=4.0
+mkdocs-minify-plugin
 markdown-include
 jinja2
 yasha

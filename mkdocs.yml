@@ -47,7 +47,6 @@ plugins:
   - minify:
       minify_html: true
 extra:
-  manifest: manifest.webmanifest
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/chaostoolkit

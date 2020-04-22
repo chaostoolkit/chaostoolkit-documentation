@@ -2,14 +2,201 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.5.1 |
+| **Version**           | 0.7.1 |
 | **Repository**        | https://github.com/chaostoolkit-incubator/chaostoolkit-cloud-foundry |
 
-N/A
+
+
+[![Build Status](https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-cloud-foundry.svg?branch=master)](https://travis-ci.org/chaostoolkit-incubator/chaostoolkit-cloud-foundry)
+[![Python versions](https://img.shields.io/pypi/pyversions/chaostoolkit-cloud-foundry.svg)](https://www.python.org/)
+[![Requirements Status](https://requires.io/github/chaostoolkit-incubator/chaostoolkit-cloud-foundry/requirements.svg?branch=master)](https://requires.io/github/chaostoolkit-incubator/chaostoolkit-cloud-foundry/requirements/?branch=master)
+[![Has wheel](https://img.shields.io/pypi/wheel/chaostoolkit-cloud-foundry.svg)](http://pythonwheels.com/)
+
+This extension package provides probes and actions for Chaos Engineering
+experiments against a Cloud Foundry instance using the
+[Chaos Toolkit][chaostoolkit].
+
+## Install
+
+This package requires Python 3.5+
+
+To be used from your experiment, this package must be installed in the Python
+environment where [chaostoolkit][] already lives.
+
+[chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
+
+```
+$ pip install -U chaostoolkit-cloud-foundry
+```
+
+## Usage
+
+To use the probes and actions from this package, add a similar payload to your
+experiment file:
+
+```json
+{
+    "type": "action",
+    "name": "terminate-random-instance",
+    "provider": {
+        "type": "python",
+        "module": "chaoscf.probes",
+        "func": "terminate_some_random_instance",
+        "arguments": {
+            "name": "my-app",
+            "org_name": "my-org",
+            "space_name": "my-space"
+        }
+    }
+},
+{
+    "type": "probe",
+    "name": "fetch-app-statistics",
+    "provider": {
+        "type": "python",
+        "module": "chaoscf.probes",
+        "func": "get_app_stats",
+        "arguments": {
+            "name": "my-app",
+            "org_name": "my-org",
+            "space_name": "my-space"
+        }
+    }
+}
+```
+
+That's it!
+
+Please explore the code to see existing probes and actions.
+
+### Discovery
+
+You may use the Chaos Toolkit to discover the capabilities of this extension:
+
+```
+$ chaos discover chaostoolkit-cloud-foundry --no-install
+```
+
+If you have logged in against a Cloud Foundry environment, this will discover
+information about it along the way.
+
+## Configuration
+
+This extension to the Chaos Toolkit need credentials to a Cloud Foundry account
+with appropriate scopes. Please add the following sections to your experiment
+file:
+
+```json
+{
+    "configuration": {
+        "cf_api_url": "https://api.local.pcfdev.io",
+        "cf_verify_ssl": false
+    },
+    "secrets": {
+        "cloudfoundry": {
+            "cf_username": "user",
+            "cf_password": "pass"
+        }
+    }
+}
+```
+
+You may leave `"cf_verifiy_ssl"` out of the configuration when you want to
+verify TLS certificates. Usually, local environments are self-signed so it
+may be useful to disable that check in that case.
+
+You may also specify the `"cf_client_id"` and `"cf_client_secret"` secrets
+when you need. Their default values are `"cf"` and `""` respectively. These
+work well against a local [PCF dev][pcfdev] install.
+
+[pcfdev]: https://pivotal.io/pcf-dev
+
+Then in your probe or action:
+
+```json
+{
+    "type": "probe",
+    "name": "fetch-app-statistics",
+    "provider": {
+        "type": "python",
+        "secrets": ["cloudfoundry"],
+        "module": "chaoscf.probes",
+        "func": "get_app_stats",
+        "arguments": {
+            "name": "my-app",
+            "org_name": "my-org",
+            "space_name": "my-space"
+        }
+    }
+}
+```
+
+
+## Test
+
+To run the tests for the project execute the following:
+
+```
+$ pip install -r requirements-dev.txt
+$ pytest
+```
+
+## Contribute
+
+If you wish to contribute more functions to this package, you are more than
+welcome to do so. Please, fork this project, make your changes following the
+usual [PEP 8][pep8] code style, sprinkling with tests and submit a PR for
+review.
+
+[pep8]: https://pycodestyle.readthedocs.io/en/latest/
+
+The Chaos Toolkit project requires all contributors must sign a
+[Developer Certificate of Origin][dco] on each commit they would like to merge
+into the master branch of the repository. Please, make sure you can abide by
+the rules of the DCO before submitting a PR.
+
+[dco]: https://github.com/probot/dco#how-it-works
+
+
+### Develop
+
+If you wish to develop on this project, make sure to install the development
+dependencies. But first, [create a virtual environment][venv] and then install
+those dependencies.
+
+[venv]: http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
+
+```console
+$ pip install -r requirements-dev.txt -r requirements.txt 
+```
+
+Then, point your environment to this directory:
+
+```console
+$ python setup.py develop
+```
+
+Now, you can edit the files and they will be automatically be seen by your
+environment, even when running from the `chaos` command locally.
+
+### Test
+
+To run the tests for the project execute the following:
+
+```
+$ python setup.py test
+```
+
+
+
 
 ## Exported Activities
 
+
+
 ### actions
+
+
 
 ***
 
@@ -22,6 +209,7 @@ N/A
 | **Name**              | delete_app |
 | **Return**              | None |
 
+
 Delete application.
 
 See https://apidocs.cloudfoundry.org/280/apps/delete_a_particular_app.html
@@ -29,12 +217,7 @@ See https://apidocs.cloudfoundry.org/280/apps/delete_a_particular_app.html
 **Signature:**
 
 ```python
-def delete_app(app_name: str,
-               configuration: Dict[str, Dict[str, str]],
-               secrets: Dict[str, Dict[str, str]],
-               org_name: str = None,
-               space_name: str = None):
-    pass
+('def delete_app(app_name: str,\n               configuration: Dict[str, Dict[str, str]],\n               secrets: Dict[str, Dict[str, str]],\n               org_name: str = None,\n               space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -44,6 +227,9 @@ def delete_app(app_name: str,
 | **app_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
+
 
 **Usage:**
 
@@ -74,6 +260,8 @@ type: action
 
 ```
 
+
+
 ***
 
 #### `map_route_to_app`
@@ -101,14 +289,7 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-def map_route_to_app(app_name: str,
-                     host_name: str,
-                     configuration: Dict[str, Dict[str, str]],
-                     secrets: Dict[str, Dict[str, str]],
-                     org_name: str = None,
-                     space_name: str = None) -> List[Dict[str, Any]]:
-    pass
-
+('def map_route_to_app(app_name: str,\n                     host_name: str,\n                     configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]],\n                     org_name: str = None,\n                     space_name: str = None) -> List[Dict[str, Any]]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -119,6 +300,8 @@ def map_route_to_app(app_name: str,
 | **host_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -174,14 +357,7 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-def remove_routes_from_app(app_name: str,
-                           route_host: str,
-                           configuration: Dict[str, Dict[str, str]],
-                           secrets: Dict[str, Dict[str, str]],
-                           org_name: str = None,
-                           space_name: str = None):
-    pass
-
+('def remove_routes_from_app(app_name: str,\n                           route_host: str,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           org_name: str = None,\n                           space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -192,6 +368,8 @@ def remove_routes_from_app(app_name: str,
 | **route_host**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -229,6 +407,258 @@ type: action
 
 ***
 
+#### `start_all_apps`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaoscf.actions |
+| **Name**              | start_all_apps |
+| **Return**              | None |
+
+
+Start all applications for the specified org name
+
+See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
+
+**Signature:**
+
+```python
+('def start_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],\n                   secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **org_name**      | string |  | Yes |
+
+
+
+
+**Usage:**
+
+```json
+{
+  "name": "start-all-apps",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.actions",
+    "func": "start_all_apps",
+    "arguments": {
+      "org_name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: start-all-apps
+provider:
+  arguments:
+    org_name: ''
+  func: start_all_apps
+  module: chaoscf.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
+#### `start_app`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaoscf.actions |
+| **Name**              | start_app |
+| **Return**              | None |
+
+
+Start application
+
+See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
+
+**Signature:**
+
+```python
+('def start_app(app_name: str,\n              configuration: Dict[str, Dict[str, str]],\n              secrets: Dict[str, Dict[str, str]],\n              org_name: str = None,\n              space_name: str = None):\n    pass\n',)
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **app_name**      | string |  | Yes |
+| **org_name**      | string | null | No |
+| **space_name**      | string | null | No |
+
+
+
+
+**Usage:**
+
+```json
+{
+  "name": "start-app",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.actions",
+    "func": "start_app",
+    "arguments": {
+      "app_name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: start-app
+provider:
+  arguments:
+    app_name: ''
+  func: start_app
+  module: chaoscf.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
+#### `stop_all_apps`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaoscf.actions |
+| **Name**              | stop_all_apps |
+| **Return**              | None |
+
+
+Stop all application for the specified org name
+
+See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
+
+**Signature:**
+
+```python
+('def stop_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],\n                  secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **org_name**      | string |  | Yes |
+
+
+
+
+**Usage:**
+
+```json
+{
+  "name": "stop-all-apps",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.actions",
+    "func": "stop_all_apps",
+    "arguments": {
+      "org_name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: stop-all-apps
+provider:
+  arguments:
+    org_name: ''
+  func: stop_all_apps
+  module: chaoscf.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
+#### `stop_app`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              | action |
+| **Module**            | chaoscf.actions |
+| **Name**              | stop_app |
+| **Return**              | None |
+
+
+Stop application
+
+See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
+
+**Signature:**
+
+```python
+('def stop_app(app_name: str,\n             configuration: Dict[str, Dict[str, str]],\n             secrets: Dict[str, Dict[str, str]],\n             org_name: str = None,\n             space_name: str = None):\n    pass\n',)
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **app_name**      | string |  | Yes |
+| **org_name**      | string | null | No |
+| **space_name**      | string | null | No |
+
+
+
+
+**Usage:**
+
+```json
+{
+  "name": "stop-app",
+  "type": "action",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.actions",
+    "func": "stop_app",
+    "arguments": {
+      "app_name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: stop-app
+provider:
+  arguments:
+    app_name: ''
+  func: stop_app
+  module: chaoscf.actions
+  type: python
+type: action
+
+```
+
+
+
+***
+
 #### `terminate_app_instance`
 
 |                       |               |
@@ -247,14 +677,7 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 **Signature:**
 
 ```python
-def terminate_app_instance(app_name: str,
-                           instance_index: int,
-                           configuration: Dict[str, Dict[str, str]],
-                           secrets: Dict[str, Dict[str, str]],
-                           org_name: str = None,
-                           space_name: str = None):
-    pass
-
+('def terminate_app_instance(app_name: str,\n                           instance_index: int,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           org_name: str = None,\n                           space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -265,6 +688,8 @@ def terminate_app_instance(app_name: str,
 | **instance_index**      | integer |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -320,13 +745,7 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 **Signature:**
 
 ```python
-def terminate_some_random_instance(app_name: str,
-                                   configuration: Dict[str, Dict[str, str]],
-                                   secrets: Dict[str, Dict[str, str]],
-                                   org_name: str = None,
-                                   space_name: str = None):
-    pass
-
+('def terminate_some_random_instance(app_name: str,\n                                   configuration: Dict[str, Dict[str, str]],\n                                   secrets: Dict[str, Dict[str, str]],\n                                   org_name: str = None,\n                                   space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -336,6 +755,8 @@ def terminate_some_random_instance(app_name: str,
 | **app_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -389,14 +810,7 @@ https://apidocs.cloudfoundry.org/280/service_bindings/delete_a_particular_servic
 **Signature:**
 
 ```python
-def unbind_service_from_app(app_name: str,
-                            bind_name: str,
-                            configuration: Dict[str, Dict[str, str]],
-                            secrets: Dict[str, Dict[str, str]],
-                            org_name: str = None,
-                            space_name: str = None):
-    pass
-
+('def unbind_service_from_app(app_name: str,\n                            bind_name: str,\n                            configuration: Dict[str, Dict[str, str]],\n                            secrets: Dict[str, Dict[str, str]],\n                            org_name: str = None,\n                            space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -407,6 +821,8 @@ def unbind_service_from_app(app_name: str,
 | **bind_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -469,14 +885,7 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-def unmap_route_from_app(app_name: str,
-                         host_name: str,
-                         configuration: Dict[str, Dict[str, str]],
-                         secrets: Dict[str, Dict[str, str]],
-                         org_name: str = None,
-                         space_name: str = None):
-    pass
-
+('def unmap_route_from_app(app_name: str,\n                         host_name: str,\n                         configuration: Dict[str, Dict[str, str]],\n                         secrets: Dict[str, Dict[str, str]],\n                         org_name: str = None,\n                         space_name: str = None):\n    pass\n',)
 ```
 
 **Arguments:**
@@ -487,6 +896,8 @@ def unmap_route_from_app(app_name: str,
 | **host_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -545,15 +956,7 @@ caller.
 **Signature:**
 
 ```python
-def call_api(path: str,
-             configuration: Dict[str, Dict[str, str]],
-             secrets: Dict[str, Dict[str, str]],
-             query: Dict[str, Any] = None,
-             data: Dict[str, Any] = None,
-             method: str = 'GET',
-             headers: Dict[str, str] = None) -> requests.models.Response:
-    pass
-
+("def call_api(path: str,\n             configuration: Dict[str, Dict[str, str]],\n             secrets: Dict[str, Dict[str, str]],\n             query: Dict[str, Any] = None,\n             body: Dict[str, Any] = None,\n             method: str = 'GET',\n             headers: Dict[str, str] = None) -> requests.models.Response:\n    pass\n",)
 ```
 
 **Arguments:**
@@ -562,9 +965,11 @@ def call_api(path: str,
 | --------------------- | ------------- | ------------- | ------------- |
 | **path**      | string |  | Yes |
 | **query**      | mapping | null | No |
-| **data**      | mapping | null | No |
+| **body**      | mapping | null | No |
 | **method**      | string | "GET" | No |
 | **headers**      | mapping | null | No |
+
+
 
 
 **Usage:**
@@ -621,15 +1026,7 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 **Signature:**
 
 ```python
-def get_app_by_name(app_name: str,
-                    configuration: Dict[str, Dict[str, str]],
-                    secrets: Dict[str, Dict[str, str]],
-                    space_name: str = None,
-                    space_guid: str = None,
-                    org_name: str = None,
-                    org_guid: str = None) -> Dict[str, Any]:
-    pass
-
+('def get_app_by_name(app_name: str,\n                    configuration: Dict[str, Dict[str, str]],\n                    secrets: Dict[str, Dict[str, str]],\n                    space_name: str = None,\n                    space_guid: str = None,\n                    org_name: str = None,\n                    org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -641,6 +1038,8 @@ def get_app_by_name(app_name: str,
 | **space_guid**      | string | null | No |
 | **org_name**      | string | null | No |
 | **org_guid**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -693,15 +1092,7 @@ See https://apidocs.cloudfoundry.org/280/apps/get_the_instance_information_for_a
 **Signature:**
 
 ```python
-def get_app_instances(app_name: str,
-                      configuration: Dict[str, Dict[str, str]],
-                      secrets: Dict[str, Dict[str, str]],
-                      space_name: str = None,
-                      space_guid: str = None,
-                      org_name: str = None,
-                      org_guid: str = None) -> Dict[str, Dict[str, Any]]:
-    pass
-
+('def get_app_instances(app_name: str,\n                      configuration: Dict[str, Dict[str, str]],\n                      secrets: Dict[str, Dict[str, str]],\n                      space_name: str = None,\n                      space_guid: str = None,\n                      org_name: str = None,\n                      org_guid: str = None) -> Dict[str, Dict[str, Any]]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -713,6 +1104,8 @@ def get_app_instances(app_name: str,
 | **space_guid**      | string | null | No |
 | **org_name**      | string | null | No |
 | **org_guid**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -765,16 +1158,7 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 **Signature:**
 
 ```python
-def get_app_routes_by_host(app_name: str,
-                           route_host: str,
-                           configuration: Dict[str, Dict[str, str]],
-                           secrets: Dict[str, Dict[str, str]],
-                           space_name: str = None,
-                           space_guid: str = None,
-                           org_name: str = None,
-                           org_guid: str = None) -> List[Dict[str, Any]]:
-    pass
-
+('def get_app_routes_by_host(app_name: str,\n                           route_host: str,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           space_name: str = None,\n                           space_guid: str = None,\n                           org_name: str = None,\n                           org_guid: str = None) -> List[Dict[str, Any]]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -787,6 +1171,8 @@ def get_app_routes_by_host(app_name: str,
 | **space_guid**      | string | null | No |
 | **org_name**      | string | null | No |
 | **org_guid**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -824,6 +1210,69 @@ type: ''
 
 ***
 
+#### `get_apps_for_org`
+
+|                       |               |
+| --------------------- | ------------- |
+| **Type**              |  |
+| **Module**            | chaoscf.api |
+| **Name**              | get_apps_for_org |
+| **Return**              | None |
+
+
+List all applications available in the specified CF org name.
+
+See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html to
+understand the content of the response.
+
+**Signature:**
+
+```python
+('def get_apps_for_org(org_name: str, configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+```
+
+**Arguments:**
+
+| Name | Type | Default | Required |
+| --------------------- | ------------- | ------------- | ------------- |
+| **org_name**      | string |  | Yes |
+
+
+
+
+**Usage:**
+
+```json
+{
+  "name": "get-apps-for-org",
+  "type": "",
+  "provider": {
+    "type": "python",
+    "module": "chaoscf.api",
+    "func": "get_apps_for_org",
+    "arguments": {
+      "org_name": ""
+    }
+  }
+}
+```
+
+```yaml
+name: get-apps-for-org
+provider:
+  arguments:
+    org_name: ''
+  func: get_apps_for_org
+  module: chaoscf.api
+  type: python
+type: ''
+
+```
+
+
+
+***
+
 #### `get_bind_by_name`
 
 |                       |               |
@@ -845,15 +1294,7 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 **Signature:**
 
 ```python
-def get_bind_by_name(bind_name: str,
-                     configuration: Dict[str, Dict[str, str]],
-                     secrets: Dict[str, Dict[str, str]],
-                     space_name: str = None,
-                     space_guid: str = None,
-                     org_name: str = None,
-                     org_guid: str = None) -> Dict[str, Any]:
-    pass
-
+('def get_bind_by_name(bind_name: str,\n                     configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]],\n                     app_name: str = None,\n                     space_name: str = None,\n                     space_guid: str = None,\n                     org_name: str = None,\n                     org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -861,10 +1302,13 @@ def get_bind_by_name(bind_name: str,
 | Name | Type | Default | Required |
 | --------------------- | ------------- | ------------- | ------------- |
 | **bind_name**      | string |  | Yes |
+| **app_name**      | string | null | No |
 | **space_name**      | string | null | No |
 | **space_guid**      | string | null | No |
 | **org_name**      | string | null | No |
 | **org_guid**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -915,10 +1359,7 @@ Get the organization with the given name.
 **Signature:**
 
 ```python
-def get_org_by_name(org_name: str, configuration: Dict[str, Dict[str, str]],
-                    secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
-    pass
-
+('def get_org_by_name(org_name: str, configuration: Dict[str, Dict[str, str]],\n                    secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -926,6 +1367,8 @@ def get_org_by_name(org_name: str, configuration: Dict[str, Dict[str, str]],
 | Name | Type | Default | Required |
 | --------------------- | ------------- | ------------- | ------------- |
 | **org_name**      | string |  | Yes |
+
+
 
 
 **Usage:**
@@ -978,13 +1421,7 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 **Signature:**
 
 ```python
-def get_routes_by_host(route_host: str,
-                       configuration: Dict[str, Dict[str, str]],
-                       secrets: Dict[str, Dict[str, str]],
-                       org_name: str = None,
-                       org_guid: str = None) -> Dict[str, Any]:
-    pass
-
+('def get_routes_by_host(route_host: str,\n                       configuration: Dict[str, Dict[str, str]],\n                       secrets: Dict[str, Dict[str, str]],\n                       org_name: str = None,\n                       org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -994,6 +1431,8 @@ def get_routes_by_host(route_host: str,
 | **route_host**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **org_guid**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -1048,13 +1487,7 @@ a lookup for the org to fetch its GUID.
 **Signature:**
 
 ```python
-def get_space_by_name(space_name: str,
-                      configuration: Dict[str, Dict[str, str]],
-                      secrets: Dict[str, Dict[str, str]],
-                      org_name: str = None,
-                      org_guid=None) -> Dict[str, Any]:
-    pass
-
+('def get_space_by_name(space_name: str,\n                      configuration: Dict[str, Dict[str, str]],\n                      secrets: Dict[str, Dict[str, str]],\n                      org_name: str = None,\n                      org_guid=None) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -1064,6 +1497,8 @@ def get_space_by_name(space_name: str,
 | **space_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **org_guid**      |  | null | No |
+
+
 
 
 **Usage:**
@@ -1122,13 +1557,7 @@ for more information.
 **Signature:**
 
 ```python
-def get_app_stats(app_name: str,
-                  configuration: Dict[str, Dict[str, str]],
-                  secrets: Dict[str, Dict[str, str]],
-                  org_name: str = None,
-                  space_name: str = None) -> Dict[str, Any]:
-    pass
-
+('def get_app_stats(app_name: str,\n                  configuration: Dict[str, Dict[str, str]],\n                  secrets: Dict[str, Dict[str, str]],\n                  org_name: str = None,\n                  space_name: str = None) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
@@ -1138,6 +1567,8 @@ def get_app_stats(app_name: str,
 | **app_name**      | string |  | Yes |
 | **org_name**      | string | null | No |
 | **space_name**      | string | null | No |
+
+
 
 
 **Usage:**
@@ -1191,16 +1622,15 @@ understand the content of the response.
 **Signature:**
 
 ```python
-def list_apps(configuration: Dict[str, Dict[str, str]],
-              secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
-    pass
-
+('def list_apps(configuration: Dict[str, Dict[str, str]],\n              secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:\n    pass\n',)
 ```
 
 **Arguments:**
 
 | Name | Type | Default | Required |
 | --------------------- | ------------- | ------------- | ------------- |
+
+
 
 
 **Usage:**
@@ -1226,5 +1656,6 @@ provider:
 type: probe
 
 ```
+
 
 

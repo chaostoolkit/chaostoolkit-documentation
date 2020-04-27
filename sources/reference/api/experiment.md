@@ -133,7 +133,7 @@ experiment's execution.
 
 The Steady State Hypothesis element describes what normal looks like in your
 system before the Method element is applied. If the steady state is not met,
-the Method element is not applied and the experiment MUST bail out.
+the Method element nor Rollbacks are applied and the experiment MUST bail out.
 
 The Steady State Hypothesis element is a JSON object.
 

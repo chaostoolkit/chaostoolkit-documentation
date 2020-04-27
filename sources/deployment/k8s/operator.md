@@ -237,7 +237,29 @@ spec:
       enabled: false
 ```
 
+Plain text environment variables might not be secure enough in some use cases, 
+such as database user name & passord, API keys, tokens, etc.
+You can define multiple encrypted key-value pairs in a Kubernetes secret and
+load them as environment variables. To to so, you shall indicate the name
+of the secret with the `secretName` property.
+
+Assuming you created a generic secret named `chaostoolkit-secrets`, you can
+load the values as shown below:
+```yaml
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  pod:
+    env:
+      secretName: chaostoolkit-secrets
+```
  
+All the key-value pairs from the secret will be injected into the 
+Chaos Toolkit's pod as environment variables.
 
 ### Handle multiple experiment files
 

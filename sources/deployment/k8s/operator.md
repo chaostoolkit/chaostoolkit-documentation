@@ -186,8 +186,7 @@ the entire pod template).
 Chaos Toolkit experiments often expect data to be passed as environment
 variables of the `chaos`'s command shell.
 
-The operator allows you to specify those values through the config map
-as we saw above:
+The operator allows you to specify those values through the config map:
 
 ```yaml
 ---
@@ -221,6 +220,24 @@ spec:
     env:
       configMapName: my-chaos-env-vars
 ```
+
+You can disable loading environment variables into the pod by using
+the `enabled` property:
+
+```yaml
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  pod:
+    env:
+      enabled: false
+```
+
+ 
 
 ### Handle multiple experiment files
 
@@ -353,7 +370,7 @@ spec:
       enabled: true
 ```
 
-You need to set the variable `enabled` to `true`in the `settings`block of the 
+You need to set the variable `enabled` to `true`in the `settings` block of the 
 pod spec.
 
 The default name for that secret is `chaostoolkit-settings` but you can change

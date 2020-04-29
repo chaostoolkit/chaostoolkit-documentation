@@ -533,6 +533,37 @@ spec:
       app: chaostoolkit
 ```
 
+
+### Run periodic and recurring experiments
+
+The operator supports `crontab` schedule for running Chaos Toolkit experiments
+periodically on a given schedule.
+
+To do so, you can define a `.spec.schedule` section, as follow:
+
+```yaml
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  namespace: chaostoolkit-run
+  schedule:
+    kind: cronJob
+    value: "*/1 * * * *"
+```
+
+This example runs a Chaos Toolkit experiment every minute.
+
+You can list your scheduled experiments with the kubernetes' `cronjob`
+resource:
+
+```
+$ kubectl -n chaostoolkit-run get cronjobs
+```
+
 ## Run an experiment with specific extensions
 
 The default container image used by the operator is the official 

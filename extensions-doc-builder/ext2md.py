@@ -176,7 +176,7 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
         "type": activity_type,
         "module": mod_name,
         "name": func_name,
-        "doc": inspect.getdoc(func).replace("----------", ""),
+        "doc": (inspect.getdoc(func) or "").replace("----------", ""),
         "return": return_type,
         "signature": s,
         "arguments": args,

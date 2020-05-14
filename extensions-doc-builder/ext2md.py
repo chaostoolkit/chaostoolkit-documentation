@@ -173,8 +173,9 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
         print('Failed to format {} in {}'.format(func_name, mod_name))
 
     d = inspect.getdoc(func) or ""
-    d = d.replace("--------", "")
-    d = d.replace("----------", "")
+    d = d.replace("     ", "")
+    d = d.replace("Parameters", "").replace("--------", "")
+    d = d.replace("Examples", "").replace("----------", "")
 
     return {
         "type": activity_type,

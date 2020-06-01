@@ -480,7 +480,7 @@ spec:
     - --verbose
     - run
     - --dry
-    - ${EXPERIMENT_PATH-$EXPERIMENT_URL}
+    - $(EXPERIMENT_PATH)
 ```
 
 You need to set the list of arguments in the `chaosArgs` variable at pod 

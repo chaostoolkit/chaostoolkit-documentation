@@ -8,7 +8,7 @@ execute:
 (chaostk) $ chaos run --help
 ```
 
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/3nGlsYW1GkX1VW9ACy3gGURhi.js" id="asciicast-3nGlsYW1GkX1VW9ACy3gGURhi" async></script></div>
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/e5TV7CnAEB4KmS4kNfEjGmADF.js" id="asciicast-e5TV7CnAEB4KmS4kNfEjGmADF" async></script></div>
 
 A tutorial on how to use the `chaos run` command is available as part of the 
 [Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
@@ -35,3 +35,41 @@ To test that you have a valid experiment you can pass the `--dry` option.
 
 You can run an experiment and skip the experiment's validation using the 
 `--no-validation` option.
+
+## Run an experiment with different rollback strategies
+
+In Chaos Toolkit, rollbacks are always played unless one of the two followings
+is true:
+
+* the steady-state hypothesis deviates before the method
+* a control interrupted the execution
+* the `chaos` command receives a `SIGINT` or `SIGTERM` signal
+
+The Chaos Toolkit provides a mechanism (since v1.5.0) that gives the operator
+a chance to change that behavior.
+
+### Always run rollbacks
+
+Ensure rollbacks are always applied
+
+```
+(chaostk) $ chaos run --rollback-strategy=always experiment.json
+```
+
+### Run rollbacks only on deviation
+
+Run the rollbacks only if your experiment deviated.
+
+
+```
+(chaostk) $ chaos run --rollback-strategy=deviated experiment.json
+```
+
+### Never run rollbacks strategy
+
+Never run any rollbacks, for instance when you want to explore the system
+after a successful experiment without undoing what the experiment changed:
+
+```
+(chaostk) $ chaos run --rollback-strategy=never experiment.json
+```

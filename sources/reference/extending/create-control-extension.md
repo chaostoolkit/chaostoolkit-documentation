@@ -44,6 +44,24 @@ def cleanup_control():
     pass
 
 
+def before_loading_experiment_control(context: str, **kwargs):
+    """
+    before loading the experiment from its source.
+
+    The context is the file path or URL given to the loader. Use this loader
+    if you want to interact with that source before it is loaded.
+    """
+
+
+def after_loading_experiment_control(context: str, state: Experiment, **kwargs):
+    """
+    after loading the experiment from its source.
+
+    Use this loader if you want to interact with the experiment once it's been
+    loaded and parsed but before the validation or execution take place.
+    """
+
+
 def before_experiment_control(context: Experiment,
                               configuration: Configuration = None,
                               secrets: Secrets = None, **kwargs):

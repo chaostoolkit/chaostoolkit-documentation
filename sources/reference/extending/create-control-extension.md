@@ -51,6 +51,7 @@ def before_loading_experiment_control(context: str, **kwargs):
     The context is the file path or URL given to the loader. Use this loader
     if you want to interact with that source before it is loaded.
     """
+    pass
 
 
 def after_loading_experiment_control(context: str, state: Experiment, **kwargs):
@@ -60,6 +61,7 @@ def after_loading_experiment_control(context: str, state: Experiment, **kwargs):
     Use this loader if you want to interact with the experiment once it's been
     loaded and parsed but before the validation or execution take place.
     """
+    pass
 
 
 def before_experiment_control(context: Experiment,
@@ -239,7 +241,7 @@ The Chaos Toolkit will not let a control abort the execution of the experiment.
 So if an exception is raised, it will be caught by the Chaos Toolkit, logged
 and the execution will carry on.
 
-### Interruptinng the execution
+### Interrupting the execution
 
 While unforeseen errors in your controls cannot stop the execution, you can
 interrupt the execution by raising `chaoslib.exceptions.InterruptExecution`

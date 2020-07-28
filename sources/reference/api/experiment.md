@@ -875,6 +875,9 @@ Controls MUST NOT fail the experiment's execution due to unforeseen conditions.
 Controls are declared with the `controls` property which is set to a JSON
 array.
 
+Controls MAY modify [Configuration][conf] and [Secrets][secrets]. In that case
+changes MUST be made visible to the experiment.
+
 An item of that array MUST be a control, which is a JSON object which MUST
 have the following properties:
 

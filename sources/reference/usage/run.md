@@ -8,7 +8,7 @@ execute:
 (chaostk) $ chaos run --help
 ```
 
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/e5TV7CnAEB4KmS4kNfEjGmADF.js" id="asciicast-e5TV7CnAEB4KmS4kNfEjGmADF" async></script></div>
+<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/qxx1haDxBduTCmJzn1ASTWkDe.js" id="asciicast-qxx1haDxBduTCmJzn1ASTWkDe" async></script></div>
 
 A tutorial on how to use the `chaos run` command is available as part of the 
 [Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)

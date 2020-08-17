@@ -73,3 +73,106 @@ after a successful experiment without undoing what the experiment changed:
 ```
 (chaostk) $ chaos run --rollback-strategy=never experiment.json
 ```
+
+## Override configuration and secrets at runtime
+
+While configuration and secrets are declared in the experiment itself, you
+may sometimes need to override the values at runtime. This can be achieved
+through the `--var KEY[:TYPE]=VALUE` or `--var-file filepath.json|yaml|.env`
+flags.
+
+The `--var KEY[:TYPE]=VALUE` can only override configuration values to prevent
+laking secrets on the command line. The `KEY` is the final key used in the
+experiment, for instance:
+
+
+```json
+{
+    "configuration": {
+        "message": "hello world"
+    }
+}
+```
+
+or
+
+
+```json
+{
+    "configuration": {
+        "message": {
+            "type": "env",
+            "key": "MY_MESSAGE"
+        }
+    }
+}
+```
+
+In both cases, the override key is `message`.
+
+If you specify the `TYPE` it must be one of `str, int, float, bytes` with
+`str` the default so not required. Chaos Toolkit will try to convert the given
+`VALUE` to the specified type and fail if it cannot.
+
+
+The `--var-file filepath.json|yaml|.env` gives you the opportunity to override
+the configuration and secrets blocks. the format of the json and yaml files
+are as follows:
+
+```json
+{
+    "configuration": {
+        "KEY": VALUE
+    },
+    "secrets": {
+        "scope": {
+            "KEY": VALUE
+        }
+    }
+}
+```
+
+```yaml
+---
+configuration:
+  KEY: VALUE
+secrets:
+  scope:
+    KEY: VALUE
+```
+
+The `secrets` block follows the same format as the experiment so the `scope`
+is the scope given in the experiment. For example:
+
+
+```json
+{
+    "configuration": {
+        "service_name": "ec2"
+    },
+    "secrets": {
+        "aws": {
+            "api_token": "1234",
+            "something": "whatever"
+        }
+    }
+}
+```
+
+would turn as the following var file:
+
+```json
+{
+    "secrets": {
+        "aws": {
+            "api_token": "56787"
+        }
+    }
+}
+```
+
+We are not overridding the `configuration` section and only part of the
+`secrets` section.
+
+Finally, should you keep your variables in a .env file, it will only be able
+to override the configuration.

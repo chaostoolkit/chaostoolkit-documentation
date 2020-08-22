@@ -108,3 +108,9 @@ experimentation.
 
 An experiment may define a sequence of actions that revert what was undone
 during the experiment.
+
+## Controls
+
+An experiment may declare a set of controls which have an impact over the
+execution of the experiment itself. Controls are operational elements rather
+than experimental.

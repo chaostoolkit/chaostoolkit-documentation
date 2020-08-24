@@ -35,7 +35,7 @@ Let's see an example:
 
 Assuming a Python module called `kettle.py`:
 
-```
+```python
 from chaoslib.types import Configuration, Secrets
 
 __all__ = ["put_on"]
@@ -55,7 +55,7 @@ def put_on(temperature: int = 90, configuration: Configuration = None,
 If `kettle.py` lives next to `experiment.json` then the action could be:
 
 
-```
+```json
 {
     "name": "put-kettle-on",
     "type": "action",
@@ -72,7 +72,7 @@ If `kettle.py` lives next to `experiment.json` then the action could be:
 
 You could finally make it available as follows:
 
-```
+```console
 $ ls
 kettle.py experiment.json
 $ export PYTHONPATH=`pwd`

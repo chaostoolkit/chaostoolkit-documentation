@@ -76,5 +76,8 @@ You could finally make it available as follows:
 $ ls
 kettle.py experiment.json
 $ export PYTHONPATH=`pwd`
-$ chaos run nexperiment.json
+$ chaos run experiment.json
 ```
+
+The Python module does not have to live next to the experiment. It can also
+contain more than one function of course.

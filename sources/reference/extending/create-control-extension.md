@@ -5,6 +5,10 @@ Toolkit to support the [Controls element of the specification][spec].
 
 [spec]: ../api/experiment.md#controls
 
+Controls are good for changing the experiment or its environment during
+execution. They have the power to impact the experiment, configuration,
+secrets on the fly, which is unlike probes and actions.
+
 ## Controls Interface
 
 When implementing a control module, you must simply define a set of functions

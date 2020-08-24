@@ -15,6 +15,42 @@ so ensure its returned value is easily processed via regex or jsonpath
 tolerance types. At the very least, the process should signal through its
 exit code if it completed normally (with 0).
 
+For example, let's create a simple binary with rust. In a file named `echo.rs`:
+
+```rust
+use std::env;
+
+fn main() {
+    let args: Vec<String> = env::args().collect();
+    println!(&args[1..]);
+}
+```
+
+```console
+$ rustc echo.rs
+$ ./echo hello world
+["hello", "world"]
+$ echo $?
+0
+```
+
+An action using this binary would look like this:
+
+
+```json
+{
+    "name": "echo-my-message",
+    "type": "action",
+    "provider": {
+        "type": "process",
+        "path": "echo",
+        "arguments": "hello world",
+    }
+}
+```
+
+This assumes the binary is on the `chaos` PATH and the user has permissions.
+
 ## Call a HTTP endpoint
 
 Sometimes, you have HTTP endpoints that are used internally for specific

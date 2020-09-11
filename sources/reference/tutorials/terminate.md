@@ -35,7 +35,7 @@ The diagram below shows the flow used by Chaos Toolkit when running
 and terminating an experiment:
 
 
-![](./static/images/ctk.flow.svg)
+![](../../static/images/ctk.flow.svg)
 
 ### Digging into the interruption's flow
 

@@ -1,13 +1,21 @@
-# Learn all about terminating an experiment
+# Learn all about the experiment execution's flow
 
-Chaos Engineering is a powerful tool that may lead to undesirable side effects
-in your system. Sometimes, it is expected that an operator, or an automated
-service, terminates an experiment much earlier to prevent further difficulties.
+The diagram below shows the flow used by Chaos Toolkit when running
+and terminating an experiment:
 
-In this tutorial, we are going to review all facets of terminating a Chaos
-Toolkit experiment.
 
-## Let's start with the default behavior
+![](../../static/images/ctk.flow.svg)
+
+
+## Terminating the execution gracefully
+
+Chaos Engineering is a powerful practice that may lead to undesirable side
+effects in your system. Sometimes, it is expected that an operator, or an
+automated service, terminates an experiment much earlier to prevent
+further difficulties.
+
+
+### Let's start with the default behavior
 
 When an experiment runs to its end it means that, even if a deviation was
 found, the Chaos Toolkit should leave nothing hanging around, such as zombie
@@ -31,12 +39,6 @@ behavior is not to play them however for the simple reason that if you
 interrupted an experiment, you may well want to investigate the system and if
 rollbacks were executed, you may lose some important traces or state.
 
-The diagram below shows the flow used by Chaos Toolkit when running
-and terminating an experiment:
-
-
-![](../../static/images/ctk.flow.svg)
-
 ### Digging into the interruption's flow
 
 When the Chaos Toolkit receives a signal, it starts the
@@ -54,7 +56,7 @@ termination flow of the experiment:
 * When the signal is caught during the rollbacks, remaining actions are not
   played and the experiment finishes.
 
-### Reacting to signals, aka being a good citizen
+#### Reacting to signals, aka being a good citizen
 
 The Chaos Toolkit knows it makes operators confident it will act appropriately
 upon receiving a variety of [signals][]. It supports therefore the following

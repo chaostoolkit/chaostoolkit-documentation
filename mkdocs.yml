@@ -75,8 +75,8 @@ nav:
 - Tutorials:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
     - Author and Operator: reference/tutorials/authoring_operating.md
+    - Understand the Execution Flow: reference/tutorials/run-flow.md
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
-    - Terminating Gracefully: reference/tutorials/terminate.md
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
 - Drivers Reference:
     - Overview: drivers/overview.md

@@ -14,6 +14,25 @@ Chaos Toolkit runs an experiment as given in the experiment's file. The
 default behavior is straightforward, it runs the activities from the file
 sequentially in the order they are declared.
 
+The first block executed, if found, is the steady-state hypothesis block.
+In this particular instances, it acts as a sort of a gateway to say "the system
+is normal and meeting its baseline, you can carry on". By doing so, we notify
+the world is in a state which we can comprehend and make sense of.
+
+Then, the method is applied. Usually the method consists of at least an action
+but can also contain probes and other actions. The first action defines the
+turbulence we want to introduce into the system and see if it impacts our
+initial baseline. Other actions should be few in numbers or they may render the
+reading of the results challenging. Probes are merely data collectors of what
+is happening in your system as the turbulence is happening. It helps the
+analysis.
+
+Next, the steady state hypothesis is executed again but, this time, it tells us
+if our baseline has deviated considering the perturbation.
+
+Finally, rollbacks are applied. They serve to usually undo the condition but
+should not be misunderstood as a way to put the system back to a normal state
+when the deviation really triggered a dire chain of events for your system.
 
 ## Terminating the execution gracefully
 

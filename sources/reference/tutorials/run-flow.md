@@ -1,10 +1,18 @@
 # Learn all about the experiment execution's flow
 
-The diagram below shows the flow used by Chaos Toolkit when running
-and terminating an experiment:
 
+## Execution Flow Diagram
+
+The diagram below shows the flow used by Chaos Toolkit when running
+an experiment:
 
 ![](../../static/images/ctk.flow.svg)
+
+## What's happening when running an experiment?
+
+Chaos Toolkit runs an experiment as given in the experiment's file. The
+default behavior is straightforward, it runs the activities from the file
+sequentially in the order they are declared.
 
 
 ## Terminating the execution gracefully

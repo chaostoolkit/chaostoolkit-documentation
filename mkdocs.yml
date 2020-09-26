@@ -72,7 +72,7 @@ nav:
 - Deployment:
     - Kubernetes:
         - Operator: deployment/k8s/operator.md
-- Tutorials:
+- Guides:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
     - Author and Operator: reference/tutorials/authoring_operating.md
     - Understand the Execution Flow: reference/tutorials/run-flow.md

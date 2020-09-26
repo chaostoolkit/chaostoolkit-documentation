@@ -34,6 +34,65 @@ Finally, rollbacks are applied. They serve to usually undo the condition but
 should not be misunderstood as a way to put the system back to a normal state
 when the deviation really triggered a dire chain of events for your system.
 
+## One experiment but a variety of execution strategies
+
+Schematically, the execution flow runs the hypothesis, the method, the
+hypothesis again and finally the rollbacks. However, this flow can somewhat
+controlled via the Chaos Toolkit runtime flags.
+
+### Hypothesis strategies
+
+The default behavior is to execute the hypothesis before and after the method.
+Unless, the hypothesis fails during the "before" phase. In that case, the
+execution terminates as `"failed"` to signal the system wasn't in an
+appropriate baseline state for the experiment to make sense.
+
+The `chaos run` command provides the `--hypothesis-strategy` flag to change
+the default behavior.
+
+Sometimes, you have an experiment where you know the state is not appropriate
+but you want to see if a specific condition could bring it back and make the
+hypothesis valid after the method was applied. In that case, you should use
+`--hypothesis-strategy=after-method-only`.
+
+On the contrary, if you don't want to assert any deviation, you can decide
+to run the hypothesis only before with
+`--hypothesis-strategy=before-method-only`.
+
+More interesting use cases can then be applied. What if you have a long
+method and wish to not wait until it finishes to verify the hypothesis. Well,
+then you can use ``--hypothesis-strategy=continuously` to indicate that, on
+top of the default behavior, you want the hypothesis block to be applied
+during the method periodically. You can change the period, which defaults to
+every second, with `--hypothesis-frequency=10`. Notice that, in that case,
+Chaos Toolkit will not interrupt as soon as a deviation is found. To do that,
+you need to pass the additional `--fail-fast` flag.
+
+Finally, you can also use `--hypothesis-strategy=during-method-only` to have
+the same behavior as `continuously` but removing the default verification
+before and after the method.
+
+### Rollback strategies
+
+Rollbacks are always executed save for three conditions:
+
+* the hypothesis failed on its first pass. Before the method was applied.
+  There is nothing to rollback in that case.
+* the Chaos Toolkit received a signal such as SIGINT.
+  Maybe the operator wants to investigate the system as it is.
+* a control triggered an interruption
+
+You may change that behavior with a `chaos run` flag.
+
+Pass `--rollback-strategy=always` to apply rollbacks no matter the state of the
+execution.
+
+Use `--rollback-strategy=never` to never play them. This can be useful 
+during authoring of the experiment sometimes.
+
+Use `--rollback-strategy=deviated` to play rollbacks only if a deviation was
+found.
+
 ## Terminating the execution gracefully
 
 Chaos Engineering is a powerful practice that may lead to undesirable side

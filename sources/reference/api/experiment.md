@@ -696,7 +696,7 @@ Vault authentication MUST at least support:
   The token MUST be provided in the Configuration section via the
   `"vault_token"` property
 * [AppRole][approle] authentication
-  The role-id and secret-id MUST be provided in the Configuration section vi
+  The role-id and secret-id MUST be provided in the Configuration section via
   the `"vault_role_id"` and `"vault_role_secret"` properties
 
 The Vault [KV secrets version][kvversion] MAY be provided via the
@@ -736,7 +736,7 @@ Then in your Chaos Toolkit experiment:
 means the secrets will become:
 
 ```
-"myapp": {
+"token": {
     "foo": "bar",
     "baz": "hello"
 }
@@ -761,7 +761,7 @@ However:
 means the secrets will become:
 
 ```
-"myapp": "bar"
+"token": "bar"
 ```
 
 ### Configuration

@@ -643,6 +643,16 @@ This can then referenced from probes or actions:
 
 Secrets MAY be inlined in the [Experiment][exp] directly.
 
+```json
+{
+    "secrets": {
+        "kubernetes": {
+            "token": "ABCDEF-1234-XYZ"
+        }
+    }
+}
+```
+
 #### Environment Secrets
 
 Secrets MAY be retrieved from the environment. In that case, they must be
@@ -690,13 +700,16 @@ path MUST be set to the Chaos Toolkit secret key.
 A `key` property MAY be set to select a specific value from the Vault secret
 payload.
 
+The Vault url MUST be provided in the Configuration section via
+the `"vault_addr"` property.
+
 Vault authentication MUST at least support:
 
 * [token][vaulttoken] based authentication
   The token MUST be provided in the Configuration section via the
   `"vault_token"` property
 * [AppRole][approle] authentication
-  The role-id and secret-id MUST be provided in the Configuration section vi
+  The role-id and secret-id MUST be provided in the Configuration section via
   the `"vault_role_id"` and `"vault_role_secret"` properties
 
 The Vault [KV secrets version][kvversion] MAY be provided via the
@@ -736,7 +749,7 @@ Then in your Chaos Toolkit experiment:
 means the secrets will become:
 
 ```
-"myapp": {
+"token": {
     "foo": "bar",
     "baz": "hello"
 }
@@ -761,7 +774,7 @@ However:
 means the secrets will become:
 
 ```
-"myapp": "bar"
+"token": "bar"
 ```
 
 ### Configuration
@@ -795,6 +808,14 @@ An example of a `configuration` element at the top-level:
 
 Configurations MAY be inlined in the [Experiment][exp] directly.
 
+```json
+{
+    "configuration": {
+        "some-service": "http://127.0.0.1:8080"
+    }
+}
+```
+
 #### Environment Configurations
 
 Configurations MAY be retrieved from the environment. In that case, they must be
@@ -807,7 +828,7 @@ can be undefined and fallback to a default value for the experiment.
 ```json
 {
     "configuration": {
-        "vault_address": {
+        "vault_addr": {
             "type": "env",
             "key": "VAULT_ADDR",
             "default": "https://127.0.0.1:8200"

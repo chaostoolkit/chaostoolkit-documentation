@@ -643,6 +643,16 @@ This can then referenced from probes or actions:
 
 Secrets MAY be inlined in the [Experiment][exp] directly.
 
+```json
+{
+    "secrets": {
+        "kubernetes": {
+            "token": "ABCDEF-1234-XYZ"
+        }
+    }
+}
+```
+
 #### Environment Secrets
 
 Secrets MAY be retrieved from the environment. In that case, they must be
@@ -797,6 +807,14 @@ An example of a `configuration` element at the top-level:
 #### Inline Configurations
 
 Configurations MAY be inlined in the [Experiment][exp] directly.
+
+```json
+{
+    "configuration": {
+        "some-service": "http://127.0.0.1:8080"
+    }
+}
+```
 
 #### Environment Configurations
 

@@ -4,6 +4,7 @@ site_description: Chaos Toolkit
 copyright: '&copy; 2017-2020 Chaos Toolkit team'
 theme:
   name: material
+  custom_dir: overrides
   favicon: "static/images/favicon.ico"
   logo: "static/images/logo.png"
   palette:
@@ -44,6 +45,9 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
+  - mkdocs-jupyter:
+      include_source: True
+      execute: True
   - minify:
       minify_html: true
 extra:
@@ -78,6 +82,7 @@ nav:
     - Understand the Execution Flow: reference/tutorials/run-flow.md
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
+    - Notebook as doc example: reference/tutorials/mynotebook.ipynb
 - Drivers Reference:
     - Overview: drivers/overview.md
     - Infrastructure/Platform:

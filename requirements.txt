@@ -3,6 +3,7 @@ pygments
 markdown>=3.0.1
 pymdown-extensions
 mkdocs-material~=5.0
+mkdocs-jupyter
 mkdocs-minify-plugin
 markdown-include
 jinja2

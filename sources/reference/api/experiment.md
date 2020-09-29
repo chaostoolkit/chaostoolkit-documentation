@@ -690,6 +690,9 @@ path MUST be set to the Chaos Toolkit secret key.
 A `key` property MAY be set to select a specific value from the Vault secret
 payload.
 
+The Vault url MUST be provided in the Configuration section via
+the `"vault_addr"` property.
+
 Vault authentication MUST at least support:
 
 * [token][vaulttoken] based authentication
@@ -807,7 +810,7 @@ can be undefined and fallback to a default value for the experiment.
 ```json
 {
     "configuration": {
-        "vault_address": {
+        "vault_addr": {
             "type": "env",
             "key": "VAULT_ADDR",
             "default": "https://127.0.0.1:8200"

@@ -8,8 +8,8 @@ This tutorial will quickly give you a tour of the basic elements of an
 experiment.
 
 !!! tip
-    You will find interactive tutorials on the [KataCoda platform][katacoda] as
-    well.
+    You will find many more in-depth labs on
+    [GitHub](https://github.com/chaosiq/chaostoolkit-demos).
 
 [katacoda]: https://katacoda.com/chaostoolkit
 

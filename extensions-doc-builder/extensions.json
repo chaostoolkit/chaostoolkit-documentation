@@ -68,5 +68,10 @@
         "name": "chaosgandi",
         "doc_path": "../sources/drivers/gandi.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-gandi"
+    },
+    {
+        "name": "chaosdynatrace",
+        "doc_path": "../sources/drivers/dynatrace.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-dynatrace"
     }
 ]

@@ -12,3 +12,4 @@ chaostoolkit-service-fabric
 chaostoolkit-istio
 chaostoolkit-wiremock
 chaostoolkit-gandi
+chaostoolkit-dynatrace

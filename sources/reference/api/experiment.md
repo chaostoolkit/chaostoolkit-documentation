@@ -89,7 +89,7 @@ An experiment MUST declare:
 * a `description` property
 * a `method` property
 
-The `version` property MUST be `"0.1.0"`.
+The `version` property MUST be `"1.0.0"`.
 
 The experiment's `title` and `description` are meant for humans and therefore
 should be as descriptive as possible to clarify the experiment's rationale.

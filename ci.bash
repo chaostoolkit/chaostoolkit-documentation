@@ -6,7 +6,7 @@ function fetch-and-install-chaostoolkit-packages() {
     mkdir deps
 
     pip --quiet install --pre -U chaostoolkit-lib chaostoolkit
-    pip --quiet install httplib2 uritemplate pytzdata
+    pip --quiet install httplib2 uritemplate pytzdata msrestazure
     
     # collect all the dependencies for our drivers
     pip --quiet install -U -r requirements-toolkit.txt

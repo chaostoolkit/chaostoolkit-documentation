@@ -5,7 +5,7 @@
 ## Python Requirements
 
 The [chaostoolkit CLI][cli] is implemented in Python 3 and this requires a
-working Python installation to run. It officially supports Python 3.5+. It has
+working Python installation to run. It officially supports Python 3.6+. It has
 only been tested against [CPython][python].
 
 [cli]: https://github.com/chaostoolkit/chaostoolkit
@@ -31,10 +31,10 @@ On CentOS:
 
 ```
 $ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-$ sudo yum -y install python35u
+$ sudo yum -y install python36u
 ```
 
-Notice, on CentOS, the Python 3.5 binary is named `python3.5` rather than
+Notice, on CentOS, the Python 3.6 binary is named `python3.6` rather than
 `python3` as other systems.
 
 On Windows:

@@ -16,9 +16,7 @@ Toolkit is implemented in Python so make sure to have the right tooling for it.
 
 The most basics are:
 
-* Python 3.5+ installed. Right now, we officially support 3.5 and 3.6 but there
-  should not be harm in using 3.7 as long as it can gracefully degrade down to
-  3.5
+* Python 3.6+ installed.
 * A virtual environment so you can deploy the dependencies in a specific
   environment
 

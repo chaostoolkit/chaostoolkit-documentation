@@ -1,7 +1,10 @@
 # Key Project Values
 
 The following key values of the Chaos Toolkit reflect the mindset the community
-has when engineering the Chaos Toolkit project.
+has when engineering the Chaos Toolkit project. Refer to our
+[Code of Conduct][code] as well.
+
+[code]: https://github.com/chaostoolkit/chaostoolkit/blob/master/CODE_OF_CONDUCT.md
 
 ## Simplicity
 

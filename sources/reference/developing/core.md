@@ -35,3 +35,39 @@ are currently reading.
 
 This project is implemented in Python 3 by generating HTML from Markdown
 documents.
+
+## chaostoolkit-kubernetes
+
+The [chaostoolkit-kubernetes][chaosk8s] project is the Kubernetes extension.
+
+[chaosk8s]: https://github.com/chaostoolkit/chaostoolkit-kubernetes
+
+This project is implemented in Python 3.
+
+## chaostoolkit-addons
+
+The [chaostoolkit-addons][chaosaddons] project is a set of addons for Chaos
+Toolkit: useful controls, probes, actions and tolerances.
+
+[chaosaddons]: https://github.com/chaostoolkit/chaostoolkit-addons
+
+This project is implemented in Python 3.
+
+## chaostoolkit-reporting
+
+The [chaostoolkit-reporting][chaosreporting] project is a plugin for Chaos
+Toolkit to create PDF/HTMl reports from executions.
+
+[chaosreporting]: https://github.com/chaostoolkit/chaostoolkit-reporting
+
+This project is implemented in Python 3.
+
+## chaostoolkit-bundler
+
+The [chaostoolkit-bundler][chaosbundler] project is a binary package of
+Chaos Toolkit and its most common extensions. In case you want a drop in
+Chaos Toolkit for your system.
+
+[chaosbundler]: https://github.com/chaostoolkit/chaostoolkit-bundler
+
+This project is implemented in Python 3.

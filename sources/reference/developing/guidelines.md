@@ -74,6 +74,7 @@ Basically, those projects represent the Chaos Toolkit itself. However, the
 toolkit is naked without extensions. The currently core extensions are:
 
 * [chaostoolkit-kubernetes](https://github.com/chaostoolkit/chaostoolkit-kubernetes)
+* [chaostoolkit-addons](https://github.com/chaostoolkit/chaostoolkit-addons)
 
 In addition, there are a
 [bunch of incubating projects](https://github.com/chaostoolkit-incubator).

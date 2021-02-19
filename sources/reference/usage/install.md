@@ -27,16 +27,6 @@ On Debian/Ubuntu:
 $ sudo apt-get install python3 python3-venv
 ```
 
-On CentOS:
-
-```
-$ sudo yum -y install https://centos7.iuscommunity.org/ius-release.rpm
-$ sudo yum -y install python36u
-```
-
-Notice, on CentOS, the Python 3.6 binary is named `python3.6` rather than
-`python3` as other systems.
-
 On Windows:
 
 [Download the latest binary installer][pywin] from the Python website.
@@ -69,7 +59,7 @@ $ source  ~/.venvs/chaostk/bin/activate
 Install `chaostoolkit` in the virtual environment as follows:
 
 ```
-(chaostk) $ pip install chaostoolkit
+(chaostk) $ pip install -U chaostoolkit
 ```
 
 You can verify the command was installed by running:

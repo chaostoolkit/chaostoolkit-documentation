@@ -108,6 +108,7 @@ nav:
     - Project Management:
         - Key Project Values: reference/developing/values.md
         - Core Projects: reference/developing/core.md
+        - Extensions Projects: reference/developing/extensions.md
         - Technology Choices: reference/developing/technologies.md
 - Develop:
     - Guidelines: reference/developing/guidelines.md

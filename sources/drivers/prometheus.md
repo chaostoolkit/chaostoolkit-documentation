@@ -27,7 +27,7 @@ $ pip install chaostoolkit-prometheus
 
 ## Usage
 
-To use this package, you must create have access to a Prometheus instance via
+To use this package, you must have access to a Prometheus instance via
 HTTP and be allowed to connect to it.
 
 This package only exports probes to query for some aspects of your system as
@@ -76,7 +76,7 @@ or raises an exception when an error is met.
 
 [api]: https://prometheus.io/docs/querying/api/
 
-The result is not further process and should be found in the generated report
+The result is not further processed and should be found in the generated report
 of the experiment run.
 
 ## Contribute

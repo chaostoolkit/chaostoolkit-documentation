@@ -199,9 +199,15 @@ property which MUST be a valid [JSON Path][jp]. In addition, the object MAY
 have a `expect` property which is used to compare each value matched by the JSON
 Path to that value. The `expect` property value MUST be a scalar. When the
 `expect` property is not present, the `tolerance` succeeds if the JSON Path
-matched at least one item.
+matched at least one item. Sometimes the json payload values will be dynamic,
+e.g. field `status` in response payload may provide any values (either `ok` or
+`error` or `info`). Using `expect` field, we can mention only one value as
+expected value but sometimes steady state can be met with one or more values.
+e.g. you want to define two values either `ok` or `info` as expected value.
+In these cases, you can use both `expect` and `expect_one_of` to define both
+expected values.
 
-When the `type` property is `"range"`, the object MUST have a `range` 
+When the `type` property is `"range"`, the object MUST have a `range`
 property whuch MUST be a sequence of length two. The first entry of the
 sequence MUST be the lower bound and the second entry MUST be the upper bound.
 Both entries MUST be JSON numbers.
@@ -292,6 +298,17 @@ A jsonpath tolerance with an expected value to match:
 }
 ```
 
+A jsonpath tolerance with an one or two expected values to match:
+
+```json
+"tolerance": {
+    "type": "jsonpath",
+    "path": "$.foo[?(@.baz)].baz",
+    "expect": [["hello", "bonjour"]],
+    "expect_one_of": [["hello", "joe"]]
+  }
+```
+
 Two range tolerances:
 
 ```json
@@ -378,7 +395,7 @@ When declared fully, a Probe MUST declare:
 * a `name` property
 * a `provider` property
 
-The `type` property MUST be the JSON string `"probe"`. 
+The `type` property MUST be the JSON string `"probe"`.
 
 The `name` property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.
@@ -428,7 +445,7 @@ When declared fully, a Action MUST declare:
 * a `provider` property
 * a `controls` property
 
-The `type` property MUST be the JSON string `"action"`. 
+The `type` property MUST be the JSON string `"action"`.
 
 The `name` property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.
@@ -839,7 +856,7 @@ can be undefined and fallback to a default value for the experiment.
 
 ### Variable Substitution
 
-Probes and Actions argument values MAY be dynamically resolved at runtime. 
+Probes and Actions argument values MAY be dynamically resolved at runtime.
 
 Dynamic values MUST follow the syntax `${name}` where `name` is an identifier
 declared in either the Configuration or Secrets sections. When `name` is

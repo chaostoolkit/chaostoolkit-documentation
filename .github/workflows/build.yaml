@@ -2,9 +2,11 @@ name: Build
 
 on:
   push:
-    branches-ignore: [ gh-pages ]
+    branches-ignore:
+      - 'gh-pages'
   pull_request:
-    branches: [ master ]
+    branches:
+      - 'master'
 
 jobs:
   build:
@@ -67,7 +69,6 @@ jobs:
         cd -
         mkdocs build --strict -d /tmp/site
     - name: Publish documentation
-      if: {{ github.ref == 'ref/head/main' }}
       run: |
         cd /tmp/site
         echo "docs.chaostoolkit.org" > CNAME

@@ -1,6 +1,6 @@
 # The Chaos Toolkit documentation
 
-[![Build Status](https://travis-ci.org/chaostoolkit/chaostoolkit-documentation.svg?branch=master)](https://travis-ci.org/chaostoolkit/chaostoolkit-documentation)
+[![Build](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build.yaml/badge.svg)](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build.yaml)
 [![Requirements Status](https://requires.io/github/chaostoolkit/chaostoolkit-documentation/requirements.svg?branch=gh-pages)](https://requires.io/github/chaostoolkit/chaostoolkit-documentation/requirements/?branch=gh-pages)
 
 Get to the [documentation][live] of the Chaos Toolkit.

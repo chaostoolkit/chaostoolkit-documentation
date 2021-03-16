@@ -73,8 +73,7 @@ jobs:
       run: |
         cd /tmp/site
         echo "docs.chaostoolkit.org" > CNAME
-        git config user.email "$GH_USER_EMAIL"
-        git config user.name "$GH_USER_NAME"
+        git config user.name $GH_USER_NAME
         git add .
         git commit -a -m "Built from ${GITHUB_SHA}"
         git push

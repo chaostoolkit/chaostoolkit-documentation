@@ -74,7 +74,7 @@ jobs:
         cd /tmp/site
         echo "docs.chaostoolkit.org" > CNAME
         git config user.email "contact@chaostoolkit.org"
-        git config user.name $GH_USER_NAME
+        git config user.name "chaostoolkit-ci"
         git add .
         git commit -a -m "Built from ${GITHUB_SHA}"
         git push

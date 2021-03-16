@@ -73,8 +73,9 @@ jobs:
       run: |
         cd /tmp/site
         echo "docs.chaostoolkit.org" > CNAME
-        git config user.email "contact@chaostoolkit.org"
-        git config user.name "chaostoolkit-ci"
+        git remote set-url --push origin https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git
+        git config user.email "$GH_USER_EMAIL"
+        git config user.name "$GH_USER_NAME"
         git add .
         git commit -a -m "Built from ${GITHUB_SHA}"
         git push

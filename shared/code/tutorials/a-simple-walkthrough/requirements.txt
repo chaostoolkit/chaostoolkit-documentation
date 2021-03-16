@@ -1,4 +1,0 @@
-astral
-cherrypy
-pytz
-requests

@@ -69,13 +69,8 @@ jobs:
         cd -
         mkdocs build --strict -d /tmp/site
         cd ..
-    - name: Publish documentation
-      run: |
-        cd /tmp/site
-        echo "docs.chaostoolkit.org" > CNAME
-        git config user.email '${GH_USER_EMAIL}'
-        git config user.name '${GH_USER_NAME}'
-        git remote set-url --push origin https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git
-        git add .
-        git commit -a -m "Built from ${GITHUB_SHA}"
-        git push
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.0
+      with:
+        branch: gh-pages
+        folder: /tmp/site

@@ -82,7 +82,7 @@ expected `"hello"`.
 Here is an example of it running:
 
 ```
-$  chaos run experiment.json 
+$  chaos run experiment.json
 [2019-06-25 21:37:59 INFO] Validating the experiment's syntax
 [2019-06-25 21:37:59 INFO] Experiment looks valid
 [2019-06-25 21:37:59 INFO] Running experiment: Our default language is English
@@ -160,15 +160,15 @@ On top of this native types, we support also more advance cases such as:
     * `pattern` must be a valid regular expression, for now supported by the
     [Python engine][re]. This is useful when looking for a value in a raw string.
     * `target` is optional, and allows changing the default target for a given provider.
-    
+
     Currently supported targets per provider are as follows:
-    
+
     | Provider | Default | Values |
     | -------- | ------- | ------ |
     | process  | `"status"` | `"stdout"`, `"stderr"` |
     | http | `"status"` | `"headers"`, `"body"` |
-    | python | Undefined | Undefined | 
-    
+    | python | Undefined | Undefined |
+
 
 [re]: https://docs.python.org/3/library/re.html#module-re
 
@@ -181,7 +181,7 @@ On top of this native types, we support also more advance cases such as:
    ```
     The `path` must be a valid JSONPath supported by the [jsonpath2][] library.
     This is handy when looking for a value in a mapping output.
-    
+
 [jsonpath2]: https://jsonpath2.readthedocs.io/en/latest/exampleusage.html
 
 * `probe`: set the tolerance property to:
@@ -299,7 +299,7 @@ properties: `"status"`, `"stdout"` and `"stderr"`.
 
 ### Validate the JSON body of a HTTP probe
 
-In this case, use a `jsonpath` tolerance. 
+In this case, use a `jsonpath` tolerance.
 
 For instance, let's assume you receive the following JSON payload:
 
@@ -432,6 +432,7 @@ could be written as follows:
     "type": "probe",
     "name": "lookup-text-in-lang-file",
     "tolerance": {
+        "name": "search-text",
         "type": "probe",
         "provider": {
             "type": "python",
@@ -460,7 +461,7 @@ In that case, implement the
 import re
 
 
-def search_text(path: str, search_for: str, value: dict) -> bool:
+def search_text(path: str, search_for: str, value: dict = None) -> bool:
     with open(path) as f:
         content = f.read()
         return re.compile(search_for).match(value["stdout"]) is not None
@@ -469,5 +470,3 @@ def search_text(path: str, search_for: str, value: dict) -> bool:
 As you can see, the `value` argument is not declared but must exist in the
 signature of the function. It is injected by the Chaos Toolkit and is set to
 the probe's output.
-
-

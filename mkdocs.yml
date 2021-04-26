@@ -94,6 +94,8 @@ nav:
       - ToxiProxy: drivers/toxiproxy.md
       - Istio: drivers/istio.md
       - WireMock: drivers/wiremock.md
+    - Load Testing:
+      - k6: drivers/k6s.md
     - Observability:
       - Humio: drivers/humio.md
       - Prometheus: drivers/prometheus.md

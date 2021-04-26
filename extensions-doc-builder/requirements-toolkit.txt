@@ -13,3 +13,4 @@ chaostoolkit-istio
 chaostoolkit-wiremock
 chaostoolkit-gandi
 chaostoolkit-dynatrace
+chaostoolkit-k6

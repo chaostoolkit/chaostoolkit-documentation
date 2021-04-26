@@ -95,7 +95,7 @@ nav:
       - Istio: drivers/istio.md
       - WireMock: drivers/wiremock.md
     - Load Testing:
-      - k6: drivers/k6s.md
+      - k6: drivers/k6.md
     - Observability:
       - Humio: drivers/humio.md
       - Prometheus: drivers/prometheus.md

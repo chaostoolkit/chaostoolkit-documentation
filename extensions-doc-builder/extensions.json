@@ -73,5 +73,10 @@
         "name": "chaosdynatrace",
         "doc_path": "../sources/drivers/dynatrace.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-dynatrace"
+    },
+    {
+        "name": "chaosk6",
+        "doc_path": "../sources/drivers/k6.md",
+        "repo": "https://github.com/k6io/chaostoolkit-k6"
     }
 ]

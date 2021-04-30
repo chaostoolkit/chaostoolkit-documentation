@@ -53,7 +53,7 @@
       <span class=p>}</span>
   <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div> <p>This experiment looks for the welcome message in the default locale file and expected <code>"hello"</code>.</p> <p>Here is an example of it running:</p> <div class=highlight><pre><span></span><code>$  chaos run experiment.json 
+</code></pre></div> <p>This experiment looks for the welcome message in the default locale file and expected <code>"hello"</code>.</p> <p>Here is an example of it running:</p> <div class=highlight><pre><span></span><code>$  chaos run experiment.json
 [2019-06-25 21:37:59 INFO] Validating the experiment&#39;s syntax
 [2019-06-25 21:37:59 INFO] Experiment looks valid
 [2019-06-25 21:37:59 INFO] Running experiment: Our default language is English
@@ -136,7 +136,7 @@
         <span class=nt>&quot;arguments&quot;</span><span class=p>:</span> <span class=s2>&quot;default.locale.txt&quot;</span>
     <span class=p>}</span>
 <span class=p>}</span>
-</code></pre></div> <p>The important extra property to set here is <code>target</code> which tells the Chaos Toolkit where to locate the value to apply the pattern against. The reason we set <code>stdout</code> here is because a process probe returns an object made of three properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</code>.</p> <h3 id=validate-the-json-body-of-a-http-probe>Validate the JSON body of a HTTP probe<a class=headerlink href=#validate-the-json-body-of-a-http-probe title="Permanent link">&para;</a></h3> <p>In this case, use a <code>jsonpath</code> tolerance. </p> <p>For instance, let&rsquo;s assume you receive the following JSON payload:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
+</code></pre></div> <p>The important extra property to set here is <code>target</code> which tells the Chaos Toolkit where to locate the value to apply the pattern against. The reason we set <code>stdout</code> here is because a process probe returns an object made of three properties: <code>"status"</code>, <code>"stdout"</code> and <code>"stderr"</code>.</p> <h3 id=validate-the-json-body-of-a-http-probe>Validate the JSON body of a HTTP probe<a class=headerlink href=#validate-the-json-body-of-a-http-probe title="Permanent link">&para;</a></h3> <p>In this case, use a <code>jsonpath</code> tolerance.</p> <p>For instance, let&rsquo;s assume you receive the following JSON payload:</p> <div class=highlight><pre><span></span><code><span class=p>{</span>
     <span class=nt>&quot;foo&quot;</span><span class=p>:</span> <span class=p>[{</span><span class=nt>&quot;baz&quot;</span><span class=p>:</span> <span class=s2>&quot;hello&quot;</span><span class=p>},</span> <span class=p>{</span><span class=nt>&quot;baz&quot;</span><span class=p>:</span> <span class=s2>&quot;bonjour&quot;</span><span class=p>}]</span>
 <span class=p>}</span>
 </code></pre></div> <div class=highlight><pre><span></span><code><span class=p>{</span>
@@ -212,6 +212,7 @@
     <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;probe&quot;</span><span class=p>,</span>
     <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;lookup-text-in-lang-file&quot;</span><span class=p>,</span>
     <span class=nt>&quot;tolerance&quot;</span><span class=p>:</span> <span class=p>{</span>
+        <span class=nt>&quot;name&quot;</span><span class=p>:</span> <span class=s2>&quot;search-text&quot;</span><span class=p>,</span>
         <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;probe&quot;</span><span class=p>,</span>
         <span class=nt>&quot;provider&quot;</span><span class=p>:</span> <span class=p>{</span>
             <span class=nt>&quot;type&quot;</span><span class=p>:</span> <span class=s2>&quot;python&quot;</span><span class=p>,</span>
@@ -232,7 +233,7 @@
 </code></pre></div> <p>In that case, implement the <code>search_text(path: str, search_for: str, value: dict) -&gt; bool</code> function in the <code>my.package</code> Python module.</p> <div class=highlight><pre><span></span><code><span class=kn>import</span> <span class=nn>re</span>
 
 
-<span class=k>def</span> <span class=nf>search_text</span><span class=p>(</span><span class=n>path</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>search_for</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=nb>dict</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>
+<span class=k>def</span> <span class=nf>search_text</span><span class=p>(</span><span class=n>path</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>search_for</span><span class=p>:</span> <span class=nb>str</span><span class=p>,</span> <span class=n>value</span><span class=p>:</span> <span class=nb>dict</span> <span class=o>=</span> <span class=kc>None</span><span class=p>)</span> <span class=o>-&gt;</span> <span class=nb>bool</span><span class=p>:</span>
     <span class=k>with</span> <span class=nb>open</span><span class=p>(</span><span class=n>path</span><span class=p>)</span> <span class=k>as</span> <span class=n>f</span><span class=p>:</span>
         <span class=n>content</span> <span class=o>=</span> <span class=n>f</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
         <span class=k>return</span> <span class=n>re</span><span class=o>.</span><span class=n>compile</span><span class=p>(</span><span class=n>search_for</span><span class=p>)</span><span class=o>.</span><span class=n>match</span><span class=p>(</span><span class=n>value</span><span class=p>[</span><span class=s2>&quot;stdout&quot;</span><span class=p>])</span> <span class=ow>is</span> <span class=ow>not</span> <span class=kc>None</span>

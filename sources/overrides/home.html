@@ -1,0 +1,234 @@
+<!-- Custom HTML site displayed as the Home chapter -->
+
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
+
+    .md-main {
+        flex-grow: 0
+    }
+
+    .md-main__inner {
+        display: flex;
+        height: 100%;
+    }
+
+    .tx-container {
+        padding-top: .0rem;
+    }
+
+    .tx-hero {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .tx-hero h1 {
+        margin-bottom: 1rem;
+        color: currentColor;
+    }
+
+    .tx-hero__content {
+        flex-shrink: 1;
+        padding-bottom: 1rem;
+        padding-left: 0.6rem;
+        margin: 0 auto;
+    }
+
+    .tx-hero__image{
+        flex-grow: 2;
+        order:1;
+        padding: 1.5rem;
+    }
+
+    .tx-hero .md-button {
+        margin-top: .5rem;
+        margin-right: .5rem;
+        color: var(--md-primary-bg-color)
+    }
+
+    .tx-hero .md-button--primary {
+        color: var(--md-primary-fg-color);
+        background-color: var(--md-primary-bg-color);
+        border-color: var(--md-primary-bg-color)
+    }
+
+    .tx-hero .md-button:focus,
+    .tx-hero .md-button:hover {
+        background-color: var(--md-accent-fg-color);
+        color: var(--md-default-bg-color);
+        border-color: var(--md-accent-fg-color)
+    }
+
+    .tx-hero__content .highlight {
+        color: var(--md-accent-bg-color);
+    }
+
+    .feature-item h2 svg {
+        height: 30px;
+        float: left;
+        margin-right: 10px;
+    }
+
+    .top-hr {
+        margin-top: 42px;
+    }
+
+    .hr {
+        border-bottom: 1px solid var(--md-primary-fg-color);
+        width: 100%;
+        margin: 20px 0;
+    }
+
+    .feature-item {
+        font-weight: 300;
+        box-sizing: border-box;
+        padding: 0 15px;
+        word-break: break-word
+    }
+
+    .feature-item h2 {
+        font-weight: 300;
+        font-size: 25px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        line-height: normal;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-family: inherit;
+    }
+
+    .feature-item p {
+        font-size: 16px;
+        line-height: 1.8em;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        color: #111;
+        margin: 0 0 10px;
+        display: block;
+    }
+
+    @media screen and (min-width:76.25em) {
+        .top-hr {
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .bottom-hr {
+            margin-top: 10px;
+            width: 100%;
+            display: flex;
+            max-width: 61rem;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .feature-item {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .feature-item:hover {
+            background-color: var(--md-accent-fg-color--transparent);
+            border-radius: 3px;
+        }
+    }
+
+    .logos {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-flow: row wrap;
+        margin: 0 auto;
+    }
+
+    .logos img {
+        flex: 1 1 auto;
+        padding: 25px;
+        max-height: 130px;
+        vertical-align: middle;
+    }
+
+    .hr-logos {
+        margin-top: 0;
+        margin-bottom: 30px;
+    }
+
+    .md-footer__inner {
+        display: none;
+    }
+</style>
+
+<!-- Main site Entry button descriptions -->
+<section class="tx-container">
+    <div class="md-grid md-typeset">
+      <div class="tx-hero">
+        <div class="tx-hero__image">
+          <img src="static/images/schema-1920.svg" draggable="false">
+        </div>
+        <div class="tx-hero__content">
+          <h1>The <span class="highlight">Chaos Engineering</span> toolkit for Developers</h1>
+          <p>Explore and test your systems to discover their weaknesses.</p>
+          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
+            Get started
+          </a>
+          <a href="{{ config.repo_url }}" title="{{ lang.t('source.link.title') }}" class="md-button">
+            Go to GitHub
+          </a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<div class="top-hr">
+    <div class="hr">
+    </div>
+</div>
+
+<!-- Main site box descriptions -->
+<div class="top-hr">
+    <div class="feature-item">
+        <h2>
+            <span class="code-branch">
+                {% include ".icons/fontawesome/solid/code-branch.svg" %}
+              </span>
+            Chaos As Code
+        </h2>
+        <p>Declare and store your Chaos Engineering experiments as JSON/YAML files so you can collabore and orchestrate them as any other piece of code.</p>
+    </div>
+    <div class="feature-item">
+        <h2>
+            
+            <span class="seedling">
+                {% include ".icons/fontawesome/solid/seedling.svg" %}
+              </span>Extensible
+        </h2>
+        <p>The Chaos Toolkit is extensible at will for any system through its Open API..</p>
+    </div>
+    <div class="feature-item">
+            <h2 class="cogs">
+                {% include ".icons/fontawesome/solid/cogs.svg" %}
+            Automation
+        </h2>
+        <p>The Chaos Toolkit loves automation and can be embedded in your favourite CI/CD chain.</p>
+    </div>
+    <div class="feature-item">
+            <h2 class="solid">
+                {% include ".icons/fontawesome/solid/heart.svg" %}
+        Open Source</h2>
+        <p>The Chaos Toolkit is Open Source with an Apache 2 license. No lock-in and powered by its community</p>
+    </div>
+</div>
+
+<div class="top-hr">
+    <div class="hr">
+    </div>
+</div>
+
+{% endblock %}
+{% block content %}{% endblock %}

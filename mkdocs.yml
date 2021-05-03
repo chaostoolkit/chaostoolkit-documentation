@@ -7,11 +7,13 @@ theme:
   favicon: "static/images/favicon.ico"
   logo: "static/images/logo.png"
   palette:
-    primary: "white"
-    accent: "yellow"
+    primary: white
+    accent: yellow
+  custom_dir: sources/overrides
+  include_search_page: false
+  search_index_only: true
   features:
     - navigation.instant
-    - navigation.tracking
     - navigation.sections
     - navigation.tabs
     - navigation.tabs.sticky

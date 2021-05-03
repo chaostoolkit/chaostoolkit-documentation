@@ -1,6 +1,7 @@
 ---
 hide:
   - navigation # Hide navigation
+template: home.html
 ---
 
 # Chaos Engineering Experiments Automation

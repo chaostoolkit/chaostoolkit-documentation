@@ -9,6 +9,15 @@ theme:
   palette:
     primary: "white"
     accent: "yellow"
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.top
+    - toc.integrate
+    - search.suggest
 extra_css:
   - 'static/css/extra.css'
 docs_dir: sources

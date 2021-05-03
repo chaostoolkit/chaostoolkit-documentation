@@ -1,3 +1,8 @@
+---
+hide:
+  - navigation # Hide navigation
+---
+
 # Chaos Engineering Experiments Automation
 
 The Chaos Toolkit aims to be the simplest and easiest way to explore building 

@@ -76,7 +76,7 @@
     }
 
     .hr {
-        border-bottom: 1px solid var(--md-primary-fg-color);
+        border-bottom: 1px solid var(--md-primary-fg-color--dark);
         width: 100%;
         margin: 20px 0;
     }
@@ -98,6 +98,10 @@
         margin-top: 20px;
         margin-bottom: 10px;
         font-family: inherit;
+    }
+
+    .feature-item .icon {
+        color: var(--md-accent-fg-color);
     }
 
     .feature-item p {
@@ -159,6 +163,101 @@
         margin-bottom: 30px;
     }
 
+    .contributors {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 61rem;
+        justify-content: space-between;
+    }
+
+    .contributors-title {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contributors-title h2 {
+        font-weight: 300;
+        font-size: 25px;
+    }
+
+    .contributor {
+        display: flex;
+        padding: 30px;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .contributor img {
+        filter: grayscale(100%);
+        display: block;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .contributor img:hover {
+        filter: grayscale(0);
+    }
+
+
+
+    .sponsors {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        margin-right: auto;
+        margin-left: auto;
+        max-width: 61rem;
+        justify-content: space-between;
+    }
+
+    .sponsors-title {
+        display: flex;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sponsors-title h2 {
+        font-weight: 300;
+        font-size: 25px;
+    }
+
+    .sponsor {
+        display: flex;
+        padding: 30px;
+        flex: 1;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sponsor img {
+        filter: grayscale(100%);
+        display: block;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .sponsor img:hover {
+        filter: grayscale(0);
+    }
+
+    .sponsor img {
+        filter: grayscale(100%);
+        display: block;
+        object-fit: contain;
+        width: 100%;
+    }
+
+    .sponsor img:hover {
+        filter: grayscale(0);
+    }
+
     .md-footer__inner {
         display: none;
     }
@@ -194,7 +293,7 @@
 <div class="top-hr">
     <div class="feature-item">
         <h2>
-            <span class="code-branch">
+            <span class="code-branch icon">
                 {% include ".icons/fontawesome/solid/code-branch.svg" %}
               </span>
             Chaos As Code
@@ -204,22 +303,25 @@
     <div class="feature-item">
         <h2>
             
-            <span class="seedling">
+            <span class="seedling icon">
                 {% include ".icons/fontawesome/solid/seedling.svg" %}
               </span>Extensible
         </h2>
         <p>The Chaos Toolkit is extensible at will for any system through its Open API..</p>
     </div>
     <div class="feature-item">
-            <h2 class="cogs">
+            <h2>
+                <span class="cogs icon">
                 {% include ".icons/fontawesome/solid/cogs.svg" %}
+            </span>
             Automation
         </h2>
         <p>The Chaos Toolkit loves automation and can be embedded in your favourite CI/CD chain.</p>
     </div>
     <div class="feature-item">
-            <h2 class="solid">
+            <h2><span class="solid icon">
                 {% include ".icons/fontawesome/solid/heart.svg" %}
+            </span>
         Open Source</h2>
         <p>The Chaos Toolkit is Open Source with an Apache 2 license. No lock-in and powered by its community</p>
     </div>
@@ -229,6 +331,49 @@
     <div class="hr">
     </div>
 </div>
+
+<section class="tx-container">
+    <div class="contributors-title">
+        <h2>Contributed to by awesome engineers from</h2>
+    </div>
+    <div class="contributors">
+        <div class="contributor">
+            <a href="https://www.capitalone.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Capital_One_logo.svg"></a>
+        </div>
+        <div class="contributor">
+            <a href="https://www.wix.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/7/76/Wix.com_website_logo.svg/1920px-Wix.com_website_logo.svg.png"></a>
+        </div>
+        <div class="contributor">
+            <a href="https://www.daimler.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/DaimlerLogo.svg/1920px-DaimlerLogo.svg.png"></a>
+        </div>
+        <div class="contributor">
+            <a href="https://www.lego.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1024px-LEGO_logo.svg.png"></a>
+        </div>
+        <div class="contributor">
+            <a href="https://www.oracle.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/1920px-Oracle_logo.svg.png"></a>
+        </div>
+    </div>
+</section>
+
+<div class="top-hr">
+    <div class="hr">
+    </div>
+</div>
+
+<section class="tx-container">
+    <div class="sponsors-title">
+        <h2>Sponsors</h2>
+    </div>
+    <div class="sponsors">
+        <div class="sponsor"></div>
+        <div class="sponsor"></div>
+        <div class="sponsor">
+            <a href="https://reliably.com" target="_blank"><img src="/static/images/reliably-logo.png"></a>
+        </div>
+        <div class="sponsor"></div>
+        <div class="sponsor"></div>
+    </div>
+</section>
 
 {% endblock %}
 {% block content %}{% endblock %}

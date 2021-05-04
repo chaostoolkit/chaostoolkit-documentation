@@ -1,11 +1,12 @@
-site_name: Chaos Toolkit
+site_name: ""
 site_author: The Chaos Toolkit Team
 site_description: Chaos Toolkit
 copyright: '&copy; 2017-2021 Chaos Toolkit team'
+edit_uri: ""
 theme:
   name: material
   favicon: "static/images/favicon.ico"
-  logo: "static/images/logo.png"
+  logo: "static/images/chaos-toolkit-full.svg"
   palette:
     primary: white
     accent: yellow

@@ -1,0 +1,13 @@
+.md-header__button.md-logo {
+    display: flex;
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.md-header__button.md-logo img {
+    display: block;
+    height: 53px;
+    width: 263px;
+    fill: currentColor;
+    object-fit: contain;
+}

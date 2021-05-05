@@ -97,6 +97,7 @@ nav:
         - Overview: drivers/overview.md
         - Infrastructure/Platform:
           - AWS: drivers/aws.md
+          - Ansible: drivers/ansible.md
           - Azure: drivers/azure.md
           - Cloud Foundry: drivers/cloudfoundry.md
           - Gandi: drivers/gandi.md

@@ -33,9 +33,9 @@ markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
   - admonition
-  - codehilite:
-      guess_lang: False
-      linenums: False
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
   - def_list
   - footnotes
   - meta
@@ -45,6 +45,7 @@ markdown_extensions:
   - pymdownx.betterem:
       smart_enable: "all"
   - pymdownx.caret
+  - pymdownx.keys
   - pymdownx.critic
   - pymdownx.inlinehilite
   - pymdownx.magiclink
@@ -70,7 +71,7 @@ extra:
       link: https://medium.com/chaos-toolkit
 nav:
 - Home: index.md
-- Usage:
+- Get Started:
     - Install: reference/usage/install.md
     - Upgrade: reference/usage/upgrade.md
     - CLI:
@@ -81,42 +82,50 @@ nav:
         - Report: reference/usage/report.md
         - Notify: reference/usage/notification.md
         - Schedule: reference/usage/scheduling.md
-- Deployment:
-    - Kubernetes:
-        - Operator: deployment/k8s/operator.md
 - Guides:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
     - Author and Operator: reference/tutorials/authoring_operating.md
     - Understand the Execution Flow: reference/tutorials/run-flow.md
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
-- Drivers Reference:
-    - Overview: drivers/overview.md
-    - Infrastructure/Platform:
-      - AWS: drivers/aws.md
-      - Azure: drivers/azure.md
-      - Cloud Foundry: drivers/cloudfoundry.md
-      - Gandi: drivers/gandi.md
-      - Google Cloud Platform: drivers/gcp.md
-      - Kubernetes: drivers/kubernetes.md
-      - Service Fabric: drivers/service-fabric.md
-    - Application:
-      - Spring: drivers/spring.md
-    - Network:
-      - ToxiProxy: drivers/toxiproxy.md
-      - Istio: drivers/istio.md
-      - WireMock: drivers/wiremock.md
-    - Load Testing:
-      - k6: drivers/k6.md
-    - Observability:
-      - Humio: drivers/humio.md
-      - Prometheus: drivers/prometheus.md
-      - Open Tracing: drivers/opentracing.md
-      - Dynatrace: drivers/dynatrace.md
-- Chaos Open API:
-    - Concepts: reference/concepts.md
-    - Experiment: reference/api/experiment.md
-    - Journal: reference/api/journal.md
+- Reference:
+    - API:
+      - Concepts: reference/concepts.md
+      - Experiment: reference/api/experiment.md
+      - Journal: reference/api/journal.md
+    - Extensions:
+        - Overview: drivers/overview.md
+        - Infrastructure/Platform:
+          - AWS: drivers/aws.md
+          - Azure: drivers/azure.md
+          - Cloud Foundry: drivers/cloudfoundry.md
+          - Gandi: drivers/gandi.md
+          - Google Cloud Platform: drivers/gcp.md
+          - Kubernetes: drivers/kubernetes.md
+          - Service Fabric: drivers/service-fabric.md
+        - Application:
+          - Spring: drivers/spring.md
+        - Network:
+          - ToxiProxy: drivers/toxiproxy.md
+          - Istio: drivers/istio.md
+          - WireMock: drivers/wiremock.md
+        - Load Testing:
+          - k6: drivers/k6.md
+        - Observability:
+          - Humio: drivers/humio.md
+          - Prometheus: drivers/prometheus.md
+          - Open Tracing: drivers/opentracing.md
+          - Dynatrace: drivers/dynatrace.md
+    - Deployment:
+        - Kubernetes:
+            - Operator: deployment/k8s/operator.md
+    - Develop:
+      - Guidelines: reference/developing/guidelines.md
+      - Driver Extension:
+          - Extension Approaches: reference/extending/approaches.md
+          - Extend with Python: reference/extending/extending-with-python.md
+      - Control Extension:
+          - Create Control: reference/extending/create-control-extension.md
 - Contribute:
     - Contributing to the Chaos Toolkit: reference/contributing.md
     - Project Management:
@@ -124,13 +133,6 @@ nav:
         - Core Projects: reference/developing/core.md
         - Extensions Projects: reference/developing/extensions.md
         - Technology Choices: reference/developing/technologies.md
-- Develop:
-    - Guidelines: reference/developing/guidelines.md
-    - Driver Extension:
-        - Extension Approaches: reference/extending/approaches.md
-        - Extend with Python: reference/extending/extending-with-python.md
-    - Control Extension:
-        - Create Control: reference/extending/create-control-extension.md
-- Resources:
-    - Logos: resources/logos.md
-    - Slides: resources/slides.md
+    - Resources:
+      - Logos: resources/logos.md
+      - Slides: resources/slides.md

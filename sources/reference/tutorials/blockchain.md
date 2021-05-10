@@ -23,7 +23,7 @@ HTTP requests match logically with those in this tutorial.
 
 Ready? Great! Let's get started.
 
-# Setup
+## Setup
 
 First, clone the code using the command below in your command line. This fetches
 an up-to-date version of all files required to run the experiment.
@@ -42,9 +42,9 @@ settings!
 
 Now you're all set up to dive into the experiments!
 
-# Chaos Toolkit and Blockchain
+## Chaos Toolkit and Blockchain
 
-## Looking forward
+### Looking forward
 
 Blockchains are inherently user dependent which is why it presents a unique case
 to test with Chaos Toolkit. This tutorial will guide you through the thought
@@ -65,7 +65,7 @@ automatically recorded, so you can continuously expose your system to stressors
 and understand its strengths and weaknesses from reading the records which are
 automatically recorded in your journal file.
 
-## 1. Transaction Experiment
+### Transaction Experiment
 
 We'll use this as an introduction to the CTK experiment as well. An experiment
 is a single json file which tests a functionality of your program. It has
@@ -246,7 +246,7 @@ blockchain.py file include an option to.
 }
 ```
 
-### Running the experiment
+#### Running the experiment
 
 In your command line, you should create the blockchain before running the
 experiment by running the blockchain.py file:
@@ -259,7 +259,7 @@ Then, you can run the experiment by using the command:
 
 That's your first experiment!
 
-## 2. Consensus Experiment
+### Consensus Experiment
 
 While our blockchain is a very simple one, it should be able to demonstrate
 arguably the key reason why we can call it 'decentralized' and 'distributed':
@@ -327,7 +327,7 @@ and accordingly, the probability of mining from either of the two chains is 25%.
 Finally, we want to resolve the chains. This is an http request which we've
 learned earlier, and I again invite you to try your hand at it!
 
-### Running the experiment
+#### Running the experiment
 
 In your command line, you should create the blockchain and start both nodes
 (here we use 127.0.0.1:5000 and 127.0.0.1:5001) before running the experiment:
@@ -344,7 +344,7 @@ Then, you can run the experiment by using the command:
 
 You've completed the tutorial!
 
-# Some key takeaways
+## Some key takeaways
 
 - The http provider makes it simple to test user requests that are very common
   in web applications
@@ -360,7 +360,7 @@ You've completed the tutorial!
   a chaos experiment because there is a set process that you create which is
   replicable. Think of experiments as blueprints for what you want to try!
 
-## Thanks
+### Thanks
 
 Chaos Toolkit is an open source project
 [hosted on Github](https://github.com/chaostoolkit). If you have any issues then

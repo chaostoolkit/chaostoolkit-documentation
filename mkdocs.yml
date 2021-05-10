@@ -88,6 +88,7 @@ nav:
     - Understand the Execution Flow: reference/tutorials/run-flow.md
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
+    - Experimenting against a blockchain: reference/tutorials/blockchain.md
 - Reference:
     - API:
       - Concepts: reference/concepts.md

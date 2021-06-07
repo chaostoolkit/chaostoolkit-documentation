@@ -117,6 +117,8 @@ nav:
           - Prometheus: drivers/prometheus.md
           - Open Tracing: drivers/opentracing.md
           - Dynatrace: drivers/dynatrace.md
+        - Reliability:
+          - Reliably: drivers/reliably.md
     - Deployment:
         - Kubernetes:
             - Operator: deployment/k8s/operator.md

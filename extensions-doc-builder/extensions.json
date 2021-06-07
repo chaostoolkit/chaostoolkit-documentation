@@ -83,5 +83,10 @@
         "name": "chaosansible",
         "doc_path": "../sources/drivers/ansible.md",
         "repo": "https://github.com/Mickael-Roger/chaostoolkit-ansible"
+    },
+    {
+        "name": "chaosreliably",
+        "doc_path": "../sources/drivers/reliably.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-reliably"
     }
 ]

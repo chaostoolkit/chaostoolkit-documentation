@@ -580,10 +580,13 @@ a Dockerfile like this:
 ```dockerfile
 FROM chaostoolkit/chaostoolkit
 
+USER root
 RUN apk update && \
-    apk add --virtual build-deps libffi-dev openssl-dev gcc python3-dev musl-dev && \
-    pip install --no-cache-dir chaostoolkit-kubernetes && \
+    apk add --virtual build-deps libffi-dev openssl-dev gcc python3-dev \
+        musl-dev && \
+    pip install --no-cache-dir chaostoolkit-addons chaostoolkit-reliably && \
     apk del build-deps
+USER 1001
 ```
 
 Then create the image with docker:

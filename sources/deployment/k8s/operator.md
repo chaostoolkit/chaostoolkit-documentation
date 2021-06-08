@@ -15,6 +15,9 @@ The [operator][op] can be found on the Chaos Toolkit incubator.
 It is deployed via typical Kubernetes [manifests][] which need to be applied
 via [Kustomize][], the native configuration manager.
 
+!!! warning
+    Only Kustomize 3.x is currently supported.
+
 [manifests]: https://github.com/chaostoolkit-incubator/kubernetes-crd/tree/master/manifests
 [Kustomize]: https://kustomize.io/
 

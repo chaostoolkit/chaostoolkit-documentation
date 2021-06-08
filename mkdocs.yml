@@ -1,4 +1,6 @@
 site_name: ""
+site_url: "https://chaostoolkit.org"
+use_directory_urls: true
 site_author: The Chaos Toolkit Team
 site_description: Chaos Toolkit
 copyright: '&copy; 2017-2021 Chaos Toolkit team'
@@ -23,9 +25,11 @@ theme:
 extra_css:
   - 'static/css/extra.css'
 docs_dir: sources
-google_analytics:
-  - UA-107338053-1
-  - auto
+# wait until new release of material is pushed out
+# see https://www.mkdocs.org/about/release-notes/#backward-incompatible-changes-in-12
+#google_analytics:
+#  - UA-107338053-1
+#  - auto
 repo_name: chaostoolkit
 repo_url: https://github.com/chaostoolkit/chaostoolkit
 markdown_extensions:

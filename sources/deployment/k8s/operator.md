@@ -15,9 +15,6 @@ The [operator][op] can be found on the Chaos Toolkit incubator.
 It is deployed via typical Kubernetes [manifests][] which need to be applied
 via [Kustomize][], the native configuration manager.
 
-!!! warning
-    Only Kustomize 3.x is currently supported.
-
 [manifests]: https://github.com/chaostoolkit-incubator/kubernetes-crd/tree/master/manifests
 [Kustomize]: https://kustomize.io/
 
@@ -184,6 +181,39 @@ You may decide to change various aspects of the final pod (such as passing
 settings as secrets, changing the roles allowed to the pod, even override
 the entire pod template).
 
+### Make the operator more verbose
+
+By default, the operator logs at INFO level. To enable the DEBUG level,
+ you need to change the operator's deployment command:
+
+In the file `manifests/base/common/deployment.yaml`:
+
+Change:
+
+```yaml
+  - name: crd
+    image: chaostoolkit/k8scrd:latest
+    imagePullPolicy: Always
+```
+
+to:
+
+```yaml
+  - name: crd
+    image: chaostoolkit/k8scrd:latest
+    imagePullPolicy: Always
+    command:
+        - kopf
+    args:
+        - run
+        - --verbose
+        - --namespace
+        - chaostoolkit-crd
+        - controller.py
+```
+
+Then re-deploy using Kustomize.
+
 ### Configure the toolkit with environment variables
 
 Chaos Toolkit experiments often expect data to be passed as environment
@@ -299,6 +329,34 @@ spec:
 
 You need to define the `configMapName` in the `experiment` block of 
 the pod spec. 
+
+### Use the experiment in YAML format
+
+If your experiments are encoded using YAML, you can set it as follows:
+
+```yaml
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chaostoolkit-experiment-1234
+  namespace: chaostoolkit-run
+data:
+  experiment.yaml: |
+    ---
+    title: "..."
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  pod:
+    experiment:
+      configMapName: chaostoolkit-experiment-1234
+      configMapExperimentFileName: experiment.yaml
+```
 
 ### Load the experiment from a URL
 

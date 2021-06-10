@@ -53,13 +53,6 @@ jobs:
             echo "Extension documentation built"
         fi
         cd ..
-    - name: Build driver pages
-      run: |
-        cd extensions-doc-builder
-        if python ext2md.py; then
-            echo "Extension documentation built"
-        fi
-        cd ..
     - name: Build documentation
       run: |
         mkdir /tmp/site

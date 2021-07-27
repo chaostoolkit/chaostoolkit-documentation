@@ -36,6 +36,20 @@ To test that you have a valid experiment you can pass the `--dry` option.
 You can run an experiment and skip the experiment's validation using the 
 `--no-validation` option.
 
+## Run an experiment with different steady state strategies
+By default, the steady state will be tested before and after an experiment runs. However, you can specify a different strategy through the `--hypothesis-strategy` parmeter. The options are:
+
+* `default` 
+* `before-method-only`
+* `after-method-only`
+* `during-method-only`
+* `continously`
+
+For example:
+```
+chaos run ./experiment.json --hypothesis-strategy continously
+```
+
 ## Run an experiment with different rollback strategies
 
 In Chaos Toolkit, rollbacks are always played unless one of the two followings

@@ -67,3 +67,4 @@ jobs:
       with:
         branch: gh-pages
         folder: /tmp/site
+      if: ${{ github.event_name != 'pull_request' }}

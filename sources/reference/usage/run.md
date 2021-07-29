@@ -37,7 +37,7 @@ You can run an experiment and skip the experiment's validation using the
 `--no-validation` option.
 
 ## Run an experiment with different steady state strategies
-By default, the steady state will be tested before and after an experiment runs. However, you can specify a different strategy through the `--hypothesis-strategy` parmeter. The options are:
+By default, the steady state will be tested before and after an experiment runs. However, you can specify a different strategy through the `--hypothesis-strategy` parameter. The options are:
 
 * `default` 
 * `before-method-only`

@@ -6,31 +6,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chaostoolkit.org/explore-specific-cases/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/faq/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/getting-started/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/integrations/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/new-to-chaos/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://chaostoolkit.org/deployment/k8s/operator/</loc>
          <lastmod>2021-07-30</lastmod>
          <changefreq>daily</changefreq>
@@ -141,22 +116,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chaostoolkit.org/reference/contributors/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/reference/introduction/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://chaostoolkit.org/reference/tutorial/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/reference/workflow/</loc>
          <lastmod>2021-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -256,17 +216,7 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chaostoolkit.org/reference/usage/investigating/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://chaostoolkit.org/reference/usage/notification/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/reference/usage/overview/</loc>
          <lastmod>2021-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>
@@ -282,11 +232,6 @@
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/scheduling/</loc>
-         <lastmod>2021-07-30</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://chaostoolkit.org/reference/usage/settings/</loc>
          <lastmod>2021-07-30</lastmod>
          <changefreq>daily</changefreq>
     </url>

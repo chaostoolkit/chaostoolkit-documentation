@@ -13,10 +13,17 @@ Once the plugin is installed you can see the options available to you by
 executing:
 
 ```
-(chaostk) $ chaos report --help
+chaos report --help
 ```
+```
+Usage: chaos report [OPTIONS] JOURNAL REPORT
 
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/CEBXHpfHDMKEvlxgJED8TfaHn.js" id="asciicast-CEBXHpfHDMKEvlxgJED8TfaHn" async></script></div>
+  Generate a report from the run journal.
+
+Options:
+  --export-format TEXT  Format to export the report to: html, markdown, pdf.
+  --help                Show this message and exit.
+```
 
 A tutorial on how to use the `chaos report` command is available as part of the 
 [Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
@@ -39,11 +46,11 @@ You can export various formats of report by specifying what you want using the
 For example, to generate a PDF report you can run the following command:
 
 ```
-$ chaos report --export-format=pdf chaos-report.json report.pdf
+chaos report --export-format=pdf chaos-report.json report.pdf
 ```
 
 An HTML report can be produced using:
 
 ```
-$ chaos report --export-format=html5 chaos-report.json report.html
+chaos report --export-format=html5 chaos-report.json report.html
 ```

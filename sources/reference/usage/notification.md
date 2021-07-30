@@ -215,8 +215,8 @@ amend it, please open an [issue][slissue] there.
 
 The Chaos Toolkit does its best to not break the experiment when an event
 could not be pushed. If you do not see the notification you were expecting,
-you should start investigating in the `chaostoolkit.log` file. If Chaos Toolkit could handle the issue
-gracefully, it will log the error at the `DEBUG` level.
+you should start investigating in the `chaostoolkit.log` file. If Chaos Toolkit
+could handle the issue gracefully, it will log the error at the `DEBUG` level.
 
 If the error occurs inside the core Chaos Toolkit library, please raise an
 [issue there][chaoslibissues]. Otherwise, raise an issue with the appropriate

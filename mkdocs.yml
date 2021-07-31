@@ -36,9 +36,6 @@ markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
   - admonition
-  - pymdownx.highlight
-  - pymdownx.inlinehilite
-  - pymdownx.superfences
   - def_list
   - footnotes
   - meta
@@ -48,9 +45,10 @@ markdown_extensions:
   - pymdownx.betterem:
       smart_enable: "all"
   - pymdownx.caret
-  - pymdownx.keys
   - pymdownx.critic
+  - pymdownx.highlight
   - pymdownx.inlinehilite
+  - pymdownx.keys
   - pymdownx.magiclink
   - pymdownx.mark
   - pymdownx.smartsymbols
@@ -83,7 +81,7 @@ nav:
         - Init: reference/usage/init.md
         - Run: reference/usage/run.md
         - Report: reference/usage/report.md
-        - Notify: reference/usage/notification.md
+        - Notifications: reference/usage/notification.md
         - Schedule: reference/usage/scheduling.md
 - Guides:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
@@ -97,6 +95,14 @@ nav:
       - Concepts: reference/concepts.md
       - Experiment: reference/api/experiment.md
       - Journal: reference/api/journal.md
+    - CLI:
+        - Overview: reference/usage/cli.md
+        - Discover: reference/usage/discover.md
+        - Init: reference/usage/init.md
+        - Run: reference/usage/run.md
+        - Report: reference/usage/report.md
+        - Notifications: reference/usage/notification.md
+        - Schedule: reference/usage/scheduling.md
     - Extensions:
         - Overview: drivers/overview.md
         - Infrastructure/Platform:

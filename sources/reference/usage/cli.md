@@ -1,5 +1,3 @@
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/qf8ab2dXoTWAmEkozneFCKvc6.js" id="asciicast-qf8ab2dXoTWAmEkozneFCKvc6" async data-autoplay="true"></script></div>
-
 The heart of the Chaos Toolkit is the `chaos` command line.
 
 !!! note "Activate the Python virtual environment"
@@ -9,27 +7,52 @@ The heart of the Chaos Toolkit is the `chaos` command line.
     be found along its dependencies:
 
     ```
-    $ source ~/.venvs/chaostk/bin/activate
-    (chaostk) $
+    source ~/.venvs/chaostk/bin/activate
     ```
 
 Once [installed](install.md), the Chaos Toolkit CLI will display the commands it supports 
 by executing:
 
 ```
-(chaostk) $ chaos --help
+chaos --help
+```
+```
+Usage: chaos [OPTIONS] COMMAND [ARGS]...
+
+Options:
+  --version                   Show the version and exit.
+  --verbose                   Display debug level traces.
+  --no-version-check          Do not search for an updated version of the
+                              chaostoolkit.
+  --change-dir TEXT           Change directory before running experiment.
+  --no-log-file               Disable logging to file entirely.
+  --log-file TEXT             File path where to write the command's log.
+                              [default: chaostoolkit.log]
+  --log-format [string|json]  Console logging format: string, json.
+  --settings TEXT             Path to the settings file.  [default:
+                              /Users/ciaran/.chaostoolkit/settings.yaml]
+  --help                      Show this message and exit.
+
+Commands:
+  discover  Discover capabilities and experiments.
+  info      Display information about the Chaos Toolkit environment.
+  init      Initialize a new experiment from discovered capabilities.
+  run       Run the experiment loaded from SOURCE, either a local file or...
+  settings  Read, write or remove from your settings file.
+  validate  Validate the experiment at SOURCE.
 ```
 
 ## Configure the Chaos Toolkit
 
-For the most part, the Chaos Toolkit does not necessitate to be configured.
-These settings are stored in a YAML file on your local machine.
+For the most part, the Chaos Toolkit does not need to be configured.
+However, if it does, the settings are stored in a YAML file on your local machine.
 
 !!! tip
     Unless you enable one of the features requiring extra configuration,
-    you don't need to create that file.
+    you don't need to create that file. If a feature requires extra configuration,
+    its documentation will say so.
 
-### Create The Settings File
+### Create the settings file
 
 The settings file for the Chaos Toolkit should be located under the following
 path:
@@ -44,31 +67,6 @@ for your own user:
 ```
 chmod 600 $HOME/.chaostoolkit/settings.yaml
 ```
-
-### Features Settings
-
-The settings file entries depend on which features you wish to enable.
-
-#### Notification
-
-If you want to get notified of the Chaos Toolkit events, you should set the
-following section:
-
-```
-notifications:
- -
-  type: http
-  url: https://mystuff.com/api
-  verify_tls: false
-  headers:
-    Auth: "Bearer 1234"
-```
-
-This entry is a list of mapping. Each item of this list defines one channel
-of notification, and potentially which events this channel should receive.
-
-Please refer to the [notifications](notification.md) section for more
-information.
 
 ## How to Investigate Issues
 

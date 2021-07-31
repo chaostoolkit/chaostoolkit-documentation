@@ -423,10 +423,8 @@ installed with those variants. You'll need to manage them yourself.
 Chaos Toolkit reads its settings from a file and you can pass yours
 by creating a Kubernetes secret named, by default, `chaostoolkit-settings`.
 
-For instance, assuming you have a [Chaos Toolkit settings file][settings],
+For instance, assuming you have a Chaos Toolkit settings file,
 you can create a secret from it as follows:
-
-[settings]: ../../reference/usage/settings.md
 
 ```console
 $ kubectl -n chaostoolkit-run \

@@ -43,11 +43,11 @@ By default, the steady state will be tested before and after an experiment runs.
 * `before-method-only`
 * `after-method-only`
 * `during-method-only`
-* `continously`
+* `continuously`
 
 For example:
 ```
-chaos run ./experiment.json --hypothesis-strategy continously
+chaos run ./experiment.json --hypothesis-strategy continuously
 ```
 
 ## Run an experiment with different rollback strategies

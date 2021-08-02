@@ -22,14 +22,11 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.suggest
+  analytics:
+    gtag: G-281427321
 extra_css:
   - 'static/css/extra.css'
 docs_dir: sources
-# wait until new release of material is pushed out
-# see https://www.mkdocs.org/about/release-notes/#backward-incompatible-changes-in-12
-#google_analytics:
-#  - UA-107338053-1
-#  - auto
 repo_name: chaostoolkit
 repo_url: https://github.com/chaostoolkit/chaostoolkit
 markdown_extensions:

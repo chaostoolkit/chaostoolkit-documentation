@@ -81,8 +81,11 @@ expected `"hello"`.
 
 Here is an example of it running:
 
+```console
+chaos run experiment.json
 ```
- chaos run experiment.json
+
+```
 [2019-06-25 21:37:59 INFO] Validating the experiment's syntax
 [2019-06-25 21:37:59 INFO] Experiment looks valid
 [2019-06-25 21:37:59 INFO] Running experiment: Our default language is English

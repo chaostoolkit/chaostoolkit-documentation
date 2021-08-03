@@ -28,9 +28,21 @@ fn main() {
 
 ```console
 rustc echo.rs
-$ ./echo hello world
+```
+
+```console
+./echo hello world
+```
+
+```
 ["hello", "world"]
-$ echo $?
+```
+
+```console
+echo $?
+```
+
+```
 0
 ```
 
@@ -110,9 +122,15 @@ You could finally make it available as follows:
 
 ```console
 ls
+```
+
+```
 kettle.py experiment.json
-$ export PYTHONPATH=`pwd`
-$ chaos run experiment.json
+```
+
+```console
+export PYTHONPATH=`pwd`
+chaos run experiment.json
 ```
 
 The Python module does not have to live next to the experiment. It can also

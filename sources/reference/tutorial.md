@@ -164,6 +164,9 @@ To run the experiment, simply execute the following command:
 
 ```console
 chaos run experiment.json
+```
+
+```
 [2018-05-14 18:38:04 INFO] Validating the experiment's syntax
 [2018-05-14 18:38:04 INFO] Experiment looks valid
 [2018-05-14 18:38:04 INFO] Running experiment: What is the impact of an expired certificate on our application chain?
@@ -202,6 +205,9 @@ Next, start the services, in one terminal:
 
 ```console
 python3 astre.py
+```
+
+```
 [14/May/2018:16:11:09] ENGINE Listening for SIGTERM.
 [14/May/2018:16:11:09] ENGINE Listening for SIGHUP.
 [14/May/2018:16:11:09] ENGINE Listening for SIGUSR1.
@@ -213,6 +219,9 @@ Then, in another terminal:
 
 ```console
 python3 sunset.py
+```
+
+```
 [14/May/2018:16:13:58] ENGINE Listening for SIGTERM.
 [14/May/2018:16:13:58] ENGINE Listening for SIGHUP.
 [14/May/2018:16:13:58] ENGINE Listening for SIGUSR1.
@@ -238,6 +247,9 @@ Now your application is running, execute the experiment once again:
 
 ```console
 chaos run experiment.json
+```
+
+```
 [2018-05-14 18:41:09 INFO] Validating the experiment's syntax
 [2018-05-14 18:41:09 INFO] Experiment looks valid
 [2018-05-14 18:41:09 INFO] Running experiment: What is the impact of an expired certificate on our application chain?

@@ -15,7 +15,7 @@ Let's use the [community-driven template project][tpl]:
 
 ```console
 pip install -U cookiecutter
-$ cookiecutter https://github.com/dastergon/cookiecutter-chaostoolkit.git
+cookiecutter https://github.com/dastergon/cookiecutter-chaostoolkit.git
 ```
 
 ## Where to put your code

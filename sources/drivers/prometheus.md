@@ -22,7 +22,7 @@ environment where [chaostoolkit][] already lives.
 [chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
 
 ```
-$ pip install chaostoolkit-prometheus
+pip install chaostoolkit-prometheus
 ```
 
 ## Usage

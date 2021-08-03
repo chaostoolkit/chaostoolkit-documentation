@@ -33,7 +33,7 @@ without being installed:
 
 ```console
 cd <project-name>
-(chaostk) $ python setup.py develop
+python setup.py develop
 ```
 
 Sometimes, your virtual env may be borked and not point to your development

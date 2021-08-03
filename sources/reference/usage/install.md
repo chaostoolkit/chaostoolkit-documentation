@@ -18,13 +18,13 @@ Install Python for your system:
 On MacOS X:
 
 ```
-$ brew install python3
+brew install python3
 ```
 
 On Debian/Ubuntu:
 
 ```
-$ sudo apt-get install python3 python3-venv
+sudo apt-get install python3 python3-venv
 ```
 
 On Windows:
@@ -40,13 +40,13 @@ more likely, you will want to install them yourself in a local virtual
 environment.
 
 ```
-$ python3 -m venv ~/.venvs/chaostk
+python3 -m venv ~/.venvs/chaostk
 ```
 
 Make sure to always activate your virtual environment before using it:
 
 ```
-$ source  ~/.venvs/chaostk/bin/activate
+source  ~/.venvs/chaostk/bin/activate
 ```
 
 !!! tip
@@ -59,13 +59,13 @@ $ source  ~/.venvs/chaostk/bin/activate
 Install `chaostoolkit` in the virtual environment as follows:
 
 ```
-(chaostk) $ pip install -U chaostoolkit
+pip install -U chaostoolkit
 ```
 
 You can verify the command was installed by running:
 
 ```
-(chaostk) $ chaos --version
+chaos --version
 ```
 
 ## Install Extensions

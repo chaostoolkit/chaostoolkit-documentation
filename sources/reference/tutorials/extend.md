@@ -27,7 +27,7 @@ fn main() {
 ```
 
 ```console
-$ rustc echo.rs
+rustc echo.rs
 $ ./echo hello world
 ["hello", "world"]
 $ echo $?
@@ -109,7 +109,7 @@ If `kettle.py` lives next to `experiment.json` then the action could be:
 You could finally make it available as follows:
 
 ```console
-$ ls
+ls
 kettle.py experiment.json
 $ export PYTHONPATH=`pwd`
 $ chaos run experiment.json

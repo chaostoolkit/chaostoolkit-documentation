@@ -14,7 +14,7 @@ Let's use the [community-driven template project][tpl]:
 [tpl]: https://github.com/dastergon/cookiecutter-chaostoolkit
 
 ```console
-$ pip install -U cookiecutter
+pip install -U cookiecutter
 $ cookiecutter https://github.com/dastergon/cookiecutter-chaostoolkit.git
 ```
 

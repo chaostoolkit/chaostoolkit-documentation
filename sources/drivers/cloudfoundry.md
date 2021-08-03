@@ -26,7 +26,7 @@ environment where [chaostoolkit][] already lives.
 [chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
 
 ```
-$ pip install -U chaostoolkit-cloud-foundry
+pip install -U chaostoolkit-cloud-foundry
 ```
 
 ## Usage
@@ -74,7 +74,7 @@ Please explore the code to see existing probes and actions.
 You may use the Chaos Toolkit to discover the capabilities of this extension:
 
 ```
-$ chaos discover chaostoolkit-cloud-foundry --no-install
+chaos discover chaostoolkit-cloud-foundry --no-install
 ```
 
 If you have logged in against a Cloud Foundry environment, this will discover
@@ -137,7 +137,7 @@ Then in your probe or action:
 To run the tests for the project execute the following:
 
 ```
-$ pip install -r requirements-dev.txt
+pip install -r requirements-dev.txt
 $ pytest
 ```
 
@@ -167,13 +167,13 @@ those dependencies.
 [venv]: http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
 
 ```console
-$ pip install -r requirements-dev.txt -r requirements.txt 
+pip install -r requirements-dev.txt -r requirements.txt 
 ```
 
 Then, point your environment to this directory:
 
 ```console
-$ python setup.py develop
+python setup.py develop
 ```
 
 Now, you can edit the files and they will be automatically be seen by your
@@ -184,7 +184,7 @@ environment, even when running from the `chaos` command locally.
 To run the tests for the project execute the following:
 
 ```
-$ python setup.py test
+python setup.py test
 ```
 
 

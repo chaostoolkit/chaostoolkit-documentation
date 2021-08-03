@@ -5,7 +5,7 @@ experiments. To see the options that can be passed to the `chaos run` command,
 execute:
 
 ```
-(chaostk) $ chaos run --help
+chaos run --help
 ```
 
 <div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/qxx1haDxBduTCmJzn1ASTWkDe.js" id="asciicast-qxx1haDxBduTCmJzn1ASTWkDe" async></script></div>
@@ -18,7 +18,7 @@ A tutorial on how to use the `chaos run` command is available as part of the
 To execute an experiment plan you simply pass it to the `chaos run` command:
 
 ```
-(chaostk) $ chaos run experiment.json
+chaos run experiment.json
 ```
 
 <div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/RVci6wzv7hHH1ZEOtoM7rsZVT.js" id="asciicast-RVci6wzv7hHH1ZEOtoM7rsZVT" async></script></div>
@@ -67,7 +67,7 @@ a chance to change that behavior.
 Ensure rollbacks are always applied
 
 ```
-(chaostk) $ chaos run --rollback-strategy=always experiment.json
+chaos run --rollback-strategy=always experiment.json
 ```
 
 ### Run rollbacks only on deviation
@@ -76,7 +76,7 @@ Run the rollbacks only if your experiment deviated.
 
 
 ```
-(chaostk) $ chaos run --rollback-strategy=deviated experiment.json
+chaos run --rollback-strategy=deviated experiment.json
 ```
 
 ### Never run rollbacks strategy
@@ -85,7 +85,7 @@ Never run any rollbacks, for instance when you want to explore the system
 after a successful experiment without undoing what the experiment changed:
 
 ```
-(chaostk) $ chaos run --rollback-strategy=never experiment.json
+chaos run --rollback-strategy=never experiment.json
 ```
 
 ## Override configuration and secrets at runtime

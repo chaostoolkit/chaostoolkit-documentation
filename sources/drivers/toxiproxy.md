@@ -23,7 +23,7 @@ To be used from your experiment, this package must be installed in the Python
 environment where [chaostoolkit][] already lives.
 
 ```
-$ pip install -U chaostoolkit-toxiproxy
+pip install -U chaostoolkit-toxiproxy
 ```
 
 ## Usage
@@ -281,13 +281,13 @@ those dependencies.
 [venv]: http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
 
 ```console
-$ pip install -r requirements-dev.txt -r requirements.txt
+pip install -r requirements-dev.txt -r requirements.txt
 ```
 
 Then, point your environment to this directory:
 
 ```console
-$ python setup.py develop
+python setup.py develop
 ```
 
 Now, you can edit the files and they will be automatically be seen by your
@@ -298,13 +298,13 @@ environment, even when running from the `chaos` command locally.
 To run the unit tests for the project execute the following:
 
 ```
-$ pytest
+pytest
 ```
 
 To run the integration tests for the project execute the following:
 
 ```
-$ tox
+tox
 ```
 
 

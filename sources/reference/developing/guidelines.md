@@ -32,7 +32,7 @@ so that the project you are hacking on is part of your virtual environment
 without being installed:
 
 ```console
-(chaostk) $ cd <project-name>
+cd <project-name>
 (chaostk) $ python setup.py develop
 ```
 
@@ -41,13 +41,13 @@ directory. In that case, make sure to remove any previously installed version
 of the project:
 
 ```console
-(chaostk) $ pip uninstall <project-name>
+pip uninstall <project-name>
 ```
 
 Then make sure your virtual environment point at your local directory with:
 
 ```console
-(chaostk) $ pip freeze
+pip freeze
 ```
 
 ### GitHub

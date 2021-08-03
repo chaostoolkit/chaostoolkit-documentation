@@ -28,13 +28,20 @@ git clone https://github.com/chaostoolkit/chaostoolkit-documentation-code
 
 This particular tutorial is under `tutorials/a-simple-walkthrough`.
 
+```console
+cd chaostoolkit-documentation-code/tutorials/a-simple-walkthrough
+```
+
 ### Third-party binaries
 
 The experiment will use the following binaries, make sure you have them in your
 PATH:
 
-* openssl
-* pkill
+* [openssl][opensslgitlink]
+* [pkill][pkillgitlink]
+
+[opensslgitlink]: https://github.com/openssl/openssl
+[pkillgitlink]: https://github.com/fosskers/pkill
 
 ### Install the Application dependencies
 

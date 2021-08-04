@@ -241,6 +241,9 @@ Now you may perform a simple call:
 
 ```console
 curl -k https://localhost:8443/city/Paris
+```
+
+```
 The sunset will occur at 2018-05-14T21:23:09+02:00 in Paris
 ```
 

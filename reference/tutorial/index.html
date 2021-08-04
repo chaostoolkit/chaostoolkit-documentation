@@ -140,7 +140,7 @@
 [14/May/2018:16:13:58] ENGINE Serving on https://127.0.0.1:8443
 [14/May/2018:16:13:58] ENGINE Bus STARTED
 </code></pre></div> <p>Now you may perform a simple call:</p> <div class=highlight><pre><span></span><code><span class=go>curl -k https://localhost:8443/city/Paris</span>
-<span class=go>The sunset will occur at 2018-05-14T21:23:09+02:00 in Paris</span>
+</code></pre></div> <div class=highlight><pre><span></span><code>The sunset will occur at 2018-05-14T21:23:09+02:00 in Paris
 </code></pre></div> <p>What happens is that the sunset service performs a call to the astre service for the data and simply render them to you, as plain text. Both services are chained together over HTTPS.</p> <h3 id=run-the-experiment_1>Run the Experiment<a class=headerlink href=#run-the-experiment_1 title="Permanent link">&para;</a></h3> <p>Now your application is running, execute the experiment once again:</p> <div class=highlight><pre><span></span><code><span class=go>chaos run experiment.json</span>
 </code></pre></div> <div class=highlight><pre><span></span><code>[2018-05-14 18:41:09 INFO] Validating the experiment&#39;s syntax
 [2018-05-14 18:41:09 INFO] Experiment looks valid

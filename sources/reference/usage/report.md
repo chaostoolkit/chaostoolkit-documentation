@@ -16,9 +16,9 @@ executing:
 chaos report --help
 ```
 ```
-Usage: chaos report [OPTIONS] JOURNAL REPORT
+Usage: chaos report [OPTIONS] [JOURNAL]... REPORT
 
-  Generate a report from the run journal.
+  Generate a report from the run journal(s).
 
 Options:
   --export-format TEXT  Format to export the report to: html, markdown, pdf.

@@ -29,7 +29,7 @@ environment where [chaostoolkit][] already lives.
 [chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
 
 ```
-$ pip install -U chaostoolkit-opentracing
+pip install -U chaostoolkit-opentracing
 ```
 
 ## Usage
@@ -137,7 +137,7 @@ will be added as need be in the future.
 To install the necessary dependencies for the Jaeger tracer, please run:
 
 ```
-$ pip install -U jaeger-client~=4.1
+pip install -U jaeger-client~=4.1
 ```
 
 ## Test
@@ -145,7 +145,7 @@ $ pip install -U jaeger-client~=4.1
 To run the tests for the project execute the following:
 
 ```
-$ pytest
+pytest
 ```
 
 ## Contribute

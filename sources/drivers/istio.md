@@ -25,7 +25,7 @@ To be used from your experiment, this package must be installed in the Python
 environment where [chaostoolkit][] already lives.
 
 ```
-$ pip install -U chaostoolkit-istio
+pip install -U chaostoolkit-istio
 ```
 
 ## Usage
@@ -44,7 +44,7 @@ Istio gateway.
 For instance:
 
 ```
-$ export PRODUCT_PAGE_SERVICE_BASE_URL=$(kubectl get po -l istio=ingressgateway -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
+export PRODUCT_PAGE_SERVICE_BASE_URL=$(kubectl get po -l istio=ingressgateway -n istio-system -o 'jsonpath={.items[0].status.hostIP}'):$(kubectl -n istio-system get service istio-ingressgateway -o jsonpath='{.spec.ports[?(@.name=="http2")].nodePort}')
 ```
 
 ```json
@@ -181,13 +181,13 @@ those dependencies.
 [venv]: http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
 
 ```console
-$ pip install -r requirements-dev.txt -r requirements.txt
+pip install -r requirements-dev.txt -r requirements.txt
 ```
 
 Then, point your environment to this directory:
 
 ```console
-$ python setup.py develop
+python setup.py develop
 ```
 
 Now, you can edit the files and they will be automatically be seen by your
@@ -198,7 +198,7 @@ environment, even when running from the `chaos` command locally.
 To run the tests for the project execute the following:
 
 ```
-$ pytest
+pytest
 ```
 
 

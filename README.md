@@ -16,7 +16,7 @@ To get started, install Python 3 on your machine, a [virtual environment][venv]
 and install the dependencies using [pip][] as follows:
 
 ```
-$ pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 [MkDocs]: http://www.mkdocs.org/
@@ -29,13 +29,13 @@ Once the dependencies are installed you need to ensure you have also installed
 using:
 
 ```
-$ git submodule update --init
+git submodule update --init
 ```
 
 Finally you can start a local server to view the docs:
 
 ```
-$ mkdocs serve
+mkdocs serve
 ```
 
 If you wish to contribute to this documentation, please submit a PR with your

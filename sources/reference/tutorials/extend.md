@@ -27,10 +27,22 @@ fn main() {
 ```
 
 ```console
-$ rustc echo.rs
-$ ./echo hello world
+rustc echo.rs
+```
+
+```console
+./echo hello world
+```
+
+```
 ["hello", "world"]
-$ echo $?
+```
+
+```console
+echo $?
+```
+
+```
 0
 ```
 
@@ -109,10 +121,16 @@ If `kettle.py` lives next to `experiment.json` then the action could be:
 You could finally make it available as follows:
 
 ```console
-$ ls
+ls
+```
+
+```
 kettle.py experiment.json
-$ export PYTHONPATH=`pwd`
-$ chaos run experiment.json
+```
+
+```console
+export PYTHONPATH=`pwd`
+chaos run experiment.json
 ```
 
 The Python module does not have to live next to the experiment. It can also

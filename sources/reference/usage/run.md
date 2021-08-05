@@ -7,6 +7,7 @@ execute:
 ```
 chaos run --help
 ```
+
 ```
 Usage: chaos run [OPTIONS] SOURCE
 
@@ -62,6 +63,7 @@ To execute an experiment plan you simply pass it to the `chaos run` command:
 ```
 chaos run experiment.json
 ```
+
 ```
 [2018-01-30 16:35:04 INFO] Validating experiment's syntax
 [2018-01-30 16:35:04 INFO] Experiment looks valid

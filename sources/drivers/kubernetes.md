@@ -24,7 +24,7 @@ environment where [chaostoolkit][] already lives.
 [chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
 
 ```
-$ pip install chaostoolkit-kubernetes
+pip install chaostoolkit-kubernetes
 ```
 
 ## Usage
@@ -93,7 +93,7 @@ want to target, then there is nothing to be done.
 You may specify `KUBECONFIG` to specify a different location.
 
 ```
-$ export KUBECONFIG=/tmp/my-config
+export KUBECONFIG=/tmp/my-config
 ```
 
 #### Specify the Kubernetes context
@@ -255,7 +255,7 @@ is done [via][gcloud]:
 [gcloud]: https://cloud.google.com/sdk/gcloud/reference/auth/login
 
 ```
-$ gcloud auth login
+gcloud auth login
 ```
 
 But can also be achieved by defining the `GOOGLE_APPLICATION_CREDENTIALS`
@@ -286,13 +286,13 @@ those dependencies.
 [venv]: https://docs.chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
 
 ```console
-$ pip install -r requirements-dev.txt -r requirements.txt
+pip install -r requirements-dev.txt -r requirements.txt
 ```
 
 Then, point your environment to this directory:
 
 ```console
-$ pip install -e .
+pip install -e .
 ```
 
 Now, you can edit the files and they will be automatically be seen by your
@@ -303,7 +303,7 @@ environment, even when running from the `chaos` command locally.
 To run the tests for the project execute the following:
 
 ```
-$ pytest
+pytest
 ```
 
 

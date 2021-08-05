@@ -21,7 +21,7 @@ via [Kustomize][], the native configuration manager.
 First, download the [Kustomize binary][kustrel]:
 
 ```
-$ curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
+curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 ```
 
 [kustrel]: https://github.com/kubernetes-sigs/kustomize/blob/master/docs/INSTALL.md
@@ -29,13 +29,13 @@ $ curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/ha
 For macOS, you can also install it via the Homebrew package manager: 
 
 ```
-$ brew install kustomize
+brew install kustomize
 ```
 
 Next, simply run the following:
 
 ```console
-$ kustomize build manifests/overlays/generic-rbac | kubectl apply -f -
+kustomize build manifests/overlays/generic-rbac | kubectl apply -f -
 ```
 
 This will build the manifests and apply them on your current default cluster.
@@ -46,13 +46,13 @@ requirements (no-RBAC, pod security or network policies), then check the
 You can install another variant as follows:
 
 ```console
-$ kustomize build manifests/overlays/generic[-rbac[-podsec[-netsec]]] | kubectl apply -f -
+kustomize build manifests/overlays/generic[-rbac[-podsec[-netsec]]] | kubectl apply -f -
 ```
 
 By now, you should have the operator running in the `chaostoolkit-crd`.
 
 ```console
-$ kubectl -n chaostoolkit-crd get pods
+kubectl -n chaostoolkit-crd get pods
 NAME                                READY   STATUS    RESTARTS   AGE
 chaostoolkit-crd-7ddb9b78d9-dgxx7   1/1     Running   0          35s
 ```
@@ -119,20 +119,20 @@ controller picks up and understand as a new experiment to run in its own pod.
 Apply it as follows:
 
 ```console
-$ kubectl apply -f basic.yaml
+kubectl apply -f basic.yaml
 ```
 
 Then, you can check the Chaos Toolkit experiment has been registered, and will
 be scheduled to run as soon as possible:
 
 ````console
-$ kubectl -n chaostoolkit-crd get ctks
+kubectl -n chaostoolkit-crd get ctks
 ````
 
 Look at the Chaos Toolkit running:
 
 ```console
-$ kubectl -n chaostoolkit-run get pods
+kubectl -n chaostoolkit-run get pods
 ```
 
 The status of the experiment's run, if it deviated, defines the status
@@ -146,13 +146,13 @@ status set to `Error`. Otherwise, the status will be `Completed`.
 You can list your experiments as follows:
 
 ```
-$ kubectl -n chaostoolkit-crd get chaosexperiments 
+kubectl -n chaostoolkit-crd get chaosexperiments 
 ```
 
 You can describe one experiment as follows:
 
 ```
-$ kubectl -n chaostoolkit-crd describe chaosexperiment my-chaos-exp 
+kubectl -n chaostoolkit-crd describe chaosexperiment my-chaos-exp 
 ```
 
 You can also use the short names for the custom resource `ctks` and `ctk`.
@@ -162,7 +162,7 @@ You can also use the short names for the custom resource `ctks` and `ctk`.
 You can delete an experiment and its related resources as follows:
 
 ```
-$ kubectl -n chaostoolkit-crd delete ctk my-chaos-exp 
+kubectl -n chaostoolkit-crd delete ctk my-chaos-exp 
 ```
 
 However, the custom resources (ConfigMap, Secrets, etc.) won't be deleted. 
@@ -172,7 +172,7 @@ experiment to be able to run.
 To delete all the run's resources, simply delete the objects as follows:
 
 ```
-$ kubectl delete -f basic.yaml
+kubectl delete -f basic.yaml
 ```
 
 ## Various configurations
@@ -427,7 +427,7 @@ For instance, assuming you have a Chaos Toolkit settings file,
 you can create a secret from it as follows:
 
 ```console
-$ kubectl -n chaostoolkit-run \
+kubectl -n chaostoolkit-run \
     create secret generic chaostoolkit-settings \
     --from-file=settings.yaml=./settings.yaml
 ```
@@ -620,7 +620,7 @@ You can list your scheduled experiments with the kubernetes' `cronjob`
 resource:
 
 ```
-$ kubectl -n chaostoolkit-run get cronjobs
+kubectl -n chaostoolkit-run get cronjobs
 ```
 
 ## Run an experiment with specific extensions
@@ -651,7 +651,7 @@ USER 1001
 Then create the image with docker:
 
 ```
-$ docker build --tag my/chaostoolkit -f ./Dockerfile .
+docker build --tag my/chaostoolkit -f ./Dockerfile .
 ```
 
 or, something such as [Podman][]:
@@ -659,13 +659,13 @@ or, something such as [Podman][]:
 [podman]: https://podman.io/
 
 ```
-$ podman build --tag my/chaostoolkit -f ./Dockerfile
+podman build --tag my/chaostoolkit -f ./Dockerfile
 ```
 
 You can check your image contains the installed extensions as follows:
 
 ```
-$ docker run --rm -it my/chaostoolkit info extensions
+docker run --rm -it my/chaostoolkit info extensions
 ```
 
 Once this image is pushed to any registry you can access, you need to
@@ -690,5 +690,5 @@ To uninstall the operator and its own resources, simply run the following
 command for the overlay that is deployed.
 
 ```console
-$ kustomize build manifests/overlays/generic[-rbac[-podsec[-netsec]]] | kubectl delete -f -
+kustomize build manifests/overlays/generic[-rbac[-podsec[-netsec]]] | kubectl delete -f -
 ```

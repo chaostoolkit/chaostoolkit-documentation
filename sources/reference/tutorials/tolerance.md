@@ -20,7 +20,6 @@ Let's take the simple experimant below:
 
 ```json
 {
-  "version": "1.0.0",
   "title": "Our default language is English",
   "description": "We find the expected English language in the file",
   "steady-state-hypothesis": {

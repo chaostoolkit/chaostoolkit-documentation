@@ -71,8 +71,6 @@ We'll use this as an introduction to the CTK experiment as well. An experiment
 is a single json file which tests a functionality of your program. It has
 several components that _must_ be declared:
 
-- `version`
-  - Currently, this should always be set to `1.0.0`
 - `title`
   - This forces you to be organised with your experiments. The title should be
     clear for anyone reading it to understand what is being performed in the
@@ -96,7 +94,6 @@ This is the beginning of my experiment:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "Can we make a new transaction?",
     "description": "The system should respond to a transaction request.",
     "tags": ["tx"],

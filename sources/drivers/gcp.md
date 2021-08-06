@@ -151,7 +151,6 @@ Here is a full example:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "...",
     "description": "...",
     "configuration": {

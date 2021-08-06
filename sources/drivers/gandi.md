@@ -36,7 +36,6 @@ experiment file:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "Our domains are not going expiring within a month",
     "description": "We need time to renew.",
     "secrets": {

@@ -85,7 +85,6 @@ metadata:
 data:
   experiment.json: |
     {
-      "version": "1.0.0",
       "title": "Hello world!",
       "description": "Say hello world.",
       "method": [

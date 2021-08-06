@@ -72,7 +72,7 @@ is a single json file which tests a functionality of your program. It has
 several components that _must_ be declared:
 
 - `version`
-  - Currently, this should always be set to `0.1.0`
+  - Currently, this should always be set to `1.0.0`
 - `title`
   - This forces you to be organised with your experiments. The title should be
     clear for anyone reading it to understand what is being performed in the

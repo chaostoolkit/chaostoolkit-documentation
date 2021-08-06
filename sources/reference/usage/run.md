@@ -77,8 +77,8 @@ chaos run experiment.json
 ```
 
 Chaos Toolkit will log all the steps it follows from your plan in a journal which by default is
-called `chaos-report.json`. You can specify the name of this journal
-output file using the `--report-path` option.
+called `journal.json`. You can specify the name of this journal
+output file using the `--journal-path` option.
 
 ## Rehearsing an experiment execution
 

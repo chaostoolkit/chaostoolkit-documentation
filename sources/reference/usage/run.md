@@ -8,7 +8,50 @@ execute:
 chaos run --help
 ```
 
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/qxx1haDxBduTCmJzn1ASTWkDe.js" id="asciicast-qxx1haDxBduTCmJzn1ASTWkDe" async></script></div>
+```
+Usage: chaos run [OPTIONS] SOURCE
+
+  Run the experiment loaded from SOURCE, either a local file or a HTTP
+  resource. SOURCE can be formatted as JSON or YAML.
+
+Options:
+  --journal-path TEXT             Path where to save the journal from the
+                                  execution.
+  --dry                           Run the experiment without executing
+                                  activities.
+  --no-validation                 Do not validate the experiment before
+                                  running.
+  --no-verify-tls                 Do not verify TLS certificate.
+  --rollback-strategy [default|always|never|deviated]
+                                  Rollback runtime strategy. Default is to
+                                  never play them on interruption or failed
+                                  hypothesis.
+  --var TEXT                      Specify substitution values for
+                                  configuration only. Can be provided multiple
+                                  times. The pattern must be key=value or
+                                  key:type=value. In that latter case, the
+                                  value will be casted as the specified type.
+                                  Supported types are: int, float, bytes. No
+                                  type specified means a utf-8 decoded string.
+  --var-file PATH                 Specify files that contain configuration and
+                                  secret substitution values. Either as a
+                                  json/yaml payload where each key has a value
+                                  mapping to a configuration entry. Or a .env
+                                  file defining environment variables. Can be
+                                  provided multiple times.
+  --hypothesis-strategy [default|before-method-only|after-method-only|during-method-only|continously]
+                                  Strategy to execute the hypothesis during
+                                  the run.
+  --hypothesis-frequency FLOAT    Pace at which running the hypothesis. Only
+                                  applies when strategy is either: during-
+                                  method-only or continously
+  --fail-fast                     When running in the during-method-onlyt or
+                                  continous strategies, indicate the
+                                  hypothesis can fail the experiment as soon
+                                  as it deviates once. Otherwise, keeps
+                                  running until the end of the experiment.
+  --help                          Show this message and exit.
+```
 
 A tutorial on how to use the `chaos run` command is available as part of the 
 [Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
@@ -21,11 +64,21 @@ To execute an experiment plan you simply pass it to the `chaos run` command:
 chaos run experiment.json
 ```
 
-<div style="margin: 0 auto; text-align: center;"><script src="https://asciinema.org/a/RVci6wzv7hHH1ZEOtoM7rsZVT.js" id="asciicast-RVci6wzv7hHH1ZEOtoM7rsZVT" async></script></div>
+```
+[2018-01-30 16:35:04 INFO] Validating experiment's syntax
+[2018-01-30 16:35:04 INFO] Experiment looks valid
+[2018-01-30 16:35:04 INFO] Running experiment: My new experiment
+[2018-01-30 16:35:04 INFO] No steady state hypothesis defined. That's ok, just exploring.
+[2018-01-30 16:35:04 INFO] Action: kill_microservice
+[2018-01-30 16:35:04 INFO] No steady state hypothesis defined. That's ok, just exploring.
+[2018-01-30 16:35:04 INFO] Let's rollback...
+[2018-01-30 16:35:04 INFO] No declared rollbacks, let's move on.
+[2018-01-30 16:35:04 INFO] Experiment ended with status: completed
+```
 
-`chaostoolkit` will log all the steps it follows from your plan in a journal by 
-default called `chaos-report.json`. You can specify the name of this journal 
-output file using the `--report-path` option.
+Chaos Toolkit will log all the steps it follows from your plan in a journal which by default is
+called `journal.json`. You can specify the name of this journal
+output file using the `--journal-path` option.
 
 ## Rehearsing an experiment execution
 

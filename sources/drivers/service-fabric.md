@@ -25,7 +25,7 @@ This package requires Python 3.5+
 To be used from your experiment, this package must be installed in the Python
 environment where [chaostoolkit][] already lives.
 
-```
+```console
 pip install -U chaostoolkit-service-fabric
 ```
 
@@ -131,7 +131,6 @@ Here is a full example:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "...",
     "description": "...",
     "configuration": {
@@ -255,7 +254,7 @@ environment, even when running from the `chaos` command locally.
 
 To run the tests for the project execute the following:
 
-```
+```console
 pytest
 ```
 

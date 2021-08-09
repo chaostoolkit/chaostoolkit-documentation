@@ -20,7 +20,7 @@ via [Kustomize][], the native configuration manager.
 
 First, download the [Kustomize binary][kustrel]:
 
-```
+```console
 curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack/install_kustomize.sh" | bash
 ```
 
@@ -28,7 +28,7 @@ curl -s "https://raw.githubusercontent.com/kubernetes-sigs/kustomize/master/hack
 
 For macOS, you can also install it via the Homebrew package manager: 
 
-```
+```console
 brew install kustomize
 ```
 
@@ -85,7 +85,6 @@ metadata:
 data:
   experiment.json: |
     {
-      "version": "1.0.0",
       "title": "Hello world!",
       "description": "Say hello world.",
       "method": [
@@ -145,13 +144,13 @@ status set to `Error`. Otherwise, the status will be `Completed`.
 
 You can list your experiments as follows:
 
-```
+```console
 kubectl -n chaostoolkit-crd get chaosexperiments 
 ```
 
 You can describe one experiment as follows:
 
-```
+```console
 kubectl -n chaostoolkit-crd describe chaosexperiment my-chaos-exp 
 ```
 
@@ -161,7 +160,7 @@ You can also use the short names for the custom resource `ctks` and `ctk`.
 
 You can delete an experiment and its related resources as follows:
 
-```
+```console
 kubectl -n chaostoolkit-crd delete ctk my-chaos-exp 
 ```
 
@@ -171,7 +170,7 @@ experiment to be able to run.
 
 To delete all the run's resources, simply delete the objects as follows:
 
-```
+```console
 kubectl delete -f basic.yaml
 ```
 
@@ -278,6 +277,7 @@ of the secret with the `secretName` property.
 
 Assuming you created a generic secret named `chaostoolkit-secrets`, you can
 load the values as shown below:
+
 ```yaml
 ---
 apiVersion: chaostoolkit.org/v1
@@ -472,7 +472,6 @@ spec:
       secretName: my-super-secret
 ```
 
-
 ### Keep generated resources even when the CRO is deleted
 
 When you delete the `ChaosToolkitExperiment` resource, all the allocated
@@ -592,7 +591,6 @@ spec:
       app: chaostoolkit
 ```
 
-
 ### Run periodic and recurring experiments
 
 The operator supports `crontab` schedule for running Chaos Toolkit experiments
@@ -619,7 +617,7 @@ This example runs a Chaos Toolkit experiment every minute.
 You can list your scheduled experiments with the kubernetes' `cronjob`
 resource:
 
-```
+```console
 kubectl -n chaostoolkit-run get cronjobs
 ```
 
@@ -650,7 +648,7 @@ USER 1001
 
 Then create the image with docker:
 
-```
+```console
 docker build --tag my/chaostoolkit -f ./Dockerfile .
 ```
 
@@ -658,13 +656,13 @@ or, something such as [Podman][]:
 
 [podman]: https://podman.io/
 
-```
+```console
 podman build --tag my/chaostoolkit -f ./Dockerfile
 ```
 
 You can check your image contains the installed extensions as follows:
 
-```
+```console
 docker run --rm -it my/chaostoolkit info extensions
 ```
 

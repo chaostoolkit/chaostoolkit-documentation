@@ -26,7 +26,7 @@ This package requires Python 3.5+
 To be used from your experiment, this package must be installed in the Python
 environment where [chaostoolkit][] already lives.
 
-```
+```console
 pip install -U chaostoolkit-azure
 ```
 
@@ -108,6 +108,7 @@ There are two ways of doing this:
     Also if you are not working with Public Global Azure, e.g. China Cloud
     You can feed the cloud environment name as well.
     Please refer to msrestazure.azure_cloud
+
     ```json
         {
             "azure": {
@@ -135,6 +136,7 @@ There are two ways of doing this:
     ```
 
     Or statically set into the configuration:
+
     ```json
     {
         "configuration": {
@@ -145,7 +147,7 @@ There are two ways of doing this:
 
     An old, bu deprecated way of doing it was as follows, this still works
     but should not be favoured over the previous approaches as it's not the
-    Chaos Toolkit way to pass structured condigurations.
+    Chaos Toolkit way to pass structured configurations.
 
     ```json
     {
@@ -163,14 +165,13 @@ Here is a full example:
 
 ```json
 {
-  "version": "1.0.0",
   "title": "...",
   "description": "...",
   "tags": [
     "azure",
     "kubernetes",
-	"aks",
-	"node"
+    "aks",
+    "node"
   ],
   "configuration": {
     "azure": {
@@ -178,7 +179,7 @@ Here is a full example:
         "type": "env",
         "key": "SUBSCRIPTION_ID"
       }
-	}
+ }
   },
   "secrets": {
     "azure": {
@@ -265,7 +266,7 @@ environment, even when running from the `chaos` command locally.
 
 To run the tests for the project execute the following:
 
-```
+```console
 pytest
 ```
 

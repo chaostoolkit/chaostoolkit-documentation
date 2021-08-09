@@ -34,7 +34,7 @@ Assuming you are running Python 3.6 or higher, you can install all required
 dependencies via the following command in your command line. Please note that it
 is highly recommended that you work inside of a virtual environment. A simple
 explanation of virtual environments may be found
-[here](https://docs.python.org/3/tutorial/venv.html); if you're running Pycharm
+[here](https://docs.python.org/3/tutorial/venv.html); if you're running PyCharm
 or another editor which has in-built venv support then check your project
 settings!
 
@@ -71,8 +71,6 @@ We'll use this as an introduction to the CTK experiment as well. An experiment
 is a single json file which tests a functionality of your program. It has
 several components that _must_ be declared:
 
-- `version`
-  - Currently, this should always be set to `0.1.0`
 - `title`
   - This forces you to be organised with your experiments. The title should be
     clear for anyone reading it to understand what is being performed in the
@@ -96,7 +94,6 @@ This is the beginning of my experiment:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "Can we make a new transaction?",
     "description": "The system should respond to a transaction request.",
     "tags": ["tx"],
@@ -121,7 +118,7 @@ properties:
 - `type`
   - REQUIRED. The type should always be set to `"probe"`
 - `name`
-  - REQUIRED. This is, again, for human readability. The name shouhld describe
+  - REQUIRED. This is, again, for human readability. The name should describe
     what the probe does.
 - `tolerance`
   - This takes a value or set of values that we can consider a 'good' response.

@@ -16,11 +16,10 @@ probes' output is performed by what we call tolerances.
 
 ## Let's get started with a basic example
 
-Let's take the simple experimant below:
+Let's take the simple experiment below:
 
 ```json
 {
-  "version": "1.0.0",
   "title": "Our default language is English",
   "description": "We find the expected English language in the file",
   "steady-state-hypothesis": {

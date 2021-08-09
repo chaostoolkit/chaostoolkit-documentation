@@ -19,7 +19,6 @@ project:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "System is resilient to provider's failures",
     "description": "Can our consumer survive gracefully a provider's failure?",
     "tags": [

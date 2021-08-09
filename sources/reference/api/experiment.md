@@ -84,12 +84,9 @@ An experiment is a JSON object.
 
 An experiment MUST declare:
 
-* a `version` property
 * a `title` property
 * a `description` property
 * a `method` property
-
-The `version` property MUST be `"0.1.0"`.
 
 The experiment's `title` and `description` are meant for humans and therefore
 should be as descriptive as possible to clarify the experiment's rationale.
@@ -202,7 +199,7 @@ Path to that value. The `expect` property value MUST be a scalar. When the
 matched at least one item.
 
 When the `type` property is `"range"`, the object MUST have a `range` 
-property whuch MUST be a sequence of length two. The first entry of the
+property which MUST be a sequence of length two. The first entry of the
 sequence MUST be the lower bound and the second entry MUST be the upper bound.
 Both entries MUST be JSON numbers.
 
@@ -336,7 +333,7 @@ Here is a contribution example:
 ```
 
 This sample tells us that the experiment contributes mainly to exploring
-reliability of the system and moderately to its scability. However, it is
+reliability of the system and moderately to its scalability. However, it is
 explicit here this experiment does not address security.
 
 On the other hand:
@@ -1004,7 +1001,6 @@ Here is an example of the most minimal experiment:
 
 ```json
 {
-    "version": "1.0.0",
     "title": "Moving a file from under our feet is forgivable",
     "description": "Our application should re-create a file that was removed",
     "contributions": {
@@ -1057,7 +1053,6 @@ the specification herein):
 
 ```yaml
 ---
-version: 1.0.0
 title: Moving a file from under our feet is forgivable
 description: Our application should re-create a file that was removed
 contributions:
@@ -1096,7 +1091,6 @@ to perform actions, probing and steady-state hypothesis validation.
 
 ```json
 {
-    "version": "1.0.0",
     "title": "Are our users impacted by the loss of a function?",
     "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
     "contributions": {
@@ -1231,7 +1225,6 @@ The equivalent YAML serialization:
 
 ```yaml
 ---
-version: 1.0.0
 title: Are our users impacted by the loss of a function?
 description: While users query the Astre function, they should not be impacted if
   one instance goes down.

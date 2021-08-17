@@ -87,6 +87,7 @@ nav:
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
     - Experimenting against a blockchain: reference/tutorials/blockchain.md
+    - Containerising Chaos Toolkit: reference/tutorials/containerising.md
 - Reference:
     - API:
       - Concepts: reference/concepts.md

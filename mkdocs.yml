@@ -88,6 +88,8 @@ nav:
     - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
     - Experimenting against a blockchain: reference/tutorials/blockchain.md
     - Containerising Chaos Toolkit: reference/tutorials/containerising.md
+    - Running Chaos Toolkit in AWS:
+        - Running Chaos Toolkit from an EC2 instance: reference/tutorials/ec2.md
 - Reference:
     - API:
       - Concepts: reference/concepts.md

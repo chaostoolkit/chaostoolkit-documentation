@@ -12,8 +12,6 @@ You may have followed our [Running Chaos Toolkit from an EC2 instance][] guide
 and wonder why we would write a guide for Batch - Batch has some benefits
 over EC2:
 
-[Running Chaos Toolkit from an EC2 instance]: ../containerising
-
 * Your infrastructure isn't running all the time
 * You can use Docker images to encapsulate your experiment environment
 * You can submit multiple jobs to run different experiments rather than blocking

@@ -37,7 +37,7 @@ using CDK [here][].
 
 [the AWS Cloud Development Kit (CDK)]: https://docs.aws.amazon.com/cdk/latest/guide/home.html
 
-[here]: https://github.com/chaostoolkit/chaostoolkit-issues-playground
+[here]: https://github.com/chaostoolkit/chaostoolkit-aws-batch-example
 
 There are a few pre-requisites required to be able to follow this guide:
 

@@ -292,7 +292,7 @@ By creating a job role for our Job, we can:
 * Select `Elastic Container Service` from the list
 * Select `Elastic Container Service Task` from the `Select your use case` list
 * Select `Next: Permissions`
-* Select `Create policy`
+* Select `Create policy` (A new window will open)
 * Move to the `JSON` tab and paste the following:
 ```json
 {

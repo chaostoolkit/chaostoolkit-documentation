@@ -3,7 +3,7 @@
 It is common when using AWS for hosting your infrastructure that you'll have
 strict security policies in place. These policies will usually only allow for
 internal traffic within AWS, amongst various other things. A question we're
-asked a lot is `can I run Chaos Toolkit from AWS, to run against AWS?`. 
+asked a lot is `can I run Chaos Toolkit from AWS, to run against AWS?`.
 The answer is simply, yes, you can.
 
 ## Why EC2?
@@ -19,36 +19,144 @@ instance are simple enough:
 There are a few pre-requisites required to be able to follow this guide:
 
 * You'll need access to the AWS Console (We're assuming you're comfortable here)
+    * Or you'll need [AWS CLI][] installed and configured
 * You'll need to be able to create EC2 instances (Or have someone do this for
 you)
-* You'll need to be able to create IAM Roles and Policies (Or have someone do 
+* You'll need to be able to create IAM Roles and Policies (Or have someone do
 this for you)
 * You'll need to be able to use [Systems Manager - Session Manager][]
 
 [Systems Manager - Session Manager]: https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html
+[AWS CLI]: https://aws.amazon.com/cli/
 
 ### 1. Create your instance
 
-* Navigate to the EC2 console and select `Launch Instance`
-* For this guide, we'll select the `Amazon Linux 2 AMI` at the top of the list
-* For this guide, we'll select a `t2.micro` (But you can choose a larger one)
-* Go onto `Configure Instance Details`
-* Select the VPC to deploy into via the `Network` dropdown
-* Select the Subnet to deploy into via the `Subnet` dropdown
-* To the right of `IAM role`, select `Create a new IAM role`
-    * Create an instance profile as per the `Creating an instance profile with 
-    minimal Session Manager permissions (console)` in this [Session Manager 
-    Documentation][]
-    * Go back to the EC2 wizard and select the newly created role in the 
-    dropdown (You may have to click the refresh button)
-* Go onto `Add Storage` - For now, the defaults will be fine
-* Go onto `Add Tags` - We recommend at minimum, adding a tag `{"OWNER": 
-"your-name"}`
-* Go onto `Configure Security Group`
-* Click the `X` to the right of the SSH rule, you won't need this
-* Go onto `Review and Launch` - Select `Launch`
-* Select `Proceed without a key pair`, check the tickbox, and click `Launch 
-Instances`
+=== "AWS Console"
+
+    * Navigate to the EC2 console and select `Launch Instance`
+    * For this guide, we'll select the `Amazon Linux 2 AMI` at the top of the list
+    * For this guide, we'll select a `t2.micro` (But you can choose a larger one)
+    * Go onto `Configure Instance Details`
+    * Select the VPC to deploy into via the `Network` dropdown
+    * Select the Subnet to deploy into via the `Subnet` dropdown
+    * To the right of `IAM role`, select `Create a new IAM role`
+        * Create an instance profile as per the `Creating an instance profile with
+        minimal Session Manager permissions (console)` in this [Session Manager
+        Documentation][]
+        * Go back to the EC2 wizard and select the newly created role in the
+        dropdown (You may have to click the refresh button)
+    * Go onto `Add Storage` - For now, the defaults will be fine
+    * Go onto `Add Tags` - We recommend at minimum, adding a tag `{"OWNER":
+    "your-name"}`
+    * Go onto `Configure Security Group`
+    * Click the `X` to the right of the SSH rule, you won't need this
+    * Go onto `Review and Launch` - Select `Launch`
+    * Select `Proceed without a key pair`, check the tickbox, and click `Launch
+    Instances`
+
+=== "AWS CLI"
+
+    To be able to connect to your instance via Session Manager, you'll first
+    need to create a few IAM components.
+
+    * Create a file named `assume-role.json` with the following contents:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "ec2.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    ```
+
+    * Create your instances IAM instance profile:
+    ```bash
+    aws iam create-instance-profile \
+        --instance-profile-name CTK-EC2-INSTANCE-PROFILE \
+        --no-cli-pager
+    ```
+
+    * Create your instances IAM role, replacing `YOUR_NAME` with your name:
+    ```bash
+    aws iam create-role \
+        --role-name CTK-EC2-ROLE \
+        --assume-role-policy-document file://assume-role.json \
+        --tags Key=OWNER,Value=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Create a file named `role-policy.json` with the following contents:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ssm:UpdateInstanceInformation",
+                    "ssmmessages:CreateControlChannel",
+                    "ssmmessages:CreateDataChannel",
+                    "ssmmessages:OpenControlChannel",
+                    "ssmmessages:OpenDataChannel"
+                ],
+                "Resource": "*"
+            },
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "s3:GetEncryptionConfiguration"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
+
+    * Create the policy, replacing `YOUR_NAME` with your name:
+    ```bash
+    aws iam create-policy \
+        --policy-name CTK-EC2-SESSION-MANAGER-POLICY \
+        --policy-document file://role-policy.json \
+        --tags Key=OWNER,Value=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Attach your policy to your role, replacing `AWS_ACCOUNT_ID` with your AWS
+    account id:
+    ```bash
+    aws iam attach-role-policy \
+        --role-name CTK-EC2-ROLE \
+        --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/CTK-EC2-SESSION-MANAGER-POLICY \
+        --no-cli-pager
+    ```
+
+    * Attach your role to your instance profile:
+    ```bash
+    aws iam add-role-to-instance-profile \
+        --instance-profile-name CTK-EC2-INSTANCE-PROFILE \
+        --role-name CTK-EC2-ROLE \
+        --no-cli-pager
+    ```
+
+    Now that your instances IAM entities are sorted, you can create your instance.
+
+    * Create your instance, using the instance profile created earlier:
+    ```bash
+    aws ec2 run-instances \
+        --image-id ami-0d26eb3972b7f8c96 \
+        --instance-type t2.micro \
+        --iam-instance-profile Name=CTK-EC2-INSTANCE-PROFILE \
+        --count 1 \
+        --no-cli-pager
+    ```
 
 [Session Manager Documentation]: https://docs.aws.amazon.com/systems-manager/latest/userguide/getting-started-create-iam-instance-profile.html
 
@@ -153,11 +261,11 @@ chaos run ./experiment.json
 [2021-08-18 10:12:29 INFO] Rollbacks strategy: default
 [2021-08-18 10:12:29 INFO] Steady state hypothesis: Current EC2 is RUNNING
 [2021-08-18 10:12:29 INFO] Probe: instance_state
-[2021-08-18 10:12:29 ERROR]   => failed: botocore.exceptions.ClientError: An error occurred 
-(UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to 
+[2021-08-18 10:12:29 ERROR]   => failed: botocore.exceptions.ClientError: An error occurred
+(UnauthorizedOperation) when calling the DescribeInstances operation: You are not authorized to
 perform this operation.
 [2021-08-18 10:12:29 WARNING] Probe terminated unexpectedly, so its tolerance could not be validated
-[2021-08-18 10:12:29 CRITICAL] Steady state probe 'instance_state' is not in the given tolerance so 
+[2021-08-18 10:12:29 CRITICAL] Steady state probe 'instance_state' is not in the given tolerance so
 failing this experiment
 [2021-08-18 10:12:29 INFO] Experiment ended with status: failed
 ```
@@ -165,12 +273,12 @@ failing this experiment
 You'll notice the error you just received:
 
 ```
-failed: botocore.exceptions.ClientError: An error occurred 
+failed: botocore.exceptions.ClientError: An error occurred
 (UnauthorizedOperation) when calling the DescribeInstances operation: You are not
 authorized to perform this operation.
 ```
 
-This is because your instance profile role you created earlier doesn't have a 
+This is because your instance profile role you created earlier doesn't have a
 suitable policy statement allowing you to describe EC2 instances.
 
 Navigate to the IAM console and find the Policy you created earlier, add the
@@ -195,7 +303,7 @@ chaos run ./experiment.json
 ```
 [2021-08-18 10:24:56 INFO] Validating the experiment's syntax
 [2021-08-18 10:24:56 INFO] Experiment looks valid
-[2021-08-18 10:24:56 INFO] Running experiment: Running Chaos Toolkit from an EC2 
+[2021-08-18 10:24:56 INFO] Running experiment: Running Chaos Toolkit from an EC2
 instance
 [2021-08-18 10:24:56 INFO] Steady-state strategy: default
 [2021-08-18 10:24:56 INFO] Rollbacks strategy: default

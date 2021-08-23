@@ -148,13 +148,15 @@ this for you)
 
     Now that your instances IAM entities are sorted, you can create your instance.
 
-    * Create your instance, using the instance profile created earlier:
+    * Create your instance, using the instance profile created earlier, replacing
+    `YOUR_NAME` with your name:
     ```bash
     aws ec2 run-instances \
         --image-id ami-0d26eb3972b7f8c96 \
         --instance-type t2.micro \
         --iam-instance-profile Name=CTK-EC2-INSTANCE-PROFILE \
         --count 1 \
+        --tag-specifications 'ResourceType=instance,Tags=[{Key=OWNER,Value=YOUR_NAME}]' \
         --no-cli-pager
     ```
 

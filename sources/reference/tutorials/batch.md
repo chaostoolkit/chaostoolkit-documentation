@@ -554,8 +554,8 @@ This is where we tell AWS _what_ our Job is and needs.
     {
         "image": "ECR_IMAGE_URI",
         "command": ["run", "experiment-1.json"],
-        "jobRoleArn": "JOB_ROLE_ARN",
-        "executionRoleArn": "EXECUTION_ROLE_ARN",
+        "jobRoleArn": "arn:aws:iam::AWS_ACCOUNT_ID:role/ctk-batch-job-role",
+        "executionRoleArn": "arn:aws:iam::AWS_ACCOUNT_ID:role/ctk-batch-execution-role",
         "resourceRequirements": [
             {
                 "value": "512",
@@ -579,8 +579,7 @@ This is where we tell AWS _what_ our Job is and needs.
     ```
 
     * Replace `ECR_IMAGE_URI` in the file with the URI of the image you pushed
-    to ECR. Replace `JOB_ROLE_ARN` with the ARN of `ctk-batch-job-role`. Replace
-    `EXECUTION_ROLE_ARN` with the ARN of `ctk-batch-execution-role`.
+    to ECR. Replace `AWS_ACCOUNT_ID` your AWS account ID.
 
     * If you're running your jobs in public subnets, leave
     `"assignPublicIp": "ENABLED"` as it is, however, if you are not running them

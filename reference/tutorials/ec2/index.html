@@ -12,14 +12,14 @@
         <span class=p>}</span>
     <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div></p> </li> <li> <p>Create your instances IAM instance profile: <div class=highlight><pre><span></span><code>aws iam create-instance-profile <span class=se>\</span>
-    --instance-profile-name CTK-EC2-INSTANCE-PROFILE <span class=se>\</span>
-    --no-cli-pager
-</code></pre></div></p> </li> <li> <p>Create your instances IAM role, replacing <code>YOUR_NAME</code> with your name: <div class=highlight><pre><span></span><code>aws iam create-role <span class=se>\</span>
-    --role-name CTK-EC2-ROLE <span class=se>\</span>
-    --assume-role-policy-document file://assume-role.json <span class=se>\</span>
-    --tags <span class=nv>Key</span><span class=o>=</span>OWNER,Value<span class=o>=</span>YOUR_NAME <span class=se>\</span>
-    --no-cli-pager
+</code></pre></div></p> </li> <li> <p>Create your instances IAM instance profile: <div class=highlight><pre><span></span><code><span class=go>aws iam create-instance-profile \</span>
+<span class=go>    --instance-profile-name CTK-EC2-INSTANCE-PROFILE \</span>
+<span class=go>    --no-cli-pager</span>
+</code></pre></div></p> </li> <li> <p>Create your instances IAM role, replacing <code>YOUR_NAME</code> with your name: <div class=highlight><pre><span></span><code><span class=go>aws iam create-role \</span>
+<span class=go>    --role-name CTK-EC2-ROLE \</span>
+<span class=go>    --assume-role-policy-document file://assume-role.json \</span>
+<span class=go>    --tags Key=OWNER,Value=YOUR_NAME \</span>
+<span class=go>    --no-cli-pager</span>
 </code></pre></div></p> </li> <li> <p>Create a file named <code>role-policy.json</code> with the following contents: <div class=highlight><pre><span></span><code><span class=p>{</span>
     <span class=nt>&quot;Version&quot;</span><span class=p>:</span> <span class=s2>&quot;2012-10-17&quot;</span><span class=p>,</span>
     <span class=nt>&quot;Statement&quot;</span><span class=p>:</span> <span class=p>[</span>
@@ -43,25 +43,26 @@
         <span class=p>}</span>
     <span class=p>]</span>
 <span class=p>}</span>
-</code></pre></div></p> </li> <li> <p>Create the policy, replacing <code>YOUR_NAME</code> with your name: <div class=highlight><pre><span></span><code>aws iam create-policy <span class=se>\</span>
-    --policy-name CTK-EC2-SESSION-MANAGER-POLICY <span class=se>\</span>
-    --policy-document file://role-policy.json <span class=se>\</span>
-    --tags <span class=nv>Key</span><span class=o>=</span>OWNER,Value<span class=o>=</span>YOUR_NAME <span class=se>\</span>
-    --no-cli-pager
-</code></pre></div></p> </li> <li> <p>Attach your policy to your role, replacing <code>AWS_ACCOUNT_ID</code> with your AWS account id: <div class=highlight><pre><span></span><code>aws iam attach-role-policy <span class=se>\</span>
-    --role-name CTK-EC2-ROLE <span class=se>\</span>
-    --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/CTK-EC2-SESSION-MANAGER-POLICY <span class=se>\</span>
-    --no-cli-pager
-</code></pre></div></p> </li> <li> <p>Attach your role to your instance profile: <div class=highlight><pre><span></span><code>aws iam add-role-to-instance-profile <span class=se>\</span>
-    --instance-profile-name CTK-EC2-INSTANCE-PROFILE <span class=se>\</span>
-    --role-name CTK-EC2-ROLE <span class=se>\</span>
-    --no-cli-pager
-</code></pre></div></p> </li> </ul> <p>Now that your instances IAM entities are sorted, you can create your instance.</p> <ul> <li>Create your instance, using the instance profile created earlier: <div class=highlight><pre><span></span><code>aws ec2 run-instances <span class=se>\</span>
-    --image-id ami-0d26eb3972b7f8c96 <span class=se>\</span>
-    --instance-type t2.micro <span class=se>\</span>
-    --iam-instance-profile <span class=nv>Name</span><span class=o>=</span>CTK-EC2-INSTANCE-PROFILE <span class=se>\</span>
-    --count <span class=m>1</span> <span class=se>\</span>
-    --no-cli-pager
+</code></pre></div></p> </li> <li> <p>Create the policy, replacing <code>YOUR_NAME</code> with your name: <div class=highlight><pre><span></span><code><span class=go>aws iam create-policy \</span>
+<span class=go>    --policy-name CTK-EC2-SESSION-MANAGER-POLICY \</span>
+<span class=go>    --policy-document file://role-policy.json \</span>
+<span class=go>    --tags Key=OWNER,Value=YOUR_NAME \</span>
+<span class=go>    --no-cli-pager</span>
+</code></pre></div></p> </li> <li> <p>Attach your policy to your role, replacing <code>AWS_ACCOUNT_ID</code> with your AWS account id: <div class=highlight><pre><span></span><code><span class=go>aws iam attach-role-policy \</span>
+<span class=go>    --role-name CTK-EC2-ROLE \</span>
+<span class=go>    --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/CTK-EC2-SESSION-MANAGER-POLICY \</span>
+<span class=go>    --no-cli-pager</span>
+</code></pre></div></p> </li> <li> <p>Attach your role to your instance profile: <div class=highlight><pre><span></span><code><span class=go>aws iam add-role-to-instance-profile \</span>
+<span class=go>    --instance-profile-name CTK-EC2-INSTANCE-PROFILE \</span>
+<span class=go>    --role-name CTK-EC2-ROLE \</span>
+<span class=go>    --no-cli-pager</span>
+</code></pre></div></p> </li> </ul> <p>Now that your instances IAM entities are sorted, you can create your instance.</p> <ul> <li>Create your instance, using the instance profile created earlier, replacing <code>YOUR_NAME</code> with your name: <div class=highlight><pre><span></span><code><span class=go>aws ec2 run-instances \</span>
+<span class=go>    --image-id ami-0d26eb3972b7f8c96 \</span>
+<span class=go>    --instance-type t2.micro \</span>
+<span class=go>    --iam-instance-profile Name=CTK-EC2-INSTANCE-PROFILE \</span>
+<span class=go>    --count 1 \</span>
+<span class=go>    --tag-specifications &#39;ResourceType=instance,Tags=[{Key=OWNER,Value=YOUR_NAME}]&#39; \</span>
+<span class=go>    --no-cli-pager</span>
 </code></pre></div></li> </ul> </div> </div> <h3 id=2-connect-to-your-instance>2. Connect to your instance<a class=headerlink href=#2-connect-to-your-instance title="Permanent link">&para;</a></h3> <ul> <li>Navigate to the Systems Manager console and select <code>Session Manager</code></li> <li>Select <code>Start Session</code></li> <li>Select your instance from the <code>Target instances</code> table</li> <li>Select <code>Start session</code></li> <li>A new tab will open with a terminal session open in the browser</li> </ul> <h3 id=3-setup-chaos-toolkit>3. Setup Chaos Toolkit<a class=headerlink href=#3-setup-chaos-toolkit title="Permanent link">&para;</a></h3> <p>You&rsquo;ll see a prompt like:</p> <div class=highlight><pre><span></span><code><span class=gp>sh-4.2$</span>
 </code></pre></div> <p>Change to the home directory with:</p> <div class=highlight><pre><span></span><code><span class=go>cd ~</span>
 </code></pre></div> <p>Create a new directory for your experimentation and navigate inside:</p> <div class=highlight><pre><span></span><code><span class=go>mkdir my-experiments &amp;&amp; cd my-experiments</span>

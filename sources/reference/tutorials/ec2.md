@@ -78,14 +78,14 @@ this for you)
     ```
 
     * Create your instances IAM instance profile:
-    ```bash
+    ```console
     aws iam create-instance-profile \
         --instance-profile-name CTK-EC2-INSTANCE-PROFILE \
         --no-cli-pager
     ```
 
     * Create your instances IAM role, replacing `YOUR_NAME` with your name:
-    ```bash
+    ```console
     aws iam create-role \
         --role-name CTK-EC2-ROLE \
         --assume-role-policy-document file://assume-role.json \
@@ -121,7 +121,7 @@ this for you)
     ```
 
     * Create the policy, replacing `YOUR_NAME` with your name:
-    ```bash
+    ```console
     aws iam create-policy \
         --policy-name CTK-EC2-SESSION-MANAGER-POLICY \
         --policy-document file://role-policy.json \
@@ -131,7 +131,7 @@ this for you)
 
     * Attach your policy to your role, replacing `AWS_ACCOUNT_ID` with your AWS
     account id:
-    ```bash
+    ```console
     aws iam attach-role-policy \
         --role-name CTK-EC2-ROLE \
         --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/CTK-EC2-SESSION-MANAGER-POLICY \
@@ -139,7 +139,7 @@ this for you)
     ```
 
     * Attach your role to your instance profile:
-    ```bash
+    ```console
     aws iam add-role-to-instance-profile \
         --instance-profile-name CTK-EC2-INSTANCE-PROFILE \
         --role-name CTK-EC2-ROLE \
@@ -148,13 +148,15 @@ this for you)
 
     Now that your instances IAM entities are sorted, you can create your instance.
 
-    * Create your instance, using the instance profile created earlier:
-    ```bash
+    * Create your instance, using the instance profile created earlier, replacing
+    `YOUR_NAME` with your name:
+    ```console
     aws ec2 run-instances \
         --image-id ami-0d26eb3972b7f8c96 \
         --instance-type t2.micro \
         --iam-instance-profile Name=CTK-EC2-INSTANCE-PROFILE \
         --count 1 \
+        --tag-specifications 'ResourceType=instance,Tags=[{Key=OWNER,Value=YOUR_NAME}]' \
         --no-cli-pager
     ```
 

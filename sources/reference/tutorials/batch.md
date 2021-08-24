@@ -62,20 +62,35 @@ our SSH to ensure that the EC2 instance is in a `running` state.
 
 [Running Chaos Toolkit from an EC2 instance]: ../ec2/
 
-* Navigate to the EC2 console and select `Launch Instance`
-* For this guide, we'll select the `Amazon Linux 2 AMI` at the top of the list
-* For this guide, we'll select a `t2.micro` (But you can choose a larger one)
-* Go onto `Configure Instance Details`
-* Select the VPC to deploy into via the `Network` dropdown
-* Select the Subnet to deploy into via the `Subnet` dropdown
-* Go onto `Add Storage` - For now, the defaults will be fine
-* Go onto `Add Tags` - We recommend at minimum, adding a tag `{"OWNER":
-"your-name"}`
-* Go onto `Configure Security Group`
-* Click the `X` to the right of the SSH rule, you won't need this
-* Go onto `Review and Launch` - Select `Launch`
-* Select `Proceed without a key pair`, check the tickbox, and click `Launch
-Instances`
+=== "AWS Console"
+
+    * Navigate to the EC2 console and select `Launch Instance`
+    * For this guide, we'll select the `Amazon Linux 2 AMI` at the top of the list
+    * For this guide, we'll select a `t2.micro` (But you can choose a larger one)
+    * Go onto `Configure Instance Details`
+    * Select the VPC to deploy into via the `Network` dropdown
+    * Select the Subnet to deploy into via the `Subnet` dropdown
+    * Go onto `Add Storage` - For now, the defaults will be fine
+    * Go onto `Add Tags` - We recommend at minimum, adding a tag `{"OWNER":
+    "your-name"}`
+    * Go onto `Configure Security Group`
+    * Click the `X` to the right of the SSH rule, you won't need this
+    * Go onto `Review and Launch` - Select `Launch`
+    * Select `Proceed without a key pair`, check the tickbox, and click `Launch
+    Instances`
+
+=== "AWS CLI"
+
+    * Create the EC2 instance for our 'system', replacing `YOUR_NAME` with your
+    name:
+    ```console
+    aws ec2 run-instances \
+        --image-id ami-0d26eb3972b7f8c96 \
+        --instance-type t2.micro \
+        --count 1 \
+        --tag-specifications 'ResourceType=instance,Tags=[{Key=OWNER,Value=YOUR_NAME}]' \
+        --no-cli-pager
+    ```
 
 You can leave this instance up for the duration of this guide.
 
@@ -150,14 +165,25 @@ WORKDIR /home/svc/experiments
 
 ### 4. Create your ECR repository and push the image
 
-* Navigate to the ECR console and select `Repositories`
-* Select `Create Repository`
-* Leave the repository set to `Private` and enter a name for your repository
-    * For the purpose of this guide, we'll be using `ctk-batch`
-* Select `Create Repository`
-* Select `<repository-name>` from the table
-* Select `View push commands`
-* Follow the commands outlined there (We'll show you them below as an example)
+=== "AWS Console"
+
+    * Navigate to the ECR console and select `Repositories`
+    * Select `Create Repository`
+    * Leave the repository set to `Private` and enter a name for your repository
+        * For the purpose of this guide, we'll be using `ctk-batch`
+    * Select `Create Repository`
+    * Select `<repository-name>` from the table
+    * Select `View push commands`
+    * Follow the commands outlined there (We'll show you them below as an example)
+
+=== "AWS CLI"
+
+    * Create the ECR repository:
+    ```console
+    aws ecr create-repository \
+        --repository-name ctk-batch \
+        --no-cli-pager
+    ```
 
 **Logging in to ECR with Docker**
 ```console
@@ -226,33 +252,93 @@ latest: digest: sha256:9702b9cf63a6e4961689a661340fc0573d28d0e7f506b90fa5d080e4e
 To actually run your Jobs, Batch needs a Compute environment configured. This is
 where you tell AWS _what_ runs the jobs (i.e EC2 instances/Fargate/etc.).
 
-* Navigate to the Batch console and select `Compute environments`
-* Select `Create`
-* Leave `Managed` selected and provide a name
-    * For the purpose of this guide we'll use `ctk-batch-comp-env`
-* Leave `Fargate` selected under `Instance configuration` but set `Maximum vCPUs`
-to `1`
-* If you want to use a specific VPC, Subnets, and Security Group, select those
-in `Networking`
-    * For this guide, we'll use the values AWS filled in
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Create compute environment`
+=== "AWS Console"
 
+    * Navigate to the Batch console and select `Compute environments`
+    * Select `Create`
+    * Leave `Managed` selected and provide a name
+        * For the purpose of this guide we'll use `ctk-batch-comp-env`
+    * Leave `Fargate` selected under `Instance configuration` but set `Maximum vCPUs`
+    to `1`
+    * If you want to use a specific VPC, Subnets, and Security Group, select those
+    in `Networking`
+        * For this guide, we'll use the values AWS filled in
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Create compute environment`
+
+=== "AWS CLI"
+
+    * To create your Compute environment, you'll need to choose which VPC to
+    deploy into. Take note of the VPC ID of the VPC you want to deploy into from
+    this command:
+    ```console
+    aws ec2 describe-vpcs \
+        --no-cli-pager
+    ```
+
+    * You'll also need to know the subnets you'll provide it, take note of the
+    output for the following command, note down the subnet IDs you want to use,
+    replacing `VPC_ID` with the VPC ID from above
+    into:
+    ```console
+    aws ec2 describe-subnets \
+        --filter Name=vpc-id,Values=VPC_ID \
+        --no-cli-pager
+    ```
+
+    * You'll also need to know the security groups to assign to your compute
+    environment, take note of the output for the following command, note down the
+    security group IDs you want to use, replacing `VPC_ID` with the VPC ID you're
+    deploying into:
+    ```console
+    aws ec2 describe-security-groups \
+        --filter Name=vpc-id,Values=VPC_ID \
+        --no-cli-pager
+    ```
+
+    * Create the Batch Compute environment, replacing `YOUR_NAME` with your name
+    and replacing `SUBNET_IDS` with a comma seperated list of subnets and
+    `SECURITY_GROUP_IDS` with a comma seperated list of security groups from the
+    above commands:
+    ```console
+    aws batch create-compute-environment \
+        --compute-environment-name ctk-batch-comp-env \
+        --type MANAGED \
+        --state ENABLED \
+        --compute-resources type=FARGATE,maxvCpus=1,subnets=SUBNET_IDS,securityGroupIds=SECURITY_GROUP_IDS \
+        --tags OWNER=YOUR_NAME \
+        --no-cli-pager
+    ```
 
 ### 6. Create your Batch Job queue
 
 When you submit Jobs, Batch uses a Job queue to manage what is and needs to be
 running and where it needs to run.
 
-* Navigate to the Batch console and select `Job queues`
-* Select `Create`
-* Give a name for the Job queue
-    * For the purpose of this guide we'll use `ctk-batch-job-queue`
-* Leave priority as `1`
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* In the `Connected compute environments` section, select your Compute environment
-from the dropdown
-* Select `Create`
+=== "AWS Console"
+
+    * Navigate to the Batch console and select `Job queues`
+    * Select `Create`
+    * Give a name for the Job queue
+        * For the purpose of this guide we'll use `ctk-batch-job-queue`
+    * Leave priority as `1`
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * In the `Connected compute environments` section, select your Compute environment
+    from the dropdown
+    * Select `Create`
+
+=== "AWS CLI"
+
+    * Create the Batch Job queue, replacing `YOUR_NAME` with your name:
+    ```console
+    aws batch create-job-queue \
+        --job-queue-name ctk-batch-job-queue \
+        --state ENABLED \
+        --priority 1 \
+        --compute-environment-order order=1,computeEnvironment=ctk-batch-comp-env \
+        --tags OWNER=YOUR_NAME \
+        --no-cli-pager
+    ```
 
 ### 7. Create your Batch Job execution role
 
@@ -263,18 +349,57 @@ ECR. It will also enable Batch to output the logs of the container to CloudWatch
 Don't be confused when we refer to `Elastic Container Service`, Batch is using
 it under the hood.
 
-* Navigate to the IAM console and select `Roles`
-* Select `Create role`
-* Select `Elastic Container Service` from the list
-* Select `Elastic Container Service Task` from the `Select your use case` list
-* Select `Next: Permissions`
-* In the search bar, type `AmazonECSTaskExecutionRolePolicy` and select it
-* Select `Next: Tags`
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Next: Review`
-* Provide a name for the Role
-    * For the purpose of this guide we'll use `ctk-batch-execution-role`
-* Select `Create Role`
+=== "AWS Console"
+
+    * Navigate to the IAM console and select `Roles`
+    * Select `Create role`
+    * Select `Elastic Container Service` from the list
+    * Select `Elastic Container Service Task` from the `Select your use case` list
+    * Select `Next: Permissions`
+    * In the search bar, type `AmazonECSTaskExecutionRolePolicy` and select it
+    * Select `Next: Tags`
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Next: Review`
+    * Provide a name for the Role
+        * For the purpose of this guide we'll use `ctk-batch-execution-role`
+    * Select `Create Role`
+
+=== "AWS CLI"
+
+    * Create a file named `execution-assume-role.json` with the following contents:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "ecs-tasks.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    ```
+
+    * Create the execution role, replacing `YOUR_NAME` with your name:
+    ```console
+    aws iam create-role \
+        --role-name ctk-batch-execution-role \
+        --assume-role-policy-document file://execution-assume-role.json \
+        --tags Key=OWNER,Value=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Attach the `AmazonECSTaskExecutionRolePolicy` policy to the role:
+    ```console
+    aws iam attach-role-policy \
+        --role-name ctk-batch-execution-role \
+        --policy-arn arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy \
+        --no-cli-pager
+    ```
 
 ### 8. Create your Batch Job job role
 
@@ -287,73 +412,191 @@ By creating a job role for our Job, we can:
 * Provide our Job with credentials with AWS
 * Outline exactly _what_ our Job is allowed to do
 
-* Navigate to the IAM console and select `Roles`
-* Select `Create role`
-* Select `Elastic Container Service` from the list
-* Select `Elastic Container Service Task` from the `Select your use case` list
-* Select `Next: Permissions`
-* Select `Create policy` (A new window will open)
-* Move to the `JSON` tab and paste the following:
-```json
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
+=== "AWS Console"
+
+    * Navigate to the IAM console and select `Roles`
+    * Select `Create role`
+    * Select `Elastic Container Service` from the list
+    * Select `Elastic Container Service Task` from the `Select your use case` list
+    * Select `Next: Permissions`
+    * Select `Create policy` (A new window will open)
+    * Move to the `JSON` tab and paste the following:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:DescribeInstance*"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
+    * Select `Next: Tags`
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Next: Review`
+    * Provide a name for the Policy
+        * For the purpose of this guide we'll use `ctk-batch-job-policy`
+    * Select `Create Policy`
+    * Navigate back to the Role tab
+    * In the search bar, type `ctk-batch-job-policy` and select it (You may have to
+    click the refresh button)
+    * Select `Next: Tags`
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Next: Review`
+    * Provide a name for the Role
+        * For the purpose of this guide we'll use `ctk-batch-job-role`
+    * Select `Create Role`
+
+=== "AWS CLI"
+
+    * Create a file named `job-assume-role.json` with the following contents:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
             "Effect": "Allow",
-            "Action": [
-                "ec2:DescribeInstance*"
-            ],
-            "Resource": "*"
-        }
-    ]
-}
-```
-* Select `Next: Tags`
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Next: Review`
-* Provide a name for the Policy
-    * For the purpose of this guide we'll use `ctk-batch-job-policy`
-* Select `Create Policy`
-* Navigate back to the Role tab
-* In the search bar, type `ctk-batch-job-policy` and select it (You may have to
-click the refresh button)
-* Select `Next: Tags`
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Next: Review`
-* Provide a name for the Role
-    * For the purpose of this guide we'll use `ctk-batch-job-role`
-* Select `Create Role`
+            "Principal": {
+                "Service": [
+                    "ecs-tasks.amazonaws.com"
+                ]
+            },
+            "Action": "sts:AssumeRole"
+            }
+        ]
+    }
+    ```
+
+    * Create the job role, replacing `YOUR_NAME` with your name:
+    ```console
+    aws iam create-role \
+        --role-name ctk-batch-job-role \
+        --assume-role-policy-document file://job-assume-role.json \
+        --tags Key=OWNER,Value=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Create a file named 'job-policy.json` with the following contents:
+    ```json
+    {
+        "Version": "2012-10-17",
+        "Statement": [
+            {
+                "Effect": "Allow",
+                "Action": [
+                    "ec2:DescribeInstance*"
+                ],
+                "Resource": "*"
+            }
+        ]
+    }
+    ```
+
+    * Create a policy for the job role, replacing `YOUR_NAME` with your name:
+    ```console
+    aws iam create-policy \
+        --policy-name ctk-batch-job-policy \
+        --policy-document file://job-policy.json \
+        --tags Key=OWNER,Value=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Attach the policy to the job role, replacing `AWS_ACCOUNT_ID` with your AWS
+    account id:
+    ```console
+    aws iam attach-role-policy \
+        --role-name ctk-batch-job-role \
+        --policy-arn arn:aws:iam::AWS_ACCOUNT_ID:policy/ctk-batch-job-policy \
+        --no-cli-pager
+    ```
 
 ### 9. Create your Batch Job definition
 
 This is where we tell AWS _what_ our Job is and needs.
 
-* Navigate to the Batch console and select `Job definitions`
-* Select `Create`
-* Provide a name
-    * For the purpose of this guide we'll use `ctk-batch-job-def`
-* Leave `Fargate` selected
-* Scroll down to `Container properties`
-* For `Image`, provide the URI of your ECR image from earlier
-    * For example, when writing this guide, ours is:
- `<our-aws-account-id>.dkr.ecr.eu-west-2.amazonaws.com/ctk-batch:latest`
-* Leave `Bash` selected and inside command put: `run experiment-1.json`
-* Select `0.25` for `vCpus` and `0.5 GB` for `Memory`
-* Select `ctk-batch-execution-role` from the `Execution role` dropdown
-* If your Compute environment is using **Public** subnets, select `Assign public
-IP`
-    * If you're using **Private** subnets, please follow [this StackOverflow post][]
-    on what best setup to have to enable your jobs to communicate with ECR
-* Select `Additional configuration`
-* Select `ctk-batch-job-role` from the `Job role` dropdown
-* Scroll down to the `Log configuration` section
-* Select `awslogs` from the `Log driver` dropdown
-* Scroll down to the `Tags` section
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Enable` under `Propagate Tags`
-* Select `Create`
+=== "AWS Console"
 
-[this StackOverflow post]: https://stackoverflow.com/a/66802973
+    * Navigate to the Batch console and select `Job definitions`
+    * Select `Create`
+    * Provide a name
+        * For the purpose of this guide we'll use `ctk-batch-job-def`
+    * Leave `Fargate` selected
+    * Scroll down to `Container properties`
+    * For `Image`, provide the URI of your ECR image from earlier
+        * For example, when writing this guide, ours is:
+    `<our-aws-account-id>.dkr.ecr.eu-west-2.amazonaws.com/ctk-batch:latest`
+    * Leave `Bash` selected and inside command put: `run experiment-1.json`
+    * Select `0.25` for `vCpus` and `0.5 GB` for `Memory`
+    * Select `ctk-batch-execution-role` from the `Execution role` dropdown
+    * If your Compute environment is using **Public** subnets, select `Assign public
+    IP`
+        * If you're using **Private** subnets, please follow [this StackOverflow post][]
+        on what best setup to have to enable your jobs to communicate with ECR
+    * Select `Additional configuration`
+    * Select `ctk-batch-job-role` from the `Job role` dropdown
+    * Scroll down to the `Log configuration` section
+    * Select `awslogs` from the `Log driver` dropdown
+    * Scroll down to the `Tags` section
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Enable` under `Propagate Tags`
+    * Select `Create`
+
+    [this StackOverflow post]: https://stackoverflow.com/a/66802973
+
+=== "AWS CLI"
+
+    * Create a file named `container-properties.json` with the following contents:
+    ```json
+    {
+        "image": "ECR_IMAGE_URI",
+        "command": ["run", "experiment-1.json"],
+        "jobRoleArn": "arn:aws:iam::AWS_ACCOUNT_ID:role/ctk-batch-job-role",
+        "executionRoleArn": "arn:aws:iam::AWS_ACCOUNT_ID:role/ctk-batch-execution-role",
+        "resourceRequirements": [
+            {
+                "value": "512",
+                "type": "MEMORY"
+            },
+            {
+                "value": "0.25",
+                "type": "VCPU"
+            }
+        ],
+        "logConfiguration": {
+            "logDriver": "awslogs"
+        },
+        "networkConfiguration": {
+            "assignPublicIp": "ENABLED"
+        },
+        "fargatePlatformConfiguration": {
+            "platformVersion": "LATEST"
+        }
+    }
+    ```
+
+    * Replace `ECR_IMAGE_URI` in the file with the URI of the image you pushed
+    to ECR. Replace `AWS_ACCOUNT_ID` your AWS account ID.
+
+    * If you're running your jobs in public subnets, leave
+    `"assignPublicIp": "ENABLED"` as it is, however, if you are not running them
+    in public subnets, we recommend you look at [this StackOverflow post][]
+    on what best setup to have to enable your jobs to communicate with ECR.
+
+    * Create your Batch Job definition, replacing `YOUR_NAME` with your name:
+    ```console
+    aws batch register-job-definition \
+        --job-definition-name ctk-batch-job-def \
+        --type container \
+        --container-properties file://container-properties.json \
+        --platform-capabilities FARGATE \
+        --tags OWNER=YOUR_NAME \
+        --propagate-tags \
+        --no-cli-pager
+    ```
 
 ### 10. Run your experiment
 
@@ -367,43 +610,98 @@ Now that you have:
 
 It's a great time to try and run it!
 
-* Navigate to the Batch console and select `Jobs`
-* Select `ctk-batch-job-queue` from the `Please select a job queue` dropdown
-* Select `Submit new job`
-* Enter a name (This can be anything)
-* Select `ctk-batch-job-def` from the `Job definition` dropdown
-* Select `ctk-batch-job-queue` from the `Job queue` dropdown
-* Scroll down to the `Tags` section
-* Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
-* Select `Submit`
-* Select `ctk-batch-job-queue` from the `Please select a job queue` dropdown
-* You can see your job, select it
-* Under `Job status` you'll see the different states move along (Hit the refresh
-button)
-* Once `Succeeded` is reached, you can select the link under `Log stream name`
+=== "AWS Console"
 
-Here you'll find the CloudWatch logs of the experiment:
+    * Navigate to the Batch console and select `Jobs`
+    * Select `ctk-batch-job-queue` from the `Please select a job queue` dropdown
+    * Select `Submit new job`
+    * Enter a name (This can be anything)
+    * Select `ctk-batch-job-def` from the `Job definition` dropdown
+    * Select `ctk-batch-job-queue` from the `Job queue` dropdown
+    * Scroll down to the `Tags` section
+    * Add a tag - We recommend at minimum, adding a tag `{"OWNER": "your-name"}`
+    * Select `Submit`
+    * Select `ctk-batch-job-queue` from the `Please select a job queue` dropdown
+    * You can see your job, select it
+    * Under `Job status` you'll see the different states move along (Hit the refresh
+    button)
+    * Once `Succeeded` is reached, you can select the link under `Log stream name`
 
-```console
-No older events at this moment. Retry
-[2021-08-19 14:02:42 INFO] Validating the experiment's syntax
-[2021-08-19 14:02:42 INFO] Experiment looks valid
-[2021-08-19 14:02:42 INFO] Running experiment: Running Chaos Toolkit from AWS Batch
-[2021-08-19 14:02:42 INFO] Steady-state strategy: default
-[2021-08-19 14:02:42 INFO] Rollbacks strategy: default
-[2021-08-19 14:02:42 INFO] Steady state hypothesis: EC2 is RUNNING
-[2021-08-19 14:02:42 INFO] Probe: instance_state
-[2021-08-19 14:02:43 INFO] Steady state hypothesis is met!
-[2021-08-19 14:02:43 INFO] Playing your experiment's method now...
-[2021-08-19 14:02:43 INFO] No declared activities, let's move on.
-[2021-08-19 14:02:43 INFO] Steady state hypothesis: EC2 is RUNNING
-[2021-08-19 14:02:43 INFO] Probe: instance_state
-[2021-08-19 14:02:43 INFO] Steady state hypothesis is met!
-[2021-08-19 14:02:43 INFO] Let's rollback...
-[2021-08-19 14:02:43 INFO] No declared rollbacks, let's move on.
-[2021-08-19 14:02:43 INFO] Experiment ended with status: completed
-No newer events at this moment. Auto retry paused. Resume
-```
+    Here you'll find the CloudWatch logs of the experiment:
+
+    ```console
+    No older events at this moment. Retry
+    [2021-08-19 14:02:42 INFO] Validating the experiment's syntax
+    [2021-08-19 14:02:42 INFO] Experiment looks valid
+    [2021-08-19 14:02:42 INFO] Running experiment: Running Chaos Toolkit from AWS Batch
+    [2021-08-19 14:02:42 INFO] Steady-state strategy: default
+    [2021-08-19 14:02:42 INFO] Rollbacks strategy: default
+    [2021-08-19 14:02:42 INFO] Steady state hypothesis: EC2 is RUNNING
+    [2021-08-19 14:02:42 INFO] Probe: instance_state
+    [2021-08-19 14:02:43 INFO] Steady state hypothesis is met!
+    [2021-08-19 14:02:43 INFO] Playing your experiment's method now...
+    [2021-08-19 14:02:43 INFO] No declared activities, let's move on.
+    [2021-08-19 14:02:43 INFO] Steady state hypothesis: EC2 is RUNNING
+    [2021-08-19 14:02:43 INFO] Probe: instance_state
+    [2021-08-19 14:02:43 INFO] Steady state hypothesis is met!
+    [2021-08-19 14:02:43 INFO] Let's rollback...
+    [2021-08-19 14:02:43 INFO] No declared rollbacks, let's move on.
+    [2021-08-19 14:02:43 INFO] Experiment ended with status: completed
+    No newer events at this moment. Auto retry paused. Resume
+    ```
+
+=== "AWS CLI"
+
+    * Run your Job, replacing `YOUR_NAME` with your name, take note of `jobId`
+    in the output:
+    ```console
+    aws batch submit-job \
+        --job-name ctk-batch-example-1 \
+        --job-queue ctk-batch-job-queue \
+        --job-definition ctk-batch-job-def \
+        --propagate-tags \
+        --tags OWNER=YOUR_NAME \
+        --no-cli-pager
+    ```
+
+    * Describe your job, making note of the value of `logStreamName`, replace
+    `JOB_ID` with the `jobId` from above:
+    ```console
+    aws batch describe-jobs \
+        --jobs JOB_ID \
+        --no-cli-pager
+    ```
+
+    * Checkout the logs of your job, replacing `LOG_STREAM` with the log stream
+    name from above:
+    ```console
+    aws logs get-log-events \
+        --log-group-name /aws/batch/job \
+        --log-stream-name LOG_STREAM \
+        --output text \
+        --no-cli-pager
+    ```
+
+    You'll then see the CloudWatch logs of the experiment:
+    ```console
+    b/36345990587319449028074048616721581140117476148622393344      f/36345990607367818961553078820962191867228353142498787343
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Validating the experiment's syntax   1629810585420
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Experiment looks valid       1629810585571
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Running experiment: Running Chaos Toolkit from AWS Batch     1629810585572
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Steady-state strategy: default       1629810585577
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Rollbacks strategy: default  1629810585577
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Steady state hypothesis: EC2 is RUNNING      1629810585577
+    EVENTS  1629810588018   [2021-08-24 13:09:45 INFO] Probe: instance_state        1629810585578
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Steady state hypothesis is met!      1629810586238
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Playing your experiment's method now...      1629810586238
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] No declared activities, let's move on.       1629810586238
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Steady state hypothesis: EC2 is RUNNING      1629810586238
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Probe: instance_state        1629810586239
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Steady state hypothesis is met!      1629810586318
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Let's rollback...    1629810586319
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] No declared rollbacks, let's move on.        1629810586319
+    EVENTS  1629810588018   [2021-08-24 13:09:46 INFO] Experiment ended with status: completed      1629810586319
+    ```
 
 ## Summary
 
@@ -566,7 +864,7 @@ script into the container. We've also added an override to the containers
 
 The wrapper script is very simple, it just looks like:
 
-```bash
+```console
 #!/bin/bash
 
 chaos run $1 --journal-path=/home/svc/experiments/journal.json

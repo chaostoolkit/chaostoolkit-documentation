@@ -268,9 +268,17 @@ where you tell AWS _what_ runs the jobs (i.e EC2 instances/Fargate/etc.).
 
 === "AWS CLI"
 
-    * To create your Compute environment, you'll need to know the subnets you'll
-    provide it, take note of the output for the following command, note down the
-    subnet IDs you want to use, replacing `VPC_ID` with the VPC ID you're deploying
+    * To create your Compute environment, you'll need to choose which VPC to
+    deploy into. Take note of the VPC ID of the VPC you want to deploy into from
+    this command:
+    ```console
+    aws ec2 describe-vpcs \
+        --no-cli-pager
+    ```
+
+    * You'll also need to know the subnets you'll provide it, take note of the
+    output for the following command, note down the subnet IDs you want to use,
+    replacing `VPC_ID` with the VPC ID from above
     into:
     ```console
     aws ec2 describe-subnets \

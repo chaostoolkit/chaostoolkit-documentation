@@ -652,8 +652,8 @@ It's a great time to try and run it!
 
 === "AWS CLI"
 
-    * Run your Job, replacing YOUR_NAME with your name, take note of `jobId` in
-    the output:
+    * Run your Job, replacing `YOUR_NAME` with your name, take note of `jobId`
+    in the output:
     ```console
     aws batch submit-job \
         --job-name ctk-batch-example-1 \

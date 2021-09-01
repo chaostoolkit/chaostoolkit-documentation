@@ -1,11 +1,5 @@
 # An Open API for Chaos Engineering Experiments
 
-!!! info
-    The current specification has not reached its 1.0.0 stable version yet. Make
-    sure to [join the discussion][join] to provide any feedback you might have.
-
-[join]: https://join.chaostoolkit.org/
-
 [exp]: #experiment
 [hypo]: #steady-state-hypothesis
 [meth]: #method

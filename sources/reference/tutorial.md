@@ -181,8 +181,8 @@ chaos run experiment.json
 [2018-05-14 18:38:04 INFO] Probe: the-astre-service-must-be-running
 [2018-05-14 18:38:04 CRITICAL] Steady state probe 'the-astre-service-must-be-running' is not in the given tolerance so failing this experiment
 [2018-05-14 18:38:04 INFO] Let's rollback...
-[2018-05-14 18:38:04 INFO] Rollback: swap-to-vald-cert
-[2018-05-14 18:38:04 INFO] Action: swap-to-vald-cert
+[2018-05-14 18:38:04 INFO] Rollback: swap-to-valid-cert
+[2018-05-14 18:38:04 INFO] Action: swap-to-valid-cert
 [2018-05-14 18:38:04 INFO] Rollback: None
 [2018-05-14 18:38:04 INFO] Action: restart-astre-service-to-pick-up-certificate
 [2018-05-14 18:38:04 INFO] Rollback: None
@@ -279,8 +279,8 @@ chaos run experiment.json
 [2018-05-14 18:41:10 INFO] Probe: we-can-request-sunset
 [2018-05-14 18:41:10 CRITICAL] Steady state probe 'we-can-request-sunset' is not in the given tolerance so failing this experiment
 [2018-05-14 18:41:10 INFO] Let's rollback...
-[2018-05-14 18:41:10 INFO] Rollback: swap-to-vald-cert
-[2018-05-14 18:41:10 INFO] Action: swap-to-vald-cert
+[2018-05-14 18:41:10 INFO] Rollback: swap-to-valid-cert
+[2018-05-14 18:41:10 INFO] Action: swap-to-valid-cert
 [2018-05-14 18:41:10 INFO] Rollback: None
 [2018-05-14 18:41:10 INFO] Action: restart-astre-service-to-pick-up-certificate
 [2018-05-14 18:41:10 INFO] Rollback: None

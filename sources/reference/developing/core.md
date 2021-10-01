@@ -27,7 +27,7 @@ This project is implemented in Python 3.
 
 ## chaostoolkit-documentation
 
-The [chaostoolkit-documehtation][chaosdoc] is the documentation source and
+The [chaostoolkit-documentation][chaosdoc] is the documentation source and
 renderer of the Chaos Toolkit. Namely, that project generates the website you
 are currently reading.
 

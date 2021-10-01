@@ -101,7 +101,7 @@ file:
 }
 ```
 
-You may leave `"cf_verifiy_ssl"` out of the configuration when you want to
+You may leave `"cf_verify_ssl"` out of the configuration when you want to
 verify TLS certificates. Usually, local environments are self-signed so it
 may be useful to disable that check in that case.
 

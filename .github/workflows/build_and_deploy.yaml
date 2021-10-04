@@ -57,7 +57,7 @@ jobs:
         git clone https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git .
         git checkout gh-pages
         cd -
-        git submodule update --init
+        git submodule update --init --remote
         mkdocs build --strict -d /tmp/site
         cd ..
     - name: Deploy 🚀

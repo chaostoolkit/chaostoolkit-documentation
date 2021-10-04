@@ -1,5 +1,4 @@
 {
-    "version": "1.0.0",
     "title": "What is the impact of an expired certificate on our application chain?",
     "description": "If a certificate expires, we should gracefully deal with the issue.",
     "tags": ["tls"],
@@ -89,7 +88,7 @@
     "rollbacks": [
         {
             "type": "action",
-            "name": "swap-to-vald-cert",
+            "name": "swap-to-valid-cert",
             "provider": {
                 "type": "process",
                 "path": "cp",

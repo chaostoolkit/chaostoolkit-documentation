@@ -92,7 +92,7 @@ __all__ = ["put_on"]
 def put_on(temperature: int = 90, configuration: Configuration = None,
            secrets: Secrets = None) -> None:
     """
-    Sets the kettle to the expected temperature (celcius) and put it on.
+    Sets the kettle to the expected temperature (celsius) and put it on.
 
     Will return when the kettle has reached it.
     """

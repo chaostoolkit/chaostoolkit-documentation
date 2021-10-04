@@ -624,7 +624,7 @@ kubectl -n chaostoolkit-run get cronjobs
 ## Run an experiment with specific extensions
 
 The default container image used by the operator is the official 
-[Chaos Toollkit image][dockerfile] which embeds no
+[Chaos Toolkit image][dockerfile] which embeds no
 [Chaos Toolkit extensions][ext].
 
 [dockerfile]: https://raw.githubusercontent.com/chaostoolkit/chaostoolkit/master/Dockerfile

@@ -826,7 +826,7 @@ type: action
 | **Return**              | list |
 
 
-adds a random delay to a list of mapppings
+adds a random delay to a list of mappings
 
 **Signature:**
 

@@ -228,7 +228,7 @@ Then, use it as follows:
 
 ### Setting the region
 
-In additon to the authentication credentials, you must configure the region
+In addition to the authentication credentials, you must configure the region
 against which you want to use.
 
 You can either declare it at the top level of the experiment, add:
@@ -2420,7 +2420,7 @@ type: action
 | **Return**              | mapping |
 
 
-Deregister a given ECS container. Becareful that tasks handled by this
+Deregister a given ECS container. Be careful that tasks handled by this
 instance will remain orphan.
 
 **Signature:**

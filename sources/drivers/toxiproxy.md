@@ -65,7 +65,7 @@ Creates a proxy to which toxics can be added. In toxiproxy a listen port of valu
 
 #### modify_proxy
 
-Modify the configuration of a given proxy. Useful to change the upstream configiuration. Only arguments supplied result in modification of the proxy.
+Modify the configuration of a given proxy. Useful to change the upstream configuration. Only arguments supplied result in modification of the proxy.
 
 |Argument|Description|Required|Default|
 |--------|-----------|--------|-------|
@@ -142,7 +142,7 @@ Example usage:
 ]
 ```
 
-### Proxy pobes
+### Proxy probes
 
 #### proxy_exist
 
@@ -214,7 +214,7 @@ Slices TCP data up into small bits, optionally adding a delay between each slice
 
 #### create\_limiter\_toxic
 
-Closes connections when transmitted data after the limit, sets it up as a dowsntream, 100% toxicity.
+Closes connections when transmitted data after the limit, sets it up as a downstream, 100% toxicity.
 
 |Argument|Description|Required|Default|
 |--------|-----------|--------|-------|
@@ -241,7 +241,7 @@ Example usage:
             "provider": {
                 "type": "python",
                 "module": "toxiproxy.toxic.actions",
-                "func": "create_dowsntream_latency_toxic",
+                "func": "create_downstream_latency_toxic",
                 "arguments": {
                     "for_proxy": "edsproxy",
                     "toxic_name": "latency_toxic",
@@ -644,7 +644,7 @@ type: probe
 
 
 Modify the configuration of a given proxy.
-Useful to change the upstream configiuration.
+Useful to change the upstream configuration.
 Only arguments supplied result in modification of the proxy.
 
 **Signature:**
@@ -962,7 +962,7 @@ type: action
 
 
 Closes connections when transmitted data after the limit,
-sets it up as a dowsntream, 100% toxicity.
+sets it up as a downstream, 100% toxicity.
 
 **Signature:**
 

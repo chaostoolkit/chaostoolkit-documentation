@@ -362,7 +362,7 @@ type: action
 | **Return**              | mapping |
 
 
-Get the current assaults configuraton from the specified service.
+Get the current assaults configuration from the specified service.
 
 **Signature:**
 
@@ -487,7 +487,7 @@ type: probe
 | **Return**              | mapping |
 
 
-Get the current watcher configuraton from the specified service.
+Get the current watcher configuration from the specified service.
 
 **Signature:**
 

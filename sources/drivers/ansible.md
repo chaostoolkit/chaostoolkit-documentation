@@ -17,7 +17,7 @@ This project is a collection of [actions][] and [probes][], gathered as an exten
 [chaostoolkit]: http://chaostoolkit.org
 [ansible]: https://www.ansible.com
 
-***Please NOTE*** This extension is in the _early_ stages of development. Please feel free to create an issue in case of needed ehancement or misfunctioning.
+***Please NOTE*** This extension is in the _early_ stages of development. Please feel free to create an issue in case of needed enhancement or misfunctioning.
 
 ---
 
@@ -108,7 +108,7 @@ That's it!
 
 Probes can be gathered by using the stdout of an ansible task or through the ansible gather_facts module. Each time chaostoolkit-ansible runs, it returns a json that can be used in tolerance (using jsonpath, regex, ...)
 
-This json is always formatted the same way (Exemple for a two targets host_list):
+This json is always formatted the same way (Example for a two targets host_list):
 
 ```json
 {
@@ -179,7 +179,7 @@ method:
 
 ### Configuration block
 
-The configuration block can be used to specify specific parameters to use. This block can be omit unless you really need to change default ansible parameters to run your exeperiment
+The configuration block can be used to specify specific parameters to use. This block can be omit unless you really need to change default ansible parameters to run your experiment
 
 Configuration variables that can be used by this driver are:
 
@@ -211,7 +211,7 @@ configuration:
 
 ### Arguments
 
-chaosansible_run and chaosansible_probes use arguements (Most argument are classical ansible parameters):
+chaosansible_run and chaosansible_probes use arguments (Most argument are classical ansible parameters):
 
 | Argument | Type | Required | Default value | Description |
 | --- | --- | --- | --- | --- |

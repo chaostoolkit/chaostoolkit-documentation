@@ -812,6 +812,13 @@ Configurations MAY be inlined in the [Experiment][exp] directly.
 Configurations MAY be retrieved from the environment. In that case, they must be
 declared as a JSON object with a `type` property set to `"env"`. The
 environment variable MUST be declared in the `key` property as a JSON string.
+By default, environment variable values will be assigned the `str` type when
+loaded by Chaos Toolkit and will be provided to any process as such.
+
+If you wish to have the value of your environment variable be typed differently
+when used by Chaos Toolkit, you can use the OPTIONAL key `env_var_type`. This
+supports values of `"str"`, `"int"`, `"float"`, or `"bytes"`. If your environment
+variable value can be coerced into one of these types, it will be.
 
 The `default` key is OPTIONAL and MAY be used when the environment variable
 can be undefined and fallback to a default value for the experiment.
@@ -823,6 +830,11 @@ can be undefined and fallback to a default value for the experiment.
             "type": "env",
             "key": "VAULT_ADDR",
             "default": "https://127.0.0.1:8200"
+        },
+        "service_port": {
+            "type": "env",
+            "key": "SERVICE_PORT",
+            "env_var_type": "int"
         }
     }
 }

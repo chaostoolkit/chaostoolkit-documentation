@@ -12,10 +12,13 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
+        python -m venv .venv
+        source .venv/bin/activate
         python -m pip install --upgrade pip setuptools
         pip install -U -r requirements.txt
     - name: Build driver dependencies
       run: |
+        source .venv/bin/activate
         cd extensions-doc-builder
         mkdir deps
 
@@ -48,6 +51,7 @@ jobs:
         cd ../..
     - name: Build driver pages
       run: |
+        source .venv/bin/activate
         cd extensions-doc-builder
         if python ext2md.py; then
             echo "Extension documentation built"
@@ -55,6 +59,7 @@ jobs:
         cd ..
     - name: Build documentation
       run: |
+        source .venv/bin/activate
         mkdir /tmp/site
         cd /tmp/site
         git clone https://$GH_USER_NAME:$GH_USER_PWD@github.com/chaostoolkit/chaostoolkit-documentation.git .

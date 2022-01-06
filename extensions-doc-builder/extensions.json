@@ -88,5 +88,10 @@
         "name": "chaosreliably",
         "doc_path": "../sources/drivers/reliably.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-reliably"
+    },
+    {
+        "name": "chaosaddons",
+        "doc_path": "../sources/drivers/addons.md",
+        "repo": "https://github.com/chaostoolkit/chaostoolkit-addons"
     }
 ]

@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from copy import deepcopy
 import importlib
 import inspect
 import json
@@ -61,8 +62,17 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         "activities": {}
     }
 
-    controls = {
+    controls = {}
+    control_settings = {
         "enabled": False,
+        "doc": None,
+        "configure": False,
+        "cleanup": False,
+        "validate": False,
+        "loading_experiment": {
+            "before": False,
+            "after": False
+        },
         "experiment": {
             "before": False,
             "after": False
@@ -101,37 +111,48 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
             continue
 
         is_control_module = False
+        _, short_mod_name = mod_name.rsplit(".", 1)
         for func_name in exported[:]:
-            if func_name in ["configure_control", "cleanup_control"]:
+            if func_name in ["configure_control", "cleanup_control", "validate_control"]:
                 is_control_module = True
-                controls["enabled"] = True
+                if short_mod_name not in controls:
+                    controls[short_mod_name] = deepcopy(control_settings)
+                controls[short_mod_name]["enabled"] = True
+                controls[short_mod_name]["doc"] = mod.__doc__ or None
                 exported.remove(func_name)
-                continue
+                if func_name == "configure_control":
+                    controls[short_mod_name]["configure"] = True
+                elif func_name == "cleanup_control":
+                    controls[short_mod_name]["cleanup"] = True
+                elif func_name == "validate_control":
+                    controls[short_mod_name]["validate"] = True
+
 
             if func_name.startswith(("after_", "before_")):
                 is_control_module = True
-                controls["enabled"] = True
+                if short_mod_name not in controls:
+                    controls[short_mod_name] = deepcopy(control_settings)
+                controls[short_mod_name]["enabled"] = True
+                controls[short_mod_name]["doc"] = mod.__doc__ or None
                 exported.remove(func_name)
                 point, level, _ = func_name.split("_")
-                controls[level][point] = True
+                controls[short_mod_name][level][point] = True
 
-        if is_control_module:
-
-            controls["as_json"] = json.dumps({
-                "name": pkg.__name__,
-                "provider": {
-                    "type": "python",
-                    "module": mod_name
-                }
-            }, indent=2)
-            controls["as_yaml"] = yaml.dump({
-                "name": pkg.__name__,
-                "provider": {
-                    "type": "python",
-                    "module": mod_name
-                }
-            }, default_flow_style=False)
-            continue
+            if is_control_module:
+                x = {
+                    "controls": [
+                            {
+                                "name": pkg.__name__,
+                                "provider": {
+                                    "type": "python",
+                                    "module": mod_name
+                                }
+                            }
+                        ]
+                    }
+                controls[short_mod_name]["as_json"] = json.dumps(x, indent=2)
+                controls[short_mod_name]["as_yaml"] = yaml.dump(x, default_flow_style=False)
+                continue
 
         activities = []
         target = mod_name.rsplit(".", 2)[1]
@@ -141,7 +162,11 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
             activities = meta["activities"][target]
 
         for func_name in exported:
-            activities.append(exported_function_info(mod, mod_name, func_name))
+            a = exported_function_info(mod, mod_name, func_name)
+            if not a:
+                continue
+            activities.append(a)
+
         meta["activities"][target] = sorted(
             activities, key=itemgetter("name"))
 
@@ -150,6 +175,9 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
 
 def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     func = getattr(mod, func_name)
+    if not inspect.isfunction(func):
+        return
+
     sig = inspect.signature(func)
 
     activity_type = ""

@@ -8,29 +8,48 @@
 
 {{readme}}
 
-{%if controls.enabled %}
+{%if controls %}
 ## Exported Controls
-This package exports [controls][] covering the following phases of the execution
+{% endif %}
+{% for control_name, control in controls.items() %}
+{%if control.enabled %}
+### {{control_name}}
+
+
+{%if control.doc %}
+{{ control.doc }}
+{% endif %}
+
+This module exports [controls][] covering the following phases of the execution
 of an experiment:
 
 [controls]: https://docs.chaostoolkit.org/reference/api/experiment/#controls
 
 |            Level             |             Before             |             After             |
 | -----------------------------| ------------------------------ |------------------------------ |
-| **Experiment**               | {{controls.experiment.before}} | {{controls.experiment.after}} |
-| **Steady-state Hypothesis**  | {{controls.hypothesis.before}} | {{controls.hypothesis.after}} |
-| **Method**                   | {{controls.method.before}} | {{controls.method.after}} |
-| **Rollback**                 | {{controls.rollback.before}} | {{controls.rollback.after}} |
-| **Activities**               | {{controls.activity.before}} | {{controls.activity.after}} |
+| **Experiment Loading**       | {{control.loading_experiment.before}} | {{control.loading_experiment.after}} |
+| **Experiment**               | {{control.experiment.before}} | {{control.experiment.after}} |
+| **Steady-state Hypothesis**  | {{control.hypothesis.before}} | {{control.hypothesis.after}} |
+| **Method**                   | {{control.method.before}} | {{control.method.after}} |
+| **Rollback**                 | {{control.rollback.before}} | {{control.rollback.after}} |
+| **Activities**               | {{control.activity.before}} | {{control.activity.after}} |
+
+In addition, the controls may define the followings:
+
+|            Level             |             Enabled             |
+| -----------------------------| ------------------------------ |
+| **Validate Control**       | {{control.validate}} |
+| **Configure Control**       | {{control.configure}} |
+| **Cleanup Control**       | {{control.cleanup}} |
 
 To use this control module, please add the following section to your experiment:
 
 ```json
-{{controls.as_json}}
+{{control.as_json}}
 ```
 
 ```yaml
-{{controls.as_yaml}}
+{{control.as_yaml}}
 ```
 
 This block may also be enabled at any other level (steady-state hypothesis or
@@ -39,6 +58,7 @@ activity) to focus only on that level.
 When enabled at the experiment level, by default, all sub-levels are also
 applied unless you set the `automatic` properties to `false`.
 {% endif %}
+{% endfor %}
 
 {%if activities %}
 ## Exported Activities

@@ -131,6 +131,8 @@ nav:
           - Dynatrace: drivers/dynatrace.md
         - Reliability:
           - Reliably: drivers/reliably.md
+        - Addons:
+          - Common: drivers/addons.md
     - Deployment:
         - Kubernetes:
             - Operator: deployment/k8s/operator.md

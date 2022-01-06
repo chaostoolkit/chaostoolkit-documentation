@@ -16,3 +16,4 @@ chaostoolkit-dynatrace
 chaostoolkit-k6
 chaostoolkit-ansible
 chaostoolkit-reliably
+chaostoolkit-addons

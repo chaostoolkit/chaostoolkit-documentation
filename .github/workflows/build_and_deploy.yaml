@@ -19,13 +19,14 @@ jobs:
         cd extensions-doc-builder
         mkdir deps
 
+        echo "Install CTK and minor dependencies"
         pip --quiet install --pre -U chaostoolkit-lib chaostoolkit
         pip --quiet install httplib2 uritemplate pytzdata msrestazure
       
-        # collect all the dependencies for our drivers
+        echo "install all the dependencies for our drivers"
         pip --quiet install -U -r requirements-toolkit.txt
 
-        # now let's get them as archives for building their docs
+        echo "download all the extensions package to get access to their README and source"
         pip download \
             --no-deps \
             --no-cache-dir \
@@ -33,11 +34,13 @@ jobs:
             --no-binary=chaostoolkit-aws,chaostoolkit-azure,chaostoolkit-cloud-foundry,chaostoolkit-google-cloud-platform,chaostoolkit-humio,chaostoolkit-kubernetes,chaostoolkit-prometheus,chaostoolkit-spring,chaostoolkit-toxiproxy,chaostoolkit-opentracing,chaostoolkit-service-fabric,chaostoolkit-istio,chaostoolkit-wiremock,chaostoolkit-gandi,chaostoolkit-dynatrace,chaostoolkit-k6,chaostoolkit-ansible,chaostoolkit-reliably,chaostoolkit-addons \
             -r requirements-toolkit.txt
 
+        echo "Installing each extension individually"
         cd deps
         for archive in *.tar.gz;
         do
             tar zxvf "$archive"
             dirname=$(basename $archive .tar.gz)
+            echo "Installing ${dirname}"
             cd $dirname
             pip install -e .
             cd ..

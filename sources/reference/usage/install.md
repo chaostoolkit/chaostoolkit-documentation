@@ -5,7 +5,7 @@
 ## Python Requirements
 
 The [chaostoolkit CLI][cli] is implemented in Python 3 and this requires a
-working Python installation to run. It officially supports Python 3.6+. It has
+working Python installation to run. It officially supports Python 3.7+. It has
 only been tested against [CPython][python].
 
 [cli]: https://github.com/chaostoolkit/chaostoolkit

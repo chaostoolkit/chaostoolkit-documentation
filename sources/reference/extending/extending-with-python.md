@@ -3,19 +3,14 @@
 ## Create your new Chaos Toolkit extension project
 
 All Chaos Toolkit extensions follow the same structure and you can benefit from
-a project generator such as [cookiecutter][]. This will drive you through a set
-of basic questions for metadata and will create a local project you can then
-start put your code into.
+a [project template][tpl]. You can create a repository using that template
+from the GitHub UI or using the [gh][ghcli].
 
-[cookiecutter]: https://github.com/audreyr/cookiecutter
-
-Let's use the [community-driven template project][tpl]:
-
-[tpl]: https://github.com/dastergon/cookiecutter-chaostoolkit
+[tpl]: https://github.com/chaostoolkit/chaostoolkit-extension-template
+[ghcli]: https://cli.github.com/manual/
 
 ```console
-pip install -U cookiecutter
-cookiecutter https://github.com/dastergon/cookiecutter-chaostoolkit.git
+$ gh repo create mytest --private -p chaostoolkit/chaostoolkit-extension-template
 ```
 
 ## Where to put your code

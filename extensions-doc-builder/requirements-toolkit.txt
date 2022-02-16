@@ -17,3 +17,4 @@ chaostoolkit-k6
 chaostoolkit-ansible
 chaostoolkit-reliably
 chaostoolkit-addons
+chaostoolkit-grafana

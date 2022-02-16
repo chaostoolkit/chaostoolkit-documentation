@@ -125,10 +125,11 @@ nav:
         - Load Testing:
           - k6: drivers/k6.md
         - Observability:
-          - Humio: drivers/humio.md
-          - Prometheus: drivers/prometheus.md
-          - Open Tracing/OpenTelemetry: drivers/opentracing.md
           - Dynatrace: drivers/dynatrace.md
+          - Grafana: drivers/grafana.md
+          - Humio: drivers/humio.md
+          - Open Tracing/OpenTelemetry: drivers/opentracing.md
+          - Prometheus: drivers/prometheus.md
         - Reliability:
           - Reliably: drivers/reliably.md
         - Addons:

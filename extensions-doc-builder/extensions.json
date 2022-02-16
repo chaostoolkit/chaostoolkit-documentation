@@ -93,5 +93,10 @@
         "name": "chaosaddons",
         "doc_path": "../sources/drivers/addons.md",
         "repo": "https://github.com/chaostoolkit/chaostoolkit-addons"
+    },
+    {
+        "name": "chaosgrafana",
+        "doc_path": "../sources/drivers/grafana.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-grafana"
     }
 ]

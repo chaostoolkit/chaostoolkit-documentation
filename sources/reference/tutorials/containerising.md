@@ -5,6 +5,21 @@ Experiments from within a container. This may be to encapsulate the dependencies
 required or to run CTK in a different environment, for whichever reason you have,
 containerising CTK is straightforward.
 
+Chaos Toolkit provides [three images][dockerhub] you can use as bases for your
+own needs:
+
+[dockerhub]: https://hub.docker.com/r/chaostoolkit/chaostoolkit
+
+* `chaostoolkit/chaostoolkit` which is tagged `latest` and per new releases
+  version. It's based on Python 3.7 Alpine base image. So it's not suitable
+  for every configuration when you need specific software in your image
+* `chaostoolkit/chaostoolkit:basic` is based on Python 3.10 Debian Bullseye base
+  image. It only contains Chaos Toolkit as per the previous image but is based
+  on Debian with a more recent Python version
+* `chaostoolkit/chaostoolkit:full` is based on Python 3.10 Debian Bullseye base
+  image. It contains Chaos Toolkit and a list of extensions and is based
+  on Debian with a more recent Python version
+
 ## Using the vanilla `chaostoolkit` image
 
 Chaos Toolkit builds and pushes a Docker Image upon every release of a new
@@ -53,20 +68,20 @@ chaostoolkit.log experiment.json  journal.json
 
 ## Containerising with extensions
 
-More commonly you'll find that vanilla `chaostoolkit` doesn't have the activities
-you need to interact with your services. For this kind of scenario, we recommend
-that you build your own custom image, with `chaostoolkit/chaostoolkit:latest` as
-the base.
+You can obviously use the `chaostoolkit/chaostoolkit:full` image which contains
+the most commonly used extensions. But you can also tailor to your need as
+follows. We will be using the `chaostoolkit/chaostoolkit:basic` image as base
+so we build using a Debian image.
 
 ### `chaostoolkit-aws` example
 
-If for example, you needed certain [AWS activities][] for your chaos experiments,
-you could create a Dockerfile like so:
+If for example, you needed certain [AWS activities][] for your chaos
+experiments, you could create a Dockerfile like so:
 
 [AWS activities]: https://chaostoolkit.org/drivers/aws/
 
 ```dockerfile
-FROM chaostoolkit/chaostoolkit:latest
+FROM chaostoolkit/chaostoolkit:basic
 
 RUN pip install chaostoolkit-aws
 ```

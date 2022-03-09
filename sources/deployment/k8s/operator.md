@@ -699,6 +699,10 @@ spec:
     image: my/chaostoolkit
 ```
 
+!!! tip
+    Note that the first time the job will create a pod will be at the end of
+    the first period.
+
 ## Uninstall the operator
 
 To uninstall the operator and its own resources, simply run the following

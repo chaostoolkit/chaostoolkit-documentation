@@ -57,11 +57,28 @@ NAME                                READY   STATUS    RESTARTS   AGE
 chaostoolkit-crd-7ddb9b78d9-dgxx7   1/1     Running   0          35s
 ```
 
-The operator deployment created two namespaces, by default:
+### What the operator creates & deletes
+
+The operator deployment creates two namespaces, by default:
 - the `chaostoolkit-crd` namespace contains the operator pod and Chaos Toolkit
  experiment definitions 
 - the `chaostoolkit-run` namespace contains pods running the Chaos Toolkit
  experiments
+
+When you apply an experiment object, the following other objects are
+created in the `chaostoolkit-run` namespace:
+
+* a Service Account specific to the pod
+* a Pod running the Chaos Toolkit based of the image you indicated
+* a role and a binding with enough permissions to handle pods inside the 
+  `chaostoolkit-run` namespace itself
+* a config map specific to that experiment with the experiment payload you gave
+* a config mapo with environment variables specific to that experiment
+
+On top of that, if you setup a schedule, a cron job object is created too.
+
+In all cases, when you delete the experiment, all these objects are also
+deleted.
 
 ## Run an experiment
     

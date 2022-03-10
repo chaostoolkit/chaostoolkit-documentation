@@ -205,6 +205,7 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     d = d.replace("Parameters", "").replace("--------", "")
     d = d.replace("Examples", "").replace("----------", "")
 
+    indent_right = lambda x: "    " + "\n    ".join(x.split("\n"))
     return {
         "type": activity_type,
         "module": mod_name,
@@ -213,8 +214,8 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
         "return": return_type,
         "signature": s,
         "arguments": args,
-        "as_json": json.dumps(as_json, indent=2),
-        "as_yaml": yaml.dump(as_json, default_flow_style=False)
+        "as_json": indent_right(json.dumps(as_json, indent=2)),
+        "as_yaml": indent_right(yaml.dump(as_json, default_flow_style=False))
     }
 
 

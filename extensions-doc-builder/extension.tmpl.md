@@ -46,11 +46,15 @@ To use this control module, please add the following section to your experiment:
 
 === "JSON"
     ```json
+
     {{control.as_json}}
+
     ```
 === "YAML"
     ```yaml
+
     {{control.as_yaml}}
+
     ```
 
 This block may also be enabled at any other level (steady-state hypothesis or
@@ -107,11 +111,15 @@ applied unless you set the `automatic` properties to `false`.
 
 === "JSON"
     ```json
+
     {{activity.as_json}}
+    
     ```
 === "YAML"
     ```yaml
+
     {{activity.as_yaml}}
+
     ```
 
 {% endfor %}

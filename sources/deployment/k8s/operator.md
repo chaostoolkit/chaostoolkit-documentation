@@ -82,7 +82,7 @@ deleted.
 
 ## Options
 
-All the options are root with the `spec` element of the
+All the options are hanging under the `spec` element of the
 `ChaosToolkitExperiment` kind object.
 
 ```yaml

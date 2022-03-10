@@ -108,7 +108,8 @@ None of these options are required.
 | <code>pod:<br/>&nbsp;&nbsp;image:</code>      | Name of if the image to use for the pod | string | `chaostoolkit/chaostoolkit:latest` |
 | <code>pod:<br/>&nbsp;&nbsp;env:<br/>&nbsp;&nbsp;&nbsp;&nbsp;enabled:</code>   | Do we mount environment variables from the config map into the pod? | boolean | `true` |
 | <code>pod:<br/>&nbsp;&nbsp;env:<br/>&nbsp;&nbsp;&nbsp;&nbsp;secretName:</code>   | Mount the secrets values from this secret as environment variables | string | `""` |
-| <code>pod:<br/>&nbsp;&nbsp;settings:</code>   | Mount the given secret holding Chaos Toolkit settings as a file to the pod | string | `chaostoolkit-settings` |
+| <code>pod:<br/>&nbsp;&nbsp;settings:<br/>&nbsp;&nbsp;&nbsp;&nbsp;enabled:</code>   | Should we mount settings as a file to the pod | boolean | `false` |
+| <code>pod:<br/>&nbsp;&nbsp;settings:<br/>&nbsp;&nbsp;&nbsp;&nbsp;secretName:</code>   | Mount the given secret holding Chaos Toolkit settings as a file to the pod | string | `chaostoolkit-settings` |
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;asFile:</code>   | Mount the experiment's payload as file (if `true`) or from a URL | boolean | `true` |
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapName:</code>   | Name of the config map holding the experiment's payload | string | `chaostoolkit-experiment` |
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapExperimentFileName:</code>   | Name of experiment file mounted into the container | string | `experiment.json` |

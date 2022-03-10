@@ -48,18 +48,28 @@ echo $?
 
 An action using this binary would look like this:
 
-
-```json
-{
-    "name": "echo-my-message",
-    "type": "action",
-    "provider": {
-        "type": "process",
-        "path": "echo",
-        "arguments": "hello world",
+=== "JSON"
+    ```json
+    {
+        "name": "echo-my-message",
+        "type": "action",
+        "provider": {
+            "type": "process",
+            "path": "echo",
+            "arguments": "hello world"
+        }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    name: echo-my-message
+    type: action
+    provider:
+      type: process
+      path: echo
+      arguments: hello world
+    ```
+
 
 This assumes the binary is on the `chaos` PATH and the user has permissions.
 

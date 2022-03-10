@@ -212,17 +212,26 @@ The package must obviously be available to the `PYTHONPATH` in which the
 
 Controls can be applied per-experiment only:
 
-```json
-"controls": [
-    {
-        "name": "my-stuff",
-        "provider": {
-            "type": "python",
-            "module": "chaosstuff.control"
+=== "JSON"
+    ```json
+    "controls": [
+        {
+            "name": "my-stuff",
+            "provider": {
+                "type": "python",
+                "module": "chaosstuff.control"
+            }
         }
-    }
-]
-```
+    ]
+    ```
+=== "YAML"
+    ```yaml
+    controls:
+      - name: my-stuff
+        provider:
+          type: python
+          module: chaosstuff.control
+    ```
 
 ### Declare it in your settings
 

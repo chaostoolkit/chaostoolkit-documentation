@@ -205,99 +205,196 @@ property, the tested value is the value of that property.
 Some examples of `tolerance` properties.
 
 A boolean tolerance:
-```json
-"tolerance": true
-```
+=== "JSON"
+    ```json
+    "tolerance": true
+    ```
+=== "YAML"
+    ```yaml
+    tolerance: true
+    ```
 
 A integer tolerance:
-```json
-"tolerance": 8
-```
+=== "JSON"
+    ```json
+    "tolerance": 8
+    ```
+=== "YAML"
+    ```yaml
+    tolerance: 8
+    ```
 
 A string tolerance:
-```json
-"tolerance": "OK"
-```
+=== "JSON"
+    ```json
+    "tolerance": "OK"
+    ```
+=== "YAML"
+    ```yaml
+    tolerance: "OK"
+    ```
 
 A sequence tolerance with lower and upper bounds:
-```json
-"tolerance": [4, 9]
-```
+=== "JSON"
+    ```json
+    "tolerance": [4, 9]
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      - 4
+      - 9
+    ```
 
 A sequence tolerance, the value must be contained in that sequence:
-```json
-"tolerance": [4, 9, 78]
-```
+=== "JSON"
+    ```json
+    "tolerance": [4, 9, 78]
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      - 4
+      - 9
+      - 78
+    ```
+
 
 A [Probe][pb] tolerance:
-```json
-"tolerance": {
-    "type": "probe",
-    "name": "should-exist",
-    "provider": {
-        "type": "python",
-        "module": "os.path",
-        "func": "exists",
-        "arguments": {
-            "path": "some/file"
+
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "probe",
+        "name": "should-exist",
+        "provider": {
+            "type": "python",
+            "module": "os.path",
+            "func": "exists",
+            "arguments": {
+                "path": "some/file"
+            }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: probe
+      name: should-exist
+      provider:
+        type: python
+        module: os.path
+        func: exists
+        arguments:
+          path: some/file
+    ```
 
 A regex tolerance:
 
-```json
-"tolerance": {
-    "type": "regex",
-    "pattern": "[0-9]{3}"
-}
-```
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "regex",
+        "pattern": "[0-9]{3}"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: regex
+      pattern: '[0-9]{3}'
+    ```
+
 
 A regex tolerance with a non default target:
 
-```json
-"tolerance": {
-    "type": "regex",
-    "target": "stdout",
-    "pattern": "[0-9]{2}"
-}
-```
+
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "regex",
+        "target": "stdout",
+        "pattern": "[0-9]{2}"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: regex
+      target: stdout
+      pattern: '[0-9]{2}'
+    ```
+
 
 A jsonpath tolerance:
 
-```json
-"tolerance": {
-    "type": "jsonpath",
-    "path": "foo[*].baz"
-}
-```
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "jsonpath",
+        "path": "foo[*].baz"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: jsonpath
+      path: 'foo[*].baz'
+    ```
+
 
 A jsonpath tolerance with an expected value to match:
 
-```json
-"tolerance": {
-    "type": "jsonpath",
-    "path": "foo[*].baz",
-    "expect": 4
-}
-```
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "jsonpath",
+        "path": "foo[*].baz",
+        "expect": 4
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: jsonpath
+      path: 'foo[*].baz'
+      expect: 4
+    ```
 
 Two range tolerances:
 
-```json
-"tolerance": {
-    "type": "range",
-    "range": [4, 8]
-}
-```
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "range",
+        "range": [4, 8]
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: range
+      range:
+        - 4
+        - 8
+    ```
 
-```json
-"tolerance": {
-    "type": "range",
-    "range": [4.6, 8.9]
-}
-```
+=== "JSON"
+    ```json
+    "tolerance": {
+        "type": "range",
+        "range": [4.6, 8.9]
+    }
+    ```
+=== "YAML"
+    ```yaml
+    tolerance:
+      type: range
+      range:
+        - 4.6
+        - 8.9
+    ```
 
 
 ### Contributions
@@ -318,13 +415,21 @@ for this contribution.
 
 Here is a contribution example:
 
-```json
-"contributions": {  
-    "reliability": "high",
-    "security": "none",
-    "scalability": "medium"
-}
-```
+=== "JSON"
+    ```json
+    "contributions": {  
+        "reliability": "high",
+        "security": "none",
+        "scalability": "medium"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    contributions:
+      reliability: high
+      security: none
+      scalability: medium
+    ```
 
 This sample tells us that the experiment contributes mainly to exploring
 reliability of the system and moderately to its scalability. However, it is
@@ -332,12 +437,19 @@ explicit here this experiment does not address security.
 
 On the other hand:
 
-```json
-"contributions": {  
-    "reliability": "high",
-    "scalability": "medium"
-}
-```
+=== "JSON"
+    ```json
+    "contributions": {  
+        "reliability": "high",
+        "scalability": "medium"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    contributions:
+      reliability: high
+      scalability: medium
+    ```
 
 This tells us the same about reliability and scalability but we can't presume
 anything about security.
@@ -611,38 +723,59 @@ Secrets MUST be passed a mapping of keys and values to probes and actions.
 
 An example of a `secrets` element at the top-level:
 
-```json
-{
-    "secrets": {
-        "kubernetes": {
-            "token": "XYZ"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": "XYZ"
+            }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      kubernetes:
+        token: XYZ
+    ```
 
 This can then referenced from probes or actions:
 
-```json
-{
-    "type": "probe",
-    "secrets": "kubernetes"
-}
-```
+=== "JSON"
+    ```json
+    {
+        "type": "probe",
+        "secrets": "kubernetes"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    type: probe
+    secrets: kubernetes
+    ```
+
 
 #### Inline Secrets
 
 Secrets MAY be inlined in the [Experiment][exp] directly.
 
-```json
-{
-    "secrets": {
-        "kubernetes": {
-            "token": "ABCDEF-1234-XYZ"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": "ABCDEF-1234-XYZ"
+            }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      kubernetes:
+        token: ABCDEF-1234-XYZ
+    ```
 
 #### Environment Secrets
 
@@ -650,18 +783,27 @@ Secrets MAY be retrieved from the environment. In that case, they must be
 declared as a JSON object with a `type` property set to `"env"`. The
 environment variable MUST be declared in the `key` property as a JSON string.
 
-```json
-{
-    "secrets": {
-        "kubernetes": {
-            "token": {
-                "type": "env",
-                "key": "KUBERNETES_TOKEN"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": {
+                    "type": "env",
+                    "key": "KUBERNETES_TOKEN"
+                }
             }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      kubernetes:
+        token:
+          type: env
+          key: KUBERNETES_TOKEN
+    ```
 
 #### Vault Secrets
 
@@ -672,18 +814,27 @@ string.
 
 [vault]: https://www.vaultproject.io/
 
-```json
-{
-    "secrets": {
-        "myapp": {
-            "token": {
-                "type": "vault",
-                "path": "secrets/something"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something"
+                }
             }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+    ```
 
 When only the `path` property is set, the whole secrets payload at the given
 path MUST be set to the Chaos Toolkit secret key.
@@ -715,58 +866,95 @@ Examples:
 
 Vault secret at path `secret/something`:
 
-```json
-{
-    "foo": "bar",
-    "baz": "hello"
-}
-```
+=== "JSON"
+    ```json
+    {
+        "foo": "bar",
+        "baz": "hello"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    foo: bar
+    baz: hello
+    ```
 
 Then in your Chaos Toolkit experiment:
 
-```json
-{
-    "secrets": {
-        "myapp": {
-            "token": {
-                "type": "vault",
-                "path": "secrets/something"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something"
+                }
             }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+    ```
 
 means the secrets will become:
 
-```
-"token": {
-    "foo": "bar",
-    "baz": "hello"
-}
-```
+=== "JSON"
+    ```json
+    "token": {
+        "foo": "bar",
+        "baz": "hello"
+    }
+    ```
+=== "YAML"
+    ```yaml
+    token:
+      foo: bar
+      baz: hello
+    ```
 
 However:
 
-```json
-{
-    "secrets": {
-        "myapp": {
-            "token": {
-                "type": "vault",
-                "path": "secrets/something",
-                "key": "foo"
+=== "JSON"
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something",
+                    "key": "foo"
+                }
             }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+          key: foo
+    ```
 
 means the secrets will become:
 
-```
-"token": "bar"
-```
+=== "JSON"
+    ```json
+    "token": "bar"
+    ```
+=== "YAML"
+    ```yaml
+    token: bar
+    ```
 
 ### Configuration
 
@@ -783,29 +971,44 @@ actions.
 
 An example of a `configuration` element at the top-level:
 
-```json
-{
-    "configuration": {
-        "some_service": "http://127.0.0.1:8080",
-        "vault_addr": {
-            "type": "env",
-            "key": "VAULT_ADDR"
+=== "JSON"
+    ```json
+    {
+        "configuration": {
+            "some_service": "http://127.0.0.1:8080",
+            "vault_addr": {
+                "type": "env",
+                "key": "VAULT_ADDR"
+            }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    configuration:
+      some_service: 'http://127.0.0.1:8080'
+      vault_addr:
+        type: env
+        key: VAULT_ADDR
+    ```
 
 #### Inline Configurations
 
 Configurations MAY be inlined in the [Experiment][exp] directly.
 
-```json
-{
-    "configuration": {
-        "some-service": "http://127.0.0.1:8080"
+=== "JSON"
+    ```json
+    {
+        "configuration": {
+            "some-service": "http://127.0.0.1:8080"
+        }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    configuration:
+      some-service: 'http://127.0.0.1:8080'
+    ```
 
 #### Environment Configurations
 
@@ -816,17 +1019,27 @@ environment variable MUST be declared in the `key` property as a JSON string.
 The `default` key is OPTIONAL and MAY be used when the environment variable
 can be undefined and fallback to a default value for the experiment.
 
-```json
-{
-    "configuration": {
-        "vault_addr": {
-            "type": "env",
-            "key": "VAULT_ADDR",
-            "default": "https://127.0.0.1:8200"
+=== "JSON"
+    ```json
+    {
+        "configuration": {
+            "vault_addr": {
+                "type": "env",
+                "key": "VAULT_ADDR",
+                "default": "https://127.0.0.1:8200"
+            }
         }
     }
-}
-```
+    ```
+=== "YAML"
+    ```yaml
+    configuration:
+      vault_addr:
+        type: env
+        key: VAULT_ADDR
+        default: 'https://127.0.0.1:8200'
+    ```
+
 
 ### Variable Substitution
 
@@ -919,47 +1132,77 @@ Examples of Controls:
 
 Just a generic declaration of a control at the top-level of the experiment:
 
-```json
-"controls": [
-    {
-        "name": "tracing",
-        "provider": {
-            "type": "python",
-            "module": "chaostracing.control"
+=== "JSON"
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
         }
-    }
-]
-```
+    ]
+    ```
+=== "YAML"
+    ```yaml
+    controls:
+      - name: tracing
+        provider:
+        type: python
+        module: chaostracing.control
+
+    ```
 
 Another control by applied only as post-control:
 
-```json
-"controls": [
-    {
-        "name": "tracing",
-        "scope": "post",
-        "provider": {
-            "type": "python",
-            "module": "chaostracing.control"
+=== "JSON"
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "scope": "post",
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
         }
-    }
-]
-```
+    ]
+    ```
+=== "YAML"
+    ```yaml
+    controls:
+      - name: tracing
+        scope: post
+        provider:
+        type: python
+        module: chaostracing.control
+    ```
 
 Finally, a top-level level control not applied anywhere else down the tree:
 
-```json
-"controls": [
-    {
-        "name": "tracing",
-        "automatic": false,
-        "provider": {
-            "type": "python",
-            "module": "chaostracing.control"
+=== "JSON"
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "automatic": false,
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
         }
-    }
-]
-```
+    ]
+    ```
+=== "YAML"
+    ```yaml
+    controls:
+      - name: tracing
+        automatic: false
+        provider:
+        type: python
+        module: chaostracing.control
+    ```
 
 ### Extensions
 
@@ -976,14 +1219,21 @@ does not declare any meaning to an extension.
 
 Below is an example of an Extension:
 
-```json
-{
-    "extensions": [{
-        "name": "vendorX",
-        "data": "..."
-    }]
-}
-```
+=== "JSON"
+    ```json
+    {
+        "extensions": [{
+            "name": "vendorX",
+            "data": "..."
+        }]
+    }
+    ```
+=== "YAML"
+    ```yaml
+    extensions:
+      - name: vendorX
+        data: ...
+    ```
 
 ## Examples
 
@@ -993,327 +1243,321 @@ The following examples MUST NOT be considered normative.
 
 Here is an example of the most minimal experiment:
 
-```json
-{
-    "title": "Moving a file from under our feet is forgivable",
-    "description": "Our application should re-create a file that was removed",
-    "contributions": {
-        "reliability": "high",
-        "availability": "high"
-    },
-    "steady-state-hypothesis": {
-        "title": "The file must be around first",
-        "probes": [
+=== "JSON"
+    ```json
+    {
+        "title": "Moving a file from under our feet is forgivable",
+        "description": "Our application should re-create a file that was removed",
+        "contributions": {
+            "reliability": "high",
+            "availability": "high"
+        },
+        "steady-state-hypothesis": {
+            "title": "The file must be around first",
+            "probes": [
+                {
+                    "type": "probe",
+                    "name": "file-must-exist",
+                    "tolerance": true,
+                    "provider": {
+                        "type": "python",
+                        "module": "os.path",
+                        "func": "exists",
+                        "arguments": {
+                            "path": "some/file"
+                        }
+                    }
+                }
+            ]
+        },
+        "method": [
             {
-                "type": "probe",
-                "name": "file-must-exist",
-                "tolerance": true,
+                "type": "action",
+                "name": "file-be-gone",
                 "provider": {
                     "type": "python",
-                    "module": "os.path",
-                    "func": "exists",
+                    "module": "os",
+                    "func": "remove",
                     "arguments": {
                         "path": "some/file"
                     }
-                }
-            }
-        ]
-    },
-    "method": [
-        {
-            "type": "action",
-            "name": "file-be-gone",
-            "provider": {
-                "type": "python",
-                "module": "os",
-                "func": "remove",
-                "arguments": {
-                    "path": "some/file"
+                },
+                "pauses": {
+                    "after": 5
                 }
             },
-            "pauses": {
-                "after": 5
+            {
+                "ref": "file-must-exist"
             }
-        },
-        {
-            "ref": "file-must-exist"
-        }
-    ]
-}
-```
-
-For reference, here is the YAML equivalent (which is not official but respects
-the specification herein):
-
-```yaml
----
-title: Moving a file from under our feet is forgivable
-description: Our application should re-create a file that was removed
-contributions:
-  reliability: high
-  availability: high
-steady-state-hypothesis:
-  title: The file must be around first
-  probes:
-  - type: probe
-    name: file-must-exist
-    tolerance: true
-    provider:
-      type: python
-      module: os.path
-      func: exists
-      arguments:
-        path: some/file
-method:
-- type: action
-  name: file-be-gone
-  provider:
-    type: python
-    module: os
-    func: remove
-    arguments:
-      path: some/file
-  pauses:
-    after: 5
-- ref: file-must-exist
-```
+        ]
+    }
+    ```
+=== "YAML"
+    ```yaml
+    title: Moving a file from under our feet is forgivable
+    description: Our application should re-create a file that was removed
+    contributions:
+      reliability: high
+      availability: high
+    steady-state-hypothesis:
+      title: The file must be around first
+      probes:
+        - type: probe
+          name: file-must-exist
+          tolerance: true
+          provider:
+            type: python
+            module: os.path
+            func: exists
+            arguments:
+            path: some/file
+    method:
+      - type: action
+        name: file-be-gone
+        provider:
+          type: python
+          module: os
+          func: remove
+          arguments:
+            path: some/file
+        pauses:
+          after: 5
+      - ref: file-must-exist
+    ```
 
 ### More Complex Experiment
 
 Below is an example of a fully featured experiment that uses various extensions
 to perform actions, probing and steady-state hypothesis validation.
 
-```json
-{
-    "title": "Are our users impacted by the loss of a function?",
-    "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
-    "contributions": {
-        "reliability": "high",
-        "availability": "high",
-        "performance": "medium",
-        "security": "none"
-    },
-    "tags": [
-        "kubernetes",
-        "openfaas",
-        "cloudnative"
-    ],
-    "configuration": {
-        "prometheus_base_url": "http://demo.foo.bar"
-    },
-    "secrets": {
-        "global": {
-            "auth": "Basic XYZ"
-        }
-    },
-    "controls": [
-        {
-            "name": "tracing",
-            "provider": {
-                "type": "python",
-                "module": "chaostracing.control"
+=== "JSON"
+    ```json
+    {
+        "title": "Are our users impacted by the loss of a function?",
+        "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
+        "contributions": {
+            "reliability": "high",
+            "availability": "high",
+            "performance": "medium",
+            "security": "none"
+        },
+        "tags": [
+            "kubernetes",
+            "openfaas",
+            "cloudnative"
+        ],
+        "configuration": {
+            "prometheus_base_url": "http://demo.foo.bar"
+        },
+        "secrets": {
+            "global": {
+                "auth": "Basic XYZ"
             }
-        }
-    ],
-    "steady-state-hypothesis": {
-        "title": "Function is available",
-        "probes": [
+        },
+        "controls": [
             {
-                "type": "probe",
-                "name": "function-must-exist",
-                "tolerance": 200,
+                "name": "tracing",
                 "provider": {
-                    "type": "http",
-                    "secrets": ["global"],
-                    "url": "http://demo.foo.bar/system/function/astre",
-                    "headers": {
-                        "Authorization": "${auth}"
+                    "type": "python",
+                    "module": "chaostracing.control"
+                }
+            }
+        ],
+        "steady-state-hypothesis": {
+            "title": "Function is available",
+            "probes": [
+                {
+                    "type": "probe",
+                    "name": "function-must-exist",
+                    "tolerance": 200,
+                    "provider": {
+                        "type": "http",
+                        "secrets": ["global"],
+                        "url": "http://demo.foo.bar/system/function/astre",
+                        "headers": {
+                            "Authorization": "${auth}"
+                        }
                     }
+                },
+                {
+                    "type": "probe",
+                    "name": "function-must-respond",
+                    "tolerance": 200,
+                    "provider": {
+                        "type": "http",
+                        "timeout": [3, 5],
+                        "secrets": ["global"],
+                        "url": "http://demo.foo.bar/function/astre",
+                        "method": "POST",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "Authorization": "${auth}"
+                        },
+                        "arguments": {
+                            "city": "Paris"
+                        }
+                    }
+                }
+            ]
+        },
+        "method": [
+            {
+                "type": "action",
+                "name": "simulate-user-traffic",
+                "background": true,
+                "provider": {
+                    "type": "process",
+                    "path": "vegeta",
+                    "arguments": "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
                 }
             },
             {
-                "type": "probe",
-                "name": "function-must-respond",
-                "tolerance": 200,
+                "type": "action",
+                "name": "terminate-one-function",
                 "provider": {
-                    "type": "http",
-                    "timeout": [3, 5],
-                    "secrets": ["global"],
-                    "url": "http://demo.foo.bar/function/astre",
-                    "method": "POST",
-                    "headers": {
-                        "Content-Type": "application/json",
-                        "Authorization": "${auth}"
-                    },
+                    "type": "python",
+                    "module": "chaosk8s.pod.actions",
+                    "func": "terminate_pods",
                     "arguments": {
-                        "city": "Paris"
+                        "ns": "openfaas-fn",
+                        "label_selector": "faas_function=astre",
+                        "rand": true
+                    }
+                },
+                "pauses": {
+                    "before": 5
+                }
+            },
+            {
+                "type": "probe",
+                "name": "fetch-openfaas-gateway-logs",
+                "provider": {
+                    "type": "python",
+                    "module": "chaosk8s.pod.probes",
+                    "func": "read_pod_logs",
+                    "arguments": {
+                        "label_selector": "app=gateway",
+                        "last": "35s",
+                        "ns": "openfaas"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "query-total-function-invocation",
+                "provider": {
+                    "type": "python",
+                    "module": "chaosprometheus.probes",
+                    "func": "query_interval",
+                    "secrets": ["global"],
+                    "arguments": {
+                        "query": "gateway_function_invocation_total{function_name='astre'}",
+                        "start": "1 minute ago",
+                        "end": "now",
+                        "step": 1
                     }
                 }
             }
-        ]
-    },
-    "method": [
-        {
-            "type": "action",
-            "name": "simulate-user-traffic",
-            "background": true,
-            "provider": {
-                "type": "process",
-                "path": "vegeta",
-                "arguments": "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
-            }
-        },
-        {
-            "type": "action",
-            "name": "terminate-one-function",
-            "provider": {
-                "type": "python",
-                "module": "chaosk8s.pod.actions",
-                "func": "terminate_pods",
-                "arguments": {
-                    "ns": "openfaas-fn",
-                    "label_selector": "faas_function=astre",
-                    "rand": true
-                }
-            },
-            "pauses": {
-                "before": 5
-            }
-        },
-        {
-            "type": "probe",
-            "name": "fetch-openfaas-gateway-logs",
-            "provider": {
-                "type": "python",
-                "module": "chaosk8s.pod.probes",
-                "func": "read_pod_logs",
-                "arguments": {
-                    "label_selector": "app=gateway",
-                    "last": "35s",
-                    "ns": "openfaas"
-                }
-            }
-        },
-        {
-            "type": "probe",
-            "name": "query-total-function-invocation",
-            "provider": {
-                "type": "python",
-                "module": "chaosprometheus.probes",
-                "func": "query_interval",
-                "secrets": ["global"],
-                "arguments": {
-                    "query": "gateway_function_invocation_total{function_name='astre'}",
-                    "start": "1 minute ago",
-                    "end": "now",
-                    "step": 1
-                }
-            }
-        }
-    ],
-    "rollbacks": []
-}
-```
-
-The equivalent YAML serialization:
-
-```yaml
----
-title: Are our users impacted by the loss of a function?
-description: While users query the Astre function, they should not be impacted if
-  one instance goes down.
-contributions:
-  reliability: high
-  availability: high
-  performance: medium
-  security: none
-tags:
-- kubernetes
-- openfaas
-- cloudnative
-configuration:
-  prometheus_base_url: http://demo.foo.bar
-secrets:
-  global:
-    auth: Basic XYZ
-controls:
-- name: tracing
-  provider:
-    type: python
-    module: chaostracing.control
-steady-state-hypothesis:
-  title: Function is available
-  probes:
-  - type: probe
-    name: function-must-exist
-    tolerance: 200
-    provider:
-      type: http
-      secrets:
-      - global
-      url: http://demo.foo.bar/system/function/astre
-      headers:
-        Authorization: "${auth}"
-  - type: probe
-    name: function-must-respond
-    tolerance: 200
-    provider:
-      type: http
-      timeout:
-      - 3
-      - 5
-      secrets:
-      - global
-      url: http://demo.foo.bar/function/astre
-      method: POST
-      headers:
-        Content-Type: application/json
-        Authorization: "${auth}"
-      arguments:
-        city: Paris
-method:
-- type: action
-  name: simulate-user-traffic
-  background: true
-  provider:
-    type: process
-    path: vegeta
-    arguments: "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1
-      -rate=3 -timeout=3s -duration=30s -output=result.bin"
-- type: action
-  name: terminate-one-function
-  provider:
-    type: python
-    module: chaosk8s.pod.actions
-    func: terminate_pods
-    arguments:
-      ns: openfaas-fn
-      label_selector: faas_function=astre
-      rand: true
-  pauses:
-    before: 5
-- type: probe
-  name: fetch-openfaas-gateway-logs
-  provider:
-    type: python
-    module: chaosk8s.pod.probes
-    func: read_pod_logs
-    arguments:
-      label_selector: app=gateway
-      last: 35s
-      ns: openfaas
-- type: probe
-  name: query-total-function-invocation
-  provider:
-    type: python
-    module: chaosprometheus.probes
-    func: query_interval
+        ],
+        "rollbacks": []
+    }
+    ```
+=== "YAML"
+    ```yaml
+    ---
+    title: Are our users impacted by the loss of a function?
+    description: While users query the Astre function, they should not be impacted if one instance goes down.
+    contributions:
+      reliability: high
+      availability: high
+      performance: medium
+      security: none
+    tags:
+      - kubernetes
+      - openfaas
+      - cloudnative
+    configuration:
+      prometheus_base_url: http://demo.foo.bar
     secrets:
-    - global
-    arguments:
-      query: gateway_function_invocation_total{function_name='astre'}
-      start: 1 minute ago
-      end: now
-      step: 1
-rollbacks: []
-```
+      global:
+        auth: Basic XYZ
+    controls:
+      - name: tracing
+        provider:
+          type: python
+          module: chaostracing.control
+    steady-state-hypothesis:
+      title: Function is available
+      probes:
+        - type: probe
+          name: function-must-exist
+          tolerance: 200
+          provider:
+            type: http
+            secrets:
+              - global
+            url: http://demo.foo.bar/system/function/astre
+            headers:
+              Authorization: "${auth}"
+        - type: probe
+          name: function-must-respond
+          tolerance: 200
+          provider:
+            type: http
+            timeout:
+              - 3
+              - 5
+            secrets:
+              - global
+            url: http://demo.foo.bar/function/astre
+            method: POST
+            headers:
+              Content-Type: application/json
+              Authorization: "${auth}"
+            arguments:
+              city: Paris
+    method:
+      - type: action
+        name: simulate-user-traffic
+        background: true
+        provider:
+          type: process
+          path: vegeta
+          arguments: "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
+      - type: action
+        name: terminate-one-function
+        provider:
+          type: python
+          module: chaosk8s.pod.actions
+          func: terminate_pods
+          arguments:
+            ns: openfaas-fn
+            label_selector: faas_function=astre
+            rand: true
+        pauses:
+          before: 5
+      - type: probe
+        name: fetch-openfaas-gateway-logs
+        provider:
+          type: python
+          module: chaosk8s.pod.probes
+          func: read_pod_logs
+          arguments:
+            label_selector: app=gateway
+            last: 35s
+            ns: openfaas
+      - type: probe
+        name: query-total-function-invocation
+        provider:
+        type: python
+        module: chaosprometheus.probes
+        func: query_interval
+        secrets:
+          - global
+        arguments:
+          query: gateway_function_invocation_total{function_name='astre'}
+          start: 1 minute ago
+          end: now
+          step: 1
+    rollbacks: []
+    ```

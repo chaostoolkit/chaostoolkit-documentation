@@ -44,13 +44,14 @@ In addition, the controls may define the followings:
 
 To use this control module, please add the following section to your experiment:
 
-```json
-{{control.as_json}}
-```
-
-```yaml
-{{control.as_yaml}}
-```
+=== "JSON"
+    ```json
+    {{control.as_json}}
+    ```
+=== "YAML"
+    ```yaml
+    {{control.as_yaml}}
+    ```
 
 This block may also be enabled at any other level (steady-state hypothesis or
 activity) to focus only on that level.
@@ -104,13 +105,14 @@ applied unless you set the `automatic` properties to `false`.
 
 **Usage:**
 
-```json
-{{activity.as_json}}
-```
-
-```yaml
-{{activity.as_yaml}}
-```
+=== "JSON"
+    ```json
+    {{activity.as_json}}
+    ```
+=== "YAML"
+    ```yaml
+    {{activity.as_yaml}}
+    ```
 
 {% endfor %}
 {% endfor %}

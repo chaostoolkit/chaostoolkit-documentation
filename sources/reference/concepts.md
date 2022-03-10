@@ -17,61 +17,99 @@ from the
 [Chaos Toolkit Samples](https://github.com/chaostoolkit/chaostoolkit-samples)
 project:
 
-```json
-{
-    "title": "System is resilient to provider's failures",
-    "description": "Can our consumer survive gracefully a provider's failure?",
-    "tags": [
-        "service",
-        "kubernetes",
-        "spring"
-    ],
-    "steady-state-hypothesis": {
-        "title": "Services are all available and healthy",
-        "probes": [
+=== "JSON"
+    ```json
+    {
+        "title": "System is resilient to provider's failures",
+        "description": "Can our consumer survive gracefully a provider's failure?",
+        "tags": [
+            "service",
+            "kubernetes",
+            "spring"
+        ],
+        "steady-state-hypothesis": {
+            "title": "Services are all available and healthy",
+            "probes": [
+                {
+                    "type": "probe",
+                    "name": "all-services-are-healthy",
+                    "tolerance": true,
+                    "provider": {
+                        "type": "python",
+                        "module": "chaosk8s.probes",
+                        "func": "all_microservices_healthy"
+                    }
+                }
+            ]
+        },
+        "method": [
             {
-                "type": "probe",
-                "name": "all-services-are-healthy",
-                "tolerance": true,
+                "type": "action",
+                "name": "stop-provider-service",
                 "provider": {
                     "type": "python",
-                    "module": "chaosk8s.probes",
-                    "func": "all_microservices_healthy"
-                }
-            }
-        ]
-    },
-    "method": [
-        {
-            "type": "action",
-            "name": "stop-provider-service",
-            "provider": {
-                "type": "python",
-                "module": "chaosk8s.actions",
-                "func": "kill_microservice",
-                "arguments": {
-                    "name": "my-provider-service"
+                    "module": "chaosk8s.actions",
+                    "func": "kill_microservice",
+                    "arguments": {
+                        "name": "my-provider-service"
+                    }
+                },
+                "pauses": {
+                    "after": 10
                 }
             },
-            "pauses": {
-                "after": 10
+            {
+                "ref": "all-services-are-healthy"
+            },
+            {
+                "type": "probe",
+                "name": "consumer-service-must-still-respond",
+                "provider": {
+                    "type": "http",
+                    "url": "http://192.168.42.58:31018/invokeConsumedService"
+                }
             }
-        },
-        {
-            "ref": "all-services-are-healthy"
-        },
-        {
-            "type": "probe",
-            "name": "consumer-service-must-still-respond",
-            "provider": {
-                "type": "http",
-                "url": "http://192.168.42.58:31018/invokeConsumedService"
-            }
-        }
-    ],
-    "rollbacks": []
-}
-```
+        ],
+        "rollbacks": []
+    }
+    ```
+=== "YAML"
+    ```yaml
+    title: System is resilient to provider's failures
+    description: Can our consumer survive gracefully a provider's failure?
+    tags:
+      - service
+      - kubernetes
+      - spring
+    steady-state-hypothesis:
+        title: Services are all available and healthy
+        probes:
+          - type: probe
+            name: all-services-are-healthy
+            tolerance: true
+            provider:
+              type: python
+              module: chaosk8s.probes
+              func: all_microservices_healthy
+    method:
+      - type: action
+        name: stop-provider-service
+        provider:
+          type: python
+          module: chaosk8s.actions
+          func: kill_microservice
+          arguments:
+            name: my-provider-service
+        pauses:
+          after: 10
+      - ref: all-services-are-healthy
+      - type: probe
+        name: consumer-service-must-still-respond
+        provider:
+          type: http
+          url: http://192.168.42.58:31018/invokeConsumedService
+    rollbacks: []
+    ```
 
 The key concepts of the Chaos Toolkit are `Experiments`,
 `Steady State Hypothesis` and the experiment's `Method`. The `Method`

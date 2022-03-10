@@ -32,6 +32,8 @@ repo_url: https://github.com/chaostoolkit/chaostoolkit
 markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
+  - pymdownx.tabbed:
+      alternate_style: true 
   - admonition
   - def_list
   - footnotes

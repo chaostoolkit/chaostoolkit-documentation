@@ -115,10 +115,14 @@ services. We will then call our application and see how it responds.
 At this stage, we can create an experiment that tells how the system behaves
 when a certificate expires.
 
-```json
-{!code/tutorials/a-simple-walkthrough/experiment.json!}
-
-```
+=== "JSON"
+    ```json
+    {!code/tutorials/a-simple-walkthrough/experiment.json!}
+    ```
+=== "YAML"
+    ```yaml
+    {!code/tutorials/a-simple-walkthrough/experiment.yaml!}
+    ```
 
 #### The Various Sections of an Experiment
 

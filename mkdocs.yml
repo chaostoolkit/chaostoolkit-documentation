@@ -37,6 +37,7 @@ markdown_extensions:
   - footnotes
   - meta
   - smarty
+  - tables
   - toc:
       permalink: True
   - pymdownx.betterem:

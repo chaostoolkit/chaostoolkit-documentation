@@ -80,6 +80,43 @@ On top of that, if you setup a schedule, a cron job object is created too.
 In all cases, when you delete the experiment, all these objects are also
 deleted.
 
+## Options
+
+All the options are root with the `spec` element of the
+`ChaosToolkitExperiment` kind object.
+
+```yaml
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+    ...
+```
+
+None of these options are required.
+
+| Option Path      | Description                                                            | Value Type    | Default Value |
+| ---------------- | ---------------------------------------------------------------------- | ------------- | ------------- |
+| `namespace:`       | Namespace where to create the experiment objects  | string | `chaostoolkit-run` |
+| <code>serviceaccount:<br/>&nbsp;&nbsp;name:</code>| Name of the service account to attach to the experiment pod | string |`chaostoolkit` |
+| <code>role:<br/>&nbsp;&nbsp;name:</code>      | Name of the role to attach to the experiment pod | string | `chaostoolkit-experiment` |
+| <code>role:<br/>&nbsp;&nbsp;bind:</code>      | Name of the rolebinding to attach to the experiment pod | string | `chaostoolkit-experiment` |
+| <code>role:<br/>&nbsp;&nbsp;binds_to_namespaces:</code>      | List of namespaces to add the role and its binding to | list[string] | `[]` |
+| <code>pod:<br/>&nbsp;&nbsp;configMapName:</code>      | Name of the config map to attach to the experiment pod | string | `chaostoolkit-env` |
+| <code>pod:<br/>&nbsp;&nbsp;image:</code>      | Name of if the image to use for the pod | string | `chaostoolkit/chaostoolkit:latest` |
+| <code>pod:<br/>&nbsp;&nbsp;env:<br/>&nbsp;&nbsp;&nbsp;&nbsp;enabled:</code>   | Do we mount environment variables from the config map into the pod? | boolean | `true` |
+| <code>pod:<br/>&nbsp;&nbsp;env:<br/>&nbsp;&nbsp;&nbsp;&nbsp;secretName:</code>   | Mount the secrets values from this secret as environment variables | string | `""` |
+| <code>pod:<br/>&nbsp;&nbsp;settings:</code>   | Mount the given secret holding Chaos Toolkit settings as a file to the pod | string | `chaostoolkit-settings` |
+| <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;asFile:</code>   | Mount the experiment's payload as file (if `true`) or from a URL | boolean | `true` |
+| <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapName:</code>   | Name of the config map holding the experiment's payload | string | `chaostoolkit-experiment` |
+| <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapExperimentFileName:</code>   | Name of experiment file mounted into the container | string | `experiment.json` |
+| <code>pod:<br/>&nbsp;&nbsp;chaosArgs:</code>   | Replace the default pod's arguments with these ones | list[string] | `[]` |
+| <code>schedule:<br/>&nbsp;&nbsp;kind:</code>   | Cron kind (only CronJob supported) | string | `cronjob` |
+| <code>schedule:<br/>&nbsp;&nbsp;value:</code>   | Cron-like [schedule syntax](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax) | string | `""` |
+
+
 ## Run an experiment
     
 Now that your controller is listening, you can ask it to schedule a Chaos

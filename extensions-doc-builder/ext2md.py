@@ -205,7 +205,7 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     d = d.replace("Parameters", "").replace("--------", "")
     d = d.replace("Examples", "").replace("----------", "")
 
-    indent_right = lambda x: "    " + "\n    ".join(x.split("\n"))
+    indent_right = lambda x: "\n    ".join(x.split("\n"))
     return {
         "type": activity_type,
         "module": mod_name,

@@ -86,7 +86,7 @@ nav:
         - Schedule: reference/usage/scheduling.md
 - Guides:
     - Get Started with the Chaos Toolkit: reference/tutorial.md
-    - Practice the Chaos Toolkit: reference/walkthrough.md
+    - Chaos Toolkit Labs: reference/walkthrough.md
     - Author and Operator: reference/tutorials/authoring_operating.md
     - Understand the Execution Flow: reference/tutorials/run-flow.md
     - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md

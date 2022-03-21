@@ -19,8 +19,8 @@ rollbacks.
 
 The operator of an experiment executes it. This role is not as clear cut as the
 author's role and, quite often, both are the same person. However, it is
-useful to keep in mind that an experiment does not and infrastructure and to
-be operated. Since you may end up with a fleet of Chaos Toolkit experiments
+useful to keep in mind what an experiment requires to be operated.
+Since you may end up with a fleet of Chaos Toolkit experiments
 running concurrently, the operator should work to ensure the executions
 happen in a safe and controlled manner.
 

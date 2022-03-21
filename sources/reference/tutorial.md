@@ -9,7 +9,7 @@ experiment.
 
 !!! tip
     You will find many more in-depth labs on
-    [GitHub](https://github.com/chaosiq/chaostoolkit-demos).
+    [GitHub](https://github.com/chaostoolkit/walkthrough).
 
 [katacoda]: https://katacoda.com/chaostoolkit
 

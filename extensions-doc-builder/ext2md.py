@@ -15,6 +15,9 @@ import yaml
 __version__ = '0.1.0'
 
 
+indent_right = lambda x: "\n    ".join(x.split("\n"))
+
+
 def get_activity_default_value(arg_type: str) -> str:
     default = None
 
@@ -150,8 +153,8 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                             }
                         ]
                     }
-                controls[short_mod_name]["as_json"] = json.dumps(x, indent=2)
-                controls[short_mod_name]["as_yaml"] = yaml.dump(x, default_flow_style=False)
+                controls[short_mod_name]["as_json"] = indent_right(json.dumps(x, indent=2))
+                controls[short_mod_name]["as_yaml"] = indent_right(yaml.dump(x, default_flow_style=False))
                 continue
 
         activities = []
@@ -205,7 +208,6 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     d = d.replace("Parameters", "").replace("--------", "")
     d = d.replace("Examples", "").replace("----------", "")
 
-    indent_right = lambda x: "\n    ".join(x.split("\n"))
     return {
         "type": activity_type,
         "module": mod_name,

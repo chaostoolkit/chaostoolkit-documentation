@@ -204,8 +204,8 @@ def exported_function_info(mod, mod_name, func_name) -> Dict[str, Any]:
     s = ''
     try:
         s = FormatCode("def {}{}:pass".format(func_name, str(sig)))[0]
-    except Exception:
-        print('Failed to format {} in {}'.format(func_name, mod_name))
+    except Exception as x:
+        print('Failed to format {} in {}: {}'.format(func_name, mod_name, str(x)))
 
     d = inspect.getdoc(func) or ""
     d = d.replace("     ", "")

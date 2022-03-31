@@ -22,8 +22,6 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.suggest
-  analytics:
-    gtag: G-281427321
 extra_css:
   - 'static/css/extra.css'
 docs_dir: sources
@@ -62,6 +60,9 @@ plugins:
   - minify:
       minify_html: true
 extra:
+  analytics:
+    provider: google
+    property: G-R8002C8Y8C
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/chaostoolkit

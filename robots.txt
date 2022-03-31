@@ -1,0 +1,3 @@
+Sitemap: https://chaostoolkit.org/sitemap.xml
+Disallow:
+User-agent: * 

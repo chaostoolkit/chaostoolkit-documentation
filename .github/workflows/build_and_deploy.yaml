@@ -67,6 +67,7 @@ jobs:
         cd -
         git submodule update --init --remote
         mkdocs build --strict -d /tmp/site
+        cp robots.txt /tmp/site/robots.txt
         cd ..
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@4.1.0

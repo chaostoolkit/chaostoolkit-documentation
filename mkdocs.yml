@@ -128,6 +128,8 @@ nav:
           - WireMock: drivers/wiremock.md
         - Load Testing:
           - k6: drivers/k6.md
+        - Notification:
+          - Slack: drivers/slack.md
         - Observability:
           - Dynatrace: drivers/dynatrace.md
           - Grafana: drivers/grafana.md

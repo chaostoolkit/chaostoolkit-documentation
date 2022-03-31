@@ -98,5 +98,10 @@
         "name": "chaosgrafana",
         "doc_path": "../sources/drivers/grafana.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-grafana"
+    },
+    {
+        "name": "chaosslack",
+        "doc_path": "../sources/drivers/slack.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-slack"
     }
 ]

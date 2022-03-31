@@ -139,7 +139,7 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
                 controls[short_mod_name]["doc"] = mod.__doc__ or None
                 exported.remove(func_name)
                 try:
-                    point, level, _ = func_name.split("_")
+                    point, level, _ = func_name.split("_", 2)
                 except ValueError:
                     print(f"Failed to parse {func_name} in {mod_name}")
                 else:

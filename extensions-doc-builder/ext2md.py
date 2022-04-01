@@ -70,7 +70,7 @@ def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
         "configure": False,
         "cleanup": False,
         "validate": False,
-        "loading_experiment": {
+        "loading": {
             "before": False,
             "after": False
         },

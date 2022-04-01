@@ -62,7 +62,7 @@ plugins:
 extra:
   analytics:
     provider: google
-    property: G-R8002C8Y8C
+    property: UA-110478437-1
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/chaostoolkit

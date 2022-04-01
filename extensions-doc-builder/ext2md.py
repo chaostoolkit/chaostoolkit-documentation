@@ -41,8 +41,6 @@ def get_activity_default_value(arg_type: str) -> str:
     return default
 
 
-
-
 def import_extension(extension: Dict[str, str]) -> Dict[str, Any]:
     pkg = importlib.import_module(extension["name"])
 

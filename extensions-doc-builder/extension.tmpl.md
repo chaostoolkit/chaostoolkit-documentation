@@ -27,7 +27,7 @@ of an experiment:
 
 |            Level             |             Before             |             After             |
 | -----------------------------| ------------------------------ |------------------------------ |
-| **Experiment Loading**       | {{control.loading_experiment.before}} | {{control.loading_experiment.after}} |
+| **Experiment Loading**       | {{control.loading.before}} | {{control.loading.after}} |
 | **Experiment**               | {{control.experiment.before}} | {{control.experiment.after}} |
 | **Steady-state Hypothesis**  | {{control.hypothesis.before}} | {{control.hypothesis.after}} |
 | **Method**                   | {{control.method.before}} | {{control.method.after}} |

@@ -69,7 +69,7 @@ When you apply an experiment object, the following other objects are
 created in the `chaostoolkit-run` namespace:
 
 * a Service Account specific to the pod
-* a Pod running the Chaos Toolkit based of the image you indicated
+* a Pod running the Chaos Toolkit based on the image you indicated
 * a role and a binding with enough permissions to handle pods inside the 
   `chaostoolkit-run` namespace itself
 * a config map specific to that experiment with the experiment payload you gave

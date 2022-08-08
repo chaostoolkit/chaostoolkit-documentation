@@ -103,5 +103,10 @@
         "name": "chaosslack",
         "doc_path": "../sources/drivers/slack.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-slack"
+    },
+    {
+        "name": "chaospixie",
+        "doc_path": "../sources/drivers/pixie.md",
+        "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-pixie"
     }
 ]

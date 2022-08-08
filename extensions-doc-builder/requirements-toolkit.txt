@@ -19,3 +19,4 @@ chaostoolkit-reliably
 chaostoolkit-addons
 chaostoolkit-grafana
 chaostoolkit-slack
+chaostoolkit-pixie

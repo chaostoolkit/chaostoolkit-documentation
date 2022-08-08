@@ -134,6 +134,7 @@ nav:
           - Grafana: drivers/grafana.md
           - Humio: drivers/humio.md
           - Open Tracing/OpenTelemetry: drivers/opentracing.md
+          - Pixie: drivers/pixie.md
           - Prometheus: drivers/prometheus.md
         - Reliability:
           - Reliably: drivers/reliably.md

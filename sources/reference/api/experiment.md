@@ -681,7 +681,9 @@ In addition, the `provider` object MAY declare any of the followings:
 * a `arguments` property
 * a `timeout` property
 
-The `arguments` property MUST be a JSON array or a JSON string which defines the process arguments. Those arguments are passed in order to the process arguments.
+The `arguments` property MUST be a JSON array or a JSON string which defines
+the process arguments. Those arguments are passed in order to the process
+arguments.
 
 The `timeout` property MUST be a JSON number specifying how long the process
 should take to complete.

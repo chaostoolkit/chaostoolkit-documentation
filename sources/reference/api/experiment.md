@@ -529,7 +529,6 @@ When declared fully, a Action MUST declare:
 * a `type` property
 * a `name` property
 * a `provider` property
-* a `controls` property
 
 The `type` property MUST be the JSON string `"action"`. 
 
@@ -538,6 +537,7 @@ identifier within the experiment.
 
 It MAY also declare:
 
+* a `controls` property
 * a `secret` property
 * a `configuration` property
 * a `background` property

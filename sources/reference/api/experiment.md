@@ -78,9 +78,9 @@ An experiment is a JSON object.
 
 An experiment MUST declare:
 
-- a `title` property
-- a `description` property
-- a `method` property
+* a `title` property
+* a `description` property
+* a `method` property
 
 The experiment's `title` and `description` are meant for humans and therefore
 should be as descriptive as possible to clarify the experiment's rationale.
@@ -89,16 +89,16 @@ Title and description are JSON strings with no maximum length.
 
 An experiment SHOULD also declare:
 
-- a `steady-state-hypothesis` property
-- a `rollbacks` property
+* a `steady-state-hypothesis` property
+* a `rollbacks` property
 
 An experiment MAY finally declare:
 
-- a `tags` property
-- a `secrets` property
-- an `extension` property
-- a `contributions` property
-- a `controls` property
+* a `tags` property
+* a `secrets` property
+* an `extension` property
+* a `contributions` property
+* a `controls` property
 
 Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.
@@ -130,8 +130,8 @@ The Steady State Hypothesis element is a JSON object.
 
 Steady State Hypothesis element MUST declare:
 
-- a `title` property
-- a `probes` property
+* a `title` property
+* a `probes` property
 
 The `title` is meant for humans and therefore should clarify the rationale for
 this hypothesis.
@@ -142,7 +142,7 @@ fall into the [tolerance][] zone MUST fail the experiment.
 
 Steady State Hypothesis element MAY declare:
 
-- a `controls` property
+* a `controls` property
 
 [Controls][controls] describe out-of-band capabilities applied during the
 experiment's execution.
@@ -156,9 +156,9 @@ named `tolerance`.
 
 The `tolerance` property's value MUST be one of:
 
-- a scalar: JSON string, number (an integer), boolean
-- a sequence of scalars: JSON string, number, boolean
-- an object
+* a scalar: JSON string, number (an integer), boolean
+* a sequence of scalars: JSON string, number, boolean
+* an object
 
 In the case of a scalar or the sequence, the tolerance validation MUST be
 strict. The value returned by the [Probe][pb] MUST be checked against the
@@ -192,7 +192,7 @@ Path to that value. The `expect` property value MUST be a scalar. When the
 `expect` property is not present, the `tolerance` succeeds if the JSON Path
 matched at least one item.
 
-When the `type` property is `"range"`, the object MUST have a `range`
+When the `type` property is `"range"`, the object MUST have a `range` 
 property which MUST be a sequence of length two. The first entry of the
 sequence MUST be the lower bound and the second entry MUST be the upper bound.
 Both entries MUST be JSON numbers.
@@ -206,80 +206,196 @@ Some examples of `tolerance` properties.
 
 A boolean tolerance:
 === "JSON"
-`json "tolerance": true `
+    ```json
+    "tolerance": true
+    ```
 === "YAML"
-`yaml tolerance: true `
+    ```yaml
+    tolerance: true
+    ```
 
 A integer tolerance:
 === "JSON"
-`json "tolerance": 8 `
+    ```json
+    "tolerance": 8
+    ```
 === "YAML"
-`yaml tolerance: 8 `
+    ```yaml
+    tolerance: 8
+    ```
 
 A string tolerance:
 === "JSON"
-`json "tolerance": "OK" `
+    ```json
+    "tolerance": "OK"
+    ```
 === "YAML"
-`yaml tolerance: "OK" `
+    ```yaml
+    tolerance: "OK"
+    ```
 
 A sequence tolerance with lower and upper bounds:
 === "JSON"
-`json "tolerance": [4, 9] `
+    ```json
+    "tolerance": [4, 9]
+    ```
 === "YAML"
-`yaml tolerance: - 4 - 9 `
+    ```yaml
+    tolerance:
+      - 4
+      - 9
+    ```
 
 A sequence tolerance, the value must be contained in that sequence:
 === "JSON"
-`json "tolerance": [4, 9, 78] `
+    ```json
+    "tolerance": [4, 9, 78]
+    ```
 === "YAML"
-`yaml tolerance: - 4 - 9 - 78 `
+    ```yaml
+    tolerance:
+      - 4
+      - 9
+      - 78
+    ```
+
 
 A [Probe][pb] tolerance:
 
 === "JSON"
-`json "tolerance": { "type": "probe", "name": "should-exist", "provider": { "type": "python", "module": "os.path", "func": "exists", "arguments": { "path": "some/file" } } } `
+    ```json
+    "tolerance": {
+        "type": "probe",
+        "name": "should-exist",
+        "provider": {
+            "type": "python",
+            "module": "os.path",
+            "func": "exists",
+            "arguments": {
+                "path": "some/file"
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: probe name: should-exist provider: type: python module: os.path func: exists arguments: path: some/file `
+    ```yaml
+    tolerance:
+      type: probe
+      name: should-exist
+      provider:
+        type: python
+        module: os.path
+        func: exists
+        arguments:
+          path: some/file
+    ```
 
 A regex tolerance:
 
 === "JSON"
-`json "tolerance": { "type": "regex", "pattern": "[0-9]{3}" } `
+    ```json
+    "tolerance": {
+        "type": "regex",
+        "pattern": "[0-9]{3}"
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: regex pattern: '[0-9]{3}' `
+    ```yaml
+    tolerance:
+      type: regex
+      pattern: '[0-9]{3}'
+    ```
+
 
 A regex tolerance with a non default target:
 
+
 === "JSON"
-`json "tolerance": { "type": "regex", "target": "stdout", "pattern": "[0-9]{2}" } `
+    ```json
+    "tolerance": {
+        "type": "regex",
+        "target": "stdout",
+        "pattern": "[0-9]{2}"
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: regex target: stdout pattern: '[0-9]{2}' `
+    ```yaml
+    tolerance:
+      type: regex
+      target: stdout
+      pattern: '[0-9]{2}'
+    ```
+
 
 A jsonpath tolerance:
 
 === "JSON"
-`json "tolerance": { "type": "jsonpath", "path": "foo[*].baz" } `
+    ```json
+    "tolerance": {
+        "type": "jsonpath",
+        "path": "foo[*].baz"
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: jsonpath path: 'foo[*].baz' `
+    ```yaml
+    tolerance:
+      type: jsonpath
+      path: 'foo[*].baz'
+    ```
+
 
 A jsonpath tolerance with an expected value to match:
 
 === "JSON"
-`json "tolerance": { "type": "jsonpath", "path": "foo[*].baz", "expect": 4 } `
+    ```json
+    "tolerance": {
+        "type": "jsonpath",
+        "path": "foo[*].baz",
+        "expect": 4
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: jsonpath path: 'foo[*].baz' expect: 4 `
+    ```yaml
+    tolerance:
+      type: jsonpath
+      path: 'foo[*].baz'
+      expect: 4
+    ```
 
 Two range tolerances:
 
 === "JSON"
-`json "tolerance": { "type": "range", "range": [4, 8] } `
+    ```json
+    "tolerance": {
+        "type": "range",
+        "range": [4, 8]
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: range range: - 4 - 8 `
+    ```yaml
+    tolerance:
+      type: range
+      range:
+        - 4
+        - 8
+    ```
 
 === "JSON"
-`json "tolerance": { "type": "range", "range": [4.6, 8.9] } `
+    ```json
+    "tolerance": {
+        "type": "range",
+        "range": [4.6, 8.9]
+    }
+    ```
 === "YAML"
-`yaml tolerance: type: range range: - 4.6 - 8.9 `
+    ```yaml
+    tolerance:
+      type: range
+      range:
+        - 4.6
+        - 8.9
+    ```
+
 
 ### Contributions
 
@@ -300,9 +416,20 @@ for this contribution.
 Here is a contribution example:
 
 === "JSON"
-`json "contributions": { "reliability": "high", "security": "none", "scalability": "medium" } `
+    ```json
+    "contributions": {  
+        "reliability": "high",
+        "security": "none",
+        "scalability": "medium"
+    }
+    ```
 === "YAML"
-`yaml contributions: reliability: high security: none scalability: medium `
+    ```yaml
+    contributions:
+      reliability: high
+      security: none
+      scalability: medium
+    ```
 
 This sample tells us that the experiment contributes mainly to exploring
 reliability of the system and moderately to its scalability. However, it is
@@ -311,9 +438,18 @@ explicit here this experiment does not address security.
 On the other hand:
 
 === "JSON"
-`json "contributions": { "reliability": "high", "scalability": "medium" } `
+    ```json
+    "contributions": {  
+        "reliability": "high",
+        "scalability": "medium"
+    }
+    ```
 === "YAML"
-`yaml contributions: reliability: high scalability: medium `
+    ```yaml
+    contributions:
+      reliability: high
+      scalability: medium
+    ```
 
 This tells us the same about reliability and scalability but we can't presume
 anything about security.
@@ -341,21 +477,21 @@ through the `ref` property.
 
 When declared fully, a Probe MUST declare:
 
-- a `type` property
-- a `name` property
-- a `provider` property
+* a `type` property
+* a `name` property
+* a `provider` property
 
-The `type` property MUST be the JSON string `"probe"`.
+The `type` property MUST be the JSON string `"probe"`. 
 
 The `name` property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.
 
 It MAY also declare:
 
-- a `secret` property
-- a `configuration` property
-- a `background` property
-- a `controls` property
+* a `secret` property
+* a `configuration` property
+* a `background` property
+* a `controls` property
 
 The `secret` property MUST be a JSON string referencing an identifier declared
 in the top-level `secrets` [property][secrets]. It is assumed that when not
@@ -390,22 +526,22 @@ Action through the `ref` property.
 
 When declared fully, a Action MUST declare:
 
-- a `type` property
-- a `name` property
-- a `provider` property
-- a `controls` property
+* a `type` property
+* a `name` property
+* a `provider` property
+* a `controls` property
 
-The `type` property MUST be the JSON string `"action"`.
+The `type` property MUST be the JSON string `"action"`. 
 
 The `name` property is a free-form JSON string that MAY be considered as an
 identifier within the experiment.
 
 It MAY also declare:
 
-- a `secret` property
-- a `configuration` property
-- a `background` property
-- a `pauses` property
+* a `secret` property
+* a `configuration` property
+* a `background` property
+* a `pauses` property
 
 The `secret` property MUST be a JSON string referencing an identifier declared
 in the top-level `secrets` [property][secrets]. It is assumed that when not
@@ -423,8 +559,8 @@ and the next Action or Probe should immediately be applied.
 The `pauses` property MUST be a JSON object which MAY have one or the two
 following properties:
 
-- `before`
-- `after`
+* `before`
+* `after`
 
 In both cases, the value MUST be JSON number indicating the number of seconds to
 wait before continuing. The `before` pause MUST be performed before the Action
@@ -447,8 +583,8 @@ decides the other expected properties.
 The `type` property MUST be one of `"python"`, `"http"` or `"process"`.
 
 !!! info
-This specification only mentions those three providers but it could grow
-to [support more][otherproviders], such as `"go"`, `"rust"` or `"grpc"`...
+    This specification only mentions those three providers but it could grow
+    to [support more][otherproviders], such as `"go"`, `"rust"` or `"grpc"`...
 
 [otherproviders]: https://github.com/chaostoolkit/chaostoolkit-lib/issues/38
 
@@ -458,8 +594,8 @@ A Python Provider declares a Python function to be applied.
 
 A Python Provider MUST declare the following:
 
-- a `module` property
-- a `func` property
+* a `module` property
+* a `func` property
 
 It SHOULD also declare an `arguments` property when the function expects them.
 
@@ -486,7 +622,7 @@ A HTTP Provider declares a URL to be called.
 
 A HTTP Provider MUST declare the following:
 
-- a `url` property
+* a `url` property
 
 The `url` property MUST be a JSON string representing a URL as per
 [RFC 3986][rfc3986].
@@ -495,11 +631,11 @@ The `url` property MUST be a JSON string representing a URL as per
 
 In addition, the `provider` object MAY declare any of the followings:
 
-- a `method` property
-- a `headers` property
-- a `expected_status` property
-- a `arguments` property
-- a `timeout` property
+* a `method` property
+* a `headers` property
+* a `expected_status` property
+* a `arguments` property
+* a `timeout` property
 
 [rfc2616]: https://www.w3.org/Protocols/rfc2616/
 
@@ -523,10 +659,10 @@ request timeout to respond.
 
 The HTTP provider MUST return an object with the following properties:
 
-- `status` which MUST be a valid HTTP returned code as defined in
+* `status` which MUST be a valid HTTP returned code as defined in
   [RFC 7231][rfc7231]
-- `headers` which MUST be an object
-- `body` which MUST be a string
+* `headers` which MUST be an object
+* `body` which MUST be a string
 
 [rfc7231]: https://tools.ietf.org/html/rfc7231
 
@@ -536,27 +672,26 @@ A Process Provider declares a process to be called.
 
 A Process Provider MUST declare the following:
 
-- a `path` property
+* a `path` property
 
 The `path` property MUST be a JSON string of a path to an executable.
 
 In addition, the `provider` object MAY declare any of the followings:
 
-- a `arguments` property
-- a `timeout` property
+* a `arguments` property
+* a `timeout` property
 
-The `arguments` property MUST be a JSON array or a JSON string which defines the process
-arguments. Those arguments are passed in order to the process arguments.
+The `arguments` property MUST be a JSON array or a JSON string which defines the process arguments. Those arguments are passed in order to the process arguments.
 
 The `timeout` property MUST be a JSON number specifying how long the process
 should take to complete.
 
 The Process provider MUST return an object with the following properties:
 
-- `status` which MUST be a scalar of the process return code
-- `stdout` which MUST be bytes sequence encoded with the `UTF-8` encoding
+* `status` which MUST be a scalar of the process return code
+* `stdout` which MUST be bytes sequence encoded with the `UTF-8` encoding
   representing the stdout payload of the process
-- `stderr` which MUST be bytes sequence encoded with the `UTF-8` encoding
+* `stderr` which MUST be bytes sequence encoded with the `UTF-8` encoding
   representing the stderr payload of the process
 
 ### Rollbacks
@@ -588,25 +723,58 @@ Secrets MUST be passed a mapping of keys and values to probes and actions.
 An example of a `secrets` element at the top-level:
 
 === "JSON"
-`json { "secrets": { "kubernetes": { "token": "XYZ" } } } `
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": "XYZ"
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: kubernetes: token: XYZ `
+    ```yaml
+    secrets:
+      kubernetes:
+        token: XYZ
+    ```
 
 This can then referenced from probes or actions:
 
 === "JSON"
-`json { "type": "probe", "secrets": "kubernetes" } `
+    ```json
+    {
+        "type": "probe",
+        "secrets": "kubernetes"
+    }
+    ```
 === "YAML"
-`yaml type: probe secrets: kubernetes `
+    ```yaml
+    type: probe
+    secrets: kubernetes
+    ```
+
 
 #### Inline Secrets
 
 Secrets MAY be inlined in the [Experiment][exp] directly.
 
 === "JSON"
-`json { "secrets": { "kubernetes": { "token": "ABCDEF-1234-XYZ" } } } `
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": "ABCDEF-1234-XYZ"
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: kubernetes: token: ABCDEF-1234-XYZ `
+    ```yaml
+    secrets:
+      kubernetes:
+        token: ABCDEF-1234-XYZ
+    ```
 
 #### Environment Secrets
 
@@ -615,9 +783,26 @@ declared as a JSON object with a `type` property set to `"env"`. The
 environment variable MUST be declared in the `key` property as a JSON string.
 
 === "JSON"
-`json { "secrets": { "kubernetes": { "token": { "type": "env", "key": "KUBERNETES_TOKEN" } } } } `
+    ```json
+    {
+        "secrets": {
+            "kubernetes": {
+                "token": {
+                    "type": "env",
+                    "key": "KUBERNETES_TOKEN"
+                }
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: kubernetes: token: type: env key: KUBERNETES_TOKEN `
+    ```yaml
+    secrets:
+      kubernetes:
+        token:
+          type: env
+          key: KUBERNETES_TOKEN
+    ```
 
 #### Vault Secrets
 
@@ -629,9 +814,26 @@ string.
 [vault]: https://www.vaultproject.io/
 
 === "JSON"
-`json { "secrets": { "myapp": { "token": { "type": "vault", "path": "secrets/something" } } } } `
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something"
+                }
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: myapp: token: type: vault path: secrets/something `
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+    ```
 
 When only the `path` property is set, the whole secrets payload at the given
 path MUST be set to the Chaos Toolkit secret key.
@@ -644,10 +846,10 @@ the `"vault_addr"` property.
 
 Vault authentication MUST at least support:
 
-- [token][vaulttoken] based authentication
+* [token][vaulttoken] based authentication
   The token MUST be provided in the Configuration section via the
   `"vault_token"` property
-- [AppRole][approle] authentication
+* [AppRole][approle] authentication
   The role-id and secret-id MUST be provided in the Configuration section via
   the `"vault_role_id"` and `"vault_role_secret"` properties
 
@@ -664,37 +866,94 @@ Examples:
 Vault secret at path `secret/something`:
 
 === "JSON"
-`json { "foo": "bar", "baz": "hello" } `
+    ```json
+    {
+        "foo": "bar",
+        "baz": "hello"
+    }
+    ```
 === "YAML"
-`yaml foo: bar baz: hello `
+    ```yaml
+    foo: bar
+    baz: hello
+    ```
 
 Then in your Chaos Toolkit experiment:
 
 === "JSON"
-`json { "secrets": { "myapp": { "token": { "type": "vault", "path": "secrets/something" } } } } `
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something"
+                }
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: myapp: token: type: vault path: secrets/something `
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+    ```
 
 means the secrets will become:
 
 === "JSON"
-`json "token": { "foo": "bar", "baz": "hello" } `
+    ```json
+    "token": {
+        "foo": "bar",
+        "baz": "hello"
+    }
+    ```
 === "YAML"
-`yaml token: foo: bar baz: hello `
+    ```yaml
+    token:
+      foo: bar
+      baz: hello
+    ```
 
 However:
 
 === "JSON"
-`json { "secrets": { "myapp": { "token": { "type": "vault", "path": "secrets/something", "key": "foo" } } } } `
+    ```json
+    {
+        "secrets": {
+            "myapp": {
+                "token": {
+                    "type": "vault",
+                    "path": "secrets/something",
+                    "key": "foo"
+                }
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml secrets: myapp: token: type: vault path: secrets/something key: foo `
+    ```yaml
+    secrets:
+      myapp:
+        token:
+          type: vault
+          path: secrets/something
+          key: foo
+    ```
 
 means the secrets will become:
 
 === "JSON"
-`json "token": "bar" `
+    ```json
+    "token": "bar"
+    ```
 === "YAML"
-`yaml token: bar `
+    ```yaml
+    token: bar
+    ```
 
 ### Configuration
 
@@ -712,18 +971,43 @@ actions.
 An example of a `configuration` element at the top-level:
 
 === "JSON"
-`json { "configuration": { "some_service": "http://127.0.0.1:8080", "vault_addr": { "type": "env", "key": "VAULT_ADDR" } } } `
+    ```json
+    {
+        "configuration": {
+            "some_service": "http://127.0.0.1:8080",
+            "vault_addr": {
+                "type": "env",
+                "key": "VAULT_ADDR"
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml configuration: some_service: 'http://127.0.0.1:8080' vault_addr: type: env key: VAULT_ADDR `
+    ```yaml
+    configuration:
+      some_service: 'http://127.0.0.1:8080'
+      vault_addr:
+        type: env
+        key: VAULT_ADDR
+    ```
 
 #### Inline Configurations
 
 Configurations MAY be inlined in the [Experiment][exp] directly.
 
 === "JSON"
-`json { "configuration": { "some-service": "http://127.0.0.1:8080" } } `
+    ```json
+    {
+        "configuration": {
+            "some-service": "http://127.0.0.1:8080"
+        }
+    }
+    ```
 === "YAML"
-`yaml configuration: some-service: 'http://127.0.0.1:8080' `
+    ```yaml
+    configuration:
+      some-service: 'http://127.0.0.1:8080'
+    ```
 
 #### Environment Configurations
 
@@ -735,13 +1019,30 @@ The `default` key is OPTIONAL and MAY be used when the environment variable
 can be undefined and fallback to a default value for the experiment.
 
 === "JSON"
-`json { "configuration": { "vault_addr": { "type": "env", "key": "VAULT_ADDR", "default": "https://127.0.0.1:8200" } } } `
+    ```json
+    {
+        "configuration": {
+            "vault_addr": {
+                "type": "env",
+                "key": "VAULT_ADDR",
+                "default": "https://127.0.0.1:8200"
+            }
+        }
+    }
+    ```
 === "YAML"
-`yaml configuration: vault_addr: type: env key: VAULT_ADDR default: 'https://127.0.0.1:8200' `
+    ```yaml
+    configuration:
+      vault_addr:
+        type: env
+        key: VAULT_ADDR
+        default: 'https://127.0.0.1:8200'
+    ```
+
 
 ### Variable Substitution
 
-Probes and Actions argument values MAY be dynamically resolved at runtime.
+Probes and Actions argument values MAY be dynamically resolved at runtime. 
 
 Dynamic values MUST follow the syntax `${name}` where `name` is an identifier
 declared in either the Configuration or Secrets sections. When `name` is
@@ -759,9 +1060,9 @@ external tools.
 
 Controls MAY be declared at each of the following levels:
 
-- experiment
-- steady-state-hypothesis
-- activity
+* experiment
+* steady-state-hypothesis
+* activity
 
 Controls MUST be applied before and after each of those levels. Schematically,
 this looks like this:
@@ -804,20 +1105,20 @@ changes MUST be made visible to the experiment.
 An item of that array MUST be a control, which is a JSON object which MUST
 have the following properties:
 
-- a `name` property which MUST be a JSON string
-- a `provider` property MUST be a JSON object
+* a `name` property which MUST be a JSON string
+* a `provider` property MUST be a JSON object
 
 The `provider` object indicates which implementation of the control to use.
 It MUST declare the following properties:
 
-- a `type` JSON string which MUST be `"python"`
-- a `module` JSON string when the `type` property is `"python"`. It MUST be a
+* a `type` JSON string which MUST be `"python"`
+* a `module` JSON string when the `type` property is `"python"`. It MUST be a
   a Python module dotted path implementing the control interface
 
 A control object MAY also declare the following property:
 
-- a `scope` property MUST be a JSON string
-- `automatic`, a JSON boolean which MUST be `true` by default (when omitted)
+* a `scope` property MUST be a JSON string
+* `automatic`, a JSON boolean which MUST be `true` by default (when omitted)
 
 The `scope` value MUST be one of `"before"` or `"after"`. When the `scope`
 property is omitted, the control MUST be applied before and after. When the
@@ -831,29 +1132,76 @@ Examples of Controls:
 Just a generic declaration of a control at the top-level of the experiment:
 
 === "JSON"
-`json "controls": [ { "name": "tracing", "provider": { "type": "python", "module": "chaostracing.control" } } ] `
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
+        }
+    ]
+    ```
 === "YAML"
-```yaml
-controls: - name: tracing
-provider:
-type: python
-module: chaostracing.control
+    ```yaml
+    controls:
+      - name: tracing
+        provider:
+        type: python
+        module: chaostracing.control
 
     ```
 
 Another control by applied only as post-control:
 
 === "JSON"
-`json "controls": [ { "name": "tracing", "scope": "post", "provider": { "type": "python", "module": "chaostracing.control" } } ] `
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "scope": "post",
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
+        }
+    ]
+    ```
 === "YAML"
-`yaml controls: - name: tracing scope: post provider: type: python module: chaostracing.control `
+    ```yaml
+    controls:
+      - name: tracing
+        scope: post
+        provider:
+        type: python
+        module: chaostracing.control
+    ```
 
 Finally, a top-level level control not applied anywhere else down the tree:
 
 === "JSON"
-`json "controls": [ { "name": "tracing", "automatic": false, "provider": { "type": "python", "module": "chaostracing.control" } } ] `
+    ```json
+    "controls": [
+        {
+            "name": "tracing",
+            "automatic": false,
+            "provider": {
+                "type": "python",
+                "module": "chaostracing.control"
+            }
+        }
+    ]
+    ```
 === "YAML"
-`yaml controls: - name: tracing automatic: false provider: type: python module: chaostracing.control `
+    ```yaml
+    controls:
+      - name: tracing
+        automatic: false
+        provider:
+        type: python
+        module: chaostracing.control
+    ```
 
 ### Extensions
 
@@ -862,8 +1210,8 @@ of objects. Each object MUST declare a non-empty `name` property.
 
 Extensions are used in two scenarios:
 
-- future core features that need to be ironed out by the community first
-- vendor specific payload
+* future core features that need to be ironed out by the community first
+* vendor specific payload
 
 In both cases, their actual usage is runtime dependent, this specification
 does not declare any meaning to an extension.
@@ -871,9 +1219,20 @@ does not declare any meaning to an extension.
 Below is an example of an Extension:
 
 === "JSON"
-`json { "extensions": [{ "name": "vendorX", "data": "..." }] } `
+    ```json
+    {
+        "extensions": [{
+            "name": "vendorX",
+            "data": "..."
+        }]
+    }
+    ```
 === "YAML"
-`yaml extensions: - name: vendorX data: ... `
+    ```yaml
+    extensions:
+      - name: vendorX
+        data: ...
+    ```
 
 ## Examples
 
@@ -884,9 +1243,86 @@ The following examples MUST NOT be considered normative.
 Here is an example of the most minimal experiment:
 
 === "JSON"
-`json { "title": "Moving a file from under our feet is forgivable", "description": "Our application should re-create a file that was removed", "contributions": { "reliability": "high", "availability": "high" }, "steady-state-hypothesis": { "title": "The file must be around first", "probes": [ { "type": "probe", "name": "file-must-exist", "tolerance": true, "provider": { "type": "python", "module": "os.path", "func": "exists", "arguments": { "path": "some/file" } } } ] }, "method": [ { "type": "action", "name": "file-be-gone", "provider": { "type": "python", "module": "os", "func": "remove", "arguments": { "path": "some/file" } }, "pauses": { "after": 5 } }, { "ref": "file-must-exist" } ] } `
+    ```json
+    {
+        "title": "Moving a file from under our feet is forgivable",
+        "description": "Our application should re-create a file that was removed",
+        "contributions": {
+            "reliability": "high",
+            "availability": "high"
+        },
+        "steady-state-hypothesis": {
+            "title": "The file must be around first",
+            "probes": [
+                {
+                    "type": "probe",
+                    "name": "file-must-exist",
+                    "tolerance": true,
+                    "provider": {
+                        "type": "python",
+                        "module": "os.path",
+                        "func": "exists",
+                        "arguments": {
+                            "path": "some/file"
+                        }
+                    }
+                }
+            ]
+        },
+        "method": [
+            {
+                "type": "action",
+                "name": "file-be-gone",
+                "provider": {
+                    "type": "python",
+                    "module": "os",
+                    "func": "remove",
+                    "arguments": {
+                        "path": "some/file"
+                    }
+                },
+                "pauses": {
+                    "after": 5
+                }
+            },
+            {
+                "ref": "file-must-exist"
+            }
+        ]
+    }
+    ```
 === "YAML"
-`yaml title: Moving a file from under our feet is forgivable description: Our application should re-create a file that was removed contributions: reliability: high availability: high steady-state-hypothesis: title: The file must be around first probes: - type: probe name: file-must-exist tolerance: true provider: type: python module: os.path func: exists arguments: path: some/file method: - type: action name: file-be-gone provider: type: python module: os func: remove arguments: path: some/file pauses: after: 5 - ref: file-must-exist `
+    ```yaml
+    title: Moving a file from under our feet is forgivable
+    description: Our application should re-create a file that was removed
+    contributions:
+      reliability: high
+      availability: high
+    steady-state-hypothesis:
+      title: The file must be around first
+      probes:
+        - type: probe
+          name: file-must-exist
+          tolerance: true
+          provider:
+            type: python
+            module: os.path
+            func: exists
+            arguments:
+            path: some/file
+    method:
+      - type: action
+        name: file-be-gone
+        provider:
+          type: python
+          module: os
+          func: remove
+          arguments:
+            path: some/file
+        pauses:
+          after: 5
+      - ref: file-must-exist
+    ```
 
 ### More Complex Experiment
 
@@ -894,6 +1330,233 @@ Below is an example of a fully featured experiment that uses various extensions
 to perform actions, probing and steady-state hypothesis validation.
 
 === "JSON"
-`json { "title": "Are our users impacted by the loss of a function?", "description": "While users query the Astre function, they should not be impacted if one instance goes down.", "contributions": { "reliability": "high", "availability": "high", "performance": "medium", "security": "none" }, "tags": [ "kubernetes", "openfaas", "cloudnative" ], "configuration": { "prometheus_base_url": "http://demo.foo.bar" }, "secrets": { "global": { "auth": "Basic XYZ" } }, "controls": [ { "name": "tracing", "provider": { "type": "python", "module": "chaostracing.control" } } ], "steady-state-hypothesis": { "title": "Function is available", "probes": [ { "type": "probe", "name": "function-must-exist", "tolerance": 200, "provider": { "type": "http", "secrets": ["global"], "url": "http://demo.foo.bar/system/function/astre", "headers": { "Authorization": "${auth}" } } }, { "type": "probe", "name": "function-must-respond", "tolerance": 200, "provider": { "type": "http", "timeout": [3, 5], "secrets": ["global"], "url": "http://demo.foo.bar/function/astre", "method": "POST", "headers": { "Content-Type": "application/json", "Authorization": "${auth}" }, "arguments": { "city": "Paris" } } } ] }, "method": [ { "type": "action", "name": "simulate-user-traffic", "background": true, "provider": { "type": "process", "path": "vegeta", "arguments": "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin" } }, { "type": "action", "name": "terminate-one-function", "provider": { "type": "python", "module": "chaosk8s.pod.actions", "func": "terminate_pods", "arguments": { "ns": "openfaas-fn", "label_selector": "faas_function=astre", "rand": true } }, "pauses": { "before": 5 } }, { "type": "probe", "name": "fetch-openfaas-gateway-logs", "provider": { "type": "python", "module": "chaosk8s.pod.probes", "func": "read_pod_logs", "arguments": { "label_selector": "app=gateway", "last": "35s", "ns": "openfaas" } } }, { "type": "probe", "name": "query-total-function-invocation", "provider": { "type": "python", "module": "chaosprometheus.probes", "func": "query_interval", "secrets": ["global"], "arguments": { "query": "gateway_function_invocation_total{function_name='astre'}", "start": "1 minute ago", "end": "now", "step": 1 } } } ], "rollbacks": [] } `
+    ```json
+    {
+        "title": "Are our users impacted by the loss of a function?",
+        "description": "While users query the Astre function, they should not be impacted if one instance goes down.",
+        "contributions": {
+            "reliability": "high",
+            "availability": "high",
+            "performance": "medium",
+            "security": "none"
+        },
+        "tags": [
+            "kubernetes",
+            "openfaas",
+            "cloudnative"
+        ],
+        "configuration": {
+            "prometheus_base_url": "http://demo.foo.bar"
+        },
+        "secrets": {
+            "global": {
+                "auth": "Basic XYZ"
+            }
+        },
+        "controls": [
+            {
+                "name": "tracing",
+                "provider": {
+                    "type": "python",
+                    "module": "chaostracing.control"
+                }
+            }
+        ],
+        "steady-state-hypothesis": {
+            "title": "Function is available",
+            "probes": [
+                {
+                    "type": "probe",
+                    "name": "function-must-exist",
+                    "tolerance": 200,
+                    "provider": {
+                        "type": "http",
+                        "secrets": ["global"],
+                        "url": "http://demo.foo.bar/system/function/astre",
+                        "headers": {
+                            "Authorization": "${auth}"
+                        }
+                    }
+                },
+                {
+                    "type": "probe",
+                    "name": "function-must-respond",
+                    "tolerance": 200,
+                    "provider": {
+                        "type": "http",
+                        "timeout": [3, 5],
+                        "secrets": ["global"],
+                        "url": "http://demo.foo.bar/function/astre",
+                        "method": "POST",
+                        "headers": {
+                            "Content-Type": "application/json",
+                            "Authorization": "${auth}"
+                        },
+                        "arguments": {
+                            "city": "Paris"
+                        }
+                    }
+                }
+            ]
+        },
+        "method": [
+            {
+                "type": "action",
+                "name": "simulate-user-traffic",
+                "background": true,
+                "provider": {
+                    "type": "process",
+                    "path": "vegeta",
+                    "arguments": "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
+                }
+            },
+            {
+                "type": "action",
+                "name": "terminate-one-function",
+                "provider": {
+                    "type": "python",
+                    "module": "chaosk8s.pod.actions",
+                    "func": "terminate_pods",
+                    "arguments": {
+                        "ns": "openfaas-fn",
+                        "label_selector": "faas_function=astre",
+                        "rand": true
+                    }
+                },
+                "pauses": {
+                    "before": 5
+                }
+            },
+            {
+                "type": "probe",
+                "name": "fetch-openfaas-gateway-logs",
+                "provider": {
+                    "type": "python",
+                    "module": "chaosk8s.pod.probes",
+                    "func": "read_pod_logs",
+                    "arguments": {
+                        "label_selector": "app=gateway",
+                        "last": "35s",
+                        "ns": "openfaas"
+                    }
+                }
+            },
+            {
+                "type": "probe",
+                "name": "query-total-function-invocation",
+                "provider": {
+                    "type": "python",
+                    "module": "chaosprometheus.probes",
+                    "func": "query_interval",
+                    "secrets": ["global"],
+                    "arguments": {
+                        "query": "gateway_function_invocation_total{function_name='astre'}",
+                        "start": "1 minute ago",
+                        "end": "now",
+                        "step": 1
+                    }
+                }
+            }
+        ],
+        "rollbacks": []
+    }
+    ```
 === "YAML"
-`yaml --- title: Are our users impacted by the loss of a function? description: While users query the Astre function, they should not be impacted if one instance goes down. contributions: reliability: high availability: high performance: medium security: none tags: - kubernetes - openfaas - cloudnative configuration: prometheus_base_url: http://demo.foo.bar secrets: global: auth: Basic XYZ controls: - name: tracing provider: type: python module: chaostracing.control steady-state-hypothesis: title: Function is available probes: - type: probe name: function-must-exist tolerance: 200 provider: type: http secrets: - global url: http://demo.foo.bar/system/function/astre headers: Authorization: "${auth}" - type: probe name: function-must-respond tolerance: 200 provider: type: http timeout: - 3 - 5 secrets: - global url: http://demo.foo.bar/function/astre method: POST headers: Content-Type: application/json Authorization: "${auth}" arguments: city: Paris method: - type: action name: simulate-user-traffic background: true provider: type: process path: vegeta arguments: "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin" - type: action name: terminate-one-function provider: type: python module: chaosk8s.pod.actions func: terminate_pods arguments: ns: openfaas-fn label_selector: faas_function=astre rand: true pauses: before: 5 - type: probe name: fetch-openfaas-gateway-logs provider: type: python module: chaosk8s.pod.probes func: read_pod_logs arguments: label_selector: app=gateway last: 35s ns: openfaas - type: probe name: query-total-function-invocation provider: type: python module: chaosprometheus.probes func: query_interval secrets: - global arguments: query: gateway_function_invocation_total{function_name='astre'} start: 1 minute ago end: now step: 1 rollbacks: [] `
+    ```yaml
+    ---
+    title: Are our users impacted by the loss of a function?
+    description: While users query the Astre function, they should not be impacted if one instance goes down.
+    contributions:
+      reliability: high
+      availability: high
+      performance: medium
+      security: none
+    tags:
+      - kubernetes
+      - openfaas
+      - cloudnative
+    configuration:
+      prometheus_base_url: http://demo.foo.bar
+    secrets:
+      global:
+        auth: Basic XYZ
+    controls:
+      - name: tracing
+        provider:
+          type: python
+          module: chaostracing.control
+    steady-state-hypothesis:
+      title: Function is available
+      probes:
+        - type: probe
+          name: function-must-exist
+          tolerance: 200
+          provider:
+            type: http
+            secrets:
+              - global
+            url: http://demo.foo.bar/system/function/astre
+            headers:
+              Authorization: "${auth}"
+        - type: probe
+          name: function-must-respond
+          tolerance: 200
+          provider:
+            type: http
+            timeout:
+              - 3
+              - 5
+            secrets:
+              - global
+            url: http://demo.foo.bar/function/astre
+            method: POST
+            headers:
+              Content-Type: application/json
+              Authorization: "${auth}"
+            arguments:
+              city: Paris
+    method:
+      - type: action
+        name: simulate-user-traffic
+        background: true
+        provider:
+          type: process
+          path: vegeta
+          arguments: "-cpus 2 attack -targets=data/scenario.txt -workers=2 -connections=1 -rate=3 -timeout=3s -duration=30s -output=result.bin"
+      - type: action
+        name: terminate-one-function
+        provider:
+          type: python
+          module: chaosk8s.pod.actions
+          func: terminate_pods
+          arguments:
+            ns: openfaas-fn
+            label_selector: faas_function=astre
+            rand: true
+        pauses:
+          before: 5
+      - type: probe
+        name: fetch-openfaas-gateway-logs
+        provider:
+          type: python
+          module: chaosk8s.pod.probes
+          func: read_pod_logs
+          arguments:
+            label_selector: app=gateway
+            last: 35s
+            ns: openfaas
+      - type: probe
+        name: query-total-function-invocation
+        provider:
+        type: python
+        module: chaosprometheus.probes
+        func: query_interval
+        secrets:
+          - global
+        arguments:
+          query: gateway_function_invocation_total{function_name='astre'}
+          start: 1 minute ago
+          end: now
+          step: 1
+    rollbacks: []
+    ```

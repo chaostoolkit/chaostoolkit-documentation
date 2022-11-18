@@ -130,6 +130,7 @@ nav:
         - Notification:
           - Slack: drivers/slack.md
         - Observability:
+          - DataDog: drivers/datadog.md
           - Dynatrace: drivers/dynatrace.md
           - Grafana: drivers/grafana.md
           - Humio: drivers/humio.md

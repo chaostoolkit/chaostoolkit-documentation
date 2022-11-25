@@ -603,6 +603,10 @@ used.
 
 Argument values MUST be valid JSON entities.
 
+In addition, the `provider` object MAY declare a `secrets` property. This `secrets` property MUST be a JSON string referencing an identifier declared
+in the top-level `secrets` [property][secrets]. It is assumed that when not
+declared, the Action requires no secrets.
+
 [farg]: https://docs.python.org/3/glossary.html#term-argument
 [fdef]: https://docs.python.org/3/reference/compound_stmts.html#function-definitions
 
@@ -626,6 +630,7 @@ In addition, the `provider` object MAY declare any of the followings:
 * a `expected_status` property
 * a `arguments` property
 * a `timeout` property
+* a `secrets` property
 
 [rfc2616]: https://www.w3.org/Protocols/rfc2616/
 
@@ -646,6 +651,10 @@ The `timeout` property MUST be either a JSON number specifying how long the
 request should take to complete. Or a JSON array that MUST made of two JSON
 numbers, the first one indicating the connection timeout, the second the
 request timeout to respond.
+
+The `secrets` property MUST be a JSON string referencing an identifier declared
+in the top-level `secrets` [property][secrets]. It is assumed that when not
+declared, the Action requires no secrets.
 
 The HTTP provider MUST return an object with the following properties:
 
@@ -670,6 +679,7 @@ In addition, the `provider` object MAY declare any of the followings:
 
 * a `arguments` property
 * a `timeout` property
+* a `secrets` property
 
 The `arguments` property MUST be a JSON array or a JSON string which defines
 the process arguments. Those arguments are passed in order to the process
@@ -677,6 +687,10 @@ arguments.
 
 The `timeout` property MUST be a JSON number specifying how long the process
 should take to complete.
+
+The `secrets` property MUST be a JSON string referencing an identifier declared
+in the top-level `secrets` [property][secrets]. It is assumed that when not
+declared, the Action requires no secrets.
 
 The Process provider MUST return an object with the following properties:
 

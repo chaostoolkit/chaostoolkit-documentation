@@ -488,14 +488,9 @@ identifier within the experiment.
 
 It MAY also declare:
 
-* a `secret` property
 * a `configuration` property
 * a `background` property
 * a `controls` property
-
-The `secret` property MUST be a JSON string referencing an identifier declared
-in the top-level `secrets` [property][secrets]. It is assumed that when not
-declared, the Probe requires no secrets.
 
 The `configuration` property MUST be a JSON string referencing an identifier
 declared in the top-level `configuration` [property][conf]. It is assumed that
@@ -538,14 +533,9 @@ identifier within the experiment.
 It MAY also declare:
 
 * a `controls` property
-* a `secret` property
 * a `configuration` property
 * a `background` property
 * a `pauses` property
-
-The `secret` property MUST be a JSON string referencing an identifier declared
-in the top-level `secrets` [property][secrets]. It is assumed that when not
-declared, the Action requires no secrets.
 
 The `configuration` property MUST be a JSON string referencing an identifier
 declared in the top-level `configuration` [property][conf]. It is assumed that

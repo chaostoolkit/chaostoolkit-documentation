@@ -963,14 +963,14 @@ Configuration is meant to provide runtime values to [actions][action] and
 [probes][pb].
 
 The `configuration` element MUST be a JSON object. The value of each property
-MUST be a JSON string or object which properties are considered the
+MUST be a JSON string, number, or object whose properties are considered the
 configuration lookup. Configuration must be passed to all Probes and actions
 requiring it. Probes and actions MUST NOT modify the configuration.
 
 Configurations MUST be passed a mapping of keys and values to probes and
 actions.
 
-An example of a `configuration` element at the top-level:
+An example of a `configuration` element at the top level:
 
 === "JSON"
     ```json

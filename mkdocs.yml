@@ -3,7 +3,7 @@ site_url: "https://chaostoolkit.org"
 use_directory_urls: true
 site_author: The Chaos Toolkit Team
 site_description: Chaos Toolkit
-copyright: '&copy; 2017-2022 Chaos Toolkit team'
+copyright: '&copy; 2017-2023 Chaos Toolkit team'
 edit_uri: ""
 theme:
   name: material

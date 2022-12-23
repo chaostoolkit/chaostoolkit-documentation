@@ -26,7 +26,7 @@ jobs:
 
         echo "Install CTK and minor dependencies"
         pip --quiet install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
-        pip --quiet install --prefer-binary httplib2 uritemplate pytzdata msrestazure opentelemetry
+        pip --quiet install --prefer-binary httplib2 uritemplate pytzdata msrestazure opentelemetry-api opentelemetry-sdk
       
         echo "install all the dependencies for our drivers"
         pip --quiet install --prefer-binary -U -r requirements-toolkit.txt

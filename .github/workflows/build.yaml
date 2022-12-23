@@ -14,7 +14,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip setuptools
+        python -m pip install --upgrade pip setuptools wheels
         pip install --prefer-binary -U -r requirements.txt
     - name: Build driver dependencies
       run: |
@@ -23,7 +23,7 @@ jobs:
 
         echo "Install CTK and minor dependencies"
         pip --quiet install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
-        pip --quiet install --prefer-binary httplib2 uritemplate pytzdata msrestazure opentelemetry
+        pip --quiet install --prefer-binary httplib2 uritemplate pytzdata msrestazure opentelemetry-api opentelemetry-sdk
       
         echo "install all the dependencies for our drivers"
         pip --quiet install --prefer-binary -U -r requirements-toolkit.txt

@@ -75,16 +75,6 @@
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-dynatrace"
     },
     {
-        "name": "chaosk6",
-        "doc_path": "../sources/drivers/k6.md",
-        "repo": "https://github.com/k6io/chaostoolkit-k6"
-    },
-    {
-        "name": "chaosansible",
-        "doc_path": "../sources/drivers/ansible.md",
-        "repo": "https://github.com/Mickael-Roger/chaostoolkit-ansible"
-    },
-    {
         "name": "chaosreliably",
         "doc_path": "../sources/drivers/reliably.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-reliably"

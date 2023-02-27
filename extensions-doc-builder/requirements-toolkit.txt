@@ -13,8 +13,8 @@ chaostoolkit-istio
 chaostoolkit-wiremock
 chaostoolkit-gandi
 chaostoolkit-dynatrace
-chaostoolkit-k6
-chaostoolkit-ansible
+# chaostoolkit-k6
+# chaostoolkit-ansible
 chaostoolkit-reliably
 chaostoolkit-addons
 chaostoolkit-grafana

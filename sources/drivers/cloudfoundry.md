@@ -2,7 +2,7 @@
 
 |                       |               |
 | --------------------- | ------------- |
-| **Version**           | 0.7.1 |
+| **Version**           | 0.7.3 |
 | **Repository**        | https://github.com/chaostoolkit-incubator/chaostoolkit-cloud-foundry |
 
 
@@ -18,7 +18,7 @@ experiments against a Cloud Foundry instance using the
 
 ## Install
 
-This package requires Python 3.5+
+This package requires Python 3.7+
 
 To be used from your experiment, this package must be installed in the Python
 environment where [chaostoolkit][] already lives.
@@ -26,7 +26,7 @@ environment where [chaostoolkit][] already lives.
 [chaostoolkit]: https://github.com/chaostoolkit/chaostoolkit
 
 ```
-pip install -U chaostoolkit-cloud-foundry
+$ pip install -U chaostoolkit-cloud-foundry
 ```
 
 ## Usage
@@ -74,7 +74,7 @@ Please explore the code to see existing probes and actions.
 You may use the Chaos Toolkit to discover the capabilities of this extension:
 
 ```
-chaos discover chaostoolkit-cloud-foundry --no-install
+$ chaos discover chaostoolkit-cloud-foundry --no-install
 ```
 
 If you have logged in against a Cloud Foundry environment, this will discover
@@ -101,7 +101,7 @@ file:
 }
 ```
 
-You may leave `"cf_verify_ssl"` out of the configuration when you want to
+You may leave `"cf_verifiy_ssl"` out of the configuration when you want to
 verify TLS certificates. Usually, local environments are self-signed so it
 may be useful to disable that check in that case.
 
@@ -137,7 +137,7 @@ Then in your probe or action:
 To run the tests for the project execute the following:
 
 ```
-pip install -r requirements-dev.txt
+$ pip install -r requirements-dev.txt
 $ pytest
 ```
 
@@ -167,13 +167,13 @@ those dependencies.
 [venv]: http://chaostoolkit.org/reference/usage/install/#create-a-virtual-environment
 
 ```console
-pip install -r requirements-dev.txt -r requirements.txt 
+$ pip install -r requirements-dev.txt -r requirements.txt 
 ```
 
 Then, point your environment to this directory:
 
 ```console
-python setup.py develop
+$ python setup.py develop
 ```
 
 Now, you can edit the files and they will be automatically be seen by your
@@ -184,8 +184,9 @@ environment, even when running from the `chaos` command locally.
 To run the tests for the project execute the following:
 
 ```
-python setup.py test
+$ python setup.py test
 ```
+
 
 
 
@@ -217,7 +218,13 @@ See https://apidocs.cloudfoundry.org/280/apps/delete_a_particular_app.html
 **Signature:**
 
 ```python
-('def delete_app(app_name: str,\n               configuration: Dict[str, Dict[str, str]],\n               secrets: Dict[str, Dict[str, str]],\n               org_name: str = None,\n               space_name: str = None):\n    pass\n',)
+def delete_app(app_name: str,
+               configuration: Dict[str, Dict[str, str]],
+               secrets: Dict[str, Dict[str, str]],
+               org_name: str = None,
+               space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -233,32 +240,37 @@ See https://apidocs.cloudfoundry.org/280/apps/delete_a_particular_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "delete-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "delete_app",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "delete-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "delete_app",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: delete-app
-provider:
-  arguments:
-    app_name: ''
-  func: delete_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: delete-app
+    provider:
+      arguments:
+        app_name: ''
+      func: delete_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -289,7 +301,14 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-('def map_route_to_app(app_name: str,\n                     host_name: str,\n                     configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]],\n                     org_name: str = None,\n                     space_name: str = None) -> List[Dict[str, Any]]:\n    pass\n',)
+def map_route_to_app(app_name: str,
+                     host_name: str,
+                     configuration: Dict[str, Dict[str, str]],
+                     secrets: Dict[str, Dict[str, str]],
+                     org_name: str = None,
+                     space_name: str = None) -> List[Dict[str, Any]]:
+    pass
+
 ```
 
 **Arguments:**
@@ -306,34 +325,39 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "map-route-to-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "map_route_to_app",
-    "arguments": {
-      "app_name": "",
-      "host_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "map-route-to-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "map_route_to_app",
+        "arguments": {
+          "app_name": "",
+          "host_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: map-route-to-app
-provider:
-  arguments:
-    app_name: ''
-    host_name: ''
-  func: map_route_to_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: map-route-to-app
+    provider:
+      arguments:
+        app_name: ''
+        host_name: ''
+      func: map_route_to_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -357,7 +381,14 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-('def remove_routes_from_app(app_name: str,\n                           route_host: str,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           org_name: str = None,\n                           space_name: str = None):\n    pass\n',)
+def remove_routes_from_app(app_name: str,
+                           route_host: str,
+                           configuration: Dict[str, Dict[str, str]],
+                           secrets: Dict[str, Dict[str, str]],
+                           org_name: str = None,
+                           space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -374,34 +405,39 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "remove-routes-from-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "remove_routes_from_app",
-    "arguments": {
-      "app_name": "",
-      "route_host": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "remove-routes-from-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "remove_routes_from_app",
+        "arguments": {
+          "app_name": "",
+          "route_host": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: remove-routes-from-app
-provider:
-  arguments:
-    app_name: ''
-    route_host: ''
-  func: remove_routes_from_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: remove-routes-from-app
+    provider:
+      arguments:
+        app_name: ''
+        route_host: ''
+      func: remove_routes_from_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -424,7 +460,10 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 **Signature:**
 
 ```python
-('def start_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],\n                   secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+def start_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],
+                   secrets: Dict[str, Dict[str, str]]):
+    pass
+
 ```
 
 **Arguments:**
@@ -438,32 +477,37 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "start-all-apps",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "start_all_apps",
-    "arguments": {
-      "org_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "start-all-apps",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "start_all_apps",
+        "arguments": {
+          "org_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: start-all-apps
-provider:
-  arguments:
-    org_name: ''
-  func: start_all_apps
-  module: chaoscf.actions
-  type: python
-type: action
+    name: start-all-apps
+    provider:
+      arguments:
+        org_name: ''
+      func: start_all_apps
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -486,7 +530,13 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 **Signature:**
 
 ```python
-('def start_app(app_name: str,\n              configuration: Dict[str, Dict[str, str]],\n              secrets: Dict[str, Dict[str, str]],\n              org_name: str = None,\n              space_name: str = None):\n    pass\n',)
+def start_app(app_name: str,
+              configuration: Dict[str, Dict[str, str]],
+              secrets: Dict[str, Dict[str, str]],
+              org_name: str = None,
+              space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -502,32 +552,37 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "start-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "start_app",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "start-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "start_app",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: start-app
-provider:
-  arguments:
-    app_name: ''
-  func: start_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: start-app
+    provider:
+      arguments:
+        app_name: ''
+      func: start_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -550,7 +605,10 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 **Signature:**
 
 ```python
-('def stop_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],\n                  secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+def stop_all_apps(org_name: str, configuration: Dict[str, Dict[str, str]],
+                  secrets: Dict[str, Dict[str, str]]):
+    pass
+
 ```
 
 **Arguments:**
@@ -564,32 +622,37 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "stop-all-apps",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "stop_all_apps",
-    "arguments": {
-      "org_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "stop-all-apps",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "stop_all_apps",
+        "arguments": {
+          "org_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: stop-all-apps
-provider:
-  arguments:
-    org_name: ''
-  func: stop_all_apps
-  module: chaoscf.actions
-  type: python
-type: action
+    name: stop-all-apps
+    provider:
+      arguments:
+        org_name: ''
+      func: stop_all_apps
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -612,7 +675,13 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 **Signature:**
 
 ```python
-('def stop_app(app_name: str,\n             configuration: Dict[str, Dict[str, str]],\n             secrets: Dict[str, Dict[str, str]],\n             org_name: str = None,\n             space_name: str = None):\n    pass\n',)
+def stop_app(app_name: str,
+             configuration: Dict[str, Dict[str, str]],
+             secrets: Dict[str, Dict[str, str]],
+             org_name: str = None,
+             space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -628,32 +697,37 @@ See https://apidocs.cloudfoundry.org/280/apps/updating_an_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "stop-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "stop_app",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "stop-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "stop_app",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: stop-app
-provider:
-  arguments:
-    app_name: ''
-  func: stop_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: stop-app
+    provider:
+      arguments:
+        app_name: ''
+      func: stop_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -677,7 +751,14 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 **Signature:**
 
 ```python
-('def terminate_app_instance(app_name: str,\n                           instance_index: int,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           org_name: str = None,\n                           space_name: str = None):\n    pass\n',)
+def terminate_app_instance(app_name: str,
+                           instance_index: int,
+                           configuration: Dict[str, Dict[str, str]],
+                           secrets: Dict[str, Dict[str, str]],
+                           org_name: str = None,
+                           space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -694,34 +775,39 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 
 **Usage:**
 
-```json
-{
-  "name": "terminate-app-instance",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "terminate_app_instance",
-    "arguments": {
-      "app_name": "",
-      "instance_index": 0
+=== "JSON"
+    ```json
+
+    {
+      "name": "terminate-app-instance",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "terminate_app_instance",
+        "arguments": {
+          "app_name": "",
+          "instance_index": 0
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: terminate-app-instance
-provider:
-  arguments:
-    app_name: ''
-    instance_index: 0
-  func: terminate_app_instance
-  module: chaoscf.actions
-  type: python
-type: action
+    name: terminate-app-instance
+    provider:
+      arguments:
+        app_name: ''
+        instance_index: 0
+      func: terminate_app_instance
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -745,7 +831,13 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 **Signature:**
 
 ```python
-('def terminate_some_random_instance(app_name: str,\n                                   configuration: Dict[str, Dict[str, str]],\n                                   secrets: Dict[str, Dict[str, str]],\n                                   org_name: str = None,\n                                   space_name: str = None):\n    pass\n',)
+def terminate_some_random_instance(app_name: str,
+                                   configuration: Dict[str, Dict[str, str]],
+                                   secrets: Dict[str, Dict[str, str]],
+                                   org_name: str = None,
+                                   space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -761,32 +853,37 @@ https://apidocs.cloudfoundry.org/280/apps/terminate_the_running_app_instance_at_
 
 **Usage:**
 
-```json
-{
-  "name": "terminate-some-random-instance",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "terminate_some_random_instance",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "terminate-some-random-instance",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "terminate_some_random_instance",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: terminate-some-random-instance
-provider:
-  arguments:
-    app_name: ''
-  func: terminate_some_random_instance
-  module: chaoscf.actions
-  type: python
-type: action
+    name: terminate-some-random-instance
+    provider:
+      arguments:
+        app_name: ''
+      func: terminate_some_random_instance
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -810,7 +907,14 @@ https://apidocs.cloudfoundry.org/280/service_bindings/delete_a_particular_servic
 **Signature:**
 
 ```python
-('def unbind_service_from_app(app_name: str,\n                            bind_name: str,\n                            configuration: Dict[str, Dict[str, str]],\n                            secrets: Dict[str, Dict[str, str]],\n                            org_name: str = None,\n                            space_name: str = None):\n    pass\n',)
+def unbind_service_from_app(app_name: str,
+                            bind_name: str,
+                            configuration: Dict[str, Dict[str, str]],
+                            secrets: Dict[str, Dict[str, str]],
+                            org_name: str = None,
+                            space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -827,34 +931,39 @@ https://apidocs.cloudfoundry.org/280/service_bindings/delete_a_particular_servic
 
 **Usage:**
 
-```json
-{
-  "name": "unbind-service-from-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "unbind_service_from_app",
-    "arguments": {
-      "app_name": "",
-      "bind_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "unbind-service-from-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "unbind_service_from_app",
+        "arguments": {
+          "app_name": "",
+          "bind_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: unbind-service-from-app
-provider:
-  arguments:
-    app_name: ''
-    bind_name: ''
-  func: unbind_service_from_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: unbind-service-from-app
+    provider:
+      arguments:
+        app_name: ''
+        bind_name: ''
+      func: unbind_service_from_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -885,7 +994,14 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 **Signature:**
 
 ```python
-('def unmap_route_from_app(app_name: str,\n                         host_name: str,\n                         configuration: Dict[str, Dict[str, str]],\n                         secrets: Dict[str, Dict[str, str]],\n                         org_name: str = None,\n                         space_name: str = None):\n    pass\n',)
+def unmap_route_from_app(app_name: str,
+                         host_name: str,
+                         configuration: Dict[str, Dict[str, str]],
+                         secrets: Dict[str, Dict[str, str]],
+                         org_name: str = None,
+                         space_name: str = None):
+    pass
+
 ```
 
 **Arguments:**
@@ -902,34 +1018,39 @@ https://apidocs.cloudfoundry.org/280/apps/remove_route_from_the_app.html
 
 **Usage:**
 
-```json
-{
-  "name": "unmap-route-from-app",
-  "type": "action",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.actions",
-    "func": "unmap_route_from_app",
-    "arguments": {
-      "app_name": "",
-      "host_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "unmap-route-from-app",
+      "type": "action",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.actions",
+        "func": "unmap_route_from_app",
+        "arguments": {
+          "app_name": "",
+          "host_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: unmap-route-from-app
-provider:
-  arguments:
-    app_name: ''
-    host_name: ''
-  func: unmap_route_from_app
-  module: chaoscf.actions
-  type: python
-type: action
+    name: unmap-route-from-app
+    provider:
+      arguments:
+        app_name: ''
+        host_name: ''
+      func: unmap_route_from_app
+      module: chaoscf.actions
+      type: python
+    type: action
+    
 
-```
+    ```
 
 
 
@@ -956,7 +1077,15 @@ caller.
 **Signature:**
 
 ```python
-("def call_api(path: str,\n             configuration: Dict[str, Dict[str, str]],\n             secrets: Dict[str, Dict[str, str]],\n             query: Dict[str, Any] = None,\n             body: Dict[str, Any] = None,\n             method: str = 'GET',\n             headers: Dict[str, str] = None) -> requests.models.Response:\n    pass\n",)
+def call_api(path: str,
+             configuration: Dict[str, Dict[str, str]],
+             secrets: Dict[str, Dict[str, str]],
+             query: Dict[str, Any] = None,
+             body: Dict[str, Any] = None,
+             method: str = 'GET',
+             headers: Dict[str, str] = None) -> requests.models.Response:
+    pass
+
 ```
 
 **Arguments:**
@@ -974,32 +1103,37 @@ caller.
 
 **Usage:**
 
-```json
-{
-  "name": "call-api",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "call_api",
-    "arguments": {
-      "path": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "call-api",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "call_api",
+        "arguments": {
+          "path": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: call-api
-provider:
-  arguments:
-    path: ''
-  func: call_api
-  module: chaoscf.api
-  type: python
-type: ''
+    name: call-api
+    provider:
+      arguments:
+        path: ''
+      func: call_api
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1026,7 +1160,15 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 **Signature:**
 
 ```python
-('def get_app_by_name(app_name: str,\n                    configuration: Dict[str, Dict[str, str]],\n                    secrets: Dict[str, Dict[str, str]],\n                    space_name: str = None,\n                    space_guid: str = None,\n                    org_name: str = None,\n                    org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
+def get_app_by_name(app_name: str,
+                    configuration: Dict[str, Dict[str, str]],
+                    secrets: Dict[str, Dict[str, str]],
+                    space_name: str = None,
+                    space_guid: str = None,
+                    org_name: str = None,
+                    org_guid: str = None) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1044,32 +1186,37 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 
 **Usage:**
 
-```json
-{
-  "name": "get-app-by-name",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_app_by_name",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-app-by-name",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_app_by_name",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-app-by-name
-provider:
-  arguments:
-    app_name: ''
-  func: get_app_by_name
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-app-by-name
+    provider:
+      arguments:
+        app_name: ''
+      func: get_app_by_name
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1092,7 +1239,15 @@ See https://apidocs.cloudfoundry.org/280/apps/get_the_instance_information_for_a
 **Signature:**
 
 ```python
-('def get_app_instances(app_name: str,\n                      configuration: Dict[str, Dict[str, str]],\n                      secrets: Dict[str, Dict[str, str]],\n                      space_name: str = None,\n                      space_guid: str = None,\n                      org_name: str = None,\n                      org_guid: str = None) -> Dict[str, Dict[str, Any]]:\n    pass\n',)
+def get_app_instances(app_name: str,
+                      configuration: Dict[str, Dict[str, str]],
+                      secrets: Dict[str, Dict[str, str]],
+                      space_name: str = None,
+                      space_guid: str = None,
+                      org_name: str = None,
+                      org_guid: str = None) -> Dict[str, Dict[str, Any]]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1110,32 +1265,37 @@ See https://apidocs.cloudfoundry.org/280/apps/get_the_instance_information_for_a
 
 **Usage:**
 
-```json
-{
-  "name": "get-app-instances",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_app_instances",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-app-instances",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_app_instances",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-app-instances
-provider:
-  arguments:
-    app_name: ''
-  func: get_app_instances
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-app-instances
+    provider:
+      arguments:
+        app_name: ''
+      func: get_app_instances
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1158,7 +1318,16 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 **Signature:**
 
 ```python
-('def get_app_routes_by_host(app_name: str,\n                           route_host: str,\n                           configuration: Dict[str, Dict[str, str]],\n                           secrets: Dict[str, Dict[str, str]],\n                           space_name: str = None,\n                           space_guid: str = None,\n                           org_name: str = None,\n                           org_guid: str = None) -> List[Dict[str, Any]]:\n    pass\n',)
+def get_app_routes_by_host(app_name: str,
+                           route_host: str,
+                           configuration: Dict[str, Dict[str, str]],
+                           secrets: Dict[str, Dict[str, str]],
+                           space_name: str = None,
+                           space_guid: str = None,
+                           org_name: str = None,
+                           org_guid: str = None) -> List[Dict[str, Any]]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1177,34 +1346,39 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 
 **Usage:**
 
-```json
-{
-  "name": "get-app-routes-by-host",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_app_routes_by_host",
-    "arguments": {
-      "app_name": "",
-      "route_host": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-app-routes-by-host",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_app_routes_by_host",
+        "arguments": {
+          "app_name": "",
+          "route_host": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-app-routes-by-host
-provider:
-  arguments:
-    app_name: ''
-    route_host: ''
-  func: get_app_routes_by_host
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-app-routes-by-host
+    provider:
+      arguments:
+        app_name: ''
+        route_host: ''
+      func: get_app_routes_by_host
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1228,7 +1402,10 @@ understand the content of the response.
 **Signature:**
 
 ```python
-('def get_apps_for_org(org_name: str, configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]]):\n    pass\n',)
+def get_apps_for_org(org_name: str, configuration: Dict[str, Dict[str, str]],
+                     secrets: Dict[str, Dict[str, str]]):
+    pass
+
 ```
 
 **Arguments:**
@@ -1242,32 +1419,37 @@ understand the content of the response.
 
 **Usage:**
 
-```json
-{
-  "name": "get-apps-for-org",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_apps_for_org",
-    "arguments": {
-      "org_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-apps-for-org",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_apps_for_org",
+        "arguments": {
+          "org_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-apps-for-org
-provider:
-  arguments:
-    org_name: ''
-  func: get_apps_for_org
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-apps-for-org
+    provider:
+      arguments:
+        org_name: ''
+      func: get_apps_for_org
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1294,7 +1476,16 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 **Signature:**
 
 ```python
-('def get_bind_by_name(bind_name: str,\n                     configuration: Dict[str, Dict[str, str]],\n                     secrets: Dict[str, Dict[str, str]],\n                     app_name: str = None,\n                     space_name: str = None,\n                     space_guid: str = None,\n                     org_name: str = None,\n                     org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
+def get_bind_by_name(bind_name: str,
+                     configuration: Dict[str, Dict[str, str]],
+                     secrets: Dict[str, Dict[str, str]],
+                     app_name: str = None,
+                     space_name: str = None,
+                     space_guid: str = None,
+                     org_name: str = None,
+                     org_guid: str = None) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1313,32 +1504,37 @@ See https://apidocs.cloudfoundry.org/280/apps/list_all_apps.html
 
 **Usage:**
 
-```json
-{
-  "name": "get-bind-by-name",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_bind_by_name",
-    "arguments": {
-      "bind_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-bind-by-name",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_bind_by_name",
+        "arguments": {
+          "bind_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-bind-by-name
-provider:
-  arguments:
-    bind_name: ''
-  func: get_bind_by_name
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-bind-by-name
+    provider:
+      arguments:
+        bind_name: ''
+      func: get_bind_by_name
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1359,7 +1555,10 @@ Get the organization with the given name.
 **Signature:**
 
 ```python
-('def get_org_by_name(org_name: str, configuration: Dict[str, Dict[str, str]],\n                    secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:\n    pass\n',)
+def get_org_by_name(org_name: str, configuration: Dict[str, Dict[str, str]],
+                    secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1373,32 +1572,37 @@ Get the organization with the given name.
 
 **Usage:**
 
-```json
-{
-  "name": "get-org-by-name",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_org_by_name",
-    "arguments": {
-      "org_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-org-by-name",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_org_by_name",
+        "arguments": {
+          "org_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-org-by-name
-provider:
-  arguments:
-    org_name: ''
-  func: get_org_by_name
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-org-by-name
+    provider:
+      arguments:
+        org_name: ''
+      func: get_org_by_name
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1421,7 +1625,13 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 **Signature:**
 
 ```python
-('def get_routes_by_host(route_host: str,\n                       configuration: Dict[str, Dict[str, str]],\n                       secrets: Dict[str, Dict[str, str]],\n                       org_name: str = None,\n                       org_guid: str = None) -> Dict[str, Any]:\n    pass\n',)
+def get_routes_by_host(route_host: str,
+                       configuration: Dict[str, Dict[str, str]],
+                       secrets: Dict[str, Dict[str, str]],
+                       org_name: str = None,
+                       org_guid: str = None) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1437,32 +1647,37 @@ See https://apidocs.cloudfoundry.org/280/routes/list_all_routes.html
 
 **Usage:**
 
-```json
-{
-  "name": "get-routes-by-host",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_routes_by_host",
-    "arguments": {
-      "route_host": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-routes-by-host",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_routes_by_host",
+        "arguments": {
+          "route_host": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-routes-by-host
-provider:
-  arguments:
-    route_host: ''
-  func: get_routes_by_host
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-routes-by-host
+    provider:
+      arguments:
+        route_host: ''
+      func: get_routes_by_host
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1487,7 +1702,13 @@ a lookup for the org to fetch its GUID.
 **Signature:**
 
 ```python
-('def get_space_by_name(space_name: str,\n                      configuration: Dict[str, Dict[str, str]],\n                      secrets: Dict[str, Dict[str, str]],\n                      org_name: str = None,\n                      org_guid=None) -> Dict[str, Any]:\n    pass\n',)
+def get_space_by_name(space_name: str,
+                      configuration: Dict[str, Dict[str, str]],
+                      secrets: Dict[str, Dict[str, str]],
+                      org_name: str = None,
+                      org_guid=None) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1503,32 +1724,37 @@ a lookup for the org to fetch its GUID.
 
 **Usage:**
 
-```json
-{
-  "name": "get-space-by-name",
-  "type": "",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.api",
-    "func": "get_space_by_name",
-    "arguments": {
-      "space_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-space-by-name",
+      "type": "",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.api",
+        "func": "get_space_by_name",
+        "arguments": {
+          "space_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-space-by-name
-provider:
-  arguments:
-    space_name: ''
-  func: get_space_by_name
-  module: chaoscf.api
-  type: python
-type: ''
+    name: get-space-by-name
+    provider:
+      arguments:
+        space_name: ''
+      func: get_space_by_name
+      module: chaoscf.api
+      type: python
+    type: ''
+    
 
-```
+    ```
 
 
 
@@ -1557,7 +1783,13 @@ for more information.
 **Signature:**
 
 ```python
-('def get_app_stats(app_name: str,\n                  configuration: Dict[str, Dict[str, str]],\n                  secrets: Dict[str, Dict[str, str]],\n                  org_name: str = None,\n                  space_name: str = None) -> Dict[str, Any]:\n    pass\n',)
+def get_app_stats(app_name: str,
+                  configuration: Dict[str, Dict[str, str]],
+                  secrets: Dict[str, Dict[str, str]],
+                  org_name: str = None,
+                  space_name: str = None) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1573,32 +1805,37 @@ for more information.
 
 **Usage:**
 
-```json
-{
-  "name": "get-app-stats",
-  "type": "probe",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.probes",
-    "func": "get_app_stats",
-    "arguments": {
-      "app_name": ""
+=== "JSON"
+    ```json
+
+    {
+      "name": "get-app-stats",
+      "type": "probe",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.probes",
+        "func": "get_app_stats",
+        "arguments": {
+          "app_name": ""
+        }
+      }
     }
-  }
-}
-```
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```yaml
-name: get-app-stats
-provider:
-  arguments:
-    app_name: ''
-  func: get_app_stats
-  module: chaoscf.probes
-  type: python
-type: probe
+    name: get-app-stats
+    provider:
+      arguments:
+        app_name: ''
+      func: get_app_stats
+      module: chaoscf.probes
+      type: python
+    type: probe
+    
 
-```
+    ```
 
 
 
@@ -1622,7 +1859,10 @@ understand the content of the response.
 **Signature:**
 
 ```python
-('def list_apps(configuration: Dict[str, Dict[str, str]],\n              secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:\n    pass\n',)
+def list_apps(configuration: Dict[str, Dict[str, str]],
+              secrets: Dict[str, Dict[str, str]]) -> Dict[str, Any]:
+    pass
+
 ```
 
 **Arguments:**
@@ -1635,27 +1875,32 @@ understand the content of the response.
 
 **Usage:**
 
-```json
-{
-  "name": "list-apps",
-  "type": "probe",
-  "provider": {
-    "type": "python",
-    "module": "chaoscf.probes",
-    "func": "list_apps"
-  }
-}
-```
+=== "JSON"
+    ```json
 
-```yaml
-name: list-apps
-provider:
-  func: list_apps
-  module: chaoscf.probes
-  type: python
-type: probe
+    {
+      "name": "list-apps",
+      "type": "probe",
+      "provider": {
+        "type": "python",
+        "module": "chaoscf.probes",
+        "func": "list_apps"
+      }
+    }
+    
+    ```
+=== "YAML"
+    ```yaml
 
-```
+    name: list-apps
+    provider:
+      func: list_apps
+      module: chaoscf.probes
+      type: python
+    type: probe
+    
+
+    ```
 
 
 

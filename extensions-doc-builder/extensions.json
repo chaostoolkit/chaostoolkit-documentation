@@ -103,5 +103,10 @@
         "name": "chaosdatadog",
         "doc_path": "../sources/drivers/datadog.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-datadog"
+    },
+    {
+        "name": "chaosterraform",
+        "doc_path": "../sources/drivers/terraform.md",
+        "repo": "https://github.com/mcastellin/chaostoolkit-terraform"
     }
 ]

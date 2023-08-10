@@ -21,3 +21,4 @@ chaostoolkit-grafana
 chaostoolkit-slack
 chaostoolkit-pixie
 chaostoolkit-datadog
+chaostoolkit-terraform

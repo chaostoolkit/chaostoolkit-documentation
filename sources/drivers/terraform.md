@@ -187,6 +187,65 @@ controls:
 In the example above, the control will map the output value `alb_dns_name` into a new Chaos Toolkit configuration `application_dns_name` that can be referenced in the experiment template using the `${application_dns_name}` notation.
 
 
+## Exported Controls
 
+### chaosterraform
 
+This module exports [controls][] covering the following phases of the experiment execution:
 
+[controls]: https://chaostoolkit.org/reference/api/experiment/#controls
+
+|            Level             |             Before             |             After             |
+| -----------------------------| ------------------------------ |------------------------------ |
+| **Experiment Loading**       | False | False |
+| **Experiment**               | True  | True  |
+| **Steady-state Hypothesis**  | False | False |
+| **Method**                   | False | False |
+| **Rollback**                 | False | False |
+| **Activities**               | False | False |
+
+In addition, the controls may define the followings:
+
+|            Level             |             Enabled            |
+| -----------------------------| ------------------------------ |
+| **Configure Control**        | True  |
+| **Cleanup Control**          | False |
+
+To use this control module, please add the following section to your experiment:
+
+=== "JSON"
+    ```json
+
+    {
+      "controls": [
+        {
+          "name": "chaosterraform",
+          "provider": {
+            "type": "python",
+            "module": "chaosterraform.control"
+          }
+        }
+      ]
+    }
+
+    ```
+=== "YAML"
+    ```yaml
+
+    controls:
+    - name: chaosterraform
+      provider:
+        module: chaosterraform.control
+        type: python
+
+    ```
+
+**Arguments:**
+
+| Name            | Type    | Default | Required |
+| --------------- | ------- | ----- | -- |
+| **silent**      | boolean | true  | No |
+| **retain**      | boolean | false | No |
+| **chdir**       | string  | null  | No |
+| **variables**   | dict    | null  | No |
+| **outputs**     | dict    | null  | No |

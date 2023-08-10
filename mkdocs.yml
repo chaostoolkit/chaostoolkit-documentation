@@ -119,6 +119,7 @@ nav:
           - Google Cloud Platform: drivers/gcp.md
           - Kubernetes: drivers/kubernetes.md
           - Service Fabric: drivers/service-fabric.md
+          - Terraform: drivers/terraform.md
         - Application:
           - Spring: drivers/spring.md
         - Network:

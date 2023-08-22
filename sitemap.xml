@@ -2,307 +2,307 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://chaostoolkit.org/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/deployment/k8s/operator/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/addons/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/ansible/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/aws/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/azure/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/cloudfoundry/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/datadog/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/dynatrace/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/gandi/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/gcp/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/grafana/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/humio/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/istio/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/k6/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/kubernetes/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/opentracing/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/overview/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/pixie/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/prometheus/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/reliably/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/service-fabric/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/slack/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/spring/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/terraform/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/toxiproxy/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/drivers/wiremock/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/concepts/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/contributing/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorial/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/walkthrough/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/api/experiment/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/api/journal/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/developing/core/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/developing/extensions/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/developing/guidelines/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/developing/technologies/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/developing/values/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/extending/approaches/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/extending/create-control-extension/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/extending/extending-with-python/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/authoring_operating/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/batch/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/blockchain/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/containerising/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/ec2/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/extend/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/run-flow/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/tutorials/tolerance/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/cli/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/discover/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/init/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/install/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/notification/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/report/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/run/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/scheduling/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/reference/usage/upgrade/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/resources/logos/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/resources/slides/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://chaostoolkit.org/shared/code/</loc>
-         <lastmod>2023-08-10</lastmod>
+         <lastmod>2023-08-22</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

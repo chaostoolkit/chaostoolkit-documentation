@@ -3,7 +3,7 @@ community-driven [set of projects](https://github.com/chaostoolkit). The
 community's input is what makes this project special and a success. 
 
 Your input could take the form of ***raising issues***, ***voting for issues***, 
-***starring projects***, ***joining us on our [community Slack team](https://join.chaostoolkit.org/)***, ***submitting pull requests***, or even ***suggesting whole new extension projects***.
+***starring projects***, ***joining us on our [community Slack team](https://join.slack.com/t/chaostoolkit/shared_invite/zt-22c5isqi9-3YjYzucVTNFFVIG~Kzns8g)***, ***submitting pull requests***, or even ***suggesting whole new extension projects***.
 
 Whatever you can contribute, ***we're listening and want you to help us drive the 
 project forward***.
@@ -26,7 +26,7 @@ projects include:
 The incubator is a place for community projects to be collected. If you think
 your extension makes sense as a community project, please don't hesitate to
 suggest it. The best place to start is on the
-[community Slack team](https://join.chaostoolkit.org/) to announce it.
+[community Slack team](https://join.slack.com/t/chaostoolkit/shared_invite/zt-22c5isqi9-3YjYzucVTNFFVIG~Kzns8g) to announce it.
 
 Generally speaking, you should consider the followings:
 

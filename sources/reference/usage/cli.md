@@ -83,5 +83,5 @@ Please, do make sure to visit our [Slack][slack] or [GitHub][gh] when you have
 a question around how the toolkit does things. The community will be pleased
 to help you out.
 
-[slack]: https://join.chaostoolkit.org/
+[slack]: https://join.slack.com/t/chaostoolkit/shared_invite/zt-22c5isqi9-3YjYzucVTNFFVIG~Kzns8g
 [gh]: https://github.com/chaostoolkit

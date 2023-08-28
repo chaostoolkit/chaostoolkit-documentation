@@ -29,4 +29,4 @@ Above all, have fun!
 [drivers]: https://chaostoolkit.org/extensions
 [tutorials]: /reference/tutorial.md
 [contribute]: /reference/contributing.md
-[slack]: https://join.chaostoolkit.org/
+[slack]: https://join.slack.com/t/chaostoolkit/shared_invite/zt-22c5isqi9-3YjYzucVTNFFVIG~Kzns8g

@@ -5,7 +5,7 @@ general elements you probably need to know to get started. Once past those
 elements, you should dive into the code of each project and come discuss
 on our [Slack][slack].
 
-[slack]: https://join.chaostoolkit.org/
+[slack]: https://join.slack.com/t/chaostoolkit/shared_invite/zt-22c5isqi9-3YjYzucVTNFFVIG~Kzns8g
 
 ## Overview
 

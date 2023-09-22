@@ -1,6 +1,6 @@
 # The Chaos Toolkit documentation
 
-[![Build](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build.yaml/badge.svg)](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build.yaml)
+[![Build and Deploy](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build_and_deploy.yaml/badge.svg)](https://github.com/chaostoolkit/chaostoolkit-documentation/actions/workflows/build_and_deploy.yaml)
 
 Get to the [documentation][live] of the Chaos Toolkit.
 

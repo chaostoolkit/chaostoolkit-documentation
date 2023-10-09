@@ -99,6 +99,7 @@ An experiment MAY finally declare:
 * an `extension` property
 * a `contributions` property
 * a `controls` property
+* a `runtime` property
 
 Tags provide a way of categorizing experiments. It is a sequence of JSON
 strings.
@@ -1233,6 +1234,22 @@ Below is an example of an Extension:
       - name: vendorX
         data: ...
     ```
+
+### Runtime
+
+An Experiment MAY declare an `runtime` property which MUST be an object
+of objects. The `runtime` block is used to define the runtime strategy of the
+experiment.
+
+The `runtime` property MAY declare:
+
+* a `rollbacks` property which is an object with a single property `strategy`.
+  The `strategy` property MUST be one of `"default"`, `"always"`, `"never"` or
+  `"deviated"`
+* a `hypothesis` property which is an object with a single property `strategy`.
+  The `strategy` property MUST be one of `"default"`, `"before-method-only"`,
+  `"after-method-only"`, `"during-method-only"` or `"continuously"`
+
 
 ## Examples
 

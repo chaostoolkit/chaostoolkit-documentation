@@ -133,6 +133,7 @@ nav:
           - DataDog: drivers/datadog.md
           - Dynatrace: drivers/dynatrace.md
           - Grafana: drivers/grafana.md
+          - Honeycomb: drivers/honeycomb.md
           - Humio: drivers/humio.md
           - Open Tracing/OpenTelemetry: drivers/opentracing.md
           - Pixie: drivers/pixie.md

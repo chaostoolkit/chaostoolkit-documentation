@@ -22,6 +22,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.suggest
+  font: false
 extra_css:
   - "static/css/extra.css"
 docs_dir: sources

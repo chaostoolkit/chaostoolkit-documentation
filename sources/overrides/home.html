@@ -19,11 +19,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    /* display: flex; */
+    /* flex-direction: column; */
+    gap: 60px;
+    padding-top: 120px;
+    padding-bottom: 120px;
   }
 
   .tx-hero h1 {
     margin-bottom: 1rem;
+
     color: currentColor;
+    font-weight: 700;
   }
 
   .tx-hero__content {
@@ -31,6 +38,8 @@
     padding-bottom: 1rem;
     padding-left: 0.6rem;
     margin: 0 auto;
+
+    /* text-align: center; */
   }
 
   .tx-hero__image {
@@ -39,27 +48,87 @@
     padding: 1.5rem;
   }
 
+  .tx-hero .tx-hero__links {
+    display: flex;
+    gap: 24px;
+    padding-top: 48px;
+  }
+
   .tx-hero .md-button {
-    margin-top: 0.5rem;
-    margin-right: 0.5rem;
-    color: var(--md-primary-bg-color);
+    border-radius: 2em;
+
+    color: var(--CtkGrey4);
   }
 
   .tx-hero .md-button--primary {
-    color: var(--md-primary-fg-color);
-    background-color: var(--md-primary-bg-color);
-    border-color: var(--md-primary-bg-color);
+    color: white;
+    background-color: var(--CtkGrey4);
+    border-color: var(--CtkGrey4);
   }
 
   .tx-hero .md-button:focus,
   .tx-hero .md-button:hover {
     background-color: var(--md-accent-fg-color);
-    color: var(--md-default-bg-color);
+    color: var(--CtkGrey4);
     border-color: var(--md-accent-fg-color);
   }
 
-  .tx-hero__content .highlight {
-    color: var(--md-accent-bg-color);
+  .features {
+    display: grid;
+    grid-template-columns: 1fr;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .features .feature-item {
+    box-sizing: border-box;
+    padding: 24px;
+
+    border: 1px solid var(--CtkGrey1);
+    border-radius: 4px;
+
+    font-weight: 300;
+    word-break: break-word;
+  }
+
+  .features .feature-item h2 {
+    margin-bottom: 0;
+    overflow: hidden;
+
+    font-size: 25px;
+    font-weight: 700;
+    line-height: normal;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .features .feature-item .icon {
+    color: var(--md-accent-fg-color);
+  }
+
+  .features .feature-item p {
+    font-size: 16px;
+    line-height: 1.8em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #111;
+    margin: 10px 0 0;
+    display: block;
+  }
+
+  @media screen and (min-width: 76.25em) {
+    .features {
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-right: auto;
+      margin-left: auto;
+      max-width: 48rem;
+      padding-bottom: 48px;
+    }
+
+    .features .feature-item:nth-child(2n) {
+      transform: translateY(48px);
+    }
   }
 
   .feature-item h2 svg {
@@ -76,39 +145,6 @@
     border-bottom: 1px solid var(--md-primary-fg-color--dark);
     width: 100%;
     margin: 20px 0;
-  }
-
-  .feature-item {
-    font-weight: 300;
-    box-sizing: border-box;
-    padding: 0 15px;
-    word-break: break-word;
-  }
-
-  .feature-item h2 {
-    font-weight: 300;
-    font-size: 25px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: normal;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    font-family: inherit;
-  }
-
-  .feature-item .icon {
-    color: var(--md-accent-fg-color);
-  }
-
-  .feature-item p {
-    font-size: 16px;
-    line-height: 1.8em;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    color: #111;
-    margin: 0 0 10px;
-    display: block;
   }
 
   @media screen and (min-width: 76.25em) {
@@ -279,39 +315,31 @@
 <!-- Main site Entry button descriptions -->
 <section class="tx-container">
   <div class="md-grid md-typeset">
-    <div class="tx-hero">
-      <div class="tx-hero__image">
-        <img src="static/images/schema-1920.svg" draggable="false" />
-      </div>
-      <div class="tx-hero__content">
+    <div class="tx-hero ctk-hero">
+      <div class="tx-hero__content ctk-hero__content">
         <h1>
-          The <span class="highlight">Chaos Engineering</span> toolkit for
-          Developers
+          The chaos engineering toolkit<br />
+          for developers
         </h1>
         <p>Explore and test your systems to discover their weaknesses.</p>
-        <a
-          href="{{ page.next_page.url | url }}"
-          title="{{ page.next_page.title | striptags }}"
-          class="md-button md-button--primary">
-          Get started
-        </a>
-        <a
-          href="{{ config.repo_url }}"
-          title="{{ lang.t('source.link.title') }}"
-          class="md-button">
-          Go to GitHub
-        </a>
+        <div class="tx-hero__links">
+          <a
+            href="{{ page.next_page.url | url }}"
+            class="md-button md-button--primary">
+            Get started
+          </a>
+          <a href="{{ config.repo_url }}" class="md-button"> Go to GitHub </a>
+        </div>
+      </div>
+      <div class="tx-hero__image ctk-hero__image">
+        <img src="static/images/schema-1920.svg" draggable="false" />
       </div>
     </div>
   </div>
 </section>
 
-<div class="top-hr">
-  <div class="hr"></div>
-</div>
-
 <!-- Main site box descriptions -->
-<div class="top-hr">
+<div class="features">
   <div class="feature-item">
     <h2>
       <span class="code-branch icon">

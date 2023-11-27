@@ -1,393 +1,442 @@
 <!-- Custom HTML site displayed as the Home chapter -->
 
-{% extends "main.html" %}
-{% block tabs %}
-{{ super() }}
+{% extends "main.html" %} {% block tabs %} {{ super() }}
 <style>
+  .md-main {
+    flex-grow: 0;
+  }
 
-    .md-main {
-        flex-grow: 0
-    }
+  .md-main__inner {
+    display: flex;
+    height: 100%;
+  }
 
-    .md-main__inner {
-        display: flex;
-        height: 100%;
-    }
+  .tx-container {
+    padding-top: 0rem;
+  }
 
-    .tx-container {
-        padding-top: .0rem;
-    }
+  .tx-hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .tx-hero {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+  .tx-hero h1 {
+    margin-bottom: 1rem;
+    color: currentColor;
+  }
 
-    .tx-hero h1 {
-        margin-bottom: 1rem;
-        color: currentColor;
-    }
+  .tx-hero__content {
+    flex-shrink: 1;
+    padding-bottom: 1rem;
+    padding-left: 0.6rem;
+    margin: 0 auto;
+  }
 
-    .tx-hero__content {
-        flex-shrink: 1;
-        padding-bottom: 1rem;
-        padding-left: 0.6rem;
-        margin: 0 auto;
-    }
+  .tx-hero__image {
+    flex-grow: 2;
+    order: 1;
+    padding: 1.5rem;
+  }
 
-    .tx-hero__image{
-        flex-grow: 2;
-        order:1;
-        padding: 1.5rem;
-    }
+  .tx-hero .md-button {
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
+    color: var(--md-primary-bg-color);
+  }
 
-    .tx-hero .md-button {
-        margin-top: .5rem;
-        margin-right: .5rem;
-        color: var(--md-primary-bg-color)
-    }
+  .tx-hero .md-button--primary {
+    color: var(--md-primary-fg-color);
+    background-color: var(--md-primary-bg-color);
+    border-color: var(--md-primary-bg-color);
+  }
 
-    .tx-hero .md-button--primary {
-        color: var(--md-primary-fg-color);
-        background-color: var(--md-primary-bg-color);
-        border-color: var(--md-primary-bg-color)
-    }
+  .tx-hero .md-button:focus,
+  .tx-hero .md-button:hover {
+    background-color: var(--md-accent-fg-color);
+    color: var(--md-default-bg-color);
+    border-color: var(--md-accent-fg-color);
+  }
 
-    .tx-hero .md-button:focus,
-    .tx-hero .md-button:hover {
-        background-color: var(--md-accent-fg-color);
-        color: var(--md-default-bg-color);
-        border-color: var(--md-accent-fg-color)
-    }
+  .tx-hero__content .highlight {
+    color: var(--md-accent-bg-color);
+  }
 
-    .tx-hero__content .highlight {
-        color: var(--md-accent-bg-color);
-    }
+  .feature-item h2 svg {
+    height: 30px;
+    float: left;
+    margin-right: 10px;
+  }
 
-    .feature-item h2 svg {
-        height: 30px;
-        float: left;
-        margin-right: 10px;
-    }
+  .top-hr {
+    margin-top: 42px;
+  }
 
+  .hr {
+    border-bottom: 1px solid var(--md-primary-fg-color--dark);
+    width: 100%;
+    margin: 20px 0;
+  }
+
+  .feature-item {
+    font-weight: 300;
+    box-sizing: border-box;
+    padding: 0 15px;
+    word-break: break-word;
+  }
+
+  .feature-item h2 {
+    font-weight: 300;
+    font-size: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    line-height: normal;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-family: inherit;
+  }
+
+  .feature-item .icon {
+    color: var(--md-accent-fg-color);
+  }
+
+  .feature-item p {
+    font-size: 16px;
+    line-height: 1.8em;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    color: #111;
+    margin: 0 0 10px;
+    display: block;
+  }
+
+  @media screen and (min-width: 76.25em) {
     .top-hr {
-        margin-top: 42px;
+      width: 100%;
+      display: flex;
+      max-width: 61rem;
+      margin-right: auto;
+      margin-left: auto;
     }
 
-    .hr {
-        border-bottom: 1px solid var(--md-primary-fg-color--dark);
-        width: 100%;
-        margin: 20px 0;
+    .bottom-hr {
+      margin-top: 10px;
+      width: 100%;
+      display: flex;
+      max-width: 61rem;
+      margin-right: auto;
+      margin-left: auto;
     }
 
     .feature-item {
-        font-weight: 300;
-        box-sizing: border-box;
-        padding: 0 15px;
-        word-break: break-word
+      flex: 1;
+      min-width: 0;
     }
 
-    .feature-item h2 {
-        font-weight: 300;
-        font-size: 25px;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: normal;
-        margin-top: 20px;
-        margin-bottom: 10px;
-        font-family: inherit;
+    .feature-item:hover {
+      background-color: var(--md-accent-fg-color--transparent);
+      border-radius: 3px;
     }
+  }
 
-    .feature-item .icon {
-        color: var(--md-accent-fg-color);
-    }
+  .logos {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-flow: row wrap;
+    margin: 0 auto;
+  }
 
-    .feature-item p {
-        font-size: 16px;
-        line-height: 1.8em;
-        text-rendering: optimizeLegibility;
-        -webkit-font-smoothing: antialiased;
-        color: #111;
-        margin: 0 0 10px;
-        display: block;
-    }
+  .logos img {
+    flex: 1 1 auto;
+    padding: 25px;
+    max-height: 130px;
+    vertical-align: middle;
+  }
 
-    @media screen and (min-width:76.25em) {
-        .top-hr {
-            width: 100%;
-            display: flex;
-            max-width: 61rem;
-            margin-right: auto;
-            margin-left: auto;
-        }
+  .hr-logos {
+    margin-top: 0;
+    margin-bottom: 30px;
+  }
 
-        .bottom-hr {
-            margin-top: 10px;
-            width: 100%;
-            display: flex;
-            max-width: 61rem;
-            margin-right: auto;
-            margin-left: auto;
-        }
+  .contributors {
+    display: flex;
+    gap: 16px;
+    justify-content: center;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 61rem;
+    /* justify-content: space-between; */
+  }
 
-        .feature-item {
-            flex: 1;
-            min-width: 0;
-        }
+  .contributors-title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 
-        .feature-item:hover {
-            background-color: var(--md-accent-fg-color--transparent);
-            border-radius: 3px;
-        }
-    }
+  .contributors-title h2 {
+    font-weight: 300;
+    font-size: 25px;
+  }
 
-    .logos {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-flow: row wrap;
-        margin: 0 auto;
-    }
+  .contributor {
+    display: flex;
+    /* padding: 30px; */
+    flex: 1 0 auto;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .logos img {
-        flex: 1 1 auto;
-        padding: 25px;
-        max-height: 130px;
-        vertical-align: middle;
-    }
+  .contributor img {
+    filter: grayscale(100%);
+    display: block;
+    /* object-fit: cover; */
+    max-height: 80px;
+    max-width: 150px;
+  }
 
-    .hr-logos {
-        margin-top: 0;
-        margin-bottom: 30px;
-    }
+  .contributor--capitalone img {
+    max-height: 40px;
+  }
 
-    .contributors {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 61rem;
-        justify-content: space-between;
-    }
+  .contributor--wix img,
+  .contributor--sky img,
+  .contributor--sap img {
+    max-height: 30px;
+  }
 
-    .contributors-title {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
+  .contributor--lego img,
+  .contributor--jetstack img {
+    max-height: 60px;
+  }
 
-    .contributors-title h2 {
-        font-weight: 300;
-        font-size: 25px;
-    }
+  .contributor img:hover {
+    filter: grayscale(0);
+  }
 
-    .contributor {
-        display: flex;
-        padding: 30px;
-        flex: 1;
-        align-items: center;
-        justify-content: center;
-    }
+  .sponsors {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 61rem;
+    justify-content: space-between;
+  }
 
-    .contributor img {
-        filter: grayscale(100%);
-        display: block;
-        object-fit: contain;
-        width: 100%;
-    }
+  .sponsors-title {
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+  }
 
-    .contributor img:hover {
-        filter: grayscale(0);
-    }
+  .sponsors-title h2 {
+    font-weight: 300;
+    font-size: 25px;
+  }
 
+  .sponsor {
+    display: flex;
+    padding: 30px;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+  }
 
+  .sponsor img {
+    filter: grayscale(100%);
+    display: block;
+    object-fit: contain;
+    width: 100%;
+  }
 
-    .sponsors {
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        margin-right: auto;
-        margin-left: auto;
-        max-width: 61rem;
-        justify-content: space-between;
-    }
+  .sponsor img:hover {
+    filter: grayscale(0);
+  }
 
-    .sponsors-title {
-        display: flex;
-        text-align: center;
-        align-items: center;
-        justify-content: center;
-    }
+  .sponsor img {
+    filter: grayscale(100%);
+    display: block;
+    object-fit: contain;
+    width: 100%;
+  }
 
-    .sponsors-title h2 {
-        font-weight: 300;
-        font-size: 25px;
-    }
+  .sponsor img:hover {
+    filter: grayscale(0);
+  }
 
-    .sponsor {
-        display: flex;
-        padding: 30px;
-        flex: 1;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .sponsor img {
-        filter: grayscale(100%);
-        display: block;
-        object-fit: contain;
-        width: 100%;
-    }
-
-    .sponsor img:hover {
-        filter: grayscale(0);
-    }
-
-    .sponsor img {
-        filter: grayscale(100%);
-        display: block;
-        object-fit: contain;
-        width: 100%;
-    }
-
-    .sponsor img:hover {
-        filter: grayscale(0);
-    }
-
-    .md-footer__inner {
-        display: none;
-    }
+  .md-footer__inner {
+    display: none;
+  }
 </style>
 
 <!-- Main site Entry button descriptions -->
 <section class="tx-container">
-    <div class="md-grid md-typeset">
-      <div class="tx-hero">
-        <div class="tx-hero__image">
-          <img src="static/images/schema-1920.svg" draggable="false">
-        </div>
-        <div class="tx-hero__content">
-          <h1>The <span class="highlight">Chaos Engineering</span> toolkit for Developers</h1>
-          <p>Explore and test your systems to discover their weaknesses.</p>
-          <a href="{{ page.next_page.url | url }}" title="{{ page.next_page.title | striptags }}" class="md-button md-button--primary">
-            Get started
-          </a>
-          <a href="{{ config.repo_url }}" title="{{ lang.t('source.link.title') }}" class="md-button">
-            Go to GitHub
-          </a>
-        </div>
+  <div class="md-grid md-typeset">
+    <div class="tx-hero">
+      <div class="tx-hero__image">
+        <img src="static/images/schema-1920.svg" draggable="false" />
+      </div>
+      <div class="tx-hero__content">
+        <h1>
+          The <span class="highlight">Chaos Engineering</span> toolkit for
+          Developers
+        </h1>
+        <p>Explore and test your systems to discover their weaknesses.</p>
+        <a
+          href="{{ page.next_page.url | url }}"
+          title="{{ page.next_page.title | striptags }}"
+          class="md-button md-button--primary">
+          Get started
+        </a>
+        <a
+          href="{{ config.repo_url }}"
+          title="{{ lang.t('source.link.title') }}"
+          class="md-button">
+          Go to GitHub
+        </a>
       </div>
     </div>
+  </div>
 </section>
 
 <div class="top-hr">
-    <div class="hr">
-    </div>
+  <div class="hr"></div>
 </div>
 
 <!-- Main site box descriptions -->
 <div class="top-hr">
-    <div class="feature-item">
-        <h2>
-            <span class="code-branch icon">
-                {% include ".icons/fontawesome/solid/code-branch.svg" %}
-              </span>
-            Chaos As Code
-        </h2>
-        <p>Declare and store your Chaos Engineering experiments as JSON/YAML files so you can collaborate and orchestrate them as any other piece of code.</p>
-    </div>
-    <div class="feature-item">
-        <h2>
-            
-            <span class="seedling icon">
-                {% include ".icons/fontawesome/solid/seedling.svg" %}
-              </span>Extensible
-        </h2>
-        <p>The Chaos Toolkit is extensible at will for any system through its Open API..</p>
-    </div>
-    <div class="feature-item">
-            <h2>
-                <span class="cogs icon">
-                {% include ".icons/fontawesome/solid/gears.svg" %}
-            </span>
-            Automation
-        </h2>
-        <p>The Chaos Toolkit loves automation and can be embedded in your favourite CI/CD chain.</p>
-    </div>
-    <div class="feature-item">
-            <h2><span class="solid icon">
-                {% include ".icons/fontawesome/solid/heart.svg" %}
-            </span>
-        Open Source</h2>
-        <p>The Chaos Toolkit is Open Source with an Apache 2 license. No lock-in and powered by its community</p>
-    </div>
+  <div class="feature-item">
+    <h2>
+      <span class="code-branch icon">
+        {% include ".icons/fontawesome/solid/code-branch.svg" %}
+      </span>
+      Chaos As Code
+    </h2>
+    <p>
+      Declare and store your Chaos Engineering experiments as JSON/YAML files so
+      you can collaborate and orchestrate them as any other piece of code.
+    </p>
+  </div>
+  <div class="feature-item">
+    <h2>
+      <span class="seedling icon">
+        {% include ".icons/fontawesome/solid/seedling.svg" %} </span
+      >Extensible
+    </h2>
+    <p>
+      The Chaos Toolkit is extensible at will for any system through its Open
+      API..
+    </p>
+  </div>
+  <div class="feature-item">
+    <h2>
+      <span class="cogs icon">
+        {% include ".icons/fontawesome/solid/gears.svg" %}
+      </span>
+      Automation
+    </h2>
+    <p>
+      The Chaos Toolkit loves automation and can be embedded in your favourite
+      CI/CD chain.
+    </p>
+  </div>
+  <div class="feature-item">
+    <h2>
+      <span class="solid icon">
+        {% include ".icons/fontawesome/solid/heart.svg" %}
+      </span>
+      Open Source
+    </h2>
+    <p>
+      The Chaos Toolkit is Open Source with an Apache 2 license. No lock-in and
+      powered by its community
+    </p>
+  </div>
 </div>
 
 <div class="top-hr">
-    <div class="hr">
-    </div>
+  <div class="hr"></div>
 </div>
 
 <section class="tx-container">
-    <div class="contributors-title">
-        <h2>Contributed to by awesome engineers from</h2>
+  <div class="contributors-title">
+    <h2>Contributed to by awesome engineers from</h2>
+  </div>
+  <div class="contributors">
+    <div class="contributor contributor--capitalone">
+      <a href="https://www.capitalone.com/" target="_blank"
+        ><img src="/static/images/contributors/capital-one.png"
+      /></a>
     </div>
-    <div class="contributors">
-        <div class="contributor">
-            <a href="https://www.capitalone.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Capital_One_logo.svg/512px-Capital_One_logo.svg.png"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.wix.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/d/df/Wix_logo.jpg"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.daimler.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/DaimlerLogo.svg/1920px-DaimlerLogo.svg.png"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.lego.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/24/LEGO_logo.svg/1024px-LEGO_logo.svg.png"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.oracle.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/1920px-Oracle_logo.svg.png"></a>
-        </div>
+    <div class="contributor contributor--wix">
+      <a href="https://www.wix.com/" target="_blank"
+        ><img src="/static/images/contributors/wix.jpg"
+      /></a>
     </div>
-    <div class="contributors">
-        <div class="contributor">
-            <a href="https://www.ibsplc.com/" target="_blank"><img src="https://www.ibsplc.com/images/IBS_Software.svg"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.sky.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Sky_Group_logo_2020.svg/512px-Sky_Group_logo_2020.svg.png"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.sap.com/" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/455px-SAP_2011_logo.svg.png"></a>
-        </div>
-        <div class="contributor">
-            <a href="https://www.jetstack.io" target="_blank"><img src="https://www.jetstack.io/img/png/newlogoblack.png"></a>
-        </div>
+    <div class="contributor contributor--daimler">
+      <a href="https://www.daimler.com/" target="_blank"
+        ><img src="/static/images/contributors/daimler.png"
+      /></a>
     </div>
+    <div class="contributor contributor--lego">
+      <a href="https://www.lego.com/" target="_blank"
+        ><img src="/static/images/contributors/lego.png"
+      /></a>
+    </div>
+    <div class="contributor contributor--oracle">
+      <a href="https://www.oracle.com/" target="_blank"
+        ><img src="/static/images/contributors/oracle.png"
+      /></a>
+    </div>
+    <div class="contributor contributor--ibs">
+      <a href="https://www.ibsplc.com/" target="_blank"
+        ><img src="/static/images/contributors/ibs.svg"
+      /></a>
+    </div>
+    <div class="contributor contributor--sky">
+      <a href="https://www.sky.com/" target="_blank"
+        ><img src="/static/images/contributors/sky.png"
+      /></a>
+    </div>
+    <div class="contributor contributor--sap">
+      <a href="https://www.sap.com/" target="_blank"
+        ><img src="/static/images/contributors/sap.png"
+      /></a>
+    </div>
+    <div class="contributor contributor--jetstack">
+      <a href="https://www.jetstack.io" target="_blank"
+        ><img src="/static/images/contributors/jetstack.png"
+      /></a>
+    </div>
+  </div>
 </section>
 
 <div class="top-hr">
-    <div class="hr">
-    </div>
+  <div class="hr"></div>
 </div>
 
 <section class="tx-container">
-    <div class="sponsors-title">
-        <h2>Sponsors</h2>
+  <div class="sponsors-title">
+    <h2>Sponsors</h2>
+  </div>
+  <div class="sponsors">
+    <div class="sponsor"></div>
+    <div class="sponsor"></div>
+    <div class="sponsor">
+      <a href="https://reliably.com" target="_blank"
+        ><img src="/static/images/reliably-logo.png"
+      /></a>
     </div>
-    <div class="sponsors">
-        <div class="sponsor"></div>
-        <div class="sponsor"></div>
-        <div class="sponsor">
-            <a href="https://reliably.com" target="_blank"><img src="/static/images/reliably-logo.png"></a>
-        </div>
-        <div class="sponsor"></div>
-        <div class="sponsor"></div>
-    </div>
+    <div class="sponsor"></div>
+    <div class="sponsor"></div>
+  </div>
 </section>
 
-{% endblock %}
-{% block content %}{% endblock %}
+{% endblock %} {% block content %}{% endblock %}

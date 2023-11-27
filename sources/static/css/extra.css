@@ -23,6 +23,25 @@ body {
   display: none;
 }
 
+/* Header logo */
+.md-header__button.md-logo {
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.md-header__button.md-logo:hover {
+  opacity: 1;
+}
+
+.md-header__button.md-logo img {
+  display: block;
+  height: 53px;
+  width: 263px;
+  fill: currentColor;
+  object-fit: contain;
+}
+
 /* Header nav */
 .md-header .md-tabs {
   background-color: transparent;
@@ -69,20 +88,6 @@ body {
 
 .md-tabs .md-tabs__link:hover {
   background-color: #efefef;
-}
-
-.md-header__button.md-logo {
-  display: flex;
-  flex: 1;
-  justify-content: flex-start;
-}
-
-.md-header__button.md-logo img {
-  display: block;
-  height: 53px;
-  width: 263px;
-  fill: currentColor;
-  object-fit: contain;
 }
 
 /* Text meant only for screen readers. */

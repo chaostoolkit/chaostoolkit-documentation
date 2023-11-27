@@ -23,6 +23,10 @@ body {
   display: none;
 }
 
+.md-header--shadow {
+  box-shadow: none;
+}
+
 /* Header logo */
 .md-header__button.md-logo {
   display: flex;

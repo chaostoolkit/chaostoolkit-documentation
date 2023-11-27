@@ -495,18 +495,6 @@ h1.small-title {
   border-right: 1px solid #e3e3e3;
 }
 
-/* .pricingTable thead tr th { */
-  /* border-top: 1px solid var(--CtkGrey1); */
-/* } */
-
-
-.pricingTable .cell.cell--yes,
-.pricingTable .cell.cell--no {
-  /* position: relative; */
-
-  /* color: white; */
-}
-
 .pricingTable .cell .cell__svgWrapper {
   position: relative;
 
@@ -563,7 +551,6 @@ h1.small-title {
 
   border-radius: 6px;
 
-  /* font-size: 14px; */
   font-weight: 500;
   text-align: center;
 

@@ -1,8 +1,8 @@
-<div class="pricing" id="pricing-wrapper">
+<div class="offering" id="offering-wrapper">
 <h2>From open source toolkit to reliability platform</h2>
-<p class="pricing__description">Aside from the standalone open source CLI, Chaos Toolkit also powers Reliably, a collaborative platform that allows users to create experiments in a visual UI, run them in the cloud (or anywhere else), with SaaS, private SaaS and on-premises deployment options.</p>
+<p class="offering__description">Aside from the standalone open source CLI, Chaos Toolkit also powers Reliably, a collaborative platform that allows users to create experiments in a visual UI, run them in the cloud (or anywhere else), with SaaS, private SaaS and on-premises deployment options.</p>
 
-<table class="pricingTable">
+<table class="offeringTable">
   <thead>
     <tr>
       <th></th>
@@ -429,7 +429,7 @@ h1.small-title {
   text-transform: uppercase;
 }
 
-.pricing h2 {
+.offering h2 {
   margin-top: 0;
   margin-bottom: 48px;
 
@@ -439,7 +439,7 @@ h1.small-title {
   text-align: center;
 }
 
-.pricing__description {
+.offering__description {
   margin-bottom: 32px;
   
   color: var(--CtkGrey1);
@@ -447,11 +447,11 @@ h1.small-title {
 
 }
 
-.pricingTable thead tr th {
+.offeringTable thead tr th {
   background-color: #e3e3e3;
 }
 
-.pricingTable thead tr th {
+.offeringTable thead tr th {
   width: 33.33%;
 
   border-top: 1px solid #e3e3e3;
@@ -459,20 +459,20 @@ h1.small-title {
   font-weight: 700;
 }
 
-.pricingTable tbody tr:last-child th,
-.pricingTable tbody tr:last-child td {
+.offeringTable tbody tr:last-child th,
+.offeringTable tbody tr:last-child td {
   border-bottom: 1px solid #e3e3e3;
 }
 
-.pricingTable tfoot tr th,
-.pricingTable tfoot tr td {
+.offeringTable tfoot tr th,
+.offeringTable tfoot tr td {
   border-right: 0;
   border-left: 0;
 
   text-align: center;
 }
 
-.pricingTable .row.row--heading {
+.offeringTable .row.row--heading {
   background-color: #e3e3e3;
 
   font-size: 14px;
@@ -480,31 +480,31 @@ h1.small-title {
   text-transform: uppercase;
 }
 
-.pricingTable tbody tr:hover {
+.offeringTable tbody tr:hover {
   background-color: #f3f3f3;
 }
 
-.pricingTable td,
-.pricingTable th {
+.offeringTable td,
+.offeringTable th {
   padding: 12px;
 
   border-left: 1px solid #e3e3e3;
   vertical-align: center;
 }
 
-.pricingTable td:first-child,
-.pricingTable th:first-child {
+.offeringTable td:first-child,
+.offeringTable th:first-child {
   text-align: left;
 }
 
-.pricingTable thead td:last-child,
-.pricingTable thead th:last-child,
-.pricingTable tbody td:last-child,
-.pricingTable tbody th:last-child {
+.offeringTable thead td:last-child,
+.offeringTable thead th:last-child,
+.offeringTable tbody td:last-child,
+.offeringTable tbody th:last-child {
   border-right: 1px solid #e3e3e3;
 }
 
-.pricingTable .cell .cell__svgWrapper {
+.offeringTable .cell .cell__svgWrapper {
   position: relative;
 
   display: block;
@@ -514,7 +514,7 @@ h1.small-title {
   color: white;
 }
 
-.pricingTable .cell .cell__svgWrapper::before {
+.offeringTable .cell .cell__svgWrapper::before {
   content: "";
 
   position: absolute;
@@ -528,16 +528,16 @@ h1.small-title {
   border-radius: 50%;
 }
 
-.pricingTable .cell.cell--yes .cell__svgWrapper::before {
+.offeringTable .cell.cell--yes .cell__svgWrapper::before {
   background-color: #56b777;
 }
 
-.pricingTable .cell.cell--no .cell__svgWrapper::before {
+.offeringTable .cell.cell--no .cell__svgWrapper::before {
   background-color: var(--CtkGrey1);
 }
 
-.pricingTable .cell.cell--yes svg,
-.pricingTable .cell.cell--no svg {
+.offeringTable .cell.cell--yes svg,
+.offeringTable .cell.cell--no svg {
   position: absolute;
   top: calc(50% - 8px);
   left: calc(50% - 8px);
@@ -547,14 +547,14 @@ h1.small-title {
   stroke-width: 3;
 }
 
-.pricingTable .cell .cell__help {
+.offeringTable .cell .cell__help {
   color: var(--CtkGrey1);
   font-size: 14px;
   line-height: 1.25;
   text-align: center;
 }
 
-.pricingTable tfoot a {
+.offeringTable tfoot a {
   display: inline-block;
   padding: 6px 12px;
 
@@ -565,46 +565,30 @@ h1.small-title {
 
 }
 
-.pricingTable tfoot td:nth-child(2) a {
+.offeringTable tfoot td:nth-child(2) a {
   background-color: #f3b646;
 
   color: var(--CtkGrey4);
 }
 
-.pricingTable tfoot td:nth-child(2) a:hover {
+.offeringTable tfoot td:nth-child(2) a:hover {
   background-color: #e4a42f;
 }
 
-.pricingTable tfoot td:nth-child(3) a {
+.offeringTable tfoot td:nth-child(3) a {
   background-color: #e83e8e;
 
   color: white;
 }
 
-.pricingTable tfoot td:nth-child(3) a:hover {
+.offeringTable tfoot td:nth-child(3) a:hover {
   background-color: #d72277;
 }
-
-
-/* .pricingTable .cell.cell--yes::before,
-.pricingTable .cell.cell--no::before {
-  content: "";
-
-  position: absolute;
-  top: calc(50% - 10px);
-  left: calc(50% - 10px);
-
-  display: block;
-  height: 20px;
-  width: 20px;
-
-  border-radius: 50%;
-} */
 
 </style>
 
 <script>
-  const w = document.getElementById("pricing-wrapper");
+  const w = document.getElementById("offering-wrapper");
   const t = w.previousElementSibling;
   t.classList.add("small-title");
 </script>

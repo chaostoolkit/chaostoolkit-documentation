@@ -1,5 +1,6 @@
 <div class="pricing" id="pricing-wrapper">
 <h2>From open source toolkit to reliability platform</h2>
+<p class="pricing__description">Aside from the standalone open source CLI, Chaos Toolkit also powers Reliably, a collaborative platform that allows users to create experiments in a visual UI, run them in the cloud (or anywhere else), with SaaS, private SaaS and on-premises deployment options.</p>
 
 <table class="pricingTable">
   <thead>
@@ -436,6 +437,14 @@ h1.small-title {
   font-size: 48px;
   font-weight: 900;
   text-align: center;
+}
+
+.pricing__description {
+  margin-bottom: 32px;
+  
+  color: var(--CtkGrey1);
+  text-align: center;
+
 }
 
 .pricingTable thead tr th {

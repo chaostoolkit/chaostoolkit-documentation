@@ -1,9 +1,9 @@
-site_name: ""
+site_name: "Chaos Toolkit - The chaos engineering toolkit for developers"
 site_url: "https://chaostoolkit.org"
 use_directory_urls: true
 site_author: The Chaos Toolkit Team
 site_description: Chaos Toolkit
-copyright: '&copy; 2017-2023 Chaos Toolkit team'
+copyright: "&copy; 2017-2023 Chaos Toolkit team"
 edit_uri: ""
 theme:
   name: material
@@ -22,8 +22,9 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.suggest
+  font: false
 extra_css:
-  - 'static/css/extra.css'
+  - "static/css/extra.css"
 docs_dir: sources
 repo_name: chaostoolkit
 repo_url: https://github.com/chaostoolkit/chaostoolkit
@@ -31,7 +32,7 @@ markdown_extensions:
   - markdown_include.include:
       base_path: "sources/shared"
   - pymdownx.tabbed:
-      alternate_style: true 
+      alternate_style: true
   - admonition
   - def_list
   - footnotes
@@ -73,92 +74,93 @@ extra:
     - icon: fontawesome/brands/medium
       link: https://medium.com/chaos-toolkit
 nav:
-- Home: index.md
-- Get Started:
-    - Install: reference/usage/install.md
-    - Upgrade: reference/usage/upgrade.md
-    - CLI:
-        - Overview: reference/usage/cli.md
-        - Discover: reference/usage/discover.md
-        - Init: reference/usage/init.md
-        - Run: reference/usage/run.md
-        - Report: reference/usage/report.md
-        - Schedule: reference/usage/scheduling.md
-- Guides:
-    - Get Started with the Chaos Toolkit: reference/tutorial.md
-    - Chaos Toolkit Labs: reference/walkthrough.md
-    - Author and Operator: reference/tutorials/authoring_operating.md
-    - Understand the Execution Flow: reference/tutorials/run-flow.md
-    - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
-    - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
-    - Experimenting against a blockchain: reference/tutorials/blockchain.md
-    - Containerising Chaos Toolkit: reference/tutorials/containerising.md
-    - Running Chaos Toolkit in AWS:
-        - Running Chaos Toolkit from an EC2 instance: reference/tutorials/ec2.md
-        - Running Chaos Toolkit experiments as AWS Batch Jobs: reference/tutorials/batch.md
-- Reference:
-    - API:
-      - Concepts: reference/concepts.md
-      - Experiment: reference/api/experiment.md
-      - Journal: reference/api/journal.md
-    - CLI:
-        - Overview: reference/usage/cli.md
-        - Discover: reference/usage/discover.md
-        - Init: reference/usage/init.md
-        - Run: reference/usage/run.md
-        - Report: reference/usage/report.md
-        - Schedule: reference/usage/scheduling.md
-    - Extensions:
-        - Overview: drivers/overview.md
-        - Infrastructure/Platform:
-          - AWS: drivers/aws.md
-          - Ansible: drivers/ansible.md
-          - Azure: drivers/azure.md
-          - Cloud Foundry: drivers/cloudfoundry.md
-          - Gandi: drivers/gandi.md
-          - Google Cloud Platform: drivers/gcp.md
-          - Kubernetes: drivers/kubernetes.md
-          - Service Fabric: drivers/service-fabric.md
-        - Application:
-          - Spring: drivers/spring.md
-        - Network:
-          - ToxiProxy: drivers/toxiproxy.md
-          - Istio: drivers/istio.md
-          - WireMock: drivers/wiremock.md
-        - Load Testing:
-          - k6: drivers/k6.md
-        - Notification:
-          - Slack: drivers/slack.md
-        - Observability:
-          - DataDog: drivers/datadog.md
-          - Dynatrace: drivers/dynatrace.md
-          - Grafana: drivers/grafana.md
-          - Honeycomb: drivers/honeycomb.md
-          - Humio: drivers/humio.md
-          - Open Tracing/OpenTelemetry: drivers/opentracing.md
-          - Pixie: drivers/pixie.md
-          - Prometheus: drivers/prometheus.md
-        - Reliability:
-          - Reliably: drivers/reliably.md
-        - Addons:
-          - Common: drivers/addons.md
-    - Deployment:
-        - Kubernetes:
-            - Operator: deployment/k8s/operator.md
-    - Develop:
-      - Guidelines: reference/developing/guidelines.md
-      - Driver Extension:
-          - Extension Approaches: reference/extending/approaches.md
-          - Extend with Python: reference/extending/extending-with-python.md
-      - Control Extension:
-          - Create Control: reference/extending/create-control-extension.md
-- Contribute:
-    - Contributing to the Chaos Toolkit: reference/contributing.md
-    - Project Management:
-        - Key Project Values: reference/developing/values.md
-        - Core Projects: reference/developing/core.md
-        - Extensions Projects: reference/developing/extensions.md
-        - Technology Choices: reference/developing/technologies.md
-    - Resources:
-      - Logos: resources/logos.md
-      - Slides: resources/slides.md
+  - Home: index.md
+  - Get Started:
+      - Install: reference/usage/install.md
+      - Upgrade: reference/usage/upgrade.md
+      - CLI:
+          - Overview: reference/usage/cli.md
+          - Discover: reference/usage/discover.md
+          - Init: reference/usage/init.md
+          - Run: reference/usage/run.md
+          - Report: reference/usage/report.md
+          - Schedule: reference/usage/scheduling.md
+  - Guides:
+      - Get Started with the Chaos Toolkit: reference/tutorial.md
+      - Chaos Toolkit Labs: reference/walkthrough.md
+      - Author and Operator: reference/tutorials/authoring_operating.md
+      - Understand the Execution Flow: reference/tutorials/run-flow.md
+      - Learn all about Steady-State Tolerances: reference/tutorials/tolerance.md
+      - An overview of extending the Chaos Toolkit: reference/tutorials/extend.md
+      - Experimenting against a blockchain: reference/tutorials/blockchain.md
+      - Containerising Chaos Toolkit: reference/tutorials/containerising.md
+      - Running Chaos Toolkit in AWS:
+          - Running Chaos Toolkit from an EC2 instance: reference/tutorials/ec2.md
+          - Running Chaos Toolkit experiments as AWS Batch Jobs: reference/tutorials/batch.md
+  - Reference:
+      - API:
+          - Concepts: reference/concepts.md
+          - Experiment: reference/api/experiment.md
+          - Journal: reference/api/journal.md
+      - CLI:
+          - Overview: reference/usage/cli.md
+          - Discover: reference/usage/discover.md
+          - Init: reference/usage/init.md
+          - Run: reference/usage/run.md
+          - Report: reference/usage/report.md
+          - Schedule: reference/usage/scheduling.md
+      - Extensions:
+          - Overview: drivers/overview.md
+          - Infrastructure/Platform:
+              - AWS: drivers/aws.md
+              - Ansible: drivers/ansible.md
+              - Azure: drivers/azure.md
+              - Cloud Foundry: drivers/cloudfoundry.md
+              - Gandi: drivers/gandi.md
+              - Google Cloud Platform: drivers/gcp.md
+              - Kubernetes: drivers/kubernetes.md
+              - Service Fabric: drivers/service-fabric.md
+          - Application:
+              - Spring: drivers/spring.md
+          - Network:
+              - ToxiProxy: drivers/toxiproxy.md
+              - Istio: drivers/istio.md
+              - WireMock: drivers/wiremock.md
+          - Load Testing:
+              - k6: drivers/k6.md
+          - Notification:
+              - Slack: drivers/slack.md
+          - Observability:
+              - DataDog: drivers/datadog.md
+              - Dynatrace: drivers/dynatrace.md
+              - Grafana: drivers/grafana.md
+              - Honeycomb: drivers/honeycomb.md
+              - Humio: drivers/humio.md
+              - Open Tracing/OpenTelemetry: drivers/opentracing.md
+              - Pixie: drivers/pixie.md
+              - Prometheus: drivers/prometheus.md
+          - Reliability:
+              - Reliably: drivers/reliably.md
+          - Addons:
+              - Common: drivers/addons.md
+      - Deployment:
+          - Kubernetes:
+              - Operator: deployment/k8s/operator.md
+      - Develop:
+          - Guidelines: reference/developing/guidelines.md
+          - Driver Extension:
+              - Extension Approaches: reference/extending/approaches.md
+              - Extend with Python: reference/extending/extending-with-python.md
+          - Control Extension:
+              - Create Control: reference/extending/create-control-extension.md
+  - Contribute:
+      - Contributing to the Chaos Toolkit: reference/contributing.md
+      - Project Management:
+          - Key Project Values: reference/developing/values.md
+          - Core Projects: reference/developing/core.md
+          - Extensions Projects: reference/developing/extensions.md
+          - Technology Choices: reference/developing/technologies.md
+      - Resources:
+          - Logos: resources/logos.md
+          - Slides: resources/slides.md
+  - Offering: offering.md

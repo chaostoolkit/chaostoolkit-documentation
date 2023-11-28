@@ -1,27 +1,109 @@
+/* Custom properties */
+body {
+  --CtkYellow: #f3b646;
+  --CtkGrey1: #4f616a;
+  --CtkGrey2: #4f5f6c;
+  --CtkGrey3: #383f44;
+  --CtkGrey4: #24221f;
+}
+
+/* Site wide rules */
+body {
+  color: var(--CtkGrey4);
+}
+
+/* Header */
+.md-header {
+  background-color: transparent;
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+}
+
+.md-header .md-header__title {
+  display: none;
+}
+
+.md-header--shadow {
+  box-shadow: none;
+}
+
+/* Header logo */
 .md-header__button.md-logo {
-    display: flex;
-    flex: 1;
-    justify-content: flex-start;
+  display: flex;
+  flex: 1;
+  justify-content: flex-start;
+}
+
+.md-header__button.md-logo:hover {
+  opacity: 1;
 }
 
 .md-header__button.md-logo img {
-    display: block;
-    height: 53px;
-    width: 263px;
-    fill: currentColor;
-    object-fit: contain;
+  display: block;
+  height: 53px;
+  width: 263px;
+  fill: currentColor;
+  object-fit: contain;
+}
+
+/* Header nav */
+.md-header .md-tabs {
+  background-color: transparent;
+  border-bottom: 1px solid transparent;
+}
+
+.md-tabs .md-tabs__list {
+  gap: 24px;
+  padding-bottom: 4px;
+}
+
+.md-tabs .md-tabs__item {
+  position: relative;
+
+  height: auto;
+  padding: 0;
+}
+
+.md-tabs .md-tabs__item::after {
+  content: "";
+
+  position: absolute;
+  top: 100%;
+  left: 0;
+
+  display: block;
+  height: 2px;
+  width: 100%;
+
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+.md-tabs .md-tabs__item--active::after {
+  background-color: var(--CtkYellow);
+}
+
+.md-tabs .md-tabs__link {
+  margin-top: 0;
+  padding: 6px 10px;
+
+  border-radius: 6px;
+}
+
+.md-tabs .md-tabs__link:hover {
+  background-color: #efefef;
 }
 
 /* Text meant only for screen readers. */
 .screen-reader-text {
-    border: 0;
-    clip: rect(1px, 1px, 1px, 1px);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
-    word-wrap: normal !important;
-  }
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  word-wrap: normal !important;
+}

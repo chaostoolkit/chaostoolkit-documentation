@@ -591,5 +591,11 @@ h1.small-title {
   const w = document.getElementById("offering-wrapper");
   const t = w.previousElementSibling;
   t.classList.add("small-title");
+
+  const sidebar = w.parentElement.parentElement.previousElementSibling.previousElementSibling;
+  const activeListItem = sidebar.querySelector(
+    ".md-nav__item.md-nav__item--active"
+  );
+  activeListItem.classList.remove("md-nav__item--active");
 </script>
 </div>

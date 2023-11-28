@@ -166,12 +166,12 @@
       </td>
     </tr>
     <tr class="row row--heading">
-      <td class="cell">Runs in</td>
+      <td class="cell">Features</td>
       <td class="cell"></td>
       <td class="cell"></td>
     </tr>
     <tr class="row">
-      <th scope="row" class="cell">Cloud</td>
+      <th scope="row" class="cell">Native scheduling</td>
       <td class="cell cell--no">
         <div class="cell__svgWrapper">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="minus"><path d="M5 12h14"></path></svg>
@@ -186,87 +186,7 @@
       </td>
     </tr>
     <tr class="row">
-      <th scope="row" class="cell">Jenkins</td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-    </tr>
-    <tr class="row">
-      <th scope="row" class="cell">Circle CI</td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-    </tr>
-    <tr class="row">
-      <th scope="row" class="cell">Travis</td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-    </tr>
-    <tr class="row">
-      <th scope="row" class="cell">GitHub Actions</td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-    </tr>
-    <tr class="row">
-      <th scope="row" class="cell">Local machine (CLI)</td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-      <td class="cell cell--yes">
-        <div class="cell__svgWrapper">
-          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
-        </div>
-        <span class="screen-reader-text">Yes</span>
-      </td>
-    </tr>
-    <tr class="row row--heading">
-      <td class="cell">Features</td>
-      <td class="cell"></td>
-      <td class="cell"></td>
-    </tr>
-    <tr class="row">
-      <th scope="row" class="cell">Native scheduling</td>
+      <th scope="row" class="cell">Executions as a Service</td>
       <td class="cell cell--no">
         <div class="cell__svgWrapper">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="minus"><path d="M5 12h14"></path></svg>
@@ -327,6 +247,21 @@
     </tr>
     <tr class="row">
       <th scope="row" class="cell">Shared results history</td>
+      <td class="cell cell--no">
+        <div class="cell__svgWrapper">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="minus"><path d="M5 12h14"></path></svg>
+        </div>
+        <span class="screen-reader-text">No</span>
+      </td>
+      <td class="cell cell--yes">
+        <div class="cell__svgWrapper">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="check"><path d="M20 6 9 17l-5-5"></path></svg>
+        </div>
+        <span class="screen-reader-text">Yes</span>
+      </td>
+    </tr>
+    <tr class="row">
+      <th scope="row" class="cell">AI Assistant</td>
       <td class="cell cell--no">
         <div class="cell__svgWrapper">
           <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" astro-icon="minus"><path d="M5 12h14"></path></svg>

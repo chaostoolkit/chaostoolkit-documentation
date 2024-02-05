@@ -11,12 +11,12 @@ own needs:
 [dockerhub]: https://hub.docker.com/r/chaostoolkit/chaostoolkit
 
 * `chaostoolkit/chaostoolkit` which is tagged `latest` and per new releases
-  version. It's based on Python 3.7 Alpine base image. So it's not suitable
+  version. It's based on Python 3.11 Alpine base image. So it's not suitable
   for every configuration when you need specific software in your image
-* `chaostoolkit/chaostoolkit:basic` is based on Python 3.10 Debian Bullseye base
+* `chaostoolkit/chaostoolkit:basic` is based on Python 3.11 Debian Bullseye base
   image. It only contains Chaos Toolkit as per the previous image but is based
   on Debian with a more recent Python version
-* `chaostoolkit/chaostoolkit:full` is based on Python 3.10 Debian Bullseye base
+* `chaostoolkit/chaostoolkit:full` is based on Python 3.11 Debian Bullseye base
   image. It contains Chaos Toolkit and a list of extensions and is based
   on Debian with a more recent Python version
 

@@ -53,10 +53,8 @@ Options:
   --help                          Show this message and exit.
 ```
 
-A tutorial on how to use the `chaos run` command is available as part of the 
-[Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
 
-### Executing an Experiment Plan
+### Executing an Experiment Plan
 
 To execute an experiment plan you simply pass it to the `chaos run` command:
 

@@ -25,8 +25,6 @@ Options:
   --help                Show this message and exit.
 ```
 
-A tutorial on how to use the `chaos report` command is available as part of the 
-[Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
 
 ### Generating a report
 

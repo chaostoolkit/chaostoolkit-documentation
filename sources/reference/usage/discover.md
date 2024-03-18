@@ -23,10 +23,9 @@ Options:
   --help                 Show this message and exit.
 ```
 
-A tutorial on how to use the `chaos discover` command is available as part of the 
-[Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
 
-### Discovering capabilities and experiments 
+
+### Discovering capabilities and experiments 
 
 To execute `discover` all you need to do is specify the Chaos Toolkit integration
 extension that you'd like to use, for example to use Kubernetes:

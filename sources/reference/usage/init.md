@@ -23,8 +23,7 @@ Options:
   --help                  Show this message and exit.
 ```
 
-A tutorial on how to use the `chaos init` command is available as part of the 
-[Chaos Toolkit's Getting Started tutorials.](https://www.katacoda.com/chaostoolkit/courses/01-chaostoolkit-getting-started)
+
 
 ### Initialise a new experiment 
 

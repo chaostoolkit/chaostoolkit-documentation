@@ -52,15 +52,15 @@ Then you can exercise your discovery functionality using the `--no-install` flag
 
 ## Log From Your Extension
 
-You can write to the Chaos Toolkit log by using the [logzero][] package.
+You can write to the Chaos Toolkit log by using the [logging][] package
+and the `chaostoolkit` logger.
 
-[logzero]: https://logzero.readthedocs.io/en/latest/
+[logging]: https://docs.python.org/3/library/logging.html#module-logging
 
 ```python
-from logzero import logger
+import logging
+
+logger = logging.getLogger("chaostoolkit")
 
 logger.info("Hello!")
 ```
-
-Make sure to add `logzero` as an entry of the `requirements.txt` file of your
-extension.

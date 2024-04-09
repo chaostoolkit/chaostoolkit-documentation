@@ -50,3 +50,9 @@ case a contributor account is breached.
 
 Every project in the Chaos Toolkit and the Chaos Toolkit Incubator is licensed
 under the [Apache License, Version 2.0](https://github.com/chaostoolkit/chaostoolkit/blob/master/LICENSE) and abides by the [Developer Certificate of Origin](https://developercertificate.org/) on all accepted commits to the `master` branch.
+
+
+## Contributing code to an Existing Project
+
+Contributions are alwasy welcome. You can help the maintainers and improve
+merge by following a set of simple baseline [rules](./developing/guidelines.md).

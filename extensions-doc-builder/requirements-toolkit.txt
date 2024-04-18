@@ -19,7 +19,7 @@ chaostoolkit-reliably
 chaostoolkit-addons
 chaostoolkit-grafana
 chaostoolkit-slack
-chaostoolkit-pixie
+#chaostoolkit-pixie
 chaostoolkit-datadog
 chaostoolkit-terraform
 chaostoolkit-honeycomb

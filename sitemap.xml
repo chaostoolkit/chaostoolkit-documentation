@@ -101,11 +101,6 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://chaostoolkit.org/drivers/pixie/</loc>
-         <lastmod>2024-04-18</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
          <loc>https://chaostoolkit.org/drivers/prometheus/</loc>
          <lastmod>2024-04-18</lastmod>
          <changefreq>daily</changefreq>

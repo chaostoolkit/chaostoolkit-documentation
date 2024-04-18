@@ -9,9 +9,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip setuptools wheel
@@ -22,11 +22,11 @@ jobs:
         mkdir deps
 
         echo "Install CTK and minor dependencies"
-        pip --quiet install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
-        pip --quiet install --prefer-binary httplib2 uritemplate pytzdata msrestazure opentelemetry-api opentelemetry-sdk
+        pip install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
+        pip install --prefer-binary httplib2 uritemplate pytzdata
       
         echo "install all the dependencies for our drivers"
-        pip --quiet install --prefer-binary -U -r requirements-toolkit.txt
+        pip install --prefer-binary -U -r requirements-toolkit.txt
 
         echo "download all the extensions package to get access to their README and source"
         pip download \

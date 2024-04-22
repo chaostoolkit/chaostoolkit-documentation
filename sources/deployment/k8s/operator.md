@@ -114,6 +114,7 @@ None of these options are required.
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;asFile:</code>   | Mount the experiment's payload as file (if `true`) or from a URL | boolean | `true` |
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapName:</code>   | Name of the config map holding the experiment's payload | string | `chaostoolkit-experiment` |
 | <code>pod:<br/>&nbsp;&nbsp;experiment:<br/>&nbsp;&nbsp;&nbsp;&nbsp;configMapExperimentFileName:</code>   | Name of experiment file mounted into the container | string | `experiment.json` |
+| <code>pod:<br/>&nbsp;&nbsp;chaosCommandPath:</code>   | Replace the default pod's command entrypoint with this one | string | `""` |
 | <code>pod:<br/>&nbsp;&nbsp;chaosArgs:</code>   | Replace the default pod's arguments with these ones | list[string] | `[]` |
 | <code>schedule:<br/>&nbsp;&nbsp;kind:</code>   | Cron kind (only CronJob supported) | string | `cronjob` |
 | <code>schedule:<br/>&nbsp;&nbsp;value:</code>   | Cron-like [schedule syntax](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#cron-schedule-syntax) | string | `""` |

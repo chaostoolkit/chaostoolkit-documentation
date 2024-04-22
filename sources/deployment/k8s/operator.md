@@ -100,6 +100,7 @@ None of these options are required.
 | Option Path      | Description                                                            | Value Type    | Default Value |
 | ---------------- | ---------------------------------------------------------------------- | ------------- | ------------- |
 | `namespace:`       | Namespace where to create the experiment objects  | string | `chaostoolkit-run` |
+| `verbose:`       | Set the highest verbosity of the Chaos Toolkit experiment run  | boolean | `false` |
 | <code>serviceaccount:<br/>&nbsp;&nbsp;name:</code>| Name of the service account to attach to the experiment pod | string |`chaostoolkit` |
 | <code>role:<br/>&nbsp;&nbsp;name:</code>      | Name of the role to attach to the experiment pod | string | `chaostoolkit-experiment` |
 | <code>role:<br/>&nbsp;&nbsp;bind:</code>      | Name of the rolebinding to attach to the experiment pod | string | `chaostoolkit-experiment` |

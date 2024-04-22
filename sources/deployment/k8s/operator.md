@@ -575,6 +575,116 @@ The property `name` should be set to the name of the role you have created in
 the namespace which the experiment is executed in. The service account
 associated with the pod will be bound to that role.
 
+Here is a more complexe sample:
+
+```yaml
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: my-sa
+  namespace: chaostoolkit-run
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: my-role
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - "get"
+  - "delete"
+  - "list"
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: my-role
+  namespace: default
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: my-role
+subjects:
+- kind: ServiceAccount
+  name: my-sa
+  namespace: chaostoolkit-run
+
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  namespace: chaostoolkit-run
+  serviceaccount:
+    name: my-sa
+  role:
+    name: my-role
+    bind: my-role
+  pod:
+    image: chaostoolkit/chaostoolkit:full
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: chaostoolkit-experiment
+  namespace: chaostoolkit-run
+data:
+  experiment.json: |
+    {
+      "version": "1.0.0",
+      "title": "Terminate producer pod",
+      "description": "Simulate the restart of a pod",
+      "method": [
+        {
+          "name": "terminate-pods",
+          "type": "action",
+          "provider": {
+            "type": "python",
+            "module": "chaosk8s.pod.actions",
+            "func": "terminate_pods",
+            "arguments": {
+              "label_selector": "app=producer"
+            }
+          }
+        }
+      ]
+    }
+```
+
+This creates a dedicated service account and binds a cluster role allowing
+the experiment to terminate a pod from the `chaostoolkit-run` namespace
+to the `default` namespace where the target pods reside. Note, we are using the
+`chaostoolkit/chaostoolkit:full` which embeds the `chaostoolkit-kubernetes`
+extension.
+
+### Override the default chaos path
+
+The pod template executes the `chaos run` command by default. If you run
+with your own base image, you may have a different location for the
+`chaos` command.
+
+```yaml
+---
+apiVersion: chaostoolkit.org/v1
+kind: ChaosToolkitExperiment
+metadata:
+  name: my-chaos-exp
+  namespace: chaostoolkit-crd
+spec:
+  namespace: chaostoolkit-run
+  pod:
+    chaosCommandPath: /some/path/chaos
+```
+
 ### Override the default chaos command arguments
 
 The pod template executes the `chaos run` command by default. You may want to

@@ -143,6 +143,8 @@ nav:
           - Addons:
               - Common: drivers/addons.md
       - Deployment:
+          - GitHub:
+              - Action: deployment/github.md
           - Kubernetes:
               - Operator: deployment/k8s/operator.md
       - Develop:

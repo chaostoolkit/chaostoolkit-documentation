@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://chaostoolkit.org/deployment/local/docker/</loc>
+         <lastmod>2024-04-24</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://chaostoolkit.org/drivers/addons/</loc>
          <lastmod>2024-04-24</lastmod>
          <changefreq>daily</changefreq>

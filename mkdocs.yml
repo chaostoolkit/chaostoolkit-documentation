@@ -144,6 +144,8 @@ nav:
           - Addons:
               - Common: drivers/addons.md
       - Deployment:
+          - Local:
+              - Docker: deployment/local/docker.md
           - Google Cloud:
               - Action: deployment/gcp/cloudrunjob.md
           - GitHub:

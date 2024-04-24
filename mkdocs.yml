@@ -22,6 +22,7 @@ theme:
     - navigation.tabs.sticky
     - navigation.top
     - search.suggest
+    - content.code.annotate
   font: false
 extra_css:
   - "static/css/extra.css"
@@ -143,6 +144,8 @@ nav:
           - Addons:
               - Common: drivers/addons.md
       - Deployment:
+          - Google Cloud:
+              - Action: deployment/gcp/cloudrunjob.md
           - GitHub:
               - Action: deployment/github.md
           - Kubernetes:

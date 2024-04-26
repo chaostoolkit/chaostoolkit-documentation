@@ -62,8 +62,6 @@ plugins:
   - search
   - minify:
       minify_html: true
-  - social:
-      enabled: true
 extra:
   analytics:
     provider: google

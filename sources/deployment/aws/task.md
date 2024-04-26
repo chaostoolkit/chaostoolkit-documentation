@@ -1,7 +1,7 @@
 # Run Chaos Toolkit as a Task
 
-AWS offers a range of services suitable to run a Chaos Toolkit experiment.
-Here we will explore how [AWS ECS Tasks][ecstask].
+AWS offers a range of services suitable to run a Chaos Toolkit experiments.
+Here we will explore [AWS ECS Tasks][ecstask] to achieve this.
 
 [ecstask]: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_definitions.html
 

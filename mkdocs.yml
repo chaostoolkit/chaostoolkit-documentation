@@ -63,7 +63,7 @@ plugins:
   - minify:
       minify_html: true
   - social:
-      enabled: !ENV [CI, false]
+      enabled: true
 extra:
   analytics:
     provider: google

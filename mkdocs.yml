@@ -60,8 +60,7 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
-  - minify:
-      minify_html: true
+  - optimize
 extra:
   analytics:
     provider: google

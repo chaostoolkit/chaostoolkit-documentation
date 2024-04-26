@@ -61,6 +61,8 @@ markdown_extensions:
 plugins:
   - search
   - optimize
+  - social:
+      enabled: !ENV [CI, false]
 extra:
   analytics:
     provider: google

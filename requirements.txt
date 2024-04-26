@@ -1,4 +1,4 @@
-mkdocs
+mkdocs-material[imaging]
 pygments
 markdown>=3.0.1
 pymdown-extensions

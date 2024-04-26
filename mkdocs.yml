@@ -60,7 +60,6 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
-  - optimize
   - social:
       enabled: !ENV [CI, false]
 extra:

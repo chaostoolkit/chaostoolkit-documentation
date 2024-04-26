@@ -60,6 +60,8 @@ markdown_extensions:
   - pymdownx.tilde
 plugins:
   - search
+  - minify:
+      minify_html: true
   - social:
       enabled: !ENV [CI, false]
 extra:

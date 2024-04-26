@@ -23,6 +23,7 @@ theme:
     - navigation.top
     - search.suggest
     - content.code.annotate
+    - content.code.copy
   font: false
 extra_css:
   - "static/css/extra.css"

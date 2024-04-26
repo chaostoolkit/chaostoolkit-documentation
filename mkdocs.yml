@@ -146,6 +146,8 @@ nav:
       - Deployment:
           - Local:
               - Docker: deployment/local/docker.md
+          - AWS:
+              - ECS Task: deployment/aws/task.md
           - Google Cloud:
               - Action: deployment/gcp/cloudrunjob.md
           - GitHub:

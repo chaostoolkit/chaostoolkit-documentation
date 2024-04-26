@@ -1,9 +1,9 @@
 site_name: "Chaos Toolkit - The chaos engineering toolkit for developers"
 site_url: "https://chaostoolkit.org"
 use_directory_urls: true
-site_author: The Chaos Toolkit Team
+site_author: Chaos Toolkit
 site_description: Chaos Toolkit
-copyright: "&copy; 2017-2023 Chaos Toolkit team"
+copyright: "&copy; 2017-2024 Chaos Toolkit"
 edit_uri: ""
 theme:
   name: material

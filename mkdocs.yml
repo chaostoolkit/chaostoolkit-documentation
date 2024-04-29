@@ -148,6 +148,7 @@ nav:
               - Common: drivers/addons.md
       - Deployment:
           - Local:
+              - Binary: deployment/local/binary.md
               - Docker: deployment/local/docker.md
           - AWS:
               - ECS Task: deployment/aws/task.md

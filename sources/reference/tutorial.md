@@ -117,11 +117,11 @@ when a certificate expires.
 
 === "JSON"
     ```json
-    {!code/tutorials/a-simple-walkthrough/experiment.json!}
+    --8<-- "code/tutorials/a-simple-walkthrough/experiment.json"
     ```
 === "YAML"
     ```yaml
-    {!code/tutorials/a-simple-walkthrough/experiment.yaml!}
+    --8<-- "code/tutorials/a-simple-walkthrough/experiment.yaml"
     ```
 
 #### The Various Sections of an Experiment

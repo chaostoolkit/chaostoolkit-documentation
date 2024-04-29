@@ -58,6 +58,8 @@ markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: True
   - pymdownx.tilde
+  - pymdownx.snippets:
+      base_path: "sources/shared"
 plugins:
   - search
   - minify:

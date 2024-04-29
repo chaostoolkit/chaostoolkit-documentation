@@ -156,6 +156,8 @@ nav:
               - Action: deployment/gcp/cloudrunjob.md
           - GitHub:
               - Action: deployment/github.md
+          - GitLab:
+              - Component: deployment/gitlab.md
           - Kubernetes:
               - Operator: deployment/k8s/operator.md
       - Develop:

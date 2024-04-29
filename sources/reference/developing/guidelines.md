@@ -87,6 +87,8 @@ high-level rules here:
     yourself
   * The returned value of an action/probe must be JSON serializable by the
     Python [json][] module
+  * Try to respect a width of 80 characters for code and documentation, this
+    should be covered by the code formatter
 
 
 [signoff]: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff

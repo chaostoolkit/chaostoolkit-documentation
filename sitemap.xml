@@ -16,6 +16,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://chaostoolkit.org/deployment/gitlab/</loc>
+         <lastmod>2024-04-29</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://chaostoolkit.org/deployment/aws/task/</loc>
          <lastmod>2024-04-29</lastmod>
          <changefreq>daily</changefreq>

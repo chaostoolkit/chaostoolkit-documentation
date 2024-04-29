@@ -89,6 +89,17 @@ high-level rules here:
     Python [json][] module
   * Try to respect a width of 80 characters for code and documentation, this
     should be covered by the code formatter
+  * Sort imports as follows:
+
+    ```text
+    # Python stdlib imports
+
+    # Third-party imports
+
+    # Local package imports
+    ```
+
+    This should be dealt with by the code formatter
 
 
 [signoff]: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff

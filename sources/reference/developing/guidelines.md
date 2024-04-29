@@ -52,8 +52,13 @@ high-level rules here:
 * One PR per functional change. Try to keep your PR focused
 
 * A PR should always have the following:
-  * Signed commits (as per the [DCO][dco]) to notify the project you are
-    allowed to submit this code change
+  * [Signed][signoff] commits (as per the [DCO][dco]) to notify the project you
+    are allowed to submit this code change:
+
+    ```bash
+    git commit --signoff -m "...." -a
+    ```
+
   * A `CHANGELOG` entry. Do not set the version or date on the entry
   * Tests wherever possible to control non-regression down the road and help
     with maintainance
@@ -84,6 +89,7 @@ high-level rules here:
     Python [json][] module
 
 
+[signoff]: https://git-scm.com/docs/git-commit#Documentation/git-commit.txt---signoff
 [dco]: https://developercertificate.org/
 [json]: https://docs.python.org/3/library/json.html#module-json
 

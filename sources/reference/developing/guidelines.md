@@ -140,6 +140,13 @@ def change_the_system(
     return {}
 ```
 
+!!! tip
+
+    Always finish the signature with the `configuration` and `secrets`
+    arguments. This is merely code readability convention as neither Python
+    nor Chaos Toolkit will care. However, this will be consistent across
+    the entire Chaos Toolkit code base.
+
 Since we have just added this action in a new module, we'll also make the
 module discoverable as follows:
 

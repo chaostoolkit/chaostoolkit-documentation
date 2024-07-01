@@ -29,7 +29,7 @@ jobs:
 
         echo "Install CTK and minor dependencies"
         pip install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
-        pip install --prefer-binary httplib2 uritemplate pytzdata lueur
+        pip install --prefer-binary httplib2 uritemplate pytzdata
       
         echo "install all the dependencies for our drivers"
         pip install --prefer-binary -U -r requirements-toolkit.txt

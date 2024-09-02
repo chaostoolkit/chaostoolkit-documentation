@@ -126,6 +126,7 @@ nav:
               - Service Fabric: drivers/service-fabric.md
           - Application:
               - Spring: drivers/spring.md
+              - Kafka: drivers/kafka.md
           - Network:
               - ToxiProxy: drivers/toxiproxy.md
               - Istio: drivers/istio.md

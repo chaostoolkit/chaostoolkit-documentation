@@ -108,5 +108,10 @@
         "name": "chaoshoneycomb",
         "doc_path": "../sources/drivers/honeycomb.md",
         "repo": "https://github.com/chaostoolkit-incubator/chaostoolkit-honeycomb"
+    },
+    {
+        "name": "chaoskafka",
+        "doc_path": "../sources/drivers/kafka.md",
+        "repo": "https://github.com/friki-io/chaostoolkit-kafka"
     }
 ]

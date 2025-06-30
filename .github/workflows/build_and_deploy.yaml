@@ -21,7 +21,7 @@ jobs:
         python -m venv .venv
         source .venv/bin/activate
         uv pip install setuptools wheel
-        uv pip install --prefer-binary -U -r requirements.txt
+        uv pip install -U -r requirements.txt
     - name: Build driver dependencies
       run: |
         source .venv/bin/activate
@@ -29,11 +29,11 @@ jobs:
         mkdir deps
 
         echo "Install CTK and minor dependencies"
-        uv pip install --prefer-binary --pre -U chaostoolkit-lib chaostoolkit
-        uv pip install --prefer-binary httplib2 uritemplate pytzdata
+        uv pip install --pre -U chaostoolkit-lib chaostoolkit
+        uv pip install httplib2 uritemplate pytzdata
       
         echo "install all the dependencies for our drivers"
-        uv pip install --prefer-binary -U -r requirements-toolkit.txt
+        uv pip install -U -r requirements-toolkit.txt
 
         echo "download all the extensions package to get access to their README and source"
         uv pip download \

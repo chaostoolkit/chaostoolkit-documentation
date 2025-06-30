@@ -36,7 +36,7 @@ jobs:
         uv pip install -U -r requirements-toolkit.txt
 
         echo "download all the extensions package to get access to their README and source"
-        uv pip download \
+        pip download \
             --no-deps \
             --no-cache-dir \
             --dest deps \
